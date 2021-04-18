@@ -1,0 +1,322 @@
+$primaryColor: #4527a4;
+$secondaryColor: #8344c5;
+
+// Utilities
+.mt-25{
+    margin-top: 25px;
+}
+.mt-15{
+    margin-top: 15px;
+}
+
+// Block Align
+.wp-block[data-align="full"] {
+    display: contents;
+}
+
+.block-editor-block-list__block[data-align="wide"]{
+    max-width: 100%!important;
+    width: 100%!important;
+}
+
+.wp-block[data-align="wide"]{
+    max-width: 100%!important;
+    width: 94%!important;
+}
+
+@media screen and (max-width: 992px){
+    .wp-block[data-align="wide"] {
+        width: 96%!important;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .wp-block[data-align="wide"] {
+        width: 98%!important;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .wp-block[data-align="wide"] {
+        width: 100%!important;
+    }
+}
+
+.block-editor-block-list__block[data-align="center"] {
+    max-width: 100%!important;
+    width: 100%!important;
+}
+
+// Panel Title
+.components-panel__body-title{
+    button{
+        font-size: 16px;
+    }
+}
+
+.panel_single-title{
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 500;
+}
+
+// Tab Panel
+.b_blocks_tab_panel{
+    .components-tab-panel__tabs{
+        display: flex;
+        justify-content: space-between;
+
+        button{
+            width: 50%;
+
+            &:focus{
+                border-top: none;
+            }
+        }
+        .active-tab{
+            border-bottom: 3px solid #4527a4;
+            font-weight: bold;
+        }
+    }
+}
+
+// Spinner
+.components-spinner{
+    background-color: #4527a4;
+}
+
+// Checkbox Control
+.block-editor-block-inspector .components-base-control{
+    margin-bottom: 0;
+}
+.components-base-control__field{
+    display: flex;
+
+    .components-checkbox-control__input[type=checkbox]{
+        border-radius: 4px;
+        border-color: $primaryColor;
+
+        &:checked{
+            background-color: $secondaryColor;
+            border-color: $primaryColor;
+        }
+        &:focus{
+            box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px $primaryColor;
+        }
+    }
+}
+
+// Font Size Picker
+.components-font-size-picker__controls{
+    display: grid;
+    grid-template-columns: 1.7fr 1fr 1fr;
+    margin-bottom: 0;
+
+    .components-font-size-picker__number-container{
+        margin-right: 8px;
+        
+        .components-font-size-picker__number{
+            margin: 0;
+        }
+    }
+}
+
+// Buttons
+// Inserter
+.block-editor-inserter{
+    button{
+        background-color: transparent !important;
+
+        svg{
+            fill: $primaryColor;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 2px solid $primaryColor;
+            border-radius: 50%;
+        }
+    }
+}
+
+// Button Group
+.b_blocks_button_groups{
+    .components-button, .is-primary{
+        border: 1px solid $secondaryColor;
+        box-shadow: none;
+        padding: 6px 10.5px;
+
+        &:hover{
+            color: $primaryColor;
+        }
+    }
+
+    .is-primary{
+        color: #fff;
+        background-color: $primaryColor;
+
+        &:hover{
+            background-color: $secondaryColor !important;
+        }
+        &:focus{
+            outline: 2px solid $secondaryColor !important;
+        }
+    }
+
+    svg{
+        margin-right: 0!important;
+    }
+}
+
+// Size Type
+.b_blocks_size_type{
+    margin: 0;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+}
+.b_blocks_size_type button{
+    box-shadow: none!important;
+    outline: 0;
+}
+
+// Toggle Control
+.components-toggle-control{
+    label{
+        margin-bottom: 3px;
+    }
+}
+.components-form-toggle{
+    .components-form-toggle__track{
+        border: 1px solid $primaryColor;
+    }
+    &.is-checked .components-form-toggle__track{
+        background-color: $secondaryColor;
+    }
+    .components-form-toggle__input:focus+.components-form-toggle__track{
+        box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px $primaryColor;
+    }
+
+    .components-form-toggle__thumb{
+        background-color: $primaryColor;
+        border-color: $primaryColor;
+    }
+}
+
+// Range Control
+.components-range-control__wrapper{
+    .components-range-control__track{
+        background-color: $secondaryColor;
+    }
+
+    .css-5p7d2w-ThumbWrapper{
+        width: 14px;
+        height: 14px;
+        margin-top: 8px;
+
+        .css-hdouys-Thumb{
+            background-color: $primaryColor;
+            border: 1px solid $primaryColor;
+        }
+        .css-3llzg4-Thumb{
+            border: 2px solid $primaryColor;
+            box-shadow: none;
+        }
+    }
+
+    .components-range-control__tooltip{
+        background-color: $primaryColor;
+    }
+}
+
+// Radio Control
+.components-radio-control__option{
+    margin-right: 15px;
+
+    .components-radio-control__input[type=radio]{
+        border: 1px solid $primaryColor;
+
+        &:checked{
+            background-color: $primaryColor;
+            border-color: $primaryColor;
+        }
+
+        &:focus{
+            box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px $primaryColor;
+        }
+    }
+
+    label{
+        margin-bottom: 1px;
+    }
+}
+
+// Color Picker
+.bColorButtonContainer {
+    height: 30px;
+    width: 30px;
+    background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0),
+      linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
+    background-size: 10px 10px;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+    border: 1px solid #e9e9e9;
+    border-radius: 50%;
+
+    .bColorButton{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        outline: 0px;
+        border: none;
+        cursor: pointer;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+// Device
+.bDevicePopup {
+    position: absolute;
+    width: 30px;
+    z-index: 999;
+    top: -11px;
+}
+.bDevice button {
+    cursor: pointer;
+    padding: 1px 6px;
+}
+.bDevice {
+    width: 30px;
+    position: relative;
+}
+.bDevice + div {
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+}
+
+.iconButton {
+    background: #ffffff;
+    border: 1px solid $primaryColor;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 !important;
+    margin-left: 3px;
+    height: 22px;
+    width: 26px;
+}
+.iconButton span {
+    font-size: 14px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+.iconButton svg {
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+.iconButton span:before {
+    font-size: inherit;
+}
