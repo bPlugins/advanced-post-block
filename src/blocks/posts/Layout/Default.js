@@ -1,4 +1,4 @@
-const { Fragment } = wp.element;
+import { Fragment } from '@wordpress/element';
 
 // Components
 import FeatureImage from '../Single/FeatureImage';
@@ -17,7 +17,7 @@ const Default = ({ atts, post }) => {
         <article className={`bBlocksPostArticle bBlocksPostArticleDefault ${'slider' == layout ? 'swiper-slide' : ''}`} style={articleStyle}>
             <FeatureImage atts={atts} post={post} />
 
-            <div className="bBlocksPostText" style={postTextStyle}>
+            <div className='bBlocksPostText' style={postTextStyle}>
                 <PostTitle atts={atts} post={post} />
 
                 <PostMeta atts={atts} post={post} />

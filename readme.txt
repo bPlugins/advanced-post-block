@@ -1,11 +1,11 @@
 === Advanced Post Block - Display Posts in Gutenberg Editor ===
-Contributors: abuhayat
+Contributors: abuhayat, charlescormier
 Donate link: https://gum.co/wpdonate/
 Tags: show posts, display posts, embed posts, blocks, gutenberg, gutenberg blocks, editor, block
 Requires at least: 5.0+
-Tested up to: 5.6
-Requires PHP: 7.0
-Stable tag: 1.0
+Tested up to: 5.7.1
+Requires PHP: 5.4
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Advanced Post Block is an innovative block for the new WordPress Gutenberg block
 
 == Description ==
 
-Advanced Post Block is an innovative block for the new WordPress Gutenberg block editor. It's used for displaying posts or custom posts in your web page or posts.
+Display Posts, Custom post type contents, Blogs in a professional way ! Grid, Slider, Masonry grid and more advanced features included.
 
 Advanced Post Block is powerful but lightweight. Work with any theme, just need WordPress Gutenberg editor.
 
@@ -42,7 +42,7 @@ Advanced Post Block is powerful but lightweight. Work with any theme, just need 
 
 
 = How to use  =
-- After installing you can see a block category called "Advanced Post Block" in Gutenberg editor (by clicking + icon).
+- After installing you can see a block category called 'Advanced Post Block' in Gutenberg editor (by clicking + icon).
 - Add Advanced Posts block from there.
 - You can change block settings from the right side settings sidebar.
 - Enjoy!
@@ -51,10 +51,10 @@ Advanced Post Block is powerful but lightweight. Work with any theme, just need 
 	
 
 = Feedback = 
-Liked that plugin? Hate it? Want a new feature?  [Send me some feedback](mailto:abuhayat.du@gmail.com "Send feedback")  
+Liked that plugin? Hate it? Want a new feature?  [Send me some feedback](mailto:abuhayat.du@gmail.com 'Send feedback')  
 
 = Known Issues =
-[Click Here to see or file a new Known Issue.](https://docs.google.com/spreadsheets/d/1A9_ckwy-dM6Oz-HlBlAdsT_OIlUsp0vezyPaSWB7hSc/edit?usp=sharing "Known issues")
+[Click Here to see or file a new Known Issue.](https://docs.google.com/spreadsheets/d/1A9_ckwy-dM6Oz-HlBlAdsT_OIlUsp0vezyPaSWB7hSc/edit?usp=sharing 'Known issues')
 
 
 == Screenshots ==
@@ -145,6 +145,11 @@ When a new version will be released, you will receive an email notification.
 = 1.0 =
 * Initial Release
 
+= 1.0 =
+* Compatible with PHP 5.4
+
 
 == Upgrade Notice ==
 * Initial Release
+
+* Compatible with PHP 5.4

@@ -1,96 +1,88 @@
 <?php
-function ap_block_posts_init() {
-    // Posts callback
-    register_block_type( 'ap-block/posts', [
-        'render_callback' => 'render_ap_block_posts',
-    ] );
-}
-add_action( 'init', 'ap_block_posts_init' );
-
 function render_ap_block_posts( $attributes ) {
     extract( $attributes );
 
-    $align ?? $align = 'wide';
-    $cId ?? $cId = '';
+    $align = isset( $align ) ? $align : 'wide';
+    $cId = isset( $cId ) ? $cId : '';
 
-    $layout ?? $layout = 'grid';
-    $subLayout ?? $subLayout = 'default';
-    $columns ?? $columns = array(
+    $layout = isset( $layout ) ? $layout : 'grid';
+    $subLayout = isset( $subLayout ) ? $subLayout : 'default';
+    $columns = isset( $columns ) ? $columns : array(
         'desktop' => 3,
         'tablet'  => 2,
         'mobile'  => 1,
     );
-    $columnGap ?? $columnGap = 10;
-    $rowGap ?? $rowGap = 10;
-    $isContentEqualHight ?? $isContentEqualHight = 'true';
-    $sliderContentHeight ?? $sliderContentHeight = 350;
+    $columnGap = isset( $columnGap ) ? $columnGap : 10;
+    $rowGap = isset( $rowGap ) ? $rowGap : 10;
+    $isContentEqualHight = isset( $isContentEqualHight ) ? $isContentEqualHight : 'true';
+    $sliderContentHeight = isset( $sliderContentHeight ) ? $sliderContentHeight : 350;
 
-    $postType ?? $postType = 'post';
-    $selectedCategories ?? $selectedCategories = [];
-    $isPostsPerPageAll ?? $isPostsPerPageAll = 'false';
-    $postsPerPage ?? $postsPerPage = 12;
-    $postsOrderBy ?? $postsOrderBy = 'date';
-    $postsOrder ?? $postsOrder = 'desc';
+    $postType = isset( $postType ) ? $postType : 'post';
+    $selectedCategories = isset( $selectedCategories ) ? $selectedCategories : [];
+    $isPostsPerPageAll = isset( $isPostsPerPageAll ) ? $isPostsPerPageAll : 'false';
+    $postsPerPage = isset( $postsPerPage ) ? $postsPerPage : 12;
+    $postsOrderBy = isset( $postsOrderBy ) ? $postsOrderBy : 'date';
+    $postsOrder = isset( $postsOrder ) ? $postsOrder : 'desc';
 
-    $contentAlign ?? $contentAlign = 'left';
-    $contentBGColor ?? $contentBGColor = '#f4f2fc';
-    $postTextPTB ?? $postTextPTB = 15;
-    $postTextPLR ?? $postTextPLR = 25;
-    $borderColor ?? $borderColor = '#4527a400';
+    $contentAlign = isset( $contentAlign ) ? $contentAlign : 'left';
+    $contentBGColor = isset( $contentBGColor ) ? $contentBGColor : '#f4f2fc';
+    $postTextPTB = isset( $postTextPTB ) ? $postTextPTB : 15;
+    $postTextPLR = isset( $postTextPLR ) ? $postTextPLR : 25;
+    $borderColor = isset( $borderColor ) ? $borderColor : '#4527a400';
 
-    $sliderIsLoop ?? $sliderIsLoop = true;
-    $sliderIsAutoplay ?? $sliderIsAutoplay = true;
-    $sliderSpeed ?? $sliderSpeed = .5;
-    $sliderIsFade ?? $sliderIsFade = false;
-    $sliderIsTouchMove ?? $sliderIsTouchMove = false;
-    $sliderIsPage ?? $sliderIsPage = true;
-    $sliderIsPageClickable ?? $sliderIsPageClickable = true;
-    $sliderIsPageDynamic ?? $sliderIsPageDynamic = true;
-    $sliderPageColor ?? $sliderPageColor = '#8344c5';
-    $sliderPageWidth ?? $sliderPageWidth = 15;
-    $sliderPageHeight ?? $sliderPageHeight = 15;
-    $sliderPageRadius ?? $sliderPageRadius = 50;
-    $sliderPageRadiusType ?? $sliderPageRadiusType = '%';
-    $sliderIsPrevNext ?? $sliderIsPrevNext = true;
-    $sliderPrevNextColor ?? $sliderPrevNextColor = '#4527a4';
+    $sliderIsLoop = isset( $sliderIsLoop ) ? $sliderIsLoop : true;
+    $sliderIsAutoplay = isset( $sliderIsAutoplay ) ? $sliderIsAutoplay : true;
+    $sliderSpeed = isset( $sliderSpeed ) ? $sliderSpeed : .5;
+    $sliderIsFade = isset( $sliderIsFade ) ? $sliderIsFade : false;
+    $sliderIsTouchMove = isset( $sliderIsTouchMove ) ? $sliderIsTouchMove : false;
+    $sliderIsPage = isset( $sliderIsPage ) ? $sliderIsPage : true;
+    $sliderIsPageClickable = isset( $sliderIsPageClickable ) ? $sliderIsPageClickable : true;
+    $sliderIsPageDynamic = isset( $sliderIsPageDynamic ) ? $sliderIsPageDynamic : true;
+    $sliderPageColor = isset( $sliderPageColor ) ? $sliderPageColor : '#8344c5';
+    $sliderPageWidth = isset( $sliderPageWidth ) ? $sliderPageWidth : 15;
+    $sliderPageHeight = isset( $sliderPageHeight ) ? $sliderPageHeight : 15;
+    $sliderPageRadius = isset( $sliderPageRadius ) ? $sliderPageRadius : 50;
+    $sliderPageRadiusType = isset( $sliderPageRadiusType ) ? $sliderPageRadiusType : '%';
+    $sliderIsPrevNext = isset( $sliderIsPrevNext ) ? $sliderIsPrevNext : true;
+    $sliderPrevNextColor = isset( $sliderPrevNextColor ) ? $sliderPrevNextColor : '#4527a4';
 
-    $isFImg ?? $isFImg = 'true';
-    $isFImgLink ?? $isFImgLink = 'false';
+    $isFImg = isset( $isFImg ) ? $isFImg : 'true';
+    $isFImgLink = isset( $isFImgLink ) ? $isFImgLink : 'false';
 
-    $isTitle ?? $isTitle = 'true';
-    $isTitleLink ?? $isTitleLink = 'true';
-    $titleFontSize ?? $titleFontSize = 25;
-    $titleColor ?? $titleColor = '#4527a4';
-    $titleMB ?? $titleMB = 15;
+    $isTitle = isset( $isTitle ) ? $isTitle : 'true';
+    $isTitleLink = isset( $isTitleLink ) ? $isTitleLink : 'true';
+    $titleFontSize = isset( $titleFontSize ) ? $titleFontSize : 25;
+    $titleColor = isset( $titleColor ) ? $titleColor : '#4527a4';
+    $titleMB = isset( $titleMB ) ? $titleMB : 15;
 
-    $isMeta ?? $isMeta = 'true';
-    $isMetaAuthor ?? $isMetaAuthor = 'true';
-    $isMetaDate ?? $isMetaDate = 'true';
-    $isMetaCategory ?? $isMetaCategory = 'true';
-    $metaCategoryIn ?? $metaCategoryIn = 'content';
-    $isMetaComment ?? $isMetaComment = 'false';
-    $metaFontSize ?? $metaFontSize = 13;
-    $metaTransform ?? $metaTransform = 'uppercase';
-    $metaTextColor ?? $metaTextColor = '#333';
-    $metaLinkColor ?? $metaLinkColor = '#8344c5';
-    $metaIconColor ?? $metaIconColor = '#4527a4';
-    $metaMB ?? $metaMB = 15;
+    $isMeta = isset( $isMeta ) ? $isMeta : 'true';
+    $isMetaAuthor = isset( $isMetaAuthor ) ? $isMetaAuthor : 'true';
+    $isMetaDate = isset( $isMetaDate ) ? $isMetaDate : 'true';
+    $isMetaCategory = isset( $isMetaCategory ) ? $isMetaCategory : 'true';
+    $metaCategoryIn = isset( $metaCategoryIn ) ? $metaCategoryIn : 'content';
+    $isMetaComment = isset( $isMetaComment ) ? $isMetaComment : 'false';
+    $metaFontSize = isset( $metaFontSize ) ? $metaFontSize : 13;
+    $metaTransform = isset( $metaTransform ) ? $metaTransform : 'uppercase';
+    $metaTextColor = isset( $metaTextColor ) ? $metaTextColor : '#333';
+    $metaLinkColor = isset( $metaLinkColor ) ? $metaLinkColor : '#8344c5';
+    $metaIconColor = isset( $metaIconColor ) ? $metaIconColor : '#4527a4';
+    $metaMB = isset( $metaMB ) ? $metaMB : 15;
 
-    $isExcerpt ?? $isExcerpt = 'true';
-    $excerptLength ?? $excerptLength = 25;
-    $excerptAlign ?? $excerptAlign = 'justify';
-    $excerptColor ?? $excerptColor = '#333';
-    $excerptMB ?? $excerptMB = 15;
+    $isExcerpt = isset( $isExcerpt ) ? $isExcerpt : 'true';
+    $excerptLength = isset( $excerptLength ) ? $excerptLength : 25;
+    $excerptAlign = isset( $excerptAlign ) ? $excerptAlign : 'justify';
+    $excerptColor = isset( $excerptColor ) ? $excerptColor : '#333';
+    $excerptMB = isset( $excerptMB ) ? $excerptMB : 15;
 
-    $isReadMore ?? $isReadMore = 'true';
-    $readMoreLabel ?? $readMoreLabel = 'Read More';
-    $isLinkNewTab ?? $isLinkNewTab = 'false';
-    $readMoreAlign ?? $readMoreAlign = 'left';
-    $readMoreFontSize ?? $readMoreFontSize = 14;
-    $readMoreTransform ?? $readMoreTransform = 'uppercase';
-    $readMoreFontWeight ?? $readMoreFontWeight = '600';
-    $readMoreColor ?? $readMoreColor = '#4527a4';
-    $readMoreHovColor ?? $readMoreHovColor = '#8344c5';
+    $isReadMore = isset( $isReadMore ) ? $isReadMore : 'true';
+    $readMoreLabel = isset( $readMoreLabel ) ? $readMoreLabel : 'Read More';
+    $isLinkNewTab = isset( $isLinkNewTab ) ? $isLinkNewTab : 'false';
+    $readMoreAlign = isset( $readMoreAlign ) ? $readMoreAlign : 'left';
+    $readMoreFontSize = isset( $readMoreFontSize ) ? $readMoreFontSize : 14;
+    $readMoreTransform = isset( $readMoreTransform ) ? $readMoreTransform : 'uppercase';
+    $readMoreFontWeight = isset( $readMoreFontWeight ) ? $readMoreFontWeight : '600';
+    $readMoreColor = isset( $readMoreColor ) ? $readMoreColor : '#4527a4';
+    $readMoreHovColor = isset( $readMoreHovColor ) ? $readMoreHovColor : '#8344c5';
 
     // All Posts
     $posts = get_posts( [
@@ -216,18 +208,19 @@ function render_ap_block_posts( $attributes ) {
     echo '</div>';
     return ob_get_clean();
 }
-// layout Component
+
+// layout Components
 // Default
 function APBlockLDefault( $attributes, $post ) {
     extract( $attributes );
-    $layout ?? $layout = 'grid';
-    $subLayout ?? $subLayout = 'default';
-    $rowGap ?? $rowGap = 10;
-    $contentAlign ?? $contentAlign = 'left';
-    $contentBGColor ?? $contentBGColor = '#f4f2fc';
-    $postTextPTB ?? $postTextPTB = 15;
-    $postTextPLR ?? $postTextPLR = 25;
-    $borderColor ?? $borderColor = '#4527a400';
+    $layout = isset( $layout ) ? $layout : 'grid';
+    $subLayout = isset( $subLayout ) ? $subLayout : 'default';
+    $rowGap = isset( $rowGap ) ? $rowGap : 10;
+    $contentAlign = isset( $contentAlign ) ? $contentAlign : 'left';
+    $contentBGColor = isset( $contentBGColor ) ? $contentBGColor : '#f4f2fc';
+    $postTextPTB = isset( $postTextPTB ) ? $postTextPTB : 15;
+    $postTextPLR = isset( $postTextPLR ) ? $postTextPLR : 25;
+    $borderColor = isset( $borderColor ) ? $borderColor : '#4527a400';
 
     $articleMB = 'masonry' == $layout ? $rowGap . 'px' : 0;
 
@@ -247,14 +240,14 @@ function APBlockLDefault( $attributes, $post ) {
 // Side Image
 function APBlockLSideImage( $attributes, $post ) {
     extract( $attributes );
-    $layout ?? $layout = 'grid';
-    $subLayout ?? $subLayout = 'default';
-    $rowGap ?? $rowGap = 10;
-    $contentAlign ?? $contentAlign = 'left';
-    $contentBGColor ?? $contentBGColor = '#f4f2fc';
-    $postTextPTB ?? $postTextPTB = 15;
-    $postTextPLR ?? $postTextPLR = 25;
-    $borderColor ?? $borderColor = '#4527a400';
+    $layout = isset( $layout ) ? $layout : 'grid';
+    $subLayout = isset( $subLayout ) ? $subLayout : 'default';
+    $rowGap = isset( $rowGap ) ? $rowGap : 10;
+    $contentAlign = isset( $contentAlign ) ? $contentAlign : 'left';
+    $contentBGColor = isset( $contentBGColor ) ? $contentBGColor : '#f4f2fc';
+    $postTextPTB = isset( $postTextPTB ) ? $postTextPTB : 15;
+    $postTextPLR = isset( $postTextPLR ) ? $postTextPLR : 25;
+    $borderColor = isset( $borderColor ) ? $borderColor : '#4527a400';
 
     $articleMB = 'masonry' == $layout ? $rowGap . 'px' : 0;
 
@@ -282,15 +275,15 @@ function APBlockLSideImage( $attributes, $post ) {
 // Overlay
 function APBlockLOverlay( $attributes, $post ) {
     extract( $attributes );
-    $layout ?? $layout = 'grid';
-    $subLayout ?? $subLayout = 'default';
-    $rowGap ?? $rowGap = 10;
-    $isFImg ?? $isFImg = 'true';
-    $contentAlign ?? $contentAlign = 'left';
-    $contentBGColor ?? $contentBGColor = '#00000080';
-    $postTextPTB ?? $postTextPTB = 15;
-    $postTextPLR ?? $postTextPLR = 25;
-    $borderColor ?? $borderColor = '#4527a400';
+    $layout = isset( $layout ) ? $layout : 'grid';
+    $subLayout = isset( $subLayout ) ? $subLayout : 'default';
+    $rowGap = isset( $rowGap ) ? $rowGap : 10;
+    $isFImg = isset( $isFImg ) ? $isFImg : 'true';
+    $contentAlign = isset( $contentAlign ) ? $contentAlign : 'left';
+    $contentBGColor = isset( $contentBGColor ) ? $contentBGColor : '#00000080';
+    $postTextPTB = isset( $postTextPTB ) ? $postTextPTB : 15;
+    $postTextPLR = isset( $postTextPLR ) ? $postTextPLR : 25;
+    $borderColor = isset( $borderColor ) ? $borderColor : '#4527a400';
 
     $articleMB = 'masonry' == $layout ? $rowGap . 'px' : 0;
 
@@ -319,13 +312,13 @@ function APBlockLOverlay( $attributes, $post ) {
 // Feature Image
 function APBlockSFeatureImg( $attributes, $post ) {
     extract( $attributes );
-    $isFImg ?? $isFImg = 'true';
-    $isFImgLink ?? $isFImgLink = 'false';
-    $isMetaCategory ?? $isMetaCategory = 'true';
-    $metaCategoryIn ?? $metaCategoryIn = 'content';
-    $metaFontSize ?? $metaFontSize = 13;
-    $metaTransform ?? $metaTransform = 'uppercase';
-    $isLinkNewTab ?? $isLinkNewTab = 'false';
+    $isFImg = isset( $isFImg ) ? $isFImg : 'true';
+    $isFImgLink = isset( $isFImgLink ) ? $isFImgLink : 'false';
+    $isMetaCategory = isset( $isMetaCategory ) ? $isMetaCategory : 'true';
+    $metaCategoryIn = isset( $metaCategoryIn ) ? $metaCategoryIn : 'content';
+    $metaFontSize = isset( $metaFontSize ) ? $metaFontSize : 13;
+    $metaTransform = isset( $metaTransform ) ? $metaTransform : 'uppercase';
+    $isLinkNewTab = isset( $isLinkNewTab ) ? $isLinkNewTab : 'false';
 
     if ( 'true' == $isFImg ) {
         $imgUrl = get_the_post_thumbnail_url( $post->ID );
@@ -350,13 +343,13 @@ function APBlockSFeatureImg( $attributes, $post ) {
 // Title
 function APBlockSTitle( $attributes, $post ) {
     extract( $attributes );
-    $contentAlign ?? $contentAlign = 'left';
-    $isTitle ?? $isTitle = 'true';
-    $isTitleLink ?? $isTitleLink = 'true';
-    $titleFontSize ?? $titleFontSize = 25;
-    $titleColor ?? $titleColor = '#4527a4';
-    $titleMB ?? $titleMB = 15;
-    $isLinkNewTab ?? $isLinkNewTab = 'false';
+    $contentAlign = isset( $contentAlign ) ? $contentAlign : 'left';
+    $isTitle = isset( $isTitle ) ? $isTitle : 'true';
+    $isTitleLink = isset( $isTitleLink ) ? $isTitleLink : 'true';
+    $titleFontSize = isset( $titleFontSize ) ? $titleFontSize : 25;
+    $titleColor = isset( $titleColor ) ? $titleColor : '#4527a4';
+    $titleMB = isset( $titleMB ) ? $titleMB : 15;
+    $isLinkNewTab = isset( $isLinkNewTab ) ? $isLinkNewTab : 'false';
 
     if ( 'true' == $isTitle ) {
         $tab = 'true' == $isLinkNewTab ? '_blank' : '_self';
@@ -372,12 +365,12 @@ function APBlockSTitle( $attributes, $post ) {
 // Meta Data
 function APBlockSMetaData( $attributes, $post ) {
     extract( $attributes );
-    $contentAlign ?? $contentAlign = 'left';
-    $isMeta ?? $isMeta = 'true';
-    $metaFontSize ?? $metaFontSize = 13;
-    $metaTransform ?? $metaTransform = 'uppercase';
-    $metaTextColor ?? $metaTextColor = '#333';
-    $metaMB ?? $metaMB = 15;
+    $contentAlign = isset( $contentAlign ) ? $contentAlign : 'left';
+    $isMeta = isset( $isMeta ) ? $isMeta : 'true';
+    $metaFontSize = isset( $metaFontSize ) ? $metaFontSize : 13;
+    $metaTransform = isset( $metaTransform ) ? $metaTransform : 'uppercase';
+    $metaTextColor = isset( $metaTextColor ) ? $metaTextColor : '#333';
+    $metaMB = isset( $metaMB ) ? $metaMB : 15;
 
     if ( 'true' == $isMeta ) {
         return '<div class="bBlocksPostMeta" style="text-align:' . $contentAlign . '; font-size:' . $metaFontSize . 'px; text-transform: ' . $metaTransform . '; color: ' . $metaTextColor . '; margin: 0 0 ' . $metaMB . 'px 0">
@@ -393,9 +386,9 @@ function APBlockSMetaData( $attributes, $post ) {
 
 function APBlockSMetaAuthor( $attributes, $post ) {
     extract( $attributes );
-    $isMetaAuthor ?? $isMetaAuthor = 'true';
-    $metaLinkColor ?? $metaLinkColor = '#8344c5';
-    $metaIconColor ?? $metaIconColor = '#4527a4';
+    $isMetaAuthor = isset( $isMetaAuthor ) ? $isMetaAuthor : 'true';
+    $metaLinkColor = isset( $metaLinkColor ) ? $metaLinkColor : '#8344c5';
+    $metaIconColor = isset( $metaIconColor ) ? $metaIconColor : '#4527a4';
 
     if ( 'true' == $isMetaAuthor ) {
         return '<span>
@@ -408,9 +401,9 @@ function APBlockSMetaAuthor( $attributes, $post ) {
 }
 function APBlockSMetaDate( $attributes, $post ) {
     extract( $attributes );
-    $isMetaDate ?? $isMetaDate = 'true';
-    $metaTextColor ?? $metaTextColor = '#333';
-    $metaIconColor ?? $metaIconColor = '#4527a4';
+    $isMetaDate = isset( $isMetaDate ) ? $isMetaDate : 'true';
+    $metaTextColor = isset( $metaTextColor ) ? $metaTextColor : '#333';
+    $metaIconColor = isset( $metaIconColor ) ? $metaIconColor : '#4527a4';
 
     if ( 'true' == $isMetaDate ) {
         return '<span>
@@ -423,10 +416,10 @@ function APBlockSMetaDate( $attributes, $post ) {
 }
 function APBlockSMetaCategory( $attributes, $post ) {
     extract( $attributes );
-    $isMetaCategory ?? $isMetaCategory = 'true';
-    $metaCategoryIn ?? $metaCategoryIn = 'content';
-    $metaLinkColor ?? $metaLinkColor = '#8344c5';
-    $metaIconColor ?? $metaIconColor = '#4527a4';
+    $isMetaCategory = isset( $isMetaCategory ) ? $isMetaCategory : 'true';
+    $metaCategoryIn = isset( $metaCategoryIn ) ? $metaCategoryIn : 'content';
+    $metaLinkColor = isset( $metaLinkColor ) ? $metaLinkColor : '#8344c5';
+    $metaIconColor = isset( $metaIconColor ) ? $metaIconColor : '#4527a4';
 
     if ( 'true' == $isMetaCategory && 'content' == $metaCategoryIn ) {
         return '<span>
@@ -439,15 +432,15 @@ function APBlockSMetaCategory( $attributes, $post ) {
 }
 function APBlockSMetaComment( $attributes, $post ) {
     extract( $attributes );
-    $isMetaComment ?? $isMetaComment = 'false';
-    $metaLinkColor ?? $metaLinkColor = '#8344c5';
-    $metaIconColor ?? $metaIconColor = '#4527a4';
+    $isMetaComment = isset( $isMetaComment ) ? $isMetaComment : 'false';
+    $metaLinkColor = isset( $metaLinkColor ) ? $metaLinkColor : '#8344c5';
+    $metaIconColor = isset( $metaIconColor ) ? $metaIconColor : '#4527a4';
 
     if ( 'true' == $isMetaComment ) {
         $comment_count = get_comments( array( 'post_id' => $post->ID, 'count' => true ) );
         return '<span>
             <span class="dashicons dashicons-admin-comments" style="color: ' . $metaIconColor . ';"></span>&nbsp;
-            <a href="' . get_post_permalink( $post->ID ) . '/#comments" target="_blank" style="color: ' . $metaLinkColor . ';">' . wp_count_comments( $post->ID )->total_comments . '</a>
+            <a href="' . get_post_permalink( $post->ID ) . '/#comments" target="_blank" rel="noreferrer" style="color: ' . $metaLinkColor . ';">' . wp_count_comments( $post->ID )->total_comments . '</a>
         </span>';
     } else {
         return '';
@@ -457,11 +450,11 @@ function APBlockSMetaComment( $attributes, $post ) {
 // Excerpt
 function APBlockSExcerpt( $attributes, $post ) {
     extract( $attributes );
-    $isExcerpt ?? $isExcerpt = 'true';
-    $excerptLength ?? $excerptLength = 25;
-    $excerptAlign ?? $excerptAlign = 'justify';
-    $excerptColor ?? $excerptColor = '#333';
-    $excerptMB ?? $excerptMB = 15;
+    $isExcerpt = isset( $isExcerpt ) ? $isExcerpt : 'true';
+    $excerptLength = isset( $excerptLength ) ? $excerptLength : 25;
+    $excerptAlign = isset( $excerptAlign ) ? $excerptAlign : 'justify';
+    $excerptColor = isset( $excerptColor ) ? $excerptColor : '#333';
+    $excerptMB = isset( $excerptMB ) ? $excerptMB : 15;
 
     if ( 'true' == $isExcerpt ) {
         return '<div class="bBlocksPostExcerpt b_blocks_inner_content" style="text-align:' . $excerptAlign . '; color: ' . $excerptColor . '; margin: 0 0 ' . $excerptMB . 'px 0"">' . implode( ' ', array_slice( explode( ' ', get_post_field( 'post_content', $post->ID ) ), 0, $excerptLength ) ) . '</div>';
@@ -473,15 +466,15 @@ function APBlockSExcerpt( $attributes, $post ) {
 // Read More
 function APBlockSReadMore( $attributes, $post ) {
     extract( $attributes );
-    $isReadMore ?? $isReadMore = 'true';
-    $readMoreLabel ?? $readMoreLabel = 'Read More';
-    $isLinkNewTab ?? $isLinkNewTab = 'false';
-    $readMoreAlign ?? $readMoreAlign = 'left';
-    $readMoreFontSize ?? $readMoreFontSize = 14;
-    $readMoreTransform ?? $readMoreTransform = 'uppercase';
-    $readMoreFontWeight ?? $readMoreFontWeight = '600';
-    $readMoreColor ?? $readMoreColor = '#4527a4';
-    $readMoreHovColor ?? $readMoreHovColor = '#8344c5';
+    $isReadMore = isset( $isReadMore ) ? $isReadMore : 'true';
+    $readMoreLabel = isset( $readMoreLabel ) ? $readMoreLabel : 'Read More';
+    $isLinkNewTab = isset( $isLinkNewTab ) ? $isLinkNewTab : 'false';
+    $readMoreAlign = isset( $readMoreAlign ) ? $readMoreAlign : 'left';
+    $readMoreFontSize = isset( $readMoreFontSize ) ? $readMoreFontSize : 14;
+    $readMoreTransform = isset( $readMoreTransform ) ? $readMoreTransform : 'uppercase';
+    $readMoreFontWeight = isset( $readMoreFontWeight ) ? $readMoreFontWeight : '600';
+    $readMoreColor = isset( $readMoreColor ) ? $readMoreColor : '#4527a4';
+    $readMoreHovColor = isset( $readMoreHovColor ) ? $readMoreHovColor : '#8344c5';
 
     if ( 'true' == $isReadMore ) {
         $tab = 'true' == $isLinkNewTab ? '_blank' : '_self';

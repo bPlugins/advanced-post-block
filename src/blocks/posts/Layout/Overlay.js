@@ -1,4 +1,4 @@
-const { Fragment } = wp.element;
+import { Fragment } from '@wordpress/element';
 
 // Components
 import PostTitle from '../Single/PostTitle';
@@ -15,7 +15,7 @@ const Overlay = ({ atts, post }) => {
 
     return (
         <article className={`bBlocksPostArticle bBlocksPostArticleOverlay ${'overlay-content-hover' == subLayout && wbImage ? 'bBlocksPostArticleOverlayHover' : ''} ${'overlay-box' == subLayout ? 'bBlocksPostArticleOverlayBox' : ''} ${'slider' == layout ? 'swiper-slide' : ''}`} style={articleStyle}>
-            <div className="bBlocksPostText" style={postTextStyle}>
+            <div className='bBlocksPostText' style={postTextStyle}>
                 <PostTitle atts={atts} post={post} />
 
                 <PostMeta atts={atts} post={post} />

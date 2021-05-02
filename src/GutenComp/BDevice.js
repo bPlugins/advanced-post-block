@@ -1,6 +1,5 @@
-const { useState } = wp.element;
-import { Desktop, Tablet, Mobile } from "./Icon";
-// import styles from "./styles.module.scss";
+import { useState } from '@wordpress/element';
+import { Desktop, Tablet, Mobile } from './Icon';
 
 /**
  *
@@ -12,17 +11,17 @@ import { Desktop, Tablet, Mobile } from "./Icon";
  */
 const BDevice = ({
 	onChange,
-	device = "desktop",
+	device = 'desktop',
 	iconSize = 14,
 	style,
-	className = "iconButton",
+	className = 'iconButton',
 }) => {
 	const [show, setShow] = useState(false);
-	window.addEventListener("click", function () {
+	window.addEventListener('click', function () {
 		setShow(false);
 	});
 	return (
-		<div className={"bDevice"} style={style}>
+		<div className={'bDevice'} style={style}>
 			{!show && (
 				<button
 					className={className}
@@ -32,23 +31,23 @@ const BDevice = ({
 					}}
 					title={device[0].toUpperCase() + device.slice(1)}
 				>
-					{device == "desktop" ? (
+					{device == 'desktop' ? (
 						<Desktop size={iconSize} />
-					) : device == "tablet" ? (
+					) : device == 'tablet' ? (
 						<Tablet size={iconSize} />
 					) : (
-								<Mobile size={iconSize} />
-							)}
+						<Mobile size={iconSize} />
+					)}
 				</button>
 			)}
 			{show && (
-				<div className={"bDevicePopup"}>
+				<div className={'bDevicePopup'}>
 					{/* {device != 'desktop' && ( */}
 					<button
 						className={className}
-						title="Desktop"
+						title='Desktop'
 						onClick={() => {
-							onChange("desktop");
+							onChange('desktop');
 							setShow(false);
 						}}
 					>
@@ -58,9 +57,9 @@ const BDevice = ({
 					{/* {device != 'tablet' && ( */}
 					<button
 						className={className}
-						title="Tablet"
+						title='Tablet'
 						onClick={() => {
-							onChange("tablet");
+							onChange('tablet');
 							setShow(false);
 						}}
 					>
@@ -70,9 +69,9 @@ const BDevice = ({
 					{/* {device != 'mobile' && ( */}
 					<button
 						className={className}
-						title="Mobile"
+						title='Mobile'
 						onClick={() => {
-							onChange("mobile");
+							onChange('mobile');
 							setShow(false);
 						}}
 					>

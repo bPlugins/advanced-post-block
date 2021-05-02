@@ -1,4 +1,4 @@
-const { Dashicon } = wp.components;
+import { Dashicon } from '@wordpress/components';
 
 // Functions
 import func from '../../../Const/functions';
@@ -9,7 +9,7 @@ const PostMetaCategory = props => {
 
     return (
         'true' == isMetaCategory && 'content' == metaCategoryIn && wbCategories ? <span>
-            <Dashicon icon="category" style={{ color: metaIconColor }} />&nbsp;
+            <Dashicon icon='category' style={{ color: metaIconColor }} />&nbsp;
             <span style={{ color: metaLinkColor }}>{renderHTML(wbCategories.coma)}</span>
         </span> : null
     );

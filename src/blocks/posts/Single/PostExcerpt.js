@@ -8,7 +8,7 @@ const PostExcerpt = props => {
     const excerptStyle = { textAlign: excerptAlign, color: excerptColor, margin: `0 0 ${excerptMB}px 0` }
 
     return (
-        'true' == isExcerpt ? <div className="bBlocksPostExcerpt b_blocks_inner_content" style={excerptStyle}>{renderHTML(truncate(content.rendered, excerptLength))}</div> : null
+        'true' == isExcerpt ? <div className='bBlocksPostExcerpt b_blocks_inner_content' style={excerptStyle}>{renderHTML(truncate(content.rendered, excerptLength))}</div> : null
     );
 };
 export default PostExcerpt;

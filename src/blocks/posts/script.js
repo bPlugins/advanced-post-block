@@ -1,14 +1,4 @@
-// ; (function ($) {
-//     $(document).ready(function () {
-//         const scrollbarWidth = window.innerWidth - document.body.clientWidth;
-
-//         $('.alignfull').css({
-//             'width': `calc(100vw - ${scrollbarWidth}px)`,
-//             'max-width': `calc(100vw - ${scrollbarWidth}px)`,
-//             'margin': `0 calc(-50vw + 50% + ${scrollbarWidth / 2}px)`
-//         });
-//     });
-// })(jQuery);
+import Swiper from 'swiper/bundle';
 
 let fImag = document.querySelectorAll('.bBlocksPostArticleDefault .bBlocksPostFImg');
 fImag.length && fImag.forEach(im => {
@@ -21,7 +11,7 @@ Array.from(document.querySelectorAll('.bBlocksSliderPosts')).map(slider => {
 
     const cols = JSON.parse(columns);
 
-    const swiper = 'slider' == layout && new Swiper(`#bBlocksSliderAdvancedPosts-${id}`, {
+    'slider' == layout && new Swiper(`#bBlocksSliderAdvancedPosts-${id}`, {
         // Optional parameters
         direction: 'horizontal',
         slidesPerView: cols.mobile,

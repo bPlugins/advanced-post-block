@@ -16,7 +16,7 @@ const SideImage = ({ atts, post }) => {
         <article className={`bBlocksPostArticle bBlocksPostArticleSideImage ${'left-image' == subLayout ? 'leftImage' : 'right-image' == subLayout ? 'rightImage' : ''} ${'slider' == layout ? 'swiper-slide' : ''}`} style={articleStyle}>
             {'left-image' == subLayout && <FeatureImage atts={atts} post={post} />}
 
-            <div className="bBlocksPostText" style={postTextStyle}>
+            <div className='bBlocksPostText' style={postTextStyle}>
                 <PostTitle atts={atts} post={post} />
 
                 <PostMeta atts={atts} post={post} />

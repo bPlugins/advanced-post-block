@@ -7,8 +7,8 @@ const PostReadMore = props => {
     const readMoreStyle = { display: 'inline-block', fontSize: `${readMoreFontSize}px`, textTransform: readMoreTransform, fontWeight: readMoreFontWeight, color: readMoreColor, transition: 'all .3s ease' }
 
     return (
-        'true' == isReadMore ? <div className="bBlocksPostReadMore" style={{ textAlign: readMoreAlign }}>
-            <a href={link} target={'true' == isLinkNewTab ? '_blank' : '_self'} style={readMoreStyle} onMouseEnter={readMoreHov} onMouseLeave={readMoreHovLeave}>{readMoreLabel}</a>
+        'true' == isReadMore ? <div className='bBlocksPostReadMore' style={{ textAlign: readMoreAlign }}>
+            <a href={link} target={'true' == isLinkNewTab ? '_blank' : '_self'} rel='noreferrer' style={readMoreStyle} onMouseEnter={readMoreHov} onMouseLeave={readMoreHovLeave}>{readMoreLabel}</a>
         </div> : null
     );
 };
