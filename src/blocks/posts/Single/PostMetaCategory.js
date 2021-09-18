@@ -5,13 +5,11 @@ import func from '../../../Const/functions';
 const { renderHTML } = func;
 
 const PostMetaCategory = props => {
-    const { atts: { isMetaCategory, metaCategoryIn, metaLinkColor, metaIconColor }, post: { wbCategories } } = props;
+    const { atts: { isMetaCategory, metaCategoryIn }, post: { wbCategories } } = props;
 
-    return (
-        'true' == isMetaCategory && 'content' == metaCategoryIn && wbCategories ? <span>
-            <Dashicon icon='category' style={{ color: metaIconColor }} />&nbsp;
-            <span style={{ color: metaLinkColor }}>{renderHTML(wbCategories.coma)}</span>
-        </span> : null
-    );
+    return isMetaCategory && 'content' === metaCategoryIn && wbCategories ? <span>
+        <Dashicon icon='category' />&nbsp;
+        {renderHTML(wbCategories.coma)}
+    </span> : null;
 };
 export default PostMetaCategory;

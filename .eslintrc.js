@@ -11,7 +11,8 @@ module.exports = {
     ],
     'globals': {
         'wp': 'readonly',
-        'APBlockAdmin': 'readonly'
+        'jQuery': 'readonly',
+        'Swiper': 'readonly'
     },
     'parserOptions': {
         'ecmaFeatures': {

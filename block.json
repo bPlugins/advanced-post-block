@@ -1,0 +1,15 @@
+{
+    "apiVersion": "1",
+    "name": "ap-block/posts",
+    "title": "Advanced Posts",
+    "category": "APBlock",
+    "description": "Display posts in a beautiful way!",
+    "keywords": [
+        "show posts",
+        "embed blog posts",
+        "custom posts"
+    ],
+    "textdomain": "advanced-post-block",
+    "editorScript": "file:./dist/editor.js",
+    "style": "file:./dist/style.css"
+}

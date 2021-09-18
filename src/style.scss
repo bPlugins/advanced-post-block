@@ -1,112 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap');
-
 // Variables
-$primaryColor: #4527a4;
-$secondaryColor: #8344c5;
-
-// .alignwide{
-//     max-width: 100vw!important;
-//     margin: 0 calc(-50vw + 58%)!important;
-// }
-
-// @media screen and (max-width: 1200px){
-//     .alignwide{
-//         margin: 0 calc(-50vw + 55%)!important;
-//     }
-// }
-
-// @media screen and (max-width: 992px){
-//     .alignwide{
-//         margin: 0 calc(-50vw + 53%)!important;
-//     }
-// }
-
-// @media screen and (max-width: 576px){
-//     .alignwide{
-//         margin: 0 calc(-50vw + 55%)!important;
-//     }
-// }
+$primaryColor: #fe6601;
+$secondaryColor: #fbb040;
 
 // Common CSS
 html{
     scroll-behavior: smooth;
 }
 
+// Columns
+
+
+@for $i from 1 through 12 {
+    .columns-#{$i}{
+        grid-template-columns: repeat(#{$i}, 1fr);
+    }
+    .cols-#{$i}{
+        columns: #{$i};
+    }
+}
+@media (max-width: 768px) {
+    @for $i from 1 through 12 {
+        .columns-tablet-#{$i}{
+            grid-template-columns: repeat(#{$i}, 1fr);
+        }
+        .cols-tablet-#{$i}{
+            columns: #{$i};
+        }
+    }
+}
+@media (max-width: 576px) { 
+    @for $i from 1 through 12 {
+        .columns-mobile-#{$i}{
+            grid-template-columns: repeat(#{$i}, 1fr);
+        }
+        .cols-mobile-#{$i}{
+            columns: #{$i};
+        }
+    }
+}
+
+// Dashicon
+.dashicons{
+    font-family: dashicons !important;
+}
+
 // Inner Content
-.b_blocks_inner_content{
+.apbInnerContent{
     h1{
-        font-size: 32px!important;
+        font-size: 18px!important;
     }
     h2{
-        font-size: 25px!important;
+        font-size: 17px!important;
     }
     h3{
-        font-size: 20px!important;
+        font-size: 16px!important;
     }
     h4{
-        font-size: 16px!important;
+        font-size: 15px!important;
     }
     h5{
         font-size: 14px!important;
     }
     h6{
-        font-size: 12px!important;
+        font-size: 14px!important;
     }
     p, span, div, a, button, mark{
         font-size: 15px!important;
     }
-}
 
-// Button
-.b_blocks_btn{
-    display: inline-block;
-    border: none;
-    outline: 0;
-    transition: all .3s ease;
-    text-decoration: none;
-
-    &:focus{
-        outline: 0;
+    img{
+        display: none;
     }
 }
-
-.b_blocks_btn_small{
-    color: #fff!important;
-    background-color: $primaryColor;
-    padding: 8px 25px;
-    border-radius: 50px;
-
-    &:hover{
-        background-color: $secondaryColor;
-    }
-}
-
 
 // Advanced Posts
-.bBlocksGridPosts{
-    display: grid;
-
-    .swiper-notification{
-        display: none;
-    }
-}
-.bBlocksMasonryPosts{
-    article{
-        break-inside: avoid;
-    }
-
-    .swiper-notification{
-        display: none;
-    }
-}
-
-.bBlocksSliderPosts{
-    position: relative;
+.wp-block-ap-block-posts.apbAdvancedPosts{
     overflow: hidden;
 
-    .bBlocksPostArticleOverlay:not(.bBlocksPostArticleOverlayBox) .bBlocksPostText{
-        padding-top: 0!important;
-        padding-bottom: 0!important;
+    .apbGridPosts{
+        display: grid;
+
+        .swiper-notification{
+            display: none;
+        }
+    }
+
+    .apbMasonryPosts{
+        article{
+            break-inside: avoid;
+        }
+
+        .swiper-notification{
+            display: none;
+        }
+    }
+}
+
+.apbSliderPosts{
+    position: relative;
+    overflow: hidden;
+    height: auto;
+
+    .swiper-wrapper{
+        height: auto;
+        align-items: center;
+    }
+
+    .swiper-pagination{
+        .swiper-pagination-bullet:focus{
+            outline: 0;
+        }
+    }
+
+    .apbPostOverlay:not(.apbPostOverlayBox) .apbPostText{
         width: -webkit-fill-available!important;
     }
 
@@ -115,17 +121,12 @@ html{
     }
 }
 
-.bBlocksPostArticle{
+.apbPost{
     border-radius: 5px;
     overflow: hidden;
     box-sizing: border-box;
 
-    .bBlocksPostTitle{
-        font-family: 'Yanone Kaffeesatz', sans-serif;
-        letter-spacing: 1px;
-    }
-
-    .bBlocksPostMeta{
+    .apbPostMeta{
         > span{
             display: inline-flex;
             align-items: center;
@@ -135,28 +136,40 @@ html{
                 color: inherit;
             }
         }
+
+        .dashicons-admin-comments{
+            transform: translate(0, 2.5px);
+        }
     }
 
-    .bBlocksPostExcerpt{
+    .apbPostExcerpt{
         p{
             margin: 0;
             font-size: inherit;
         }
     }
 
-    a{
-        color: inherit;
-        text-decoration: none!important;
+    .apbPostReadMore a{
         display: inline-block;
         transition: all .3s ease;
     }
 
-    .bBlocksPostFImg {
+    a{
+        color: inherit;
+        text-decoration: none;
+        display: inline-block;
+        transition: all .3s ease;
+    }
+
+    .apbPostFImg {
         position: relative;
         text-align: center;
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
+        margin: 0;
+        height: 10px;
+        padding-bottom: 60%;
 
         >a{
             position: absolute;
@@ -166,7 +179,7 @@ html{
             top: 0;
         }
 
-        .bBlocksPostFImgCats{
+        .apbPostFImgCats{
             position: absolute;
             left: 10px;
             bottom: 10px;
@@ -187,7 +200,7 @@ html{
     }
 
 
-    &.bBlocksPostArticleSideImage{
+    &.apbPostSideImage{
         grid-template-columns: 1fr 1fr;
         align-items: center;
         height: inherit;
@@ -199,29 +212,28 @@ html{
             grid-template-columns: 1.3fr 1fr;
         }
     
-        .bBlocksPostFImg {
+        .apbPostFImg {
+            padding-bottom: 0;
             height: 100%!important;
         }
     }
 
-    &.bBlocksPostArticleOverlay{
+    &.apbPostOverlay{
         position: relative;
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         z-index: 0;
     
-        .bBlocksPostText{
+        .apbPostText{
             display: flex;
             flex-direction: column;
             justify-content: center;
             width: 100%;
-            height: 100%;
+            min-height: 100%;
         }
 
-        &.bBlocksPostArticleOverlayHover{
-            
-
+        &.apbPostOverlayHover{
             >div{
                 opacity: 0;
                 transition: all .3s ease-out!important;
@@ -238,16 +250,15 @@ html{
             }
         }
 
-        &.bBlocksPostArticleOverlayBox{
-            padding: 15% 10%;
+        &.apbPostOverlayBox{
+            padding: 10% 7.5%;
 
             &.swiper-slide{
-                padding: 0!important;
-
-                .bBlocksPostText{
+                .apbPostText{
                     padding-left: 0!important;
                     padding-right: 0!important;
                     width: 85%!important;
+                    min-height: auto;
                     height: auto!important;
                     position: absolute;
                     left: 50%;

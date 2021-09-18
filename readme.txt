@@ -1,28 +1,27 @@
 === Advanced Post Block - Display Posts in Gutenberg Editor ===
 Contributors: abuhayat, charlescormier
 Donate link: https://gum.co/wpdonate/
-Tags: show posts, display posts, embed posts, blocks, gutenberg, gutenberg blocks, editor, block
+Tags: block, show posts, blog posts, display blog posts, embed custom posts, gutenberg posts,
 Requires at least: 5.0+
-Tested up to: 5.7.1
-Requires PHP: 5.4
-Stable tag: 1.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: 5.8.1
+Requires PHP: 7.1
+Stable tag: 1.2
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Advanced Post Block is an innovative block for the new WordPress Gutenberg block editor. It's used for displaying posts or custom posts in your web page or posts.
+Advanced Post Block is an useful plugin for the new WordPress Gutenberg block editor. It added many new features for displaying posts or custom posts contents in your web page or posts.
 
 == Description ==
 
-Display Posts, Custom post type contents, Blogs in a professional way ! Grid, Slider, Masonry grid and more advanced features included.
+Advanced Post Block is an useful plugin for the new WordPress Gutenberg block editor. It added many new features for displaying posts or custom posts contents in your web page or posts.
 
 Advanced Post Block is powerful but lightweight. Work with any theme, just need WordPress Gutenberg editor.
 
 
 **[Demos](https://apb.bplugins.com/#demos)**
 
-
 = Features =
-- **Layouts:** Three main layouts with multiple sub layouts.
+- **Layouts:** Three main layouts with various sub layouts.
 
 - **Responsive:** Works great with any devices with any screen size.
 
@@ -30,7 +29,7 @@ Advanced Post Block is powerful but lightweight. Work with any theme, just need 
 
 - **Elements:** Show/Hide and customize post elements (image, title, meta, excerpt, read more).
 
-- **Content:** Custom typography with top-bottom and left-right spacing.
+- **Content:** Custom typography with margin and padding spacing.
 
 - **Feature Image:** Show/Hide feature image and also enable disable the link.
 
@@ -42,8 +41,8 @@ Advanced Post Block is powerful but lightweight. Work with any theme, just need 
 
 
 = How to use  =
-- After installing you can see a block category called 'Advanced Post Block' in Gutenberg editor (by clicking + icon).
-- Add Advanced Posts block from there.
+- First install the Advanced Post Block plugin
+- Add the Advanced Post Block from the block category called "Advanced Post Block" in Gutenberg editor.
 - You can change block settings from the right side settings sidebar.
 - Enjoy!
 
@@ -51,25 +50,34 @@ Advanced Post Block is powerful but lightweight. Work with any theme, just need 
 	
 
 = Feedback = 
-Liked that plugin? Hate it? Want a new feature?  [Send me some feedback](mailto:abuhayat.du@gmail.com 'Send feedback')  
+Liked that plugin? Hate it? Want a new feature?  [Send me some feedback](mailto:support@bplugins.com 'Send feedback')  
 
-= Known Issues =
-[Click Here to see or file a new Known Issue.](https://docs.google.com/spreadsheets/d/1A9_ckwy-dM6Oz-HlBlAdsT_OIlUsp0vezyPaSWB7hSc/edit?usp=sharing 'Known issues')
+
+= ⭐ Checkout our other WordPress Plugins- = 
+
+🔥 **[Html5 Audio Player](https://audioplayerwp.com/)** – Best audio player plugin for WordPress.
+
+🔥 **[Html5 Video Player](https://wpvideoplayer.com/)** – Best video player plugin for WordPress.
+
+🔥 **[PDF Poster](http://pdfposter.com/)** – A fully-featured PDF Viewer Plugin for WordPress.
+
+🔥 **[StreamCast](https://wordpress.org/plugins/streamcast)** – A fully-featured Radio Player Plugin for WordPress.
+
+🔥 **[3D Viewer](https://3d-viewer.bplugins.com/)** – Display interactive 3D models on the webs.
 
 
 == Screenshots ==
 
-1. All Blocks
-2. Posts- Grid Layout
-3. posts- Masonry Layout
-4. Slider
-5. Vertical Card- Top Image
-6. Vertical Card- Bottom Image
-7. Horizontal Card
-8. Tabs
-9. Accordion & Note
-10. Gif Image & QR Code
-11. Alert & Progress Bar
+1. All Settings
+2. Grid- default
+3. Masonry- default
+4. Slider- default
+5. Title Meta layout
+6. Left Image layout
+7. Right Image layout
+8. Overlay Content layout
+9. Overlay on Hover layout
+10. Overlay Box layout
 
 
 == Frequently Asked Questions ==
@@ -94,50 +102,23 @@ Yes! you can every element, you can show or hide title, feature image, metadata,
 
 Yes! you can change all elements color, spacing between them, content background color.
 
-= How can I reach customer support if I need any helps? =
-
-Visit our support portal to open a ticket -> [https://bplugins.com/suppor](https://bplugins.com/suppor). Also, You can send an email to [support@bplugins.com](mailto:support@bplugins.com)
-
-= I need Plugin customization service, can you help ? =
-
-Yes, we provide plugin customization service (Paid). Please send us details via email: [support@bplugins.com](mailto:support@bplugins.com)
-
-= How long does it take for a customer support representative to reply? =
-
-We try to respond to our customer’s questions ASAP, however, it can take up to 72 hours.
-
-= I am planning to buy the Pro version, is it a one-time payment or recurring payment ? =
-
-You don’t have to pay subscription basis. It’s a one-time payment!
-
-= I already have a Single site license, now I am going to move my site to a different domain. Do I have to buy another license? =
-
-No, you don’t have to buy a new license. You can go through the previous license!
-
-= How I will received a Update notification? =
-
-When a new version will be released, you will receive an email notification.
-
 
 == Installation ==
 
+= From Gutenberg Editor: =
+1. Go to the WordPress Block/Gutenberg Editor
+2. Search For "Advanced Post Block".
+3. Click on the "Advanced Post Block" block to add the block
+
 = Upload installation =
+1. Download `Advanced Post Block` plugin (.zip file)
+2. In your Admin, go to Plugins menu and click on 'Add New'
+3. Click on 'Upload Plugin' and choose the `advance-post-block.zip` file and click on 'Install Now'
+4. Activate the plugin and Enjoy!
 
-* Download the latest version of Advance Post Block (.zip file).
-* In your Admin, go to menu Plugins > Add New.
-* Select “Upload Plugin”.
-* Click on “Choose File”.
-* Select downloaded advance-post-block.zip & click on the ‘Install Now’ button.
-* Activate the plugin.
-* Advance Posts block will show in Gutenberg editor.
-
-= Manual installation =
-
-* Download the latest version of Advance Post Block (.zip file).
-* Unzip the file, you will get the advance-post-block folder.
-* Upload advance-post-block folder inside the /wp-content/plugins/ directory.
-* Go to WordPress dashboard > Plugins & Activate the Advance Post Block.
-* Advance Posts block will show in Gutenberg editor.
+= Manually: =
+1. Download and upload `Advanced Post Block` plugin to the `/wp-content/plugins/` directory
+2. Upload and activate the plugin through the 'Plugins' menu in WordPress
 
 
 == Changelog ==
@@ -145,11 +126,22 @@ When a new version will be released, you will receive an email notification.
 = 1.0 =
 * Initial Release
 
-= 1.0 =
+= 1.1 =
 * Compatible with PHP 5.4
+
+= 1.1 =
+* Custom Typography with google fonts.
+* Compatible for block directory
+* Fixing Issue
+* UI Change
 
 
 == Upgrade Notice ==
 * Initial Release
 
 * Compatible with PHP 5.4
+
+* Custom Typography with google fonts.
+* Compatible for block directory
+* Fixing Issue
+* UI Change

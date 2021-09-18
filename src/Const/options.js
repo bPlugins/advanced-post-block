@@ -1,17 +1,34 @@
+import { __ } from '@wordpress/i18n';
+
+// Icons
+import icons from './icons';
+
 const options = {
-    fontSizes: [
-        { name: 'Small', slug: 'small', size: 13 },
-        { name: 'Normal', slug: 'normal', size: 16 },
-        { name: 'Medium', slug: 'medium', size: 20 },
-        { name: 'Large', slug: 'large', size: 36 },
-        { name: 'Huge', slug: 'huge', size: 48 }
+    layouts: [
+        { label: __('Grid', 'advanced-post-block'), value: 'grid', icon: icons.grid },
+        { label: __('Masonry', 'advanced-post-block'), value: 'masonry', icon: icons.masonry },
+        { label: __('Slider', 'advanced-post-block'), value: 'slider', icon: icons.slider }
     ],
 
-    colors: [
-        { name: 'Black', color: '#000' },
-        { name: 'White', color: '#fff' },
-        { name: 'Purple Heart', color: '#4527a4' },
-        { name: 'Dark Orchid', color: '#8344c5' },
+    subLayouts: [
+        { label: __('Default', 'advanced-post-block'), value: 'default' },
+        { label: __('Title Meta', 'advanced-post-block'), value: 'title-meta' },
+        { label: __('Left Image', 'advanced-post-block'), value: 'left-image' },
+        { label: __('Right Image', 'advanced-post-block'), value: 'right-image' },
+        { label: __('Overlay Content', 'advanced-post-block'), value: 'overlay-content' },
+        { label: __('Overlay Content Hover', 'advanced-post-block'), value: 'overlay-content-hover' },
+        { label: __('Overlay Box', 'advanced-post-block'), value: 'overlay-box' },
+    ],
+
+    categoriesPosition: [
+        { label: __('Content', 'advanced-post-block'), value: 'content' },
+        { label: __('Image', 'advanced-post-block'), value: 'image' }
+    ],
+
+    effects: [
+        { label: 'Slide', value: 'slide' },
+        { label: 'Fade', value: 'fade' },
+        { label: 'Creative', value: 'creative' }
     ],
 
     aligns: [
@@ -21,33 +38,21 @@ const options = {
         { label: 'Justify', value: 'justify', icon: 'editor-justify' }
     ],
 
-    fontWeights: [
-        { label: 'Lighter', value: 'lighter' },
-        { label: '100', value: '100' },
-        { label: '200', value: '200' },
-        { label: '300', value: '300' },
-        { label: '400', value: '400' },
-        { label: '500', value: '500' },
-        { label: '600', value: '600' },
-        { label: '700', value: '700' },
-        { label: '800', value: '800' },
-        { label: '900', value: '900' },
-        { label: 'Bold', value: 'bold' },
-        { label: 'Bolder', value: 'bolder' },
-        { label: 'Normal', value: 'normal' },
-        { label: 'Inherit', value: 'inherit' },
-    ],
+    pxUnit: { value: 'px', label: 'px', default: 0 },
+    perUnit: { value: '%', label: '%', default: 0 },
+    emUnit: { value: 'em', label: 'em', default: 0 },
+    remUnit: { value: 'rem', label: 'rem', default: 0 },
+    vwUnit: { value: 'vw', label: 'vw', default: 0 },
+    vhUnit: { value: 'vh', label: 'vh', default: 0 },
 
-    textTransforms: [
-        { label: 'Capitalize', value: 'capitalize', icon: 'Tt' },
-        { label: 'Uppercase', value: 'uppercase', icon: 'TT' },
-        { label: 'Lowercase', value: 'lowercase', icon: 'tt' },
-        { label: 'None', value: 'none', icon: 'NO' },
-    ],
-
-    sizeTypes: [
-        { label: 'Pixel', value: 'px', icon: 'px', def: 650 },
-        { label: 'Percentage', value: '%', icon: '%', def: 100 }
+    gradients: [
+        { name: 'Daisy Bush to Fuchsia Blue', gradient: 'linear-gradient(135deg, #fe6601, #fbb040)', slug: 'daisy-bush-to-fuchsia-blue' },
+        { name: 'Tuft Bush to Carnation Pink', gradient: 'linear-gradient(135deg, #fed1c7, #fe8dc6)', slug: 'tuft-bush-to-carnation-pink' },
+        { name: 'Golden Fizz to Yellow Orange', gradient: 'linear-gradient(135deg, #f9ed32, #fbb040)', slug: 'golden-fizz-to-yellow-orange' },
+        { name: 'Light Electric Violet to Electric Violet', gradient: 'linear-gradient(135deg, #e100ff, #7f00ff)', slug: 'light-electric-violet-to-electric-violet' },
+        { name: 'Hot Pink to Violet Red', gradient: 'linear-gradient(135deg, #ff7db8, #ee2a7b)', slug: 'hot-pink-to-violet-red' },
+        { name: 'Yellow Orange to Pomegranate', gradient: 'linear-gradient(135deg, #fbb040, #ef4136)', slug: 'yellow-orange-to-pomegranate' },
+        { name: 'Spring Green to Azure Radiance', gradient: 'linear-gradient(135deg, #00ff8f, #00a1ff)', slug: 'spring-green-to-azure-radiance' }
     ],
 
     postsOrdersBy: [

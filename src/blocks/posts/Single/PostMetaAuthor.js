@@ -1,14 +1,12 @@
 import { Dashicon } from '@wordpress/components';
 
 const PostMetaAuthor = props => {
-    const { atts: { isMetaAuthor, metaLinkColor, metaIconColor }, post: { wbAuthor } } = props;
+    const { atts: { isMetaAuthor }, post: { wbAuthor } } = props;
 
-    return (
-        'true' == isMetaAuthor ? <span>
-            <Dashicon icon='admin-users' style={{ color: metaIconColor }} />&nbsp;
+    return isMetaAuthor ? <span>
+        <Dashicon icon='admin-users' />&nbsp;
 
-            {wbAuthor && <a href={wbAuthor.link} target='_blank' rel='noreferrer' style={{ color: metaLinkColor }}>{wbAuthor.name}</a>}
-        </span> : null
-    );
+        {wbAuthor && <a href={wbAuthor.link} target='_blank' rel='noreferrer'>{wbAuthor.name}</a>}
+    </span> : null;
 };
 export default PostMetaAuthor;
