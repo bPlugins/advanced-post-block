@@ -71,10 +71,10 @@ class AdvancedPostBlock {
     } // Categories
 
     function register(){
-        wp_register_script( 'ap_block_editor_script', plugins_url( 'dist/editor.js', __FILE__ ), array( 'wp-blocks', 'wp-element', 'wp-data', 'wp-i18n', 'wp-editor', 'wp-components', 'wp-blob', 'wp-html-entities', 'wp-compose', 'wp-rich-text', 'jquery', 'swiperJS' ), null, false ); // Backend Script
-        wp_register_style( 'ap_block_editor_style', plugins_url( 'dist/editor.css', __FILE__ ), array( 'wp-edit-blocks' ), null ); // Backend Style
-        wp_register_script( 'ap_block_script', plugins_url( 'dist/script.js', __FILE__ ), array( 'jquery', 'swiperJS' ), null, true ); // Frontend Script
-        wp_register_style( 'ap_block_style', plugins_url( 'dist/style.css', __FILE__ ), array( 'wp-editor' ), null ); // Frontend Style
+        wp_register_script( 'ap_block_editor_script', plugins_url( 'dist/editor.js', __FILE__ ), array( 'wp-blocks', 'wp-element', 'wp-data', 'wp-i18n', 'wp-editor', 'wp-components', 'wp-blob', 'wp-html-entities', 'wp-compose', 'wp-rich-text', 'jquery', 'swiperJS' ), AP_BLOCK_PLUGIN_VERSION, false ); // Backend Script
+        wp_register_style( 'ap_block_editor_style', plugins_url( 'dist/editor.css', __FILE__ ), array( 'wp-edit-blocks' ), AP_BLOCK_PLUGIN_VERSION ); // Backend Style
+        wp_register_script( 'ap_block_script', plugins_url( 'dist/script.js', __FILE__ ), array( 'jquery', 'swiperJS' ), AP_BLOCK_PLUGIN_VERSION, true ); // Frontend Script
+        wp_register_style( 'ap_block_style', plugins_url( 'dist/style.css', __FILE__ ), array( 'wp-editor' ), AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
 
         // Register Blocks
         register_block_type( 'ap-block/posts', array(

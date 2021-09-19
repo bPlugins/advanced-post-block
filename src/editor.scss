@@ -198,6 +198,7 @@ $secondaryColor: #fbb040;
     // Radio Control
     .components-radio-control__option{
         margin-right: 15px;
+        margin-bottom: 0;
     
         .components-radio-control__input[type=radio]{
             border: 1px solid $primaryColor;
