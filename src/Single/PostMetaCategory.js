@@ -1,7 +1,7 @@
 import { Dashicon } from '@wordpress/components';
 
 // Functions
-import func from '../../../Const/functions';
+import func from '../Const/functions';
 const { renderHTML } = func;
 
 const PostMetaCategory = props => {

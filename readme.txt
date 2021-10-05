@@ -5,7 +5,7 @@ Tags: block, show posts, blog posts, display blog posts, embed custom posts, gut
 Requires at least: 5.0+
 Tested up to: 5.8.1
 Requires PHP: 7.1
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -128,11 +128,8 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
-= 1.0 =
-* Initial Release
-
-= 1.1 =
-* Compatible with PHP 5.4
+= 1.3 =
+* Post Query fixing.
 
 = 1.2 =
 * Custom Typography with google fonts.
@@ -140,14 +137,26 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 * Fixing Issue
 * UI Change
 
+= 1.1 =
+* Compatible with PHP 5.4
+
+= 1.0 =
+* Initial Release
+
 
 == Upgrade Notice ==
 
-* Initial Release
+= 1.3 =
+* Post Query fixing.
 
-* Compatible with PHP 5.4
-
+= 1.2 =
 * Custom Typography with google fonts.
 * Compatible for block directory
 * Fixing Issue
 * UI Change
+
+= 1.1 =
+* Compatible with PHP 5.4
+
+= 1.0 =
+* Initial Release

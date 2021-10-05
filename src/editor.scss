@@ -41,15 +41,20 @@ $secondaryColor: #fbb040;
 
 // Common CSS
 .apbLoading{
-    color: $primaryColor;
-    font-size: 20px;
+    color: $primaryColor !important;
+    font-size: 21px !important;
+    font-weight: bold !important;
+    display: flex;
+    align-items: center;
 
     .components-spinner{
-        background-color: #fe6601;
+        margin-top: 0;
+        color: $primaryColor;
+        background-color: $primaryColor;
     }
 }
 .apbNoPosts{
-    color: #fe6601;
+    color: red;
     text-align: center;
     font-size: 20px;
 }
@@ -83,7 +88,7 @@ $secondaryColor: #fbb040;
 }
 
 .components-button.has-icon .dashicon{
-    margin-right: 0;
+    margin: 0;
 }
 
 // Toolbar
@@ -256,7 +261,7 @@ $secondaryColor: #fbb040;
     }
 }
 
-
+// Advanced Posts
 .wp-block-ap-block-posts.apbAdvancedPosts{
     >.apbSliderPosts{
         display: none;

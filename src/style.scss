@@ -8,8 +8,6 @@ html{
 }
 
 // Columns
-
-
 @for $i from 1 through 12 {
     .columns-#{$i}{
         grid-template-columns: repeat(#{$i}, 1fr);
@@ -70,6 +68,10 @@ html{
 
     img{
         display: none;
+    }
+
+    *{
+        font-family: inherit !important;
     }
 }
 

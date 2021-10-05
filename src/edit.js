@@ -11,7 +11,7 @@ import Settings from './settings';
 import Default from './Layout/Default';
 import SideImage from './Layout/SideImage';
 import Overlay from './Layout/Overlay';
-import func from '../../Const/functions';
+import func from './Const/functions';
 const { mediaUrl } = func;
 
 const Edit = props => {
@@ -118,10 +118,10 @@ const Edit = props => {
         });
     }, [attributes, posts]);
 
-    return posts && 0 !== posts.length ? <>
+    return <>
         <Settings settings={props} getPostTypes={getPostTypes} categories={categories} />
 
-        <div className={`${className} apbAdvancedPosts`} id={`apbAdvancedPosts-${clientId}`}>
+        {posts && 0 !== posts.length ? <div className={`${className} apbAdvancedPosts`} id={`apbAdvancedPosts-${clientId}`}>
             <style dangerouslySetInnerHTML={{
                 __html: `
                 @import url(${titleTypo?.googleFontLink || 'https://fonts.googleapis.com/css2?family=Roboto&display=swap'}); @import url(${metaTypo?.googleFontLink}); @import url(${excerptTypo?.googleFontLink}); @import url(${readMoreTypo?.googleFontLink});
@@ -224,7 +224,8 @@ const Edit = props => {
                         </div>
                     </>/* Slider Layout */
             }
-        </div> </> : noPosts();
+        </div> : noPosts()}
+    </>
 }
 export default withSelect((select, props) => {
     const { postType, selectedCategories, isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder } = props.attributes;

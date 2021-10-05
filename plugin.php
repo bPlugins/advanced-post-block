@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display Posts in Gutenberg Editor.
- * Version: 1.2
+ * Version: 1.3
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', '1.2' );
+define( 'AP_BLOCK_PLUGIN_VERSION', '1.3' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Generate Styles
@@ -71,7 +71,7 @@ class AdvancedPostBlock {
     } // Categories
 
     function register(){
-        wp_register_script( 'ap_block_editor_script', plugins_url( 'dist/editor.js', __FILE__ ), array( 'wp-blocks', 'wp-element', 'wp-data', 'wp-i18n', 'wp-editor', 'wp-components', 'wp-blob', 'wp-html-entities', 'wp-compose', 'wp-rich-text', 'jquery', 'swiperJS' ), AP_BLOCK_PLUGIN_VERSION, false ); // Backend Script
+        wp_register_script( 'ap_block_editor_script', plugins_url( 'dist/editor.js', __FILE__ ), array( 'wp-blob', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-element', 'wp-html-entities', 'wp-i18n', 'wp-rich-text', 'jquery', 'swiperJS' ), AP_BLOCK_PLUGIN_VERSION, false ); // Backend Script
         wp_register_style( 'ap_block_editor_style', plugins_url( 'dist/editor.css', __FILE__ ), array( 'wp-edit-blocks' ), AP_BLOCK_PLUGIN_VERSION ); // Backend Style
         wp_register_script( 'ap_block_script', plugins_url( 'dist/script.js', __FILE__ ), array( 'jquery', 'swiperJS' ), AP_BLOCK_PLUGIN_VERSION, true ); // Frontend Script
         wp_register_style( 'ap_block_style', plugins_url( 'dist/style.css', __FILE__ ), array( 'wp-editor' ), AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
@@ -209,7 +209,7 @@ class AdvancedPostBlock {
         $jsonData = json_encode( array( 'layout' => $layout, 'columns' => $columns, 'columnGap' => $columnGap, 'sliderIsLoop' => $sliderIsLoop ?? true, 'sliderIsTouchMove' => $sliderIsTouchMove ?? false, 'sliderIsAutoplay' => $sliderIsAutoplay ?? true, 'sliderSpeed' => $sliderSpeed ?? 1.5, 'sliderEffect' => $sliderEffect ?? 'slide', 'sliderIsPageClickable' => $sliderIsPageClickable ?? true, 'sliderIsPageDynamic' => $sliderIsPageDynamic ?? true ) );
     
         ob_start(); ?>
-        <div class='wp-block-ap-block-posts apbAdvancedPosts <?php echo esc_attr('align' . $align); ?>' id='apbAdvancedPosts-<?php echo esc_attr($cId); ?>'>
+        <div class='wp-block-ap-block-posts apbAdvancedPosts <?php echo 'align' . esc_attr( $align ); ?>' id='apbAdvancedPosts-<?php echo esc_attr($cId); ?>'>
             <style>@import url(<?php echo esc_url($titleTypo['googleFontLink'] ?? 'https://fonts.googleapis.com/css2?family=Roboto&display=swap'); ?>); @import url(<?php echo esc_url($metaTypo['googleFontLink'] ?? ''); ?>); @import url(<?php echo esc_url($excerptTypo['googleFontLink'] ?? ''); ?>); @import url(<?php echo esc_url($readMoreTypo['googleFontLink'] ?? ''); ?>);<?php echo wp_kses($apbPostsStyles::renderStyle(), []); ?>
         
                 <?php foreach ( $posts as $post ) {
@@ -243,7 +243,7 @@ class AdvancedPostBlock {
                 </div>
             <?php }else{ echo ''; } ?>
         </div>
-        <?php $apbPostsStyles::$styles = array(); // Empty before blocks styles in after blocks
+        <?php $apbPostsStyles::$styles = array(); // Empty styles
         return ob_get_clean();
     } // Render
 
@@ -323,6 +323,7 @@ class AdvancedPostBlock {
         extract( $attributes );
         $isFImg = $isFImg ?? true;
         $isFImgLink = $isFImgLink ?? false;
+        $isMeta = $isMeta ?? true;
         $isMetaCategory = $isMetaCategory ?? true;
         $metaCategoryIn = $metaCategoryIn ?? 'content';
         $isLinkNewTab = $isLinkNewTab ?? false;
@@ -335,7 +336,7 @@ class AdvancedPostBlock {
             <figure class='apbPostFImg apbPostFImg-<?php echo esc_attr($post->ID); ?>'>
                 <?php echo $isFImgLink ? "<a href=". esc_url(get_post_permalink( $post->ID )) ." target='$tab' rel='noreferrer'></a>" : ''; ?>
 
-                <?php echo $isMetaCategory && 'image' === $metaCategoryIn ? "<div class='apbPostFImgCats'>". get_the_category_list(' ', '', $post->ID ) ."</div>" : ''; ?>
+                <?php echo $isMeta && $isMetaCategory && 'image' === $metaCategoryIn ? "<div class='apbPostFImgCats'>". get_the_category_list(' ', '', $post->ID ) ."</div>" : ''; ?>
             </figure>
         <?php return ob_get_clean();
         }else{

@@ -1,5 +1,5 @@
 // Functions
-import func from '../../../Const/functions';
+import func from '../Const/functions';
 const { truncate, renderHTML } = func;
 
 const PostExcerpt = props => {
