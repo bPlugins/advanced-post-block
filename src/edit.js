@@ -238,7 +238,7 @@ export default withSelect((select, props) => {
     }
 
     return {
-        getPostTypes: select('core').getPostTypes()?.filter(p => 'page' !== p.slug && 'attachment' !== p.slug && 'wp_block' !== p.slug && 'wp_template' !== p.slug)?.map(p => {
+        getPostTypes: select('core').getPostTypes({ per_page: -1 })?.filter(p => 'page' !== p.slug && 'attachment' !== p.slug && 'wp_block' !== p.slug && 'wp_template' !== p.slug)?.map(p => {
             return { label: p.name, value: p.slug }
         }),
         posts: select('core').getEntityRecords('postType', postType, query),
