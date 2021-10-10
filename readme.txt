@@ -129,7 +129,7 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 == Changelog ==
 
 = 1.3.1 =
-* Post types limit fixing.
+* Post types limit extended.
 
 = 1.3 =
 * Post Query fixing.
@@ -150,7 +150,7 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 == Upgrade Notice ==
 
 = 1.3.1 =
-* Post types limit fixing.
+* Post types limit extended.
 
 = 1.3 =
 * Post Query fixing.
