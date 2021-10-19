@@ -28,7 +28,7 @@ const Settings = ({ settings, getPostTypes, categories }) => {
 
     return <>
         <InspectorControls>
-            <TabPanel className='apbTabPanel' activeClass='activeTab' tabs={generalStyleTabs}>{tab => <>
+            <TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={generalStyleTabs}>{tab => <>
                 {'general' === tab.name && <>
                     {/* Layouts Settings */}
                     {posts && 0 !== posts.length && <PanelBody className='bPlPanelBody' title={__('Layouts Settings', 'advanced-post-block')} initialOpen={true}>
@@ -123,13 +123,13 @@ const Settings = ({ settings, getPostTypes, categories }) => {
                         {false === isPostsPerPageAll && <RangeControl value={postsPerPage} onChange={val => setAttributes({ postsPerPage: val })} min={1} max={36} step={1} />}
 
                         {/* Posts Order By */}
-                        <PanelRow className='mt-20p'>
+                        <PanelRow>
                             <Title mt='0' mb='0'>{__('Post Order By:', 'advanced-post-block')}</Title>
                             <SelectControl value={postsOrderBy} onChange={val => setAttributes({ postsOrderBy: val })} options={postsOrdersBy} />
                         </PanelRow>
 
                         {/* Posts Order */}
-                        <PanelRow className='mt-20p'>
+                        <PanelRow>
                             <Title mt='0' mb='0'>{__('Post Order:', 'advanced-post-block')}</Title>
                             <SelectControl value={postsOrder} onChange={val => setAttributes({ postsOrder: val })} options={postsOrders} />
                         </PanelRow>
@@ -163,11 +163,11 @@ const Settings = ({ settings, getPostTypes, categories }) => {
 
                             <ToggleControl label={__('Show Category', 'advanced-post-block')} checked={isMetaCategory} onChange={val => setAttributes({ isMetaCategory: val })} />
 
-                            {isMetaCategory && <>
-                                <Title mt='0' mb='0'>{__('Show Category In:', 'advanced-post-block')}</Title>
+                            {isMetaCategory && <PanelRow>
+                                <Title mt='0' mb='0'>{__('Category In:', 'advanced-post-block')}</Title>
                                 <RadioControl selected={metaCategoryIn} onChange={val => setAttributes({ metaCategoryIn: val })} options={categoriesPosition} />
                                 <Title mt='10px'></Title>
-                            </>}
+                            </PanelRow>}
 
                             <ToggleControl label={__('Show Comment', 'advanced-post-block')} checked={isMetaComment} onChange={val => setAttributes({ isMetaComment: val })} />
                         </>}
@@ -242,7 +242,7 @@ const Settings = ({ settings, getPostTypes, categories }) => {
                     {/* Content Style */}
                     {posts && 0 !== posts.length && <PanelBody className='bPlPanelBody' title={__('Content Settings', 'advanced-post-block')} initialOpen={true}>
                         {/* Text Align */}
-                        <PanelRow className='mt-20p'>
+                        <PanelRow>
                             <Title mt='0' mb='0'>{__('Text Align:', 'advanced-post-block')}</Title>
                             <BtnGroup options={aligns} myValue={contentAlign} setState={val => setAttributes({ contentAlign: val })} icon={true} />
                         </PanelRow>
@@ -270,7 +270,7 @@ const Settings = ({ settings, getPostTypes, categories }) => {
                             <BorderControl label={__('Pagination Border:', 'advanced-post-block')} border={sliderPageBorder} onChange={val => setAttributes({ sliderPageBorder: val })} defaults={{ radius: '50%' }} />
                         </>}
 
-                        {sliderIsPrevNext && <BColor className='mt-20p' label={__('Preview Next Button Color:', 'advanced-post-block')} value={sliderPrevNextColor} onChange={val => setAttributes({ sliderPrevNextColor: val })} defaultColor='#fe6601' />}
+                        {sliderIsPrevNext && <BColor label={__('Preview Next Button Color:', 'advanced-post-block')} value={sliderPrevNextColor} onChange={val => setAttributes({ sliderPrevNextColor: val })} defaultColor='#fe6601' />}
                     </PanelBody>}
 
 
@@ -284,7 +284,7 @@ const Settings = ({ settings, getPostTypes, categories }) => {
                         <Typography typography={titleTypo} onChange={val => setAttributes({ titleTypo: val })} defaults={{ fontSize: 25 }} />
 
                         {/* Color */}
-                        <BColor className='mt-20p' label={__('Color:', 'advanced-post-block')} value={titleColor} onChange={val => setAttributes({ titleColor: val })} defaultColor='#fe6601' />
+                        <BColor label={__('Color:', 'advanced-post-block')} value={titleColor} onChange={val => setAttributes({ titleColor: val })} defaultColor='#fe6601' />
 
                         {/* Margin */}
                         <SpaceControl className='mt-20p' label={__('Margin:', 'advanced-post-block')} space={titleMargin} onChange={val => setAttributes({ titleMargin: val })} defaults={{ side: 4, bottom: '15px' }} />
@@ -297,13 +297,13 @@ const Settings = ({ settings, getPostTypes, categories }) => {
                         <Typography typography={metaTypo} onChange={val => setAttributes({ metaTypo: val })} defaults={{ fontSize: 13, textTransform: 'uppercase' }} />
 
                         {/* Text Color */}
-                        <BColor className='mt-20p' label={__('Text Color:', 'advanced-post-block')} value={metaTextColor} onChange={val => setAttributes({ metaTextColor: val })} defaultColor='#333' />
+                        <BColor label={__('Text Color:', 'advanced-post-block')} value={metaTextColor} onChange={val => setAttributes({ metaTextColor: val })} defaultColor='#333' />
 
                         {/* Link Color */}
-                        <BColor className='mt-20p' label={__('Link Color:', 'advanced-post-block')} value={metaLinkColor} onChange={val => setAttributes({ metaLinkColor: val })} defaultColor='#fe6601' />
+                        <BColor label={__('Link Color:', 'advanced-post-block')} value={metaLinkColor} onChange={val => setAttributes({ metaLinkColor: val })} defaultColor='#fe6601' />
 
                         {/* Icon Color */}
-                        <BColor className='mt-20p' label={__('Icon Color:', 'advanced-post-block')} value={metaIconColor} onChange={val => setAttributes({ metaIconColor: val })} defaultColor='#fe6601' />
+                        <BColor label={__('Icon Color:', 'advanced-post-block')} value={metaIconColor} onChange={val => setAttributes({ metaIconColor: val })} defaultColor='#fe6601' />
 
                         {/* Margin */}
                         <SpaceControl className='mt-20p' label={__('Margin:', 'advanced-post-block')} space={metaMargin} onChange={val => setAttributes({ metaMargin: val })} defaults={{ side: 4, bottom: '15px' }} />
@@ -319,10 +319,10 @@ const Settings = ({ settings, getPostTypes, categories }) => {
                         </PanelRow>
 
                         {/* Typography */}
-                        <Typography className='mt-20p' typography={excerptTypo} onChange={val => setAttributes({ excerptTypo: val })} defaults={{ fontSize: 15 }} />
+                        <Typography typography={excerptTypo} onChange={val => setAttributes({ excerptTypo: val })} defaults={{ fontSize: 15 }} />
 
                         {/* Color */}
-                        <BColor className='mt-20p' label={__('Color:', 'advanced-post-block')} value={excerptColor} onChange={val => setAttributes({ excerptColor: val })} defaultColor='#333' />
+                        <BColor label={__('Color:', 'advanced-post-block')} value={excerptColor} onChange={val => setAttributes({ excerptColor: val })} defaultColor='#333' />
 
                         {/* Margin */}
                         <SpaceControl className='mt-20p' label={__('Margin:', 'advanced-post-block')} space={excerptMargin} onChange={val => setAttributes({ excerptMargin: val })} defaults={{ side: 4, bottom: '10px' }} />
@@ -340,15 +340,15 @@ const Settings = ({ settings, getPostTypes, categories }) => {
                         {/* Typography */}
                         <Typography typography={readMoreTypo} onChange={val => setAttributes({ readMoreTypo: val })} defaults={{ fontSize: 14, textTransform: 'uppercase', fontWeight: 600 }} />
 
+                        <ColorsControl colors={readMoreColors} onChange={val => setAttributes({ readMoreColors: val })} defaults={{ color: '#fff', bg: '#fbb040' }} />
+
+                        <ColorsControl label={__('Hover Colors:', 'b-blocks')} colors={readMoreHovColors} onChange={val => setAttributes({ readMoreHovColors: val })} defaults={{ color: '#fff', bg: '#fe6601' }} />
+
                         {/* Padding */}
                         <SpaceControl className='mt-20p' label={__('Padding:', 'advanced-post-block')} space={readMorePadding} onChange={val => setAttributes({ readMorePadding: val })} defaults={{ vertical: '12px', horizontal: '35px' }} />
 
                         {/* Border */}
                         <BorderControl label={__('Border:', 'advanced-post-block')} border={readMoreBorder} onChange={val => setAttributes({ readMoreBorder: val })} defaults={{ radius: '3px' }} />
-
-                        <ColorsControl colors={readMoreColors} onChange={val => setAttributes({ readMoreColors: val })} defaults={{ color: '#fff', bg: '#fbb040' }} />
-
-                        <ColorsControl label={__('Hover Colors:', 'b-blocks')} colors={readMoreHovColors} onChange={val => setAttributes({ readMoreHovColors: val })} defaults={{ color: '#fff', bg: '#fe6601' }} />
                     </PanelBody>}
                 </>}
             </>}</TabPanel>

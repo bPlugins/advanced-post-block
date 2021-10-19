@@ -1,5 +1,5 @@
 import { updateCategory } from '@wordpress/blocks';
-import { registerBlockType } from '@wordpress/blocks';
+import { registerBlockType, createBlock } from '@wordpress/blocks';
 
 //  Import Scss.
 import './editor.scss';
@@ -19,6 +19,24 @@ const { name, title, description, category, keywords, supports, attributes, exam
 
 registerBlockType(name, {
     title, description, icon, category, keywords, supports, attributes, example,
+
+    transforms: {
+        from: [
+            { type: 'block', blocks: ['b-blocks/posts'], transform: attributes => createBlock('ap-block/posts', attributes) },
+            { type: 'prefix', prefix: 'apb', transform: () => createBlock('ap-block/posts') },
+            { type: 'prefix', prefix: 'posts', transform: () => createBlock('ap-block/posts') }
+        ],
+
+        to: [
+            {
+                type: 'block', blocks: ['b-blocks/posts'], isMatch: attributes => {
+                    if (attributes) return true;
+                    return false;
+                },
+                transform: attributes => createBlock('b-blocks/posts', attributes)
+            }
+        ]
+    },
 
     // Build In Functions
     edit: Edit,

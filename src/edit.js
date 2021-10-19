@@ -242,7 +242,7 @@ export default withSelect((select, props) => {
             return { label: p.name, value: p.slug }
         }),
         posts: select('core').getEntityRecords('postType', postType, query),
-        categories: select('core').getEntityRecords('taxonomy', 'category'),
+        categories: select('core').getEntityRecords('taxonomy', 'category', { per_page: -1 }),
         media: id => select('core').getMedia(id),
         authors: select('core').getAuthors(),
         isEditorSidebarOpened: select('core/edit-post').isEditorSidebarOpened()
