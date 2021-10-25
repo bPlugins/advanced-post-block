@@ -1,6 +1,6 @@
 // Variables
-$primaryColor: #fe6601;
-$secondaryColor: #fbb040;
+$primaryColor: #4527a4;
+$secondaryColor: #8344c5;
 
 // Common CSS
 html{
@@ -66,7 +66,7 @@ html{
         font-size: 15px!important;
     }
 
-    img{
+    .read-more, .wp-block-cover, .wp-block-image, img{
         display: none;
     }
 

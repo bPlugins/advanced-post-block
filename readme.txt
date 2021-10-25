@@ -5,7 +5,7 @@ Tags: block, show posts, blog posts, display blog posts, embed custom posts, gut
 Requires at least: 5.0+
 Tested up to: 5.8.1
 Requires PHP: 7.1
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -133,6 +133,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.3.3 =
+* Post excerpt content fix.
+
 = 1.3.2 =
 * Categories limit extended.
 * Update style.
@@ -157,6 +160,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.3.3 =
+* Post excerpt content fix.
 
 = 1.3.2 =
 * Categories limit extended.

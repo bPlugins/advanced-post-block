@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { withSelect } from '@wordpress/data';
-import { useEffect, useRef } from '@wordpress/element';
+import { useEffect, useRef, useState, createContext } from '@wordpress/element';
 import { Spinner } from '@wordpress/components';
 
 const $ = jQuery;
@@ -13,6 +13,8 @@ import SideImage from './Layout/SideImage';
 import Overlay from './Layout/Overlay';
 import func from './Const/functions';
 const { mediaUrl } = func;
+
+export const ExcerptLengthCtx = createContext();
 
 const Edit = props => {
     const { attributes, setAttributes, className, clientId, getPostTypes, posts, categories, isEditorSidebarOpened } = props;
@@ -118,8 +120,21 @@ const Edit = props => {
         });
     }, [attributes, posts]);
 
+    // Set excerpt length
+    const [maxExcerptLength, setMaxExcerptLength] = useState(50);
+    useEffect(() => {
+        const allMaxExcerptLength = [];
+        posts.map(post => {
+            allMaxExcerptLength.push(post.excerpt.rendered.replace(/(<p class='?"?read-more'?"?(.*?)<\/p>)/g, '').trim().split(' ').length);
+
+            setMaxExcerptLength(Math.max(...allMaxExcerptLength));
+        });
+    }, [posts]);
+
     return <>
-        <Settings settings={props} getPostTypes={getPostTypes} categories={categories} />
+        <ExcerptLengthCtx.Provider value={maxExcerptLength}>
+            <Settings settings={props} getPostTypes={getPostTypes} categories={categories} />
+        </ExcerptLengthCtx.Provider>
 
         {posts && 0 !== posts.length ? <div className={`${className} apbAdvancedPosts`} id={`apbAdvancedPosts-${clientId}`}>
             <style dangerouslySetInnerHTML={{
@@ -128,7 +143,7 @@ const Edit = props => {
                 
                 #apbAdvancedPosts-${clientId} .apbPost{
                     margin-bottom: ${'masonry' === layout ? `${rowGap}px` : '0px'};
-                    ${border?.styles || 'border: 1px solid #fe660100; border-radius: 5px;'}
+                    ${border?.styles || 'border: 1px solid #4527a400; border-radius: 5px;'}
                 }
                 #apbAdvancedPosts-${clientId} .apbPostDefault, #apbAdvancedPosts-${clientId} .apbPostSideImage{
                     text-align: ${contentAlign};
@@ -169,11 +184,11 @@ const Edit = props => {
                 #apbAdvancedPosts-${clientId} .apbPost .apbPostReadMore{ text-align: ${readMoreAlign}; }
                 #apbAdvancedPosts-${clientId} .apbPost .apbPostReadMore a{
                     ${readMoreTypo?.styles || 'font-size: 14px; text-transform: uppercase; font-weight: 600;'}
-                    ${readMoreColors?.styles || 'color: #fff; background: #fbb040;'}
+                    ${readMoreColors?.styles || 'color: #fff; background: #8344c5;'}
                     padding: ${readMorePadding?.styles || '12px 35px'};
                     ${readMoreBorder?.styles || 'border-radius: 3px;'}
                 }
-                #apbAdvancedPosts-${clientId} .apbPost .apbPostReadMore a:hover{ ${readMoreHovColors?.styles || 'color: #fff; background: #fe6601;'} }
+                #apbAdvancedPosts-${clientId} .apbPost .apbPostReadMore a:hover{ ${readMoreHovColors?.styles || 'color: #fff; background: #4527a4;'} }
 
                 #apbAdvancedPosts-${clientId} .apbGridPosts{
                     grid-gap: ${rowGap}px ${columnGap}px;
@@ -242,7 +257,7 @@ export default withSelect((select, props) => {
             return { label: p.name, value: p.slug }
         }),
         posts: select('core').getEntityRecords('postType', postType, query),
-        categories: select('core').getEntityRecords('taxonomy', 'category', { per_page: -1 }),
+        categories: select('core').getEntityRecords('taxonomy', 'category', { post_type: postType, per_page: -1 }),
         media: id => select('core').getMedia(id),
         authors: select('core').getAuthors(),
         isEditorSidebarOpened: select('core/edit-post').isEditorSidebarOpened()

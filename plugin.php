@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display Posts in Gutenberg Editor.
- * Version: 1.3.2
+ * Version: 1.3.3
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.3.2' );
+define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.3.3' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Generate Styles
@@ -50,6 +50,7 @@ class AdvancedPostBlock {
         } else { add_filter( 'block_categories_all', [$this, 'categories'] ); }
         add_action( 'wp_loaded', [$this, 'register'] );
         add_action( 'rest_api_init', [$this, 'custom_rest'] );
+        add_filter( 'excerpt_more', [$this, 'excerptMore'] );
     }
 
     public static function instance(){
@@ -110,20 +111,20 @@ class AdvancedPostBlock {
         $contentPadding = $contentPadding ?? array( 'vertical' => '20px', 'horizontal' => '25px' );
         $border = $border ?? array( 'radius' => '5px' );
         $sliderIsPage = $sliderIsPage ?? true;
-        $sliderPageColor = $sliderPageColor ?? '#fe6601';
+        $sliderPageColor = $sliderPageColor ?? '#4527a4';
         $sliderPageWidth = $sliderPageWidth ?? '15px';
         $sliderPageHeight = $sliderPageHeight ?? '15px';
         $sliderPageBorder = $sliderPageBorder ?? array( 'radius' => '50%' );
         $sliderIsPrevNext = $sliderIsPrevNext ?? true;
-        $sliderPrevNextColor = $sliderPrevNextColor ?? '#fe6601';
+        $sliderPrevNextColor = $sliderPrevNextColor ?? '#4527a4';
         $isFImg = $isFImg ?? true;
         $titleTypo = $titleTypo ?? array( 'fontFamily' => 'Roboto', 'fontSize' => 25, 'googleFontLink' => 'https://fonts.googleapis.com/css2?family=Roboto&display=swap' );
-        $titleColor = $titleColor ?? '#fe6601';
+        $titleColor = $titleColor ?? '#4527a4';
         $titleMargin = $titleMargin ?? array( 'bottom' => '15px' );
         $metaTypo = $metaTypo ?? array( 'fontSize' => 13, 'textTransform' => 'uppercase' );
         $metaTextColor = $metaTextColor ?? '#333';
-        $metaLinkColor = $metaLinkColor ?? '#fe6601';
-        $metaIconColor = $metaIconColor ?? '#fe6601';
+        $metaLinkColor = $metaLinkColor ?? '#8344c5';
+        $metaIconColor = $metaIconColor ?? '#4527a4';
         $metaMargin = $metaMargin ?? array( 'bottom' => '15px' );
         $excerptAlign = $excerptAlign ?? 'justify';
         $excerptTypo = $excerptTypo ?? array( 'fontSize' => 15 );
@@ -131,8 +132,8 @@ class AdvancedPostBlock {
         $excerptMargin = $excerptMargin ?? array( 'bottom' => '10px' );
         $readMoreAlign = $readMoreAlign ?? 'left';
         $readMoreTypo = $readMoreTypo ?? array( 'fontSize' => 14, 'textTransform' => 'uppercase', 'fontWeight' => 600 );
-        $readMoreColors = $readMoreColors ?? array( 'color' => '#fff', 'bg' => '#fbb040' );
-        $readMoreHovColors = $readMoreHovColors ?? array( 'color' => '#fff', 'bg' => '#fe6601' );
+        $readMoreColors = $readMoreColors ?? array( 'color' => '#fff', 'bg' => '#8344c5' );
+        $readMoreHovColors = $readMoreHovColors ?? array( 'color' => '#fff', 'bg' => '#4527a4' );
         $readMorePadding = $readMorePadding ?? array( 'vertical' => '12px', 'horizontal' => '35px' );
         $readMoreBorder = $readMoreBorder ?? array( 'radius' => '3px');
 
@@ -178,11 +179,11 @@ class AdvancedPostBlock {
         $apbPostsStyles::addStyle("#apbAdvancedPosts-$cId .apbPost .apbPostReadMore", array( 'text-align' => $readMoreAlign ));
         $apbPostsStyles::addStyle("#apbAdvancedPosts-$cId .apbPost .apbPostReadMore a", array(
             $readMoreTypo['styles'] ?? 'font-size: 14px; text-transform: uppercase; font-weight: 600;' => '',
-            $readMoreColors['styles'] ?? 'color: #fff; background: #fbb040;' => '',
+            $readMoreColors['styles'] ?? 'color: #fff; background: #8344c5;' => '',
             'padding' => $readMorePadding['styles'] ?? '12px 35px',
             $readMoreBorder['styles'] ?? 'border-radius: 3px;' => ''
         ));
-        $apbPostsStyles::addStyle("#apbAdvancedPosts-$cId .apbPost .apbPostReadMore a:hover", array( $readMoreHovColors['styles'] ?? 'color: #fff; background: #fe6601;' => '' ));
+        $apbPostsStyles::addStyle("#apbAdvancedPosts-$cId .apbPost .apbPostReadMore a:hover", array( $readMoreHovColors['styles'] ?? 'color: #fff; background: #4527a4;' => '' ));
         $apbPostsStyles::addStyle("#apbAdvancedPosts-$cId .apbGridPosts", array(
             'grid-gap' => $rowGap .'px '. $columnGap .'px',
             'align-items' => false === $isContentEqualHight ? 'start' : 'initial'
@@ -263,7 +264,7 @@ class AdvancedPostBlock {
         }
     }
 
-    // layout Components
+    // Layout Components
     function defaultLayout( $attributes, $post ) {
         extract( $attributes );
         $layout = $layout ?? 'grid';
@@ -447,7 +448,7 @@ class AdvancedPostBlock {
 
         if ( $isExcerpt ) {
             ob_start(); ?>
-            <div class='apbPostExcerpt apbInnerContent'><?php echo implode( ' ', array_slice( explode( ' ', get_post_field( 'post_content', $post->ID ) ), 0, $excerptLength ) ); ?></div>
+            <div class='apbPostExcerpt apbInnerContent'><?php echo implode( ' ', array_slice( explode( ' ', get_the_excerpt( $post->ID ) ), 0, $excerptLength ) ); ?></div>
             <?php return ob_get_clean();
         } else {
             return '';
@@ -541,5 +542,9 @@ class AdvancedPostBlock {
             ) );
         }
     } // Custom rest
+
+    function excerptMore( $more ) {
+        return "<p class='read-more'><a href=". esc_url( get_permalink( get_the_ID() ) ) .">". __( 'Read More &raquo;', 'b-blocks' ) ."</a></p>";
+    } // Excerpt More
 }
 AdvancedPostBlock::instance();

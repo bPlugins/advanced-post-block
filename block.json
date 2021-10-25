@@ -132,7 +132,7 @@
         },
         "sliderPageColor": {
             "type": "string",
-            "default": "#fe6601"
+            "default": "#4527a4"
         },
         "sliderPageWidth": {
             "type": "string",
@@ -154,7 +154,7 @@
         },
         "sliderPrevNextColor": {
             "type": "string",
-            "default": "#fe6601"
+            "default": "#4527a4"
         },
         "isFImg": {
             "type": "boolean",
@@ -182,7 +182,7 @@
         },
         "titleColor": {
             "type": "string",
-            "default": "#fe6601"
+            "default": "#4527a4"
         },
         "titleMargin": {
             "type": "object",
@@ -227,11 +227,11 @@
         },
         "metaLinkColor": {
             "type": "string",
-            "default": "#fe6601"
+            "default": "#8344c5"
         },
         "metaIconColor": {
             "type": "string",
-            "default": "#fe6601"
+            "default": "#4527a4"
         },
         "metaMargin": {
             "type": "object",
@@ -295,14 +295,14 @@
             "type": "object",
             "default": {
                 "color": "#fff",
-                "bg": "#fbb040"
+                "bg": "#8344c5"
             }
         },
         "readMoreHovColors": {
             "type": "object",
             "default": {
                 "color": "#fff",
-                "bg": "#fe6601"
+                "bg": "#4527a4"
             }
         },
         "readMorePadding": {

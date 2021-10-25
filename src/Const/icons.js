@@ -1,4 +1,4 @@
-const iconColor = '#fe6601';
+const iconColor = '#4527a4';
 const icons = {
     advancedPosts: (size) => <svg width={size} height={size} viewBox='0 0 512 512'>
         <path fill={iconColor} d='m294.416 447.644 56.28-62.302-47.401-27.367-25.815 79.891c-3.315 10.257 9.71 17.777 16.936 9.778z' />

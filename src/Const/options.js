@@ -26,16 +26,28 @@ const options = {
     ],
 
     effects: [
-        { label: 'Slide', value: 'slide' },
-        { label: 'Fade', value: 'fade' },
-        { label: 'Creative', value: 'creative' }
+        { label: __('Slide', 'advanced-post-block'), value: 'slide' },
+        { label: __('Fade', 'advanced-post-block'), value: 'fade' },
+        { label: __('Creative', 'advanced-post-block'), value: 'creative' }
+    ],
+
+    postsOrdersBy: [
+        { label: __('Author', 'advanced-post-block'), value: 'author' },
+        { label: __('Title', 'advanced-post-block'), value: 'title' },
+        { label: __('Date', 'advanced-post-block'), value: 'date' },
+        { label: __('Last Modified', 'advanced-post-block'), value: 'modified' },
+    ],
+
+    postsOrders: [
+        { label: __('Ascending', 'advanced-post-block'), value: 'asc' },
+        { label: __('Descending', 'advanced-post-block'), value: 'desc' }
     ],
 
     aligns: [
-        { label: 'Left', value: 'left', icon: 'editor-alignleft' },
-        { label: 'Center', value: 'center', icon: 'editor-aligncenter' },
-        { label: 'Right', value: 'right', icon: 'editor-alignright' },
-        { label: 'Justify', value: 'justify', icon: 'editor-justify' }
+        { label: __('Left', 'advanced-post-block'), value: 'left', icon: 'editor-alignleft' },
+        { label: __('Center', 'advanced-post-block'), value: 'center', icon: 'editor-aligncenter' },
+        { label: __('Right', 'advanced-post-block'), value: 'right', icon: 'editor-alignright' },
+        { label: __('Justify', 'advanced-post-block'), value: 'justify', icon: 'editor-justify' }
     ],
 
     pxUnit: { value: 'px', label: 'px', default: 0 },
@@ -51,25 +63,13 @@ const options = {
     ],
 
     gradients: [
-        { name: 'Reddish Orange to Yellowish Orange', gradient: 'linear-gradient(135deg, #fe6601, #fbb040)', slug: 'reddish-orange-to-yellowish-orange' },
         { name: 'Daisy Bush to Fuchsia Blue', gradient: 'linear-gradient(135deg, #4527a4, #8344c5)', slug: 'daisy-bush-to-fuchsia-blue' },
+        { name: 'Reddish Orange to Yellowish Orange', gradient: 'linear-gradient(135deg, #fe6601, #fbb040)', slug: 'reddish-orange-to-yellowish-orange' },
         { name: 'Tuft Bush to Carnation Pink', gradient: 'linear-gradient(135deg, #fed1c7, #fe8dc6)', slug: 'tuft-bush-to-carnation-pink' },
         { name: 'Golden Fizz to Yellow Orange', gradient: 'linear-gradient(135deg, #f9ed32, #fbb040)', slug: 'golden-fizz-to-yellow-orange' },
         { name: 'Light Electric Violet to Electric Violet', gradient: 'linear-gradient(135deg, #e100ff, #7f00ff)', slug: 'light-electric-violet-to-electric-violet' },
         { name: 'Hot Pink to Violet Red', gradient: 'linear-gradient(135deg, #ff7db8, #ee2a7b)', slug: 'hot-pink-to-violet-red' },
         { name: 'Spring Green to Azure Radiance', gradient: 'linear-gradient(135deg, #00ff8f, #00a1ff)', slug: 'spring-green-to-azure-radiance' }
-    ],
-
-    postsOrdersBy: [
-        { label: 'Author', value: 'author' },
-        { label: 'Title', value: 'title' },
-        { label: 'Date', value: 'date' },
-        { label: 'Last Modified', value: 'modified' },
-    ],
-
-    postsOrders: [
-        { label: 'Ascending', value: 'asc' },
-        { label: 'Descending', value: 'desc' }
     ]
 }
 export default options;
