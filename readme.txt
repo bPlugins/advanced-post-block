@@ -5,7 +5,7 @@ Tags: block, show posts, blog posts, display blog posts, embed custom posts, gut
 Requires at least: 5.0+
 Tested up to: 5.8.1
 Requires PHP: 7.1
-Stable tag: 1.3.3
+Stable tag: 1.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -39,6 +39,16 @@ Advanced Post Block is powerful but lightweight. Work with any theme, just need 
 - **Meta Data:** Custom Typography with customizable Icon, Link, and Text color for meta data.
 
 - **Read More Link:** Custom read more label, normal and hover color with typography.
+
+
+= Pro Features =
+- **Layouts:** Checkout more layouts and sub layouts.
+
+- **Pagination:** Add custom pagination bottom of the posts.
+
+- **Tag Filter:** Post Filter by tags (only for default post).
+
+- **Reading Time:** Show post reading time in meta area.
 
 
 = How to use =
@@ -119,19 +129,28 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Screenshots ==
 
-1. All Settings
-2. Grid- default
-3. Masonry- default
-4. Slider- default
-5. Title Meta layout
-6. Left Image layout
-7. Right Image layout
-8. Overlay Content layout
-9. Overlay on Hover layout
-10. Overlay Box layout
+1. Grid- Default layout
+2. Grid- Title Meta layout, Customize
+3. Grid- Left Image layout
+4. Grid- Right Image layout, Customize
+5. Grid- Overlay layout
+6. Grid- Overlay Box layout
+7. Masonry- Default layout
+8. Masonry- Title Meta layout, and Customize
+9. Masonry- Left Image layout
+10. Masonry- Right Image layout, and Customize
+11. Masonry- Overlay layout
+12. Masonry- Overlay Box layout
+13. Slider- Left Image layout
+14. Slider- Right Image layout, and Customize
+15. Slider- Overlay layout
+16. Slider- Overlay Box layout
 
 
 == Changelog ==
+
+= 1.4.0 =
+* Performance Upgrade.
 
 = 1.3.3 =
 * Post excerpt content fix.
@@ -160,6 +179,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.4.0 =
+* Performance Upgrade.
 
 = 1.3.3 =
 * Post excerpt content fix.

@@ -3,8 +3,10 @@ import func from '../Const/functions';
 const { truncate, renderHTML } = func;
 
 const PostExcerpt = props => {
-    const { atts: { isExcerpt, excerptLength }, post: { excerpt } } = props;
+    const { atts: { isExcerpt, excerptLength }, post: { excerpt, content } } = props;
 
-    return isExcerpt ? <div className='apbPostExcerpt apbInnerContent'>{renderHTML(truncate(excerpt.rendered, excerptLength))}</div> : null;
+    const renderContent = excerpt ? excerpt?.rendered : content?.rendered;
+
+    return isExcerpt ? <div className='apbPostExcerpt apbInnerContent'>{renderHTML(truncate(renderContent, excerptLength))}</div> : null;
 };
 export default PostExcerpt;

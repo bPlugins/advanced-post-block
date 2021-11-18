@@ -17,7 +17,7 @@ const options = {
         { label: __('Right Image', 'advanced-post-block'), value: 'right-image' },
         { label: __('Overlay Content', 'advanced-post-block'), value: 'overlay-content' },
         { label: __('Overlay Content Hover', 'advanced-post-block'), value: 'overlay-content-hover' },
-        { label: __('Overlay Box', 'advanced-post-block'), value: 'overlay-box' },
+        { label: __('Overlay Box', 'advanced-post-block'), value: 'overlay-box' }
     ],
 
     categoriesPosition: [

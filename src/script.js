@@ -68,6 +68,8 @@ Object.values(allApbPosts).map(posts => {
     swiperSlide.length && swiperSlide.forEach(slide => {
         slide.style.height = `${Math.max(...slideHeightArray)}px`;
     });
+
+    sliderEl?.removeAttribute('data-slider');
 });
 
 // Custom Scripts

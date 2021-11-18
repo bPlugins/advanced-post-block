@@ -26,8 +26,7 @@ const Edit = props => {
         return <h3 className='apbLoading'><Spinner /> {__('Loading...', 'advanced-post-block')}</h3>;
     }
 
-    // Update clientId
-    useEffect(() => { clientId && setAttributes({ cId: clientId }); }, [clientId]);
+    useEffect(() => { clientId && setAttributes({ cId: clientId }); }, [clientId]); // Set & Update clientId to cId
     const sliderRef = useRef(null);
     const sliderWrapperRef = useRef(null);
 
@@ -125,7 +124,7 @@ const Edit = props => {
     useEffect(() => {
         const allMaxExcerptLength = [];
         posts.map(post => {
-            allMaxExcerptLength.push(post.excerpt.rendered.replace(/(<p class='?"?read-more'?"?(.*?)<\/p>)/g, '').trim().split(' ').length);
+            allMaxExcerptLength.push(post?.excerpt?.rendered.replace(/(<p class='?"?read-more'?"?(.*?)<\/p>)/g, '').trim().split(' ').length);
 
             setMaxExcerptLength(Math.max(...allMaxExcerptLength));
         });
