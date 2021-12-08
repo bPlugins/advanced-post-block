@@ -1,8 +1,7 @@
 // import Sass
 import './style.scss';
 
-// Swiper CSS
-import 'swiper/css/bundle';
+import 'swiper/css/bundle'; // Swiper CSS
 
 // Slider Posts
 const allApbPosts = document.querySelectorAll('.wp-block-ap-block-posts');

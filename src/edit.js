@@ -1,11 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { withSelect } from '@wordpress/data';
-import { useEffect, useRef, useState, createContext } from '@wordpress/element';
+import { useState, useEffect, createContext, useRef } from '@wordpress/element';
 import { Spinner } from '@wordpress/components';
-
-const $ = jQuery;
-
-import Settings from './settings';
 
 // Components
 import Default from './Layout/Default';
@@ -14,12 +10,16 @@ import Overlay from './Layout/Overlay';
 import func from './Const/functions';
 const { mediaUrl } = func;
 
+const $ = jQuery;
+
+import Settings from './settings';
+
 export const ExcerptLengthCtx = createContext();
 
 const Edit = props => {
     const { attributes, setAttributes, className, clientId, getPostTypes, posts, categories, isEditorSidebarOpened } = props;
 
-    const { align, layout, columns, columnGap, rowGap, isContentEqualHight, sliderHeight, contentAlign, contentBG, contentPadding, border, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderSpeed, sliderEffect, sliderIsPage, sliderIsPageClickable, sliderIsPageDynamic, sliderPageColor, sliderPageWidth, sliderPageHeight, sliderPageBorder, sliderIsPrevNext, sliderPrevNextColor, isFImg, isTitleLink, titleTypo, titleColor, titleMargin, metaTypo, metaTextColor, metaLinkColor, metaIconColor, metaMargin, excerptAlign, excerptTypo, excerptColor, excerptMargin, readMoreAlign, readMoreTypo, readMoreColors, readMoreHovColors, readMorePadding, readMoreBorder } = attributes;
+    const { align, layout, columns, columnGap, rowGap, isContentEqualHight, sliderHeight, contentAlign, contentBG, contentPadding, border, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderSpeed, sliderEffect, sliderIsPage, sliderIsPageClickable, sliderIsPageDynamic, sliderPageColor, sliderPageWidth, sliderPageHeight, sliderPageBorder, sliderIsPrevNext, sliderPrevNextColor, isFImg, isTitleLink, titleTypo, titleColor, titleMargin, metaTypo, metaTextColor, metaLinkColor, metaIconColor, metaColorsOnImage, metaMargin, excerptAlign, excerptTypo, excerptColor, excerptMargin, readMoreAlign, readMoreTypo, readMoreColors, readMoreHovColors, readMorePadding, readMoreBorder } = attributes;
 
     // Posts and Categories Check
     if (!posts || !categories) {
@@ -132,7 +132,7 @@ const Edit = props => {
 
     return <>
         <ExcerptLengthCtx.Provider value={maxExcerptLength}>
-            <Settings settings={props} getPostTypes={getPostTypes} categories={categories} />
+            <Settings attributes={attributes} setAttributes={setAttributes} posts={posts} getPostTypes={getPostTypes} categories={categories} />
         </ExcerptLengthCtx.Provider>
 
         {posts && 0 !== posts.length ? <div className={`${className} apbAdvancedPosts`} id={`apbAdvancedPosts-${clientId}`}>
@@ -174,6 +174,7 @@ const Edit = props => {
                 #apbAdvancedPosts-${clientId} .apbPost .apbPostMeta a{ color: ${metaLinkColor}; }
                 #apbAdvancedPosts-${clientId} .apbPost .apbPostMeta .dashicons{ color: ${metaIconColor}; }
                 #apbAdvancedPosts-${clientId} .apbPost .apbPostFImgCats{ ${metaTypo?.styles || 'font-size: 13px; text-transform: uppercase;'} }
+                #apbAdvancedPosts-${clientId} .apbPost .apbPostFImgCats a{ ${metaColorsOnImage?.styles || 'color: #fff; background: #4527a4;'} }
                 #apbAdvancedPosts-${clientId} .apbPost .apbPostExcerpt{
                     text-align: ${excerptAlign};
                     ${excerptTypo?.styles || 'font-size: 15px;'}

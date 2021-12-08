@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display Posts in Gutenberg Editor.
- * Version: 1.4.0
+ * Version: 1.4.2
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.4.0' );
+define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.4.2' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Generate Styles
@@ -43,13 +43,13 @@ class AdvancedPostBlock {
     protected static $_instance = null;
 
     function __construct(){
-        add_action( 'enqueue_block_assets', [$this, 'enqueue_block_assets'] );
-        add_action( 'wp_enqueue_scripts', [$this, 'enqueue_assets'] );
+        add_action( 'enqueue_block_assets', [$this, 'enqueueBlockAssets'] );
+        add_action( 'wp_enqueue_scripts', [$this, 'enqueueAssets'] );
         if ( version_compare( $GLOBALS['wp_version'], '5.8-alpha-1', '<' ) ) {
-            add_filter( 'block_categories', [$this, 'categories'] );
-        } else { add_filter( 'block_categories_all', [$this, 'categories'] ); }
+            add_filter( 'block_categories', [$this, 'blockCategories'] );
+        } else { add_filter( 'block_categories_all', [$this, 'blockCategories'] ); }
         add_action( 'wp_loaded', [$this, 'register'] );
-        add_action( 'rest_api_init', [$this, 'custom_rest'] );
+        add_action( 'rest_api_init', [$this, 'customRestAPI'] );
         add_filter( 'excerpt_more', [$this, 'excerptMore'] );
     }
 
@@ -60,11 +60,11 @@ class AdvancedPostBlock {
         return self::$_instance;
     }
 
-    function enqueue_block_assets(){ wp_enqueue_script( 'swiperJS', AP_BLOCK_ASSETS_DIR . 'js/swiper-bundle.min.js', [], AP_BLOCK_PLUGIN_VERSION, true ); }
+    function enqueueBlockAssets(){ wp_enqueue_script( 'swiperJS', AP_BLOCK_ASSETS_DIR . 'js/swiper-bundle.min.js', [], AP_BLOCK_PLUGIN_VERSION, true ); }
 
-    function enqueue_assets(){ wp_enqueue_style( 'dashicons' ); }
+    function enqueueAssets(){ wp_enqueue_style( 'dashicons' ); }
 
-    function categories( $categories ){
+    function blockCategories( $categories ){
         return array_merge( [ [
             'slug'  => 'APBlock',
             'title' => 'Advanced Post Block',
@@ -125,6 +125,7 @@ class AdvancedPostBlock {
         $metaTextColor = $metaTextColor ?? '#333';
         $metaLinkColor = $metaLinkColor ?? '#8344c5';
         $metaIconColor = $metaIconColor ?? '#4527a4';
+        $metaColorsOnImage = $metaColorsOnImage ?? [ 'color' => '#fff', 'bg' => '#4527a4' ];
         $metaMargin = $metaMargin ?? [ 'bottom' => '15px' ];
         $excerptAlign = $excerptAlign ?? 'justify';
         $excerptTypo = $excerptTypo ?? [ 'fontSize' => 15 ];
@@ -170,6 +171,9 @@ class AdvancedPostBlock {
         $apbPostsStyles::addStyle( "#apbAdvancedPosts-$cId .apbPost .apbPostFImgCats", [
             $metaTypo['styles'] ?? 'font-size: 13px; text-transform: uppercase;' => ''
         ] );
+        $apbPostsStyles::addStyle( "#apbAdvancedPosts-$cId .apbPost .apbPostFImgCats a", [
+            $metaColorsOnImage['styles'] ?? 'color: #fff; background: #4527a4;' => '',
+        ] );
         $apbPostsStyles::addStyle( "#apbAdvancedPosts-$cId .apbPost .apbPostExcerpt", [
             'text-align' => $excerptAlign,
             $excerptTypo['styles'] ?? 'font-size: 15px;' => '',
@@ -197,7 +201,7 @@ class AdvancedPostBlock {
             $sliderPageBorder['styles'] ?? 'border-radius: 50%;' => ''
         ] );
         $apbPostsStyles::addStyle( "#apbAdvancedPosts-$cId .apbSliderPosts .swiper-button-prev, #apbAdvancedPosts-$cId .apbSliderPosts .swiper-button-next", [ 'color' => $sliderPrevNextColor ] );
-    
+
         // All Posts
         $defaultPostFilter = 'post' === $postType ? [
             'category'       => $selectedCategories
@@ -210,15 +214,15 @@ class AdvancedPostBlock {
         ], $defaultPostFilter ) );
 
         $jsonData = wp_json_encode( [ 'layout' => $layout, 'columns' => $columns, 'columnGap' => $columnGap, 'sliderIsLoop' => $sliderIsLoop ?? true, 'sliderIsTouchMove' => $sliderIsTouchMove ?? false, 'sliderIsAutoplay' => $sliderIsAutoplay ?? true, 'sliderSpeed' => $sliderSpeed ?? 1.5, 'sliderEffect' => $sliderEffect ?? 'slide', 'sliderIsPageClickable' => $sliderIsPageClickable ?? true, 'sliderIsPageDynamic' => $sliderIsPageDynamic ?? true ] );
-    
+
         ob_start(); ?>
         <div class='wp-block-ap-block-posts apbAdvancedPosts <?php echo 'align' . esc_attr( $align ); ?>' id='apbAdvancedPosts-<?php echo esc_attr( $cId ); ?>'>
             <style>@import url( <?php echo esc_url( $titleTypo['googleFontLink'] ?? 'https://fonts.googleapis.com/css2?family=Roboto&display=swap' ); ?> ); @import url( <?php echo esc_url( $metaTypo['googleFontLink'] ?? '' ); ?> ); @import url( <?php echo esc_url( $excerptTypo['googleFontLink'] ?? '' ); ?> ); @import url( <?php echo esc_url( $readMoreTypo['googleFontLink'] ?? '' ); ?> );<?php echo wp_kses( $apbPostsStyles::renderStyle(), [] ); ?>
-        
+
                 <?php foreach ( $posts as $post ) {
                     $imgUrl = get_the_post_thumbnail_url( $post->ID );
                     $displayCSS = $imgUrl ? 'grid' : 'flex';
-        
+
                     $sideImgCSS = "#apbAdvancedPosts-$cId .apbPostSideImage.apbPost-$post->ID{ display: $displayCSS; }";
                     $fImgCSS = $isFImg && $imgUrl ? "#apbAdvancedPosts-$cId .apbPostOverlay.apbPost-$post->ID, #apbAdvancedPosts-$cId .apbPost .apbPostFImg-$post->ID{ background-image: url( $imgUrl ); }" : '';
 
@@ -481,13 +485,13 @@ class AdvancedPostBlock {
             'public'       => true,
             'show_in_rest' => true,
         ], 'objects' );
-    
+
         $options = [];
         foreach ( $post_types as $post_type ) {
             if ( 'product' === $post_type->name ) { continue; }
             if ( 'attachment' === $post_type->name ) { continue; }
             if ( 'page' === $post_type->name ) { continue; }
-    
+
             $options[] = [
                 'value' => $post_type->name,
                 'label' => $post_type->label
@@ -496,7 +500,7 @@ class AdvancedPostBlock {
         return $options;
     } // Post Types
 
-    function custom_rest() {
+    function customRestAPI() {
         $post_type = $this->post_types();
         foreach ( $post_type as $key => $value ) {
             register_rest_field( $value['value'], 'wbAuthor', [
@@ -510,7 +514,7 @@ class AdvancedPostBlock {
                     'type'        => 'string'
                 ]
             ] );
-    
+
             register_rest_field( $value['value'], 'wbDate', [
                 'get_callback'    => function ( $obj ) {
                     return get_the_date( 'M j, Y', $obj['id'] );
@@ -520,7 +524,7 @@ class AdvancedPostBlock {
                     'type'        => 'string'
                 ]
             ] );
-    
+
             register_rest_field( $value['value'], 'wbCategories', [
                 'get_callback'    => function ( $obj ) {
                     $catsLink['space'] = get_the_category_list( esc_html__( ' ' ), '', $obj['id'] );
@@ -532,7 +536,7 @@ class AdvancedPostBlock {
                     'type'        => 'string'
                 ]
             ] );
-    
+
             register_rest_field( $value['value'], 'wbComment', [
                 'get_callback'    => function ( $obj ) {
                     return wp_count_comments( $obj['id'] )->total_comments;

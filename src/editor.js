@@ -1,10 +1,9 @@
 import { updateCategory } from '@wordpress/blocks';
 import { registerBlockType } from '@wordpress/blocks';
 
-//  Import Scss.
-import './editor.scss';
-
+//  Import Files
 import Edit from './edit';
+import './editor.scss';
 
 // Icons
 import icons from './Const/icons';
@@ -20,7 +19,7 @@ const { name, title, description, category, keywords, supports, attributes, exam
 registerBlockType(name, {
     title, description, icon, category, keywords, supports, attributes, example,
 
-    // Build In Functions
+    // Build in Functions
     edit: Edit,
 
     save: () => null
