@@ -29,12 +29,15 @@ const Edit = props => {
     useEffect(() => { clientId && setAttributes({ cId: clientId }); }, [clientId]); // Set & Update clientId to cId
     const sliderRef = useRef(null);
     const sliderWrapperRef = useRef(null);
+    const tickerRef = useRef(null);
+    const tickerWrapperRef = useRef(null);
 
     // Components
     const noPosts = () => <h3 className='apbNoPosts'>{__('No posts found!! Please add some posts', 'advanced-post-block')}</h3>;
 
     const currentBlock = document.querySelector(`#block-${clientId} .wp-block`);
     useEffect(() => {
+        // Slider Posts
         if ('slider' === layout) {
             const currentSlider = document.querySelector(`#apbAdvancedPosts-${clientId} .apbSliderWrapper .apbSliderPosts`);
 
@@ -117,6 +120,24 @@ const Edit = props => {
         swiperSlide.length && swiperSlide.forEach(slide => {
             slide.style.height = `${Math.max(...slideHeightArray)}px`;
         });
+
+        // Ticker Posts
+        if ('ticker' === layout) {
+            // Re init ticker
+            tickerWrapperRef.current.innerHTML = '';
+            tickerWrapperRef.current.innerHTML = tickerRef.current.outerHTML;
+
+            $(`#apbAdvancedPosts-${clientId} .apbTickerWrapper .apbTickerPosts`).easyTicker({
+                direction: 'up',
+                easing: 'swing',
+                speed: 'slow',
+                interval: 2000,
+                height: 'auto',
+                visible: 3,
+                gap: rowGap,
+                mousePause: true
+            });
+        }
     }, [attributes, posts]);
 
     // Set excerpt length
@@ -224,7 +245,7 @@ const Edit = props => {
                     <MapPosts attributes={{ clientId, ...attributes }} posts={posts} />
                 </div> /* Masonry Layout */ :
 
-                    'slider' === layout && <>
+                    'slider' === layout ? <>
                         <div className='apbSliderWrapper' ref={sliderWrapperRef}></div>
                         <div className='apbSliderPosts' ref={sliderRef}>
                             <div className='swiper-wrapper'>
@@ -237,7 +258,15 @@ const Edit = props => {
                                 <div className='swiper-button-prev'></div><div className='swiper-button-next'></div>
                             </>}
                         </div>
-                    </>/* Slider Layout */
+                    </>/* Slider Layout */ :
+                        'ticker' === layout && <>
+                            <div className='apbTickerWrapper' ref={tickerWrapperRef}></div>
+                            <div className='apbTickerPosts' ref={tickerRef}>
+                                <div>
+                                    <MapPosts attributes={{ clientId, ...attributes }} posts={posts} />
+                                </div>
+                            </div>
+                        </>/* Ticker Layout */
             }
         </div> : noPosts()}
     </>

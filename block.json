@@ -1,5 +1,5 @@
 {
-    "apiVersion": "1",
+    "apiVersion": 1,
     "name": "ap-block/posts",
     "title": "Advanced Posts",
     "description": "Display posts in a beautiful way!",
@@ -343,6 +343,6 @@
             }
         }
     },
-    "editorScript": "file:./dist/editor.js",
-    "style": "file:./dist/style.css"
+    "editorScript": "file:dist/editor.js",
+    "script": "file:dist/script.js"
 }

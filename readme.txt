@@ -5,7 +5,7 @@ Tags: block, show posts, blog posts, display blog posts, embed custom posts, gut
 Requires at least: 5.0+
 Tested up to: 5.8.2
 Requires PHP: 7.1
-Stable tag: 1.4.2
+Stable tag: 1.6.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -149,13 +149,17 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.6.0 =
+* Add ticker post layout.
+* Performance upgrade.
+
 = 1.4.2 =
 * fix hover color in meta elements on image.
 
 = 1.4.1 =
 * Add colors options for meta elements on image.
 
-= 1.4.0 =
+= 1.4.1 =
 * Performance Upgrade.
 
 = 1.3.3 =
@@ -185,6 +189,10 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.6.0 =
+* Add ticker post layout.
+* Performance upgrade.
 
 = 1.4.2 =
 * fix hover color in meta elements on image.

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display Posts in Gutenberg Editor.
- * Version: 1.4.2
+ * Version: 1.6.0
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.4.2' );
+define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.6.0' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Generate Styles
@@ -60,7 +60,10 @@ class AdvancedPostBlock {
         return self::$_instance;
     }
 
-    function enqueueBlockAssets(){ wp_enqueue_script( 'swiperJS', AP_BLOCK_ASSETS_DIR . 'js/swiper-bundle.min.js', [], AP_BLOCK_PLUGIN_VERSION, true ); }
+    function enqueueBlockAssets(){
+        wp_enqueue_script( 'swiperJS', AP_BLOCK_ASSETS_DIR . 'js/swiper-bundle.min.js', [], '7.0.3', true );
+        wp_enqueue_script( 'easyTicker', AP_BLOCK_ASSETS_DIR . 'js/easy-ticker.min.js', [], '3.2.1', true );
+    }
 
     function enqueueAssets(){ wp_enqueue_style( 'dashicons' ); }
 
@@ -72,71 +75,20 @@ class AdvancedPostBlock {
     } // Categories
 
     function register(){
-        wp_register_script( 'ap_block_editor_script', plugins_url( 'dist/editor.js', __FILE__ ), [ 'wp-blob', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-element', 'wp-html-entities', 'wp-i18n', 'wp-rich-text', 'jquery', 'swiperJS' ], AP_BLOCK_PLUGIN_VERSION, false ); // Backend Script
-        wp_register_style( 'ap_block_editor_style', plugins_url( 'dist/editor.css', __FILE__ ), [ 'wp-edit-blocks' ], AP_BLOCK_PLUGIN_VERSION ); // Backend Style
-        wp_register_script( 'ap_block_script', plugins_url( 'dist/script.js', __FILE__ ), [ 'jquery', 'swiperJS' ], AP_BLOCK_PLUGIN_VERSION, true ); // Frontend Script
-        wp_register_style( 'ap_block_style', plugins_url( 'dist/style.css', __FILE__ ), [ 'wp-editor' ], AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
+        wp_register_style( 'ap-block-posts-editor-style', plugins_url( 'dist/editor.css', __FILE__ ), [ 'wp-edit-blocks' ], AP_BLOCK_PLUGIN_VERSION ); // Backend Style
+        wp_register_style( 'ap-block-posts-style', plugins_url( 'dist/style.css', __FILE__ ), [ 'wp-editor' ], AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
 
-        // Register Blocks
-        register_block_type( 'ap-block/posts', [
-            'editor_script' => 'ap_block_editor_script',
-            'editor_style'  => 'ap_block_editor_style',
-            'script'        => 'ap_block_script',
-            'style'         => 'ap_block_style',
-            'render_callback' => [$this, 'render']
-        ] );
+        register_block_type( __DIR__, [
+            'editor_style'      => 'ap-block-posts-editor-style',
+            'style'             => 'ap-block-posts-style',
+            'render_callback'   => [$this, 'render']
+        ] ); // Register Block
 
-        // Translate
-        wp_set_script_translations( 'ap_block_editor_script', 'advanced-post-block', plugin_dir_path( __FILE__ ) . 'languages' );
+        wp_set_script_translations( 'ap-block-posts-script', 'advanced-post-block', plugin_dir_path( __FILE__ ) . 'languages' ); // Translate
     } // Register
 
     function render( $attributes ) {
         extract( $attributes );
-        $align = $align ?? 'wide';
-        $cId = $cId ?? '';
-        $layout = $layout ?? 'grid';
-        $columns = $columns ?? [ 'desktop' => 3, 'tablet' => 2, 'mobile' => 1 ];
-        $columnGap = $columnGap ?? 15;
-        $rowGap = $rowGap ?? 15;
-        $isContentEqualHight = $isContentEqualHight ?? true;
-        $sliderHeight = $sliderHeight ?? '350px';
-        $postType = $postType ?? 'post';
-        $selectedCategories = $selectedCategories ?? [];
-        $isPostsPerPageAll = $isPostsPerPageAll ?? false;
-        $postsPerPage = $postsPerPage ?? 12;
-        $postsOrderBy = $postsOrderBy ?? 'date';
-        $postsOrder = $postsOrder ?? 'desc';
-        $contentAlign = $contentAlign ?? 'left';
-        $contentBG = $contentBG ?? [ 'color' => '#f4f2fc' ];
-        $contentPadding = $contentPadding ?? [ 'vertical' => '20px', 'horizontal' => '25px' ];
-        $border = $border ?? [ 'radius' => '5px' ];
-        $sliderIsPage = $sliderIsPage ?? true;
-        $sliderPageColor = $sliderPageColor ?? '#4527a4';
-        $sliderPageWidth = $sliderPageWidth ?? '15px';
-        $sliderPageHeight = $sliderPageHeight ?? '15px';
-        $sliderPageBorder = $sliderPageBorder ?? [ 'radius' => '50%' ];
-        $sliderIsPrevNext = $sliderIsPrevNext ?? true;
-        $sliderPrevNextColor = $sliderPrevNextColor ?? '#4527a4';
-        $isFImg = $isFImg ?? true;
-        $titleTypo = $titleTypo ?? [ 'fontFamily' => 'Roboto', 'fontSize' => 25, 'googleFontLink' => 'https://fonts.googleapis.com/css2?family=Roboto&display=swap' ];
-        $titleColor = $titleColor ?? '#4527a4';
-        $titleMargin = $titleMargin ?? [ 'bottom' => '15px' ];
-        $metaTypo = $metaTypo ?? [ 'fontSize' => 13, 'textTransform' => 'uppercase' ];
-        $metaTextColor = $metaTextColor ?? '#333';
-        $metaLinkColor = $metaLinkColor ?? '#8344c5';
-        $metaIconColor = $metaIconColor ?? '#4527a4';
-        $metaColorsOnImage = $metaColorsOnImage ?? [ 'color' => '#fff', 'bg' => '#4527a4' ];
-        $metaMargin = $metaMargin ?? [ 'bottom' => '15px' ];
-        $excerptAlign = $excerptAlign ?? 'justify';
-        $excerptTypo = $excerptTypo ?? [ 'fontSize' => 15 ];
-        $excerptColor = $excerptColor ?? '#333';
-        $excerptMargin = $excerptMargin ?? [ 'bottom' => '10px' ];
-        $readMoreAlign = $readMoreAlign ?? 'left';
-        $readMoreTypo = $readMoreTypo ?? [ 'fontSize' => 14, 'textTransform' => 'uppercase', 'fontWeight' => 600 ];
-        $readMoreColors = $readMoreColors ?? [ 'color' => '#fff', 'bg' => '#8344c5' ];
-        $readMoreHovColors = $readMoreHovColors ?? [ 'color' => '#fff', 'bg' => '#4527a4' ];
-        $readMorePadding = $readMorePadding ?? [ 'vertical' => '12px', 'horizontal' => '35px' ];
-        $readMoreBorder = $readMoreBorder ?? [ 'radius' => '3px' ];
 
         // Generate Styles
         $apbPostsStyles = new APBlockStyleGenerator();
@@ -213,7 +165,7 @@ class AdvancedPostBlock {
             'order'          => $postsOrder
         ], $defaultPostFilter ) );
 
-        $jsonData = wp_json_encode( [ 'layout' => $layout, 'columns' => $columns, 'columnGap' => $columnGap, 'sliderIsLoop' => $sliderIsLoop ?? true, 'sliderIsTouchMove' => $sliderIsTouchMove ?? false, 'sliderIsAutoplay' => $sliderIsAutoplay ?? true, 'sliderSpeed' => $sliderSpeed ?? 1.5, 'sliderEffect' => $sliderEffect ?? 'slide', 'sliderIsPageClickable' => $sliderIsPageClickable ?? true, 'sliderIsPageDynamic' => $sliderIsPageDynamic ?? true ] );
+        $sliderJsonData = wp_json_encode( [ 'layout' => $layout, 'columns' => $columns, 'columnGap' => $columnGap, 'sliderIsLoop' => $sliderIsLoop, 'sliderIsTouchMove' => $sliderIsTouchMove, 'sliderIsAutoplay' => $sliderIsAutoplay, 'sliderSpeed' => $sliderSpeed, 'sliderEffect' => $sliderEffect, 'sliderIsPageClickable' => $sliderIsPageClickable, 'sliderIsPageDynamic' => $sliderIsPageDynamic ] );
 
         ob_start(); ?>
         <div class='wp-block-ap-block-posts apbAdvancedPosts <?php echo 'align' . esc_attr( $align ); ?>' id='apbAdvancedPosts-<?php echo esc_attr( $cId ); ?>'>
@@ -240,13 +192,19 @@ class AdvancedPostBlock {
                     <?php $this->foreachPosts( $attributes, $posts ); ?>
                 </div>
             <?php }else if ( 'slider' === $layout ){ ?>
-                <div class='apbSliderPosts' data-slider='<?php echo esc_attr( $jsonData ); ?>'>
+                <div class='apbSliderPosts' data-slider='<?php echo esc_attr( $sliderJsonData ); ?>'>
                     <div class='swiper-wrapper'>
                         <?php $this->foreachPosts( $attributes, $posts ); ?>
                     </div>
 
                     <?php echo $sliderIsPage ? "<div class='swiper-pagination'></div>" : ''; ?>
                     <?php echo $sliderIsPrevNext ? "<div class='swiper-button-prev'></div><div class='swiper-button-next'></div>" : ''; ?>
+                </div>
+            <?php }else if ( 'ticker' === $layout ){ ?>
+                <div class='apbTickerPosts' data-ticker='<?php echo esc_attr( wp_json_encode( [ 'rowGap' => $rowGap ] ) ); ?>'>
+                    <div>
+                        <?php $this->foreachPosts( $attributes, $posts ); ?>
+                    </div>
                 </div>
             <?php }else{ echo ''; } ?>
         </div>
@@ -257,7 +215,6 @@ class AdvancedPostBlock {
     // ForEach Posts
     function foreachPosts( $attributes, $posts ){
         extract( $attributes );
-        $subLayout = $subLayout ?? 'default';
 
         foreach ( $posts as $post ) {
             if ( 'default' === $subLayout || 'title-meta' === $subLayout ) {
@@ -273,8 +230,6 @@ class AdvancedPostBlock {
     // Layout Components
     function defaultLayout( $attributes, $post ) {
         extract( $attributes );
-        $layout = $layout ?? 'grid';
-        $subLayout = $subLayout ?? 'default';
 
         $titleMetaFilter = 'title-meta' !== $subLayout ? $this->postExcerpt( $attributes, $post ) . $this->postReadMore( $attributes, $post ) : '';
 
@@ -291,9 +246,7 @@ class AdvancedPostBlock {
 
     function sideImgLayout( $attributes, $post ) {
         extract( $attributes );
-        $layout = $layout ?? 'grid';
-        $subLayout = $subLayout ?? 'default';
-        
+
         ob_start(); ?>
         <article class='apbPost apbPost-<?php echo esc_attr( $post->ID ); ?> apbPostSideImage <?php echo 'left-image' === $subLayout ? 'leftImage' : ( 'right-image' === $subLayout ? 'rightImage' : '' ); ?> <?php echo 'slider' === $layout ? 'swiper-slide' : ''; ?>'>
             <?php echo 'left-image' === $subLayout ? $this->postFeatureImg( $attributes, $post ) : ''; ?>
@@ -309,8 +262,6 @@ class AdvancedPostBlock {
 
     function overlayLayout( $attributes, $post ) {
         extract( $attributes );
-        $layout = $layout ?? 'grid';
-        $subLayout = $subLayout ?? 'default';
 
         $imgUrl = get_the_post_thumbnail_url( $post->ID );
 
@@ -328,12 +279,6 @@ class AdvancedPostBlock {
     // Single Components
     function postFeatureImg( $attributes, $post ) {
         extract( $attributes );
-        $isFImg = $isFImg ?? true;
-        $isFImgLink = $isFImgLink ?? false;
-        $isMeta = $isMeta ?? true;
-        $isMetaCategory = $isMetaCategory ?? true;
-        $metaCategoryIn = $metaCategoryIn ?? 'content';
-        $isLinkNewTab = $isLinkNewTab ?? false;
 
         $imgUrl = get_the_post_thumbnail_url( $post->ID );
         $tab = $isLinkNewTab ? '_blank' : '_self';
@@ -353,9 +298,6 @@ class AdvancedPostBlock {
 
     function postTitle( $attributes, $post ) {
         extract( $attributes );
-        $isTitle = $isTitle ?? true;
-        $isTitleLink = $isTitleLink ?? true;
-        $isLinkNewTab = $isLinkNewTab ?? false;
 
         $tab = $isLinkNewTab ? '_blank' : '_self';
 
@@ -372,7 +314,6 @@ class AdvancedPostBlock {
 
     function postMetaData( $attributes, $post ) {
         extract( $attributes );
-        $isMeta = $isMeta ?? true;
 
         if ( $isMeta ) {
             ob_start(); ?>
@@ -387,7 +328,6 @@ class AdvancedPostBlock {
 
     function metaAuthor( $attributes, $post ) {
         extract( $attributes );
-        $isMetaAuthor = $isMetaAuthor ?? true;
 
         if ( $isMetaAuthor ) {
             ob_start(); ?>
@@ -402,7 +342,6 @@ class AdvancedPostBlock {
     } // Meta Author
     function metaDate( $attributes, $post ) {
         extract( $attributes );
-        $isMetaDate = $isMetaDate ?? true;
 
         if ( $isMetaDate ) {
             ob_start(); ?>
@@ -417,8 +356,6 @@ class AdvancedPostBlock {
     } // Meta Date
     function metaCategories( $attributes, $post ) {
         extract( $attributes );
-        $isMetaCategory = $isMetaCategory ?? true;
-        $metaCategoryIn = $metaCategoryIn ?? 'content';
 
         if ( $isMetaCategory && 'content' === $metaCategoryIn ) {
             ob_start(); ?>
@@ -433,7 +370,6 @@ class AdvancedPostBlock {
     } // Meta Categories
     function metaComment( $attributes, $post ) {
         extract( $attributes );
-        $isMetaComment = $isMetaComment ?? false;
 
         if ( $isMetaComment ) {
             ob_start(); ?>
@@ -449,8 +385,6 @@ class AdvancedPostBlock {
 
     function postExcerpt( $attributes, $post ) {
         extract( $attributes );
-        $isExcerpt = $isExcerpt ?? true;
-        $excerptLength = $excerptLength ?? 25;
 
         if ( $isExcerpt ) {
             ob_start(); ?>
@@ -463,9 +397,6 @@ class AdvancedPostBlock {
 
     function postReadMore( $attributes, $post ) {
         extract( $attributes );
-        $isReadMore = $isReadMore ?? true;
-        $readMoreLabel = $readMoreLabel ?? 'Read More';
-        $isLinkNewTab = $isLinkNewTab ?? false;
 
         $tab = $isLinkNewTab ? '_blank' : '_self';
 

@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { useEffect, useState, useContext } from '@wordpress/element';
 import { InspectorControls, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, RangeControl, CheckboxControl, TextControl, ToggleControl, TabPanel, RadioControl, PanelRow, __experimentalUnitControl as UnitControl, Modal } from '@wordpress/components';
+import { PanelBody, SelectControl, RangeControl, CheckboxControl, TextControl, ToggleControl, TabPanel, RadioControl, PanelRow, __experimentalUnitControl as UnitControl, Modal, ButtonGroup, Button, Tooltip } from '@wordpress/components';
 
 // Variables
 import BDevice from '../../Components/BDevice';
@@ -14,9 +14,10 @@ import ColorsControl from '../../Components/ColorsControl';
 import Typography from '../../Components/Typography';
 import BtnGroup from '../../Components/BtnGroup';
 import options from './Const/options';
-const { generalStyleTabs, layouts, subLayouts, categoriesPosition, effects, aligns, postsOrdersBy, postsOrders, pxUnit, emUnit, vhUnit } = options;
+const { generalStyleTabs, subLayouts, categoriesPosition, effects, aligns, postsOrdersBy, postsOrders, pxUnit, emUnit, vhUnit } = options;
 
 import { ExcerptLengthCtx } from './edit';
+import icons from './Const/icons';
 
 const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }) => {
     const { layout, subLayout, columns, columnGap, rowGap, isContentEqualHight, sliderHeight, postType, selectedCategories, isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder, contentAlign, contentBG, contentPadding, border, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderSpeed, sliderEffect, sliderIsPage, sliderIsPageClickable, sliderIsPageDynamic, sliderPageColor, sliderPageWidth, sliderPageHeight, sliderPageBorder, sliderIsPrevNext, sliderPrevNextColor, isFImg, isFImgLink, isTitle, isTitleLink, titleTypo, titleColor, titleMargin, isMeta, isMetaAuthor, isMetaDate, isMetaCategory, metaCategoryIn, isMetaComment, metaTypo, metaTextColor, metaLinkColor, metaIconColor, metaColorsOnImage, metaMargin, isExcerpt, excerptLength, excerptAlign, excerptTypo, excerptColor, excerptMargin, isReadMore, readMoreLabel, isLinkNewTab, readMoreAlign, readMoreTypo, readMoreColors, readMoreHovColors, readMorePadding, readMoreBorder } = attributes;
@@ -25,21 +26,39 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
     const [isProModal, setIsProModal] = useState(false);
     const maxExcerptLength = useContext(ExcerptLengthCtx);
 
+    const ProTitle = ({ label }) => <Title><span className='apbMutedText'>{label}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro', 'advanced-post-block')}</span></Title>
+
     useEffect(() => {
-        if ('slider' === layout && ('default' === subLayout || 'title-meta' === subLayout))
+        if (('slider' === layout || 'ticker' === layout) && ('default' === subLayout || 'title-meta' === subLayout))
             setAttributes({ subLayout: 'left-image', columns: { ...columns, desktop: 2 } })
     }, [layout]);
+
+    const isPosts = posts && 0 !== posts.length;
 
     return <>
         <InspectorControls>
             <TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={generalStyleTabs}>{tab => <>
                 {'general' === tab.name && <>
                     {/* Layouts Settings */}
-                    {posts && 0 !== posts.length && <PanelBody className='bPlPanelBody' title={__('Layouts Settings', 'advanced-post-block')} initialOpen={true}>
-                        <PanelRow>
-                            <Title mt='0' mb='0'>{__('Layout:', 'advanced-post-block')}</Title>
-                            <BtnGroup value={layout} onChange={val => setAttributes({ layout: val })} options={layouts} isTextIcon={true} />
-                        </PanelRow>
+                    {isPosts && <PanelBody className='bPlPanelBody' title={__('Layouts Settings', 'advanced-post-block')} initialOpen={true}>
+                        <Title mt='0'>{__('Layout:', 'advanced-post-block')}</Title>
+                        <ButtonGroup className='bPlBtnGroup'>
+                            <Tooltip text='Grid' position='top'>
+                                <Button icon={icons.grid} isPrimary={'grid' === layout} aria-pressed={'grid' === layout} isMedium={true} onClick={() => setAttributes({ layout: 'grid' })}></Button>
+                            </Tooltip>
+                            <Tooltip text='Grid 1' position='top'>
+                                <Button className='apbProGroupBtn' icon={icons.grid1} isMedium={true} onClick={() => setIsProModal(true)}></Button>
+                            </Tooltip>
+                            <Tooltip text='Masonry' position='top'>
+                                <Button icon={icons.masonry} isPrimary={'masonry' === layout} aria-pressed={'masonry' === layout} isMedium={true} onClick={() => setAttributes({ layout: 'masonry' })}></Button>
+                            </Tooltip>
+                            <Tooltip text='Slider' position='top'>
+                                <Button icon={icons.slider} isPrimary={'slider' === layout} aria-pressed={'slider' === layout} isMedium={true} onClick={() => setAttributes({ layout: 'slider' })}></Button>
+                            </Tooltip>
+                            <Tooltip text='Ticker' position='top'>
+                                <Button icon={icons.ticker} isPrimary={'ticker' === layout} aria-pressed={'ticker' === layout} isMedium={true} onClick={() => setAttributes({ layout: 'ticker' })}></Button>
+                            </Tooltip>
+                        </ButtonGroup>
 
                         <PanelRow className='mt20'>
                             <Title mt='0' mb='0'>{__('Sub Layout:', 'advanced-post-block')}</Title>
@@ -80,17 +99,23 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
                         <Title mt='5px' mb='5px'><span className='apbMutedText'>{__('There are more sub layouts in')}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro')}</span></Title>
                         <small>{__('Some settings may change when sub layout will be changed.', 'advanced-post-block')}</small>
 
-                        <PanelRow className='mt20'>
-                            <Title mt='0'>{__('Columns:', 'advanced-post-block')}</Title>
-                            <BDevice device={device} onChange={val => setDevice(val)} />
-                        </PanelRow>
-                        <RangeControl value={columns[device]} onChange={val => { setAttributes({ columns: { ...columns, [device]: val } }) }} min={1} max={6} step={1} beforeIcon='grid-view' />
+                        {'ticker' !== layout && <>
+                            <PanelRow className='mt20'>
+                                <Title mt='0'>{__('Columns:', 'advanced-post-block')}</Title>
+                                <BDevice device={device} onChange={val => setDevice(val)} />
+                            </PanelRow>
+                            <RangeControl value={columns[device]} onChange={val => { setAttributes({ columns: { ...columns, [device]: val } }) }} min={1} max={6} step={1} beforeIcon='grid-view' />
+                        </>}
 
-                        <Title>{__('Column Gap:', 'advanced-post-block')}</Title>
-                        <RangeControl value={columnGap} onChange={val => setAttributes({ columnGap: val })} min={0} max={100} step={1} beforeIcon='arrow-right-alt' />
+                        {'ticker' !== layout && <>
+                            <Title>{__('Column Gap:', 'advanced-post-block')}</Title>
+                            <RangeControl value={columnGap} onChange={val => setAttributes({ columnGap: val })} min={0} max={100} step={1} beforeIcon='arrow-right-alt' />
+                        </>}
 
-                        <Title>{__('Row Gap:', 'advanced-post-block')}</Title>
-                        <RangeControl value={rowGap} onChange={val => setAttributes({ rowGap: val })} min={0} max={150} step={1} beforeIcon='arrow-down-alt' />
+                        {'slider' !== layout && <>
+                            <Title>{__('Row Gap:', 'advanced-post-block')}</Title>
+                            <RangeControl value={rowGap} onChange={val => setAttributes({ rowGap: val })} min={0} max={150} step={1} beforeIcon='arrow-down-alt' />
+                        </>}
 
                         {'grid' === layout && <ToggleControl className='mt10' label={__('Enable Content Equal Height', 'advanced-post-block')} checked={isContentEqualHight} onChange={val => setAttributes({ isContentEqualHight: val })} />}
 
@@ -99,7 +124,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 
                     {/* Posts Query */}
-                    <PanelBody className='bPlPanelBody' title={__('Posts Query', 'advanced-post-block')} initialOpen={posts && 0 !== posts.length ? false : true}>
+                    <PanelBody className='bPlPanelBody' title={__('Posts Query', 'advanced-post-block')} initialOpen={isPosts ? false : true}>
                         <PanelRow>
                             <Title mt='0' mb='0'>{__('Post Type:', 'advanced-post-block')}</Title>
                             <SelectControl value={postType} onChange={val => setAttributes({ postType: val })} options={getPostTypes} />
@@ -114,7 +139,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
                             })}
                         </> : null}
 
-                        <Title><span className='apbMutedText'>{__('Filter By Tags', 'advanced-post-block')}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro', 'advanced-post-block')}</span></Title>
+                        <ProTitle label={__('Filter By Tags', 'advanced-post-block')} />
 
                         <Title>{__('Post Per Page:', 'advanced-post-block')}</Title>
                         <ToggleControl label={__('Show All Posts', 'advanced-post-block')} checked={isPostsPerPageAll} onChange={val => setAttributes({ isPostsPerPageAll: val })} />
@@ -133,13 +158,20 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
                     </PanelBody>
 
 
-                    <PanelBody className='bPlPanelBody' title={__('Pagination Settings', 'advanced-post-block')} initialOpen={false}>
-                        <ToggleControl className='apbUpgradeProToggle' label={<><span className='apbMutedText'>{__('Show Pagination', 'advanced-post-block')}</span> <span className='apbUpgradePro'>{__('Pro', 'advanced-post-block')}</span></>} checked={false} onChange={() => setIsProModal(true)} />
-                    </PanelBody>
+                    {isPosts && 'slider' !== layout && 'ticker' !== layout ? <PanelBody className='bPlPanelBody' title={__('Pagination Settings', 'advanced-post-block')} initialOpen={false}>
+                        <ToggleControl className='apbUpgradeProToggle' label={<><span className='apbMutedText'>{__('Show Pagination', 'advanced-post-block')}</span> <span className='apbUpgradePro'>{__('Pro', 'advanced-post-block')}</span></>} checked={true} onChange={() => setIsProModal(true)} />
+
+                        <ProTitle label={__('Previous Label:', 'advanced-post-block')} />
+                        <ProTitle label={__('Next Label:', 'advanced-post-block')} />
+                        <ProTitle label={__('Colors:', 'advanced-post-block')} />
+                        <ProTitle label={__('Active & Hover Colors:', 'advanced-post-block')} />
+                        <ProTitle label={__('Padding:', 'advanced-post-block')} />
+                        <ProTitle label={__('Space Between:', 'advanced-post-block')} />
+                    </PanelBody> : ''}
 
 
                     {/* Elements Settings */}
-                    {posts && 0 !== posts.length && <PanelBody className='bPlPanelBody' title={__('Elements Settings', 'advanced-post-block')} initialOpen={false}>
+                    {isPosts && <PanelBody className='bPlPanelBody' title={__('Elements Settings', 'advanced-post-block')} initialOpen={false}>
                         {/*Feature Image */}
                         <Title mt='0'>{__('Feature Image:', 'advanced-post-block')}</Title>
                         <ToggleControl label={__('Show Feature Image', 'advanced-post-block')} checked={isFImg} onChange={val => setAttributes({ isFImg: val })} />
@@ -202,7 +234,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 
                     {/* Slider Settings */}
-                    {posts && 0 !== posts.length && 'slider' === layout && <PanelBody className='bPlPanelBody' title={__('Slider Options', 'advanced-post-block')} initialOpen={false}>
+                    {isPosts && 'slider' === layout && <PanelBody className='bPlPanelBody' title={__('Slider Options', 'advanced-post-block')} initialOpen={false}>
                         <ToggleControl label={__('Enable Loop', 'advanced-post-block')} checked={sliderIsLoop} onChange={val => setAttributes({ sliderIsLoop: val })} />
 
                         <ToggleControl label={__('Enable Touch Move', 'advanced-post-block')} checked={sliderIsTouchMove} onChange={val => setAttributes({ sliderIsTouchMove: val })} />
@@ -231,11 +263,22 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
                         <Title>{__('Preview Next Button:', 'advanced-post-block')}</Title>
                         <ToggleControl label={__('Show Preview Next Button', 'advanced-post-block')} checked={sliderIsPrevNext} onChange={val => setAttributes({ sliderIsPrevNext: val })} />
                     </PanelBody>}
+
+
+                    {/* Ticker Settings */}
+                    {isPosts && 'ticker' === layout && <PanelBody className='bPlPanelBody' title={__('Ticker Options', 'advanced-post-block')} initialOpen={false}>
+                        <ProTitle label={__('Direction:', 'advanced-post-block')} />
+                        <ProTitle label={__('Speed:', 'advanced-post-block')} />
+                        <ProTitle label={__('Interval:', 'advanced-post-block')} />
+                        <ProTitle label={__('Height:', 'advanced-post-block')} />
+                        <ProTitle label={__('Post Visible:', 'advanced-post-block')} />
+                        <ProTitle label={__('Ticker Mouse Pause:', 'advanced-post-block')} />
+                    </PanelBody>}
                 </>}
 
                 {'style' === tab.name && <>
                     {/* Content Style */}
-                    {posts && 0 !== posts.length && <PanelBody className='bPlPanelBody' title={__('Content Settings', 'advanced-post-block')} initialOpen={true}>
+                    {isPosts && <PanelBody className='bPlPanelBody' title={__('Content Settings', 'advanced-post-block')} initialOpen={true}>
                         <PanelRow>
                             <Title mt='0' mb='0'>{__('Text Align:', 'advanced-post-block')}</Title>
                             <BtnGroup value={contentAlign} onChange={val => setAttributes({ contentAlign: val })} options={aligns} isIcon={true} />
@@ -250,7 +293,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 
                     {/* Slider Styles */}
-                    {posts && 0 !== posts.length && 'slider' === layout && <PanelBody className='bPlPanelBody' title={__('Slider Options Style', 'advanced-post-block')} initialOpen={false}>
+                    {isPosts && 'slider' === layout && <PanelBody className='bPlPanelBody' title={__('Slider Options Style', 'advanced-post-block')} initialOpen={false}>
                         {sliderIsPage && <>
                             <BColor label={__('Pagination Bullets Color:', 'advanced-post-block')} value={sliderPageColor} onChange={val => setAttributes({ sliderPageColor: val })} defaultColor='#4527a4' />
 
@@ -266,7 +309,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 
                     {/* Title Styles */}
-                    {posts && 0 !== posts.length && isTitle && <PanelBody className='bPlPanelBody' title={__('Title Styles', 'advanced-post-block')} initialOpen={false}>
+                    {isPosts && isTitle && <PanelBody className='bPlPanelBody' title={__('Title Styles', 'advanced-post-block')} initialOpen={false}>
                         <Typography typography={titleTypo} onChange={val => setAttributes({ titleTypo: val })} defaults={{ fontSize: 25 }} />
 
                         <BColor label={__('Color:', 'advanced-post-block')} value={titleColor} onChange={val => setAttributes({ titleColor: val })} defaultColor='#4527a4' />
@@ -276,7 +319,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 
                     {/* Meta Data Styles */}
-                    {posts && 0 !== posts.length && isMeta && <PanelBody className='bPlPanelBody' title={__('Meta Data Styles', 'advanced-post-block')} initialOpen={false}>
+                    {isPosts && isMeta && <PanelBody className='bPlPanelBody' title={__('Meta Data Styles', 'advanced-post-block')} initialOpen={false}>
                         <Typography typography={metaTypo} onChange={val => setAttributes({ metaTypo: val })} defaults={{ fontSize: 13, textTransform: 'uppercase' }} />
 
                         <BColor label={__('Text Color:', 'advanced-post-block')} value={metaTextColor} onChange={val => setAttributes({ metaTextColor: val })} defaultColor='#333' />
@@ -292,7 +335,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 
                     {/* Excerpt Styles */}
-                    {posts && 0 !== posts.length && isExcerpt && <PanelBody className='bPlPanelBody' title={__('Excerpt Styles', 'advanced-post-block')} initialOpen={false}>
+                    {isPosts && isExcerpt && <PanelBody className='bPlPanelBody' title={__('Excerpt Styles', 'advanced-post-block')} initialOpen={false}>
                         <PanelRow>
                             <Title mt='0' mb='0'>{__('Text Align:', 'advanced-post-block')}</Title>
                             <BtnGroup value={excerptAlign} onChange={val => setAttributes({ excerptAlign: val })} options={aligns} isIcon={true} />
@@ -307,7 +350,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 
                     {/* Read More Settings */}
-                    {posts && 0 !== posts.length && isReadMore && <PanelBody className='bPlPanelBody' title={__('Read More Settings', 'advanced-post-block')} initialOpen={false}>
+                    {isPosts && isReadMore && <PanelBody className='bPlPanelBody' title={__('Read More Settings', 'advanced-post-block')} initialOpen={false}>
                         <PanelRow>
                             <Title mt='0' mb='0'>{__('Button Align:', 'advanced-post-block')}</Title>
                             <BtnGroup value={readMoreAlign} onChange={val => setAttributes({ readMoreAlign: val })} options={aligns.filter(a => a.value !== 'justify')} isIcon={true} />

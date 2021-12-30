@@ -84,7 +84,7 @@ $secondaryColor: #8344c5;
 
 // Advanced Posts
 .wp-block-ap-block-posts.apbAdvancedPosts{
-    >.apbSliderPosts{
+    >.apbSliderPosts, >.apbTickerPosts{
         display: none;
     }
 }
