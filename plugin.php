@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display Posts in Gutenberg Editor.
- * Version: 1.6.0
+ * Version: 1.6.1
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.6.0' );
+define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.6.1' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Generate Styles
@@ -84,7 +84,7 @@ class AdvancedPostBlock {
             'render_callback'   => [$this, 'render']
         ] ); // Register Block
 
-        wp_set_script_translations( 'ap-block-posts-script', 'advanced-post-block', plugin_dir_path( __FILE__ ) . 'languages' ); // Translate
+        wp_set_script_translations( 'ap-block-posts-editor-script', 'advanced-post-block', plugin_dir_path( __FILE__ ) . 'languages' ); // Translate
     } // Register
 
     function render( $attributes ) {
@@ -333,7 +333,7 @@ class AdvancedPostBlock {
             ob_start(); ?>
             <span>
                 <span class='dashicons dashicons-admin-users'></span>&nbsp;
-                <span><?php echo get_the_author_posts_link( $post->ID ); ?></span>
+                <span><a href='<?php echo esc_url( get_author_posts_url( $post->post_author ) ); ?>' rel="author"><?php echo esc_html( get_the_author_meta( 'display_name', $post->post_author ) ); ?></a></span>
             </span>
             <?php return ob_get_clean();
         } else {

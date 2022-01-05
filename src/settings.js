@@ -93,7 +93,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
                                 }) : setAttributes({
                                     contentAlign: 'left'
                                 });
-                            }} options={layout === 'slider' ? subLayouts.filter(l => l.value !== 'default' && l.value !== 'title-meta') : subLayouts}>
+                            }} options={'slider' === layout || 'ticker' === layout ? subLayouts.filter(l => l.value !== 'default' && l.value !== 'title-meta') : subLayouts}>
                             </SelectControl>
                         </PanelRow>
                         <Title mt='5px' mb='5px'><span className='apbMutedText'>{__('There are more sub layouts in')}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro')}</span></Title>

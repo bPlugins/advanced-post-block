@@ -5,7 +5,7 @@ import 'swiper/css/bundle'; // Swiper CSS
 
 const $ = jQuery;
 
-// Slider Posts
+// Advanced Posts
 document.addEventListener('DOMContentLoaded', () => {
     const allApbPosts = document.querySelectorAll('.wp-block-ap-block-posts');
     Object.values(allApbPosts).map(posts => {
