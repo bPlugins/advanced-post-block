@@ -3,9 +3,9 @@ Contributors: abuhayat, charlescormier
 Donate link: https://gum.co/wpdonate/
 Tags: block, show posts, blog posts, display blog posts, embed custom posts, gutenberg posts
 Requires at least: 5.0+
-Tested up to: 5.8.2
+Tested up to: 5.9
 Requires PHP: 7.1
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -149,6 +149,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.6.2 =
+* Gradient Picker fixing
+
 = 1.6.1 =
 * Fix author issue.
 
@@ -192,6 +195,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.6.2 =
+* Gradient Picker fixing
 
 = 1.6.1 =
 * Fix author issue.
