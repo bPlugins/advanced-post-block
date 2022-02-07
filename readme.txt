@@ -149,6 +149,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.6.3 =
+* Set permalink as permalink settings
+
 = 1.6.2 =
 * Gradient Picker fixing
 
@@ -195,6 +198,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.6.3 =
+* Set permalink as permalink settings
 
 = 1.6.2 =
 * Gradient Picker fixing

@@ -1,7 +1,7 @@
 import { updateCategory } from '@wordpress/blocks';
 import { registerBlockType } from '@wordpress/blocks';
 
-//  Import Files
+// Import Files
 import Edit from './edit';
 import './editor.scss';
 
@@ -17,10 +17,10 @@ import metadata from '../block.json';
 const { name, title, description, category, keywords, supports, attributes, example } = metadata;
 
 registerBlockType(name, {
-    title, description, icon, category, keywords, supports, attributes, example,
+	title, description, icon, category, keywords, supports, attributes, example,
 
-    // Build in Functions
-    edit: Edit,
+	// Build in Functions
+	edit: Edit,
 
-    save: () => null
+	save: () => null
 });
