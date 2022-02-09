@@ -34,7 +34,7 @@ const Edit = props => {
 	const currentBlock = document.querySelector(`#block-${clientId} .wp-block`);
 	useEffect(() => {
 		// Slider Posts
-		if ('slider' === layout) {
+		if ('slider' === layout && sliderWrapperRef.current) {
 			const currentSlider = document.querySelector(`#apbAdvancedPosts-${clientId} .apbSliderWrapper .apbSliderPosts`);
 
 			const currentAll = currentSlider && currentBlock;
@@ -118,7 +118,7 @@ const Edit = props => {
 		});
 
 		// Ticker Posts
-		if ('ticker' === layout) {
+		if ('ticker' === layout && tickerWrapperRef.current) {
 			// Re init ticker
 			tickerWrapperRef.current.innerHTML = '';
 			tickerWrapperRef.current.innerHTML = tickerRef.current.outerHTML;
