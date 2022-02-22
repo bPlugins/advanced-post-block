@@ -5,7 +5,7 @@ Tags: block, show posts, blog posts, display blog posts, embed custom posts, gut
 Requires at least: 5.0+
 Tested up to: 5.9
 Requires PHP: 7.1
-Stable tag: 1.6.4
+Stable tag: 1.6.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -48,7 +48,13 @@ Advanced Post Block is powerful but lightweight. Work with any theme, just need 
 
 - **Tag Filter:** Post Filter by tags (only for default post).
 
+- **Post Offset:** Offset to exclude first N posts.
+
+- **Custom Taxonomy Filter:** Custom Taxonomy filter for post and custom posts.
+
 - **Reading Time:** Show post reading time in meta area.
+
+- **Ticker Layout Options:** Options for ticker post layout.
 
 
 = How to use =
@@ -149,6 +155,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.6.5 =
+* Regular update
+
 = 1.6.4 =
 * Fix ticker post preview issue
 
@@ -201,6 +210,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.6.5 =
+* Regular update
 
 = 1.6.4 =
 * Fix ticker post preview issue

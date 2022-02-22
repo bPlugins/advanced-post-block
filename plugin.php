@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display Posts in Gutenberg Editor.
- * Version: 1.6.4
+ * Version: 1.6.5
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.6.4' );
+define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.6.5' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Generate Styles
@@ -40,24 +40,15 @@ class APBlockStyleGenerator {
 
 // Advanced Post Block
 class AdvancedPostBlock {
-	protected static $_instance = null;
-
 	function __construct(){
 		add_action( 'enqueue_block_assets', [$this, 'enqueueBlockAssets'] );
 		add_action( 'wp_enqueue_scripts', [$this, 'enqueueAssets'] );
 		if ( version_compare( $GLOBALS['wp_version'], '5.8-alpha-1', '<' ) ) {
 			add_filter( 'block_categories', [$this, 'blockCategories'] );
 		} else { add_filter( 'block_categories_all', [$this, 'blockCategories'] ); }
-		add_action( 'wp_loaded', [$this, 'register'] );
+		add_action( 'wp_loaded', [$this, 'onLoaded'] );
 		add_action( 'rest_api_init', [$this, 'customRestAPI'] );
 		add_filter( 'excerpt_more', [$this, 'excerptMore'] );
-	}
-
-	public static function instance(){
-		if( self::$_instance === null ){
-			self::$_instance = new self();
-		}
-		return self::$_instance;
 	}
 
 	function enqueueBlockAssets(){
@@ -74,7 +65,7 @@ class AdvancedPostBlock {
 		] ], $categories );
 	} // Categories
 
-	function register(){
+	function onLoaded(){
 		wp_register_style( 'ap-block-posts-editor-style', plugins_url( 'dist/editor.css', __FILE__ ), [ 'wp-edit-blocks' ], AP_BLOCK_PLUGIN_VERSION ); // Backend Style
 		wp_register_style( 'ap-block-posts-style', plugins_url( 'dist/style.css', __FILE__ ), [ 'wp-editor' ], AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
 
@@ -485,4 +476,4 @@ class AdvancedPostBlock {
 		return "<p class='read-more'><a href=". esc_url( get_permalink( get_the_ID() ) ) .">". __( 'Read More &raquo;', 'b-blocks' ) ."</a></p>";
 	} // Excerpt More
 }
-AdvancedPostBlock::instance();
+new AdvancedPostBlock;

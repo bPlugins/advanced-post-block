@@ -156,6 +156,8 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<Title mt='0' mb='0'>{__('Post Order:', 'advanced-post-block')}</Title>
 							<SelectControl value={postsOrder} onChange={val => setAttributes({ postsOrder: val })} options={postsOrders} />
 						</PanelRow>
+
+						<ProTitle label={__('Post Offset', 'advanced-post-block')} />
 					</PanelBody>
 
 
