@@ -1,7 +1,9 @@
 import { __ } from '@wordpress/i18n';
 import { useEffect, useState, useContext } from '@wordpress/element';
 import { InspectorControls, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, RangeControl, CheckboxControl, TextControl, ToggleControl, TabPanel, RadioControl, PanelRow, __experimentalUnitControl as UnitControl, Modal, ButtonGroup, Button, Tooltip } from '@wordpress/components';
+import { PanelBody, SelectControl, RangeControl, TextControl, ToggleControl, TabPanel, RadioControl, PanelRow, __experimentalUnitControl as UnitControl, Modal, ButtonGroup, Button, Tooltip } from '@wordpress/components';
+
+import SelectPure from 'select-pure';
 
 // Variables
 import BDevice from '../../Components/BDevice';
@@ -10,6 +12,7 @@ import Title from '../../Components/Title';
 import BColor from '../../Components/BColor';
 import BorderControl from '../../Components/BorderControl';
 import SpaceControl from '../../Components/SpaceControl';
+import SelectPureControl from '../../Components/SelectPureControl';
 import ColorsControl from '../../Components/ColorsControl';
 import Typography from '../../Components/Typography';
 import BtnGroup from '../../Components/BtnGroup';
@@ -130,13 +133,23 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<SelectControl value={postType} onChange={val => setAttributes({ postType: val })} options={getPostTypes} />
 						</PanelRow>
 
-						{'post' === postType && categories?.length ? <>
+						{/* {'post' === postType && categories?.length ? <>
 							<Title>{__('Select Categories:', 'advanced-post-block')}</Title>
 							{categories.map(cat => {
 								const isInc = selectedCategories.includes(cat.id);
 
 								return <CheckboxControl label={cat.name} key={cat.id} checked={isInc} onChange={val => setAttributes({ selectedCategories: val ? [...selectedCategories, cat.id] : selectedCategories.filter(id => id !== cat.id) })} />;
 							})}
+						</> : null} */}
+
+						{'post' === postType && categories?.length ? <>
+							<Title>{__('Select Categories:', 'advanced-post-block')}</Title>
+							<SelectPureControl
+								value={selectedCategories.map(cat => cat.toString())}
+								onChange={val => setAttributes({ selectedCategories: val.map(cat => parseInt(cat)) })}
+								options={categories.map(cat => ({ label: cat.name, value: cat.id.toString() }))}
+								SelectPure={SelectPure}
+							/>
 						</> : null}
 
 						{'post' === postType && <ProTitle label={__('Filter By Tags', 'advanced-post-block')} />}

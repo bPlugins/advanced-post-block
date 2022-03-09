@@ -11,6 +11,7 @@
 	"author": "Wasek Bellah",
 	"license": "ISC",
 	"dependencies": {
+		"select-pure": "^0.6.3",
 		"swiper": "^7.0.3"
 	},
 	"devDependencies": {

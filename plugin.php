@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display Posts in Gutenberg Editor.
- * Version: 1.6.5
+ * Version: 1.6.6
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.6.5' );
+define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.6.6' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Generate Styles
@@ -161,8 +161,12 @@ class AdvancedPostBlock {
 
 		ob_start(); ?>
 		<div class='wp-block-ap-block-posts apbAdvancedPosts <?php echo 'align' . esc_attr( $align ); ?>' id='apbAdvancedPosts-<?php echo esc_attr( $cId ); ?>'>
-			<style>@import url( <?php echo esc_url( $titleTypo['googleFontLink'] ?? 'https://fonts.googleapis.com/css2?family=Roboto&display=swap' ); ?> ); @import url( <?php echo esc_url( $metaTypo['googleFontLink'] ?? '' ); ?> ); @import url( <?php echo esc_url( $excerptTypo['googleFontLink'] ?? '' ); ?> ); @import url( <?php echo esc_url( $readMoreTypo['googleFontLink'] ?? '' ); ?> );<?php echo wp_kses( $apbPostsStyles::renderStyle(), [] ); ?>
-
+			<style>
+				@import url( <?php echo esc_url( $titleTypo['googleFontLink'] ?? 'https://fonts.googleapis.com/css2?family=Roboto&display=swap' ); ?> );
+				<?php echo !empty( $metaTypo['googleFontLink'] ) ? "@import url(". esc_url( $metaTypo['googleFontLink'] ) .");" : ''; ?>
+				<?php echo !empty( $excerptTypo['googleFontLink'] ) ? "@import url(". esc_url( $excerptTypo['googleFontLink'] ) .");" : ''; ?>
+				<?php echo !empty( $readMoreTypo['googleFontLink'] ) ? "@import url(". esc_url( $readMoreTypo['googleFontLink'] ) .");" : ''; ?>
+				<?php echo wp_kses( $apbPostsStyles::renderStyle(), [] ); ?>
 				<?php foreach ( $posts as $post ) {
 					$imgUrl = get_the_post_thumbnail_url( $post->ID );
 					$displayCSS = $imgUrl ? 'grid' : 'flex';

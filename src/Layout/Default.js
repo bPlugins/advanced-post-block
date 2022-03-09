@@ -7,21 +7,21 @@ import PostExcerpt from '../Single/PostExcerpt';
 import PostReadMore from '../Single/PostReadMore';
 import PostMeta from '../Single/PostMeta';
 
-const Default = ({ atts, post }) => {
-	const { layout, subLayout } = atts;
+const Default = ({ post, attributes }) => {
 	const { id } = post;
+	const { layout, subLayout } = attributes;
 
 	return <article className={`apbPost apbPost-${id} apbPostDefault ${'slider' === layout ? 'swiper-slide' : ''}`}>
-		<FeatureImage atts={atts} post={post} />
+		<FeatureImage atts={attributes} post={post} />
 
 		<div className='apbPostText'>
-			<PostTitle atts={atts} post={post} />
+			<PostTitle atts={attributes} post={post} />
 
-			<PostMeta atts={atts} post={post} />
+			<PostMeta atts={attributes} post={post} />
 
 			{'title-meta' !== subLayout && <Fragment>
-				<PostExcerpt atts={atts} post={post} />
-				<PostReadMore atts={atts} post={post} />
+				<PostExcerpt atts={attributes} post={post} />
+				<PostReadMore atts={attributes} post={post} />
 			</Fragment>}
 		</div>
 	</article>;

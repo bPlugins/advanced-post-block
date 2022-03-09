@@ -8,11 +8,9 @@ const $ = jQuery;
 // Advanced Posts
 document.addEventListener('DOMContentLoaded', () => {
 	const allApbPosts = document.querySelectorAll('.wp-block-ap-block-posts');
-	Object.values(allApbPosts).map(posts => {
-		const postsId = posts.id;
-
+	allApbPosts.forEach(apbPosts => {
 		// Slider
-		const sliderEl = document.querySelector(`#${postsId} .apbSliderPosts`);
+		const sliderEl = document.querySelector(`#${apbPosts.id} .apbSliderPosts`);
 		if (sliderEl) {
 			const { layout, columns, columnGap, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderSpeed, sliderEffect, sliderIsPageClickable, sliderIsPageDynamic } = JSON.parse(sliderEl.dataset.slider);
 
@@ -63,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		const slideHeightArray = [];
-		const swiperSlide = document.querySelectorAll(`#${postsId} .apbSliderPosts .swiper-slide`);
-		const swiperSlideText = document.querySelectorAll(`#${postsId} .apbSliderPosts .swiper-slide .apbPostText`);
+		const swiperSlide = document.querySelectorAll(`#${apbPosts.id} .apbSliderPosts .swiper-slide`);
+		const swiperSlideText = document.querySelectorAll(`#${apbPosts.id} .apbSliderPosts .swiper-slide .apbPostText`);
 		swiperSlideText?.length && swiperSlideText.forEach(slideText => {
 			slideHeightArray.push(slideText?.clientHeight);
 		});
@@ -76,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		sliderEl?.removeAttribute('data-slider');
 
 		// Ticker
-		const tickerEl = document.querySelector(`#${postsId} .apbTickerPosts`);
+		const tickerEl = document.querySelector(`#${apbPosts.id} .apbTickerPosts`);
 		if (tickerEl) {
 			const { rowGap } = JSON.parse(tickerEl.dataset.ticker);
 

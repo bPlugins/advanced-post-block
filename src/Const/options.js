@@ -58,8 +58,8 @@ const options = {
 	vhUnit: { value: 'vh', label: 'vh', default: 0 },
 
 	generalStyleTabs: [
-		{ name: 'general', title: __('General', 'b-blocks') },
-		{ name: 'style', title: __('Style', 'b-blocks') }
+		{ name: 'general', title: __('General', 'advanced-post-block') },
+		{ name: 'style', title: __('Style', 'advanced-post-block') }
 	],
 
 	gradients: [

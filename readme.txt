@@ -5,7 +5,7 @@ Tags: block, show posts, blog posts, display blog posts, embed custom posts, gut
 Requires at least: 5.0+
 Tested up to: 5.9
 Requires PHP: 7.1
-Stable tag: 1.6.5
+Stable tag: 1.6.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -155,6 +155,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.6.6 =
+* New settings for taxonomy selection.
+
 = 1.6.5 =
 * Regular update
 
@@ -210,6 +213,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.6.6 =
+* New settings for taxonomy selection.
 
 = 1.6.5 =
 * Regular update
