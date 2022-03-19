@@ -1,9 +1,7 @@
-// import Sass
-import './style.scss';
-
+const $ = jQuery;
 import 'swiper/css/bundle'; // Swiper CSS
 
-const $ = jQuery;
+import './style.scss';
 
 // Advanced Posts
 document.addEventListener('DOMContentLoaded', () => {

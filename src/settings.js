@@ -2,10 +2,9 @@ import { __ } from '@wordpress/i18n';
 import { useEffect, useState, useContext } from '@wordpress/element';
 import { InspectorControls, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, RangeControl, TextControl, ToggleControl, TabPanel, RadioControl, PanelRow, __experimentalUnitControl as UnitControl, Modal, ButtonGroup, Button, Tooltip } from '@wordpress/components';
-
 import SelectPure from 'select-pure';
 
-// Variables
+// Settings Components
 import BDevice from '../../Components/BDevice';
 import Background from '../../Components/Background';
 import Title from '../../Components/Title';
@@ -16,11 +15,11 @@ import SelectPureControl from '../../Components/SelectPureControl';
 import ColorsControl from '../../Components/ColorsControl';
 import Typography from '../../Components/Typography';
 import BtnGroup from '../../Components/BtnGroup';
-import options from './Const/options';
-const { generalStyleTabs, subLayouts, categoriesPosition, effects, aligns, postsOrdersBy, postsOrders, pxUnit, emUnit, vhUnit } = options;
 
 import { ExcerptLengthCtx } from './edit';
 import icons from './Const/icons';
+import options from './Const/options';
+const { generalStyleTabs, subLayouts, categoriesPosition, effects, aligns, postsOrdersBy, postsOrders, pxUnit, emUnit, vhUnit } = options;
 
 const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }) => {
 	const { layout, subLayout, columns, columnGap, rowGap, isContentEqualHight, sliderHeight, postType, selectedCategories, isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder, contentAlign, contentBG, contentPadding, border, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderSpeed, sliderEffect, sliderIsPage, sliderIsPageClickable, sliderIsPageDynamic, sliderPageColor, sliderPageWidth, sliderPageHeight, sliderPageBorder, sliderIsPrevNext, sliderPrevNextColor, isFImg, isFImgLink, isTitle, isTitleLink, titleTypo, titleColor, titleMargin, isMeta, isMetaAuthor, isMetaDate, isMetaCategory, metaCategoryIn, isMetaComment, metaTypo, metaTextColor, metaLinkColor, metaIconColor, metaColorsOnImage, metaMargin, isExcerpt, excerptLength, excerptAlign, excerptTypo, excerptColor, excerptMargin, isReadMore, readMoreLabel, isLinkNewTab, readMoreAlign, readMoreTypo, readMoreColors, readMoreHovColors, readMorePadding, readMoreBorder } = attributes;

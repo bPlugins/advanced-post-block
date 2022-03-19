@@ -2,13 +2,12 @@ import { __ } from '@wordpress/i18n';
 import { withSelect } from '@wordpress/data';
 import { useState, useEffect, createContext, useRef } from '@wordpress/element';
 import { Spinner } from '@wordpress/components';
+const $ = jQuery;
 
-// Components
+// Settings Components
 import Settings from './settings';
 import Styles from './Styles';
 import MapPosts from './Layout/MapPosts';
-
-const $ = jQuery;
 
 export const ExcerptLengthCtx = createContext();
 
@@ -17,7 +16,7 @@ const Edit = props => {
 
 	const { align, layout, columns, columnGap, rowGap, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderSpeed, sliderEffect, sliderIsPage, sliderIsPageClickable, sliderIsPageDynamic, sliderIsPrevNext } = attributes;
 
-	useEffect(() => { clientId && setAttributes({ cId: clientId }); }, [clientId]); // Set & Update clientId to cId
+	useEffect(() => { clientId && setAttributes({ cId: clientId.substring(0, 10) }); }, [clientId]); // Set & Update clientId to cId
 	const sliderRef = useRef(null);
 	const sliderWrapperRef = useRef(null);
 	const tickerRef = useRef(null);

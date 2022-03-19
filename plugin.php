@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display Posts in Gutenberg Editor.
- * Version: 1.6.6
+ * Version: 1.6.7
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.6.6' );
+define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.6.7' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Generate Styles
@@ -168,7 +168,7 @@ class AdvancedPostBlock {
 				<?php echo !empty( $readMoreTypo['googleFontLink'] ) ? "@import url(". esc_url( $readMoreTypo['googleFontLink'] ) .");" : ''; ?>
 				<?php echo wp_kses( $apbPostsStyles::renderStyle(), [] ); ?>
 				<?php foreach ( $posts as $post ) {
-					$imgUrl = get_the_post_thumbnail_url( $post->ID );
+					$imgUrl = get_the_post_thumbnail_url( $post->ID, 'large' );
 					$displayCSS = $imgUrl ? 'grid' : 'flex';
 
 					$sideImgCSS = "#apbAdvancedPosts-$cId .apbPostSideImage.apbPost-$post->ID{ display: $displayCSS; }";
