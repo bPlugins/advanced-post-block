@@ -1,9 +1,9 @@
-=== Advanced Post Block - Display Posts in Gutenberg Editor ===
+=== Advanced Post Block - Display posts in a beautiful way. ===
 Contributors: abuhayat, charlescormier
 Donate link: https://gum.co/wpdonate/
 Tags: block, show posts, blog posts, display blog posts, embed custom posts, gutenberg posts
 Requires at least: 5.0+
-Tested up to: 5.9.2
+Tested up to: 5.9.3
 Requires PHP: 7.1
 Stable tag: 1.6.7
 License: GPLv3 or later

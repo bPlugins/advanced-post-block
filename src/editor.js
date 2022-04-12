@@ -2,7 +2,7 @@ import { updateCategory } from '@wordpress/blocks';
 import { registerBlockType } from '@wordpress/blocks';
 
 import metadata from '../block.json';
-import Edit from './edit';
+import Edit from './Edit';
 import './editor.scss';
 import icons from './Const/icons';
 

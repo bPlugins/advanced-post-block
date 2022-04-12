@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { useEffect, useState, useContext } from '@wordpress/element';
 import { InspectorControls, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, RangeControl, TextControl, ToggleControl, TabPanel, RadioControl, PanelRow, __experimentalUnitControl as UnitControl, Modal, ButtonGroup, Button, Tooltip } from '@wordpress/components';
+import { PanelBody, SelectControl, RangeControl, TextControl, ToggleControl, TabPanel, RadioControl, PanelRow, __experimentalUnitControl as UnitControl, Modal, ButtonGroup, Button, Tooltip, Dashicon } from '@wordpress/components';
 import SelectPure from 'select-pure';
 
 // Settings Components
@@ -16,7 +16,7 @@ import ColorsControl from '../../Components/ColorsControl';
 import Typography from '../../Components/Typography';
 import BtnGroup from '../../Components/BtnGroup';
 
-import { ExcerptLengthCtx } from './edit';
+import { ExcerptLengthCtx } from './Edit';
 import icons from './Const/icons';
 import options from './Const/options';
 const { generalStyleTabs, subLayouts, categoriesPosition, effects, aligns, postsOrdersBy, postsOrders, pxUnit, emUnit, vhUnit } = options;
@@ -28,7 +28,9 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 	const [isProModal, setIsProModal] = useState(false);
 	const maxExcerptLength = useContext(ExcerptLengthCtx);
 
-	const ProTitle = ({ label }) => <Title><span className='apbMutedText'>{label}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro', 'advanced-post-block')}</span></Title>
+	const ProTitle = ({ className, label }) => <Title><span className={`apbMutedText ${className}`}>{label}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro', 'advanced-post-block')}</span></Title>
+
+	const ProToggle = ({ className, label }) => <ToggleControl className={`apbUpgradeProToggle ${className}`} label={<><span className='apbMutedText'>{label}</span> <span className='apbUpgradePro'>{__('Pro', 'advanced-post-block')}</span></>} checked={false} onChange={() => setIsProModal(true)} />
 
 	useEffect(() => {
 		if (('slider' === layout || 'ticker' === layout) && ('default' === subLayout || 'title-meta' === subLayout))
@@ -41,6 +43,19 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 		<InspectorControls>
 			<TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={generalStyleTabs}>{tab => <>
 				{'general' === tab.name && <>
+					<PanelBody className='bPlPanelBody help' title={__('Help', 'advanced-post-block')}>
+						<div className='helpItem'>
+							<a href='https://bblockswp.com/docs/posts-block/' target='_blank' rel='noreferrer'><Dashicon icon='book' size={23} />{__('Read Documentation', 'advanced-post-block')}</a>
+						</div>
+
+						<div className='helpItem rateUs'>
+							<a href='https://wordpress.org/support/plugin/advanced-post-block/reviews/#new-post' target='_blank' rel='noreferrer'>
+								<span><Dashicon icon='star-filled' size={23} />{__('Would you please rate us?', 'advanced-post-block')}</span>
+								<span>{__('We are new and we need your help to grow!🙏', 'advanced-post-block')}</span>
+							</a>
+						</div>
+					</PanelBody>
+
 					{/* Layouts Settings */}
 					<PanelBody className='bPlPanelBody' title={__('Layouts Settings', 'advanced-post-block')} initialOpen={true}>
 						<Title mt='0'>{__('Layout:', 'advanced-post-block')}</Title>
@@ -174,7 +189,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 
 					{'slider' !== layout && 'ticker' !== layout ? <PanelBody className='bPlPanelBody' title={__('Pagination Settings', 'advanced-post-block')} initialOpen={false}>
-						<ToggleControl className='apbUpgradeProToggle' label={<><span className='apbMutedText'>{__('Show Pagination', 'advanced-post-block')}</span> <span className='apbUpgradePro'>{__('Pro', 'advanced-post-block')}</span></>} checked={true} onChange={() => setIsProModal(true)} />
+						<ProToggle label={__('Show Pagination', 'advanced-post-block')} />
 
 						<ProTitle label={__('Previous Label:', 'advanced-post-block')} />
 						<ProTitle label={__('Next Label:', 'advanced-post-block')} />
@@ -217,7 +232,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 								<RadioControl selected={metaCategoryIn} onChange={val => setAttributes({ metaCategoryIn: val })} options={categoriesPosition} />
 							</PanelRow>}
 
-							<ToggleControl className='apbUpgradeProToggle' label={<><span className='apbMutedText'>{__('Show Reading Time', 'advanced-post-block')}</span> <span className='apbUpgradePro'>{__('Pro', 'advanced-post-block')}</span></>} checked={false} onChange={() => setIsProModal(true)} />
+							<ProToggle label={__('Show Reading Time', 'advanced-post-block')} />
 
 							<ToggleControl label={__('Show Comment', 'advanced-post-block')} checked={isMetaComment} onChange={val => setAttributes({ isMetaComment: val })} />
 						</>}

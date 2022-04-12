@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Advanced Post Block
- * Description: Advanced Post Block - Display Posts in Gutenberg Editor.
+ * Description: Advanced Post Block - Display posts in a beautiful way!
  * Version: 1.6.7
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
@@ -384,7 +384,13 @@ class AdvancedPostBlock {
 
 		if ( $isExcerpt ) {
 			ob_start(); ?>
-			<div class='apbPostExcerpt apbInnerContent'><?php echo implode( ' ', array_slice( explode( ' ', get_the_excerpt( $post->ID ) ), 0, $excerptLength ) ); ?></div>
+			<div class='apbPostExcerpt apbInnerContent'>
+				<?php echo implode( ' ', array_slice(
+					explode( ' ',
+						wp_kses( get_the_excerpt( $post->ID ), [] )
+					),
+				0, $excerptLength ) ); ?>
+			</div>
 			<?php return ob_get_clean();
 		} else {
 			return '';

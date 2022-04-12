@@ -5,7 +5,7 @@ import { Spinner } from '@wordpress/components';
 const $ = jQuery;
 
 // Settings Components
-import Settings from './settings';
+import Settings from './Settings';
 import Styles from './Styles';
 import MapPosts from './Layout/MapPosts';
 
