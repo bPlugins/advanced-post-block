@@ -20,6 +20,7 @@ import { ExcerptLengthCtx } from './Edit';
 import icons from './Const/icons';
 import options from './Const/options';
 const { generalStyleTabs, subLayouts, categoriesPosition, effects, aligns, postsOrdersBy, postsOrders, pxUnit, emUnit, vhUnit } = options;
+import { filterSelected } from './Const/functions';
 
 const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }) => {
 	const { layout, subLayout, columns, columnGap, rowGap, isContentEqualHight, sliderHeight, postType, selectedCategories, isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder, contentAlign, contentBG, contentPadding, border, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderSpeed, sliderEffect, sliderIsPage, sliderIsPageClickable, sliderIsPageDynamic, sliderPageColor, sliderPageWidth, sliderPageHeight, sliderPageBorder, sliderIsPrevNext, sliderPrevNextColor, isFImg, isFImgLink, isTitle, isTitleLink, titleTypo, titleColor, titleMargin, isMeta, isMetaAuthor, isMetaDate, isMetaCategory, metaCategoryIn, isMetaComment, metaTypo, metaTextColor, metaLinkColor, metaIconColor, metaColorsOnImage, metaMargin, isExcerpt, excerptLength, excerptAlign, excerptTypo, excerptColor, excerptMargin, isReadMore, readMoreLabel, isLinkNewTab, readMoreAlign, readMoreTypo, readMoreColors, readMoreHovColors, readMorePadding, readMoreBorder } = attributes;
@@ -159,7 +160,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 						{'post' === postType && categories?.length ? <>
 							<Title>{__('Select Categories:', 'advanced-post-block')}</Title>
 							<SelectPureControl
-								value={selectedCategories.map(cat => cat.toString())}
+								value={filterSelected(categories, selectedCategories).map(cat => cat.toString())}
 								onChange={val => setAttributes({ selectedCategories: val.map(cat => parseInt(cat)) })}
 								options={categories.map(cat => ({ label: cat.name, value: cat.id.toString() }))}
 								SelectPure={SelectPure}

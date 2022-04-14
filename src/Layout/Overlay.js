@@ -5,8 +5,7 @@ import PostReadMore from '../Single/PostReadMore';
 import PostMeta from '../Single/PostMeta';
 
 // Functions
-import func from '../Const/functions';
-const { mediaUrl } = func;
+import { mediaUrl } from '../Const/functions';
 
 const Overlay = ({ post, attributes }) => {
 	const { id, featured_media } = post;

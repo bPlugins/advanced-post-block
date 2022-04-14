@@ -1,6 +1,5 @@
 // Functions
-import func from '../Const/functions';
-const { renderHTML, mediaUrl } = func;
+import { renderHTML, mediaUrl } from '../Const/functions';
 
 const FeatureImage = props => {
 	const { atts: { layout, isFImg, isFImgLink, isMeta, isMetaCategory, metaCategoryIn, isLinkNewTab }, post: { id, wbCategories, featured_media } } = props;

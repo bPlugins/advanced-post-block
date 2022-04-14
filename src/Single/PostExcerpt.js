@@ -1,6 +1,5 @@
 // Functions
-import func from '../Const/functions';
-const { truncate, renderHTML } = func;
+import { truncate, renderHTML } from '../Const/functions';
 
 const PostExcerpt = props => {
 	const { atts: { isExcerpt, excerptLength }, post: { excerpt, content } } = props;
