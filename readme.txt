@@ -5,7 +5,7 @@ Tags: block, show posts, blog posts, display blog posts, embed custom posts, gut
 Requires at least: 5.0+
 Tested up to: 5.9.3
 Requires PHP: 7.1
-Stable tag: 1.6.8
+Stable tag: 1.6.9
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -55,6 +55,8 @@ Advanced Post Block is powerful but lightweight. Work with any theme, just need 
 - **Reading Time:** Show post reading time in meta area.
 
 - **Ticker Layout Options:** Options for ticker post layout.
+
+- **Feature Image Size:** Options to set feature image size.
 
 
 = How to use =
@@ -155,6 +157,10 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.6.9 =
+* PHP code reduce
+* Special char render fix
+
 = 1.6.8 =
 * Fix Categories Select Option
 
@@ -220,6 +226,10 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.6.9 =
+* PHP code reduce
+* Special char render fix
 
 = 1.6.8 =
 * Fix Categories Select Option

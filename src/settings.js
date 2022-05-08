@@ -207,7 +207,9 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 						<Title mt='0'>{__('Feature Image:', 'advanced-post-block')}</Title>
 						<ToggleControl label={__('Show Feature Image', 'advanced-post-block')} checked={isFImg} onChange={val => setAttributes({ isFImg: val })} />
 
-						{isFImg && <ToggleControl label={__('Enable Feature Image Link', 'advanced-post-block')} checked={isFImgLink} onChange={val => setAttributes({ isFImgLink: val })} />}
+						<ProTitle label={__('Feature Image Size:', 'advanced-post-block')} />
+
+						{isFImg && <ToggleControl className='mt15' label={__('Enable Feature Image Link', 'advanced-post-block')} checked={isFImgLink} onChange={val => setAttributes({ isFImgLink: val })} />}
 
 
 						{/* Title */}

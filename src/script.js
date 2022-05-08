@@ -1,17 +1,27 @@
+import { render } from '@wordpress/element';
 const $ = jQuery;
 import 'swiper/css/bundle'; // Swiper CSS
 
+import { GeneralStyle } from './Style';
 import './style.scss';
 
 // Advanced Posts
 document.addEventListener('DOMContentLoaded', () => {
 	const allApbPosts = document.querySelectorAll('.wp-block-ap-block-posts');
 	allApbPosts.forEach(apbPosts => {
+		const attributes = JSON.parse(apbPosts.dataset.attributes);
+		const { layout, columns, columnGap, rowGap, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderSpeed, sliderEffect, sliderIsPageClickable, sliderIsPageDynamic } = attributes;
+
+
+		// Style
+		const apbStyle = document.querySelector(`#${apbPosts.id} .apbStyle`);
+
+		render(<GeneralStyle attributes={attributes} clientId={attributes.cId} />, apbStyle);
+
+
 		// Slider
 		const sliderEl = document.querySelector(`#${apbPosts.id} .apbSliderPosts`);
 		if (sliderEl) {
-			const { layout, columns, columnGap, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderSpeed, sliderEffect, sliderIsPageClickable, sliderIsPageDynamic } = JSON.parse(sliderEl.dataset.slider);
-
 			'slider' === layout && new Swiper(sliderEl, {
 				// Optional parameters
 				direction: 'horizontal',
@@ -68,14 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			slide.style.height = `${Math.max(...slideHeightArray)}px`;
 		});
 
-		// Remove data slider attributes
-		sliderEl?.removeAttribute('data-slider');
 
 		// Ticker
 		const tickerEl = document.querySelector(`#${apbPosts.id} .apbTickerPosts`);
 		if (tickerEl) {
-			const { rowGap } = JSON.parse(tickerEl.dataset.ticker);
-
 			$(tickerEl).easyTicker({
 				direction: 'up',
 				easing: 'swing',
@@ -88,8 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 		}
 
-		// Remove data ticker attributes
-		tickerEl?.removeAttribute('data-ticker');
+		apbPosts?.removeAttribute('data-attributes');
 	});
 });
 
