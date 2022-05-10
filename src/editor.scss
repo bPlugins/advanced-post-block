@@ -2,34 +2,36 @@ $primaryColor: #4527a4;
 $secondaryColor: #8344c5;
 
 // Common CSS
-.apbLoading{
+.apbLoading {
 	color: $primaryColor !important;
 	font-size: 21px !important;
 	font-weight: bold !important;
 	display: flex;
 	align-items: center;
 
-	.components-spinner{
+	.components-spinner {
 		margin-top: 0;
 		color: $primaryColor;
 		background-color: $primaryColor;
 	}
 }
-.apbNoPosts{
+
+.apbNoPosts {
 	color: red;
 	text-align: center;
 	font-size: 20px;
 }
 
-.apbUpgradeProToggle{
-	.components-form-toggle{
+.apbUpgradeProToggle {
+	.components-form-toggle {
 		opacity: .75;
 	}
 }
-.apbProGroupBtn{
+
+.apbProGroupBtn {
 	position: relative;
 
-	&::before{
+	&::before {
 		content: 'Pro';
 		position: absolute;
 		top: 50%;
@@ -43,18 +45,20 @@ $secondaryColor: #8344c5;
 		display: none;
 	}
 
-	&:hover::before{
+	&:hover::before {
 		display: block;
 	}
 
-	svg{
+	svg {
 		opacity: .75;
 	}
 }
-.apbMutedText{
+
+.apbMutedText {
 	opacity: .75;
 }
-.apbUpgradePro{
+
+.apbUpgradePro {
 	color: #fff;
 	background: $primaryColor;
 	padding: 2px 8px;
@@ -62,10 +66,12 @@ $secondaryColor: #8344c5;
 	border-radius: 50px;
 	cursor: pointer;
 }
-.apbUpgradeProText{
+
+.apbUpgradeProText {
 	font-size: 15px;
 }
-.apbUpgradeProLearnMore{
+
+.apbUpgradeProLearnMore {
 	display: inline-block;
 	font-size: 16px;
 	font-weight: 500;
@@ -76,15 +82,18 @@ $secondaryColor: #8344c5;
 	margin-top: 20px;
 	border-radius: 50px;
 
-	&:hover, &:focus{
+	&:hover,
+	&:focus {
 		color: #fff;
 		background-color: $secondaryColor;
 	}
 }
 
 // Advanced Posts
-.wp-block-ap-block-posts.apbAdvancedPosts{
-	>.apbSliderPosts, >.apbTickerPosts{
+.wp-block-ap-block-posts.apbAdvancedPosts {
+
+	>.apbSliderPosts,
+	>.apbTickerPosts {
 		display: none;
 	}
 }

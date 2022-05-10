@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display posts in a beautiful way!
- * Version: 1.6.9
+ * Version: 1.7.0
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.6.9' );
+define( 'AP_BLOCK_PLUGIN_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.7.0' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Generate Styles

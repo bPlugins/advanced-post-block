@@ -3,177 +3,204 @@ $primaryColor: #4527a4;
 $secondaryColor: #8344c5;
 
 // Common CSS
-html{
+html {
 	scroll-behavior: smooth;
 }
 
 // Columns
 @for $i from 1 through 12 {
-	.columns-#{$i}{
+	.columns-#{$i} {
 		grid-template-columns: repeat(#{$i}, 1fr);
 	}
-	.cols-#{$i}{
+
+	.cols-#{$i} {
 		columns: #{$i};
 	}
 }
+
 @media (max-width: 768px) {
 	@for $i from 1 through 12 {
-		.columns-tablet-#{$i}{
+		.columns-tablet-#{$i} {
 			grid-template-columns: repeat(#{$i}, 1fr);
 		}
-		.cols-tablet-#{$i}{
+
+		.cols-tablet-#{$i} {
 			columns: #{$i};
 		}
 	}
 }
-@media (max-width: 576px) { 
+
+@media (max-width: 576px) {
 	@for $i from 1 through 12 {
-		.columns-mobile-#{$i}{
+		.columns-mobile-#{$i} {
 			grid-template-columns: repeat(#{$i}, 1fr);
 		}
-		.cols-mobile-#{$i}{
+
+		.cols-mobile-#{$i} {
 			columns: #{$i};
 		}
 	}
 }
 
 // Dashicon
-.dashicons{
+.dashicons {
 	font-family: dashicons !important;
 }
 
 // Inner Content
-.apbInnerContent{
-	h1{
-		font-size: 18px!important;
-	}
-	h2{
-		font-size: 17px!important;
-	}
-	h3{
-		font-size: 16px!important;
-	}
-	h4{
-		font-size: 15px!important;
-	}
-	h5{
-		font-size: 14px!important;
-	}
-	h6{
-		font-size: 14px!important;
-	}
-	p, span, div, a, button, mark{
-		font-size: 15px!important;
+.apbInnerContent {
+	h1 {
+		font-size: 18px !important;
 	}
 
-	.read-more, .wp-block-cover, .wp-block-image, img{
+	h2 {
+		font-size: 17px !important;
+	}
+
+	h3 {
+		font-size: 16px !important;
+	}
+
+	h4 {
+		font-size: 15px !important;
+	}
+
+	h5 {
+		font-size: 14px !important;
+	}
+
+	h6 {
+		font-size: 14px !important;
+	}
+
+	p,
+	span,
+	div,
+	a,
+	button,
+	mark {
+		font-size: 15px !important;
+	}
+
+	.read-more,
+	.wp-block-cover,
+	.wp-block-image,
+	img {
 		display: none;
 	}
 
-	*{
+	* {
 		font-family: inherit !important;
 	}
 }
 
 // Advanced Posts
-.wp-block-ap-block-posts.apbAdvancedPosts{
+.wp-block-ap-block-posts.apbAdvancedPosts {
 	overflow: hidden;
 
-	.apbGridPosts{
+	* {
+		box-sizing: border-box;
+	}
+
+	.apbGridPosts {
 		display: grid;
 
-		.swiper-notification{
+		.swiper-notification {
 			display: none;
 		}
 	}
 
-	.apbMasonryPosts{
-		article{
+	.apbMasonryPosts {
+		article {
 			break-inside: avoid;
 		}
 
-		.swiper-notification{
+		.swiper-notification {
 			display: none;
 		}
 	}
 }
 
-.apbSliderPosts{
+.apbSliderPosts {
 	position: relative;
 	overflow: hidden;
 	height: auto;
 
-	.swiper-wrapper{
+	.swiper-wrapper {
 		height: auto;
 		align-items: center;
 	}
 
-	.swiper-pagination{
-		.swiper-pagination-bullet:focus{
+	.swiper-pagination {
+		.swiper-pagination-bullet:focus {
 			outline: 0;
 		}
 	}
 
-	.apbPostOverlay:not(.apbPostOverlayBox) .apbPostText{
-		width: -webkit-fill-available!important;
+	.apbPostOverlay:not(.apbPostOverlayBox) .apbPostText {
+		width: -webkit-fill-available !important;
 	}
 
-	article{
+	article {
 		box-sizing: border-box;
 	}
 
 	@media (max-width: 576px) {
-		.swiper-button-prev, .swiper-rtl .swiper-button-next{
+
+		.swiper-button-prev,
+		.swiper-rtl .swiper-button-next {
 			left: 0;
 
-			&::after{
+			&::after {
 				font-size: 30px;
 			}
 		}
-		.swiper-button-next, .swiper-rtl .swiper-button-prev{
+
+		.swiper-button-next,
+		.swiper-rtl .swiper-button-prev {
 			right: 0;
 
-			&::after{
+			&::after {
 				font-size: 30px;
 			}
 		}
 	}
 }
 
-.apbPost{
+.apbPost {
 	border-radius: 5px;
 	overflow: hidden;
 	box-sizing: border-box;
 
-	.apbPostMeta{
-		> span{
+	.apbPostMeta {
+		>span {
 			display: inline-flex;
 			align-items: center;
 			margin-right: 10px;
 
-			a{
+			a {
 				color: inherit;
 			}
 		}
 
-		.dashicons-admin-comments{
+		.dashicons-admin-comments {
 			transform: translate(0, 2.5px);
 		}
 	}
 
-	.apbPostExcerpt{
-		p{
+	.apbPostExcerpt {
+		p {
 			margin: 0;
 			font-size: inherit;
 		}
 	}
 
-	.apbPostReadMore a{
+	.apbPostReadMore a {
 		display: inline-block;
 		transition: all .3s ease;
 	}
 
-	a{
+	a {
 		color: inherit;
 		text-decoration: none;
 		display: inline-block;
@@ -191,7 +218,7 @@ html{
 		height: 10px;
 		padding-bottom: 60%;
 
-		>a{
+		>a {
 			position: absolute;
 			width: 100%;
 			height: 100%;
@@ -199,18 +226,18 @@ html{
 			top: 0;
 		}
 
-		.apbPostFImgCats{
+		.apbPostFImgCats {
 			position: absolute;
 			left: 10px;
 			bottom: 10px;
 
-			a{
-				text-decoration: none!important;
+			a {
+				text-decoration: none !important;
 				padding: 2px 10px;
 				margin-right: 5px;
 				border-radius: 2px;
 
-				&:hover{
+				&:hover {
 					cursor: pointer;
 				}
 			}
@@ -218,18 +245,19 @@ html{
 	}
 
 
-	&.apbPostSideImage{
+	&.apbPostSideImage {
 		grid-template-columns: 1fr 1fr;
 		align-items: center;
 		height: inherit;
-	
-		&.leftImage{
+
+		&.leftImage {
 			grid-template-columns: 1fr 1.3fr;
 		}
-		&.rightImage{
+
+		&.rightImage {
 			grid-template-columns: 1.3fr 1fr;
 		}
-	
+
 		.apbPostFImg {
 			padding-bottom: 0;
 			height: 100% !important;
@@ -240,27 +268,27 @@ html{
 			height: auto !important;
 			align-self: stretch !important;
 
-			&.rightImage{
-				.apbPostFImg{
+			&.rightImage {
+				.apbPostFImg {
 					margin-top: auto;
 				}
 			}
 
-			.apbPostFImg{
+			.apbPostFImg {
 				width: 100%;
 				height: 200px !important;
 			}
 		}
 	}
 
-	&.apbPostOverlay{
+	&.apbPostOverlay {
 		position: relative;
 		background-size: cover;
 		background-position: center center;
 		background-repeat: no-repeat;
 		z-index: 0;
-	
-		.apbPostText{
+
+		.apbPostText {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -268,33 +296,34 @@ html{
 			min-height: 100%;
 		}
 
-		&.apbPostOverlayHover{
-			>div{
+		&.apbPostOverlayHover {
+			>div {
 				opacity: 0;
-				transition: all .3s ease-out!important;
-				*{
-					transition: all 0s ease!important;
-					transition: color .3s ease!important;
+				transition: all .3s ease-out !important;
+
+				* {
+					transition: all 0s ease !important;
+					transition: color .3s ease !important;
 				}
 			}
 
-			&:hover{
-				>div{
+			&:hover {
+				>div {
 					opacity: 1;
 				}
 			}
 		}
 
-		&.apbPostOverlayBox{
+		&.apbPostOverlayBox {
 			padding: 10% 7.5%;
 
-			&.swiper-slide{
-				.apbPostText{
-					padding-left: 0!important;
-					padding-right: 0!important;
-					width: 85%!important;
+			&.swiper-slide {
+				.apbPostText {
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+					width: 85% !important;
 					min-height: auto;
-					height: auto!important;
+					height: auto !important;
 					position: absolute;
 					left: 50%;
 					top: 50%;
