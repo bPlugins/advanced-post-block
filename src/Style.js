@@ -83,7 +83,7 @@ const FImgStyle = ({ posts, attributes, clientId }) => {
 	return <style>
 		{posts.map(post => {
 			const { id, featured_media } = post;
-			const fImgUrl = mediaUrl(featured_media);
+			const fImgUrl = mediaUrl(featured_media)?.replace(/<[^>]+>/g, '');
 
 			const sideImgCSS = `#apbAdvancedPosts-${clientId} .apbPostSideImage.apbPost-${id}{ display: ${fImgUrl ? 'grid' : 'flex'}; }`;
 			const fImgCSS = isFImg && fImgUrl ? `#apbAdvancedPosts-${clientId} .apbPostOverlay.apbPost-${id}, #apbAdvancedPosts-${clientId} .apbPost .apbPostFImg-${id}{ background-image: url(${fImgUrl}); }` : '';
