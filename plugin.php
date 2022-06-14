@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display posts in a beautiful way!
- * Version: 1.7.1
+ * Version: 1.7.2
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,29 +14,8 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.7.1' );
+define( 'AP_BLOCK_PLUGIN_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.7.2' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
-
-// Generate Styles
-class APBlockStyleGenerator {
-	public static $styles = [];
-	public static function addStyle( $selector, $styles ){
-		if( array_key_exists( $selector, self::$styles ) ){
-			self::$styles[$selector] = wp_parse_args( self::$styles[$selector], $styles );
-		}else { self::$styles[$selector] = $styles; }
-	}
-	public static function renderStyle(){
-		$output = '';
-		foreach( self::$styles as $selector => $style ){
-			$new = '';
-			foreach( $style as $property => $value ){
-				if( $value == '' ){ $new .= $property; }else { $new .= " $property: $value;"; }
-			}
-			$output .= "$selector { $new }";
-		}
-		return $output;
-	}
-}
 
 // Advanced Post Block
 class AdvancedPostBlock {
@@ -52,8 +31,12 @@ class AdvancedPostBlock {
 	}
 
 	function enqueueBlockAssets(){
-		wp_enqueue_script( 'swiperJS', AP_BLOCK_ASSETS_DIR . 'js/swiper-bundle.min.js', [], '7.0.3', true );
-		wp_enqueue_script( 'easyTicker', AP_BLOCK_ASSETS_DIR . 'js/easy-ticker.min.js', [], '3.2.1', true );
+		if ( is_admin() || has_block( 'ap-block/posts', get_the_ID() ) ) {
+			wp_enqueue_script( 'swiperJS', AP_BLOCK_ASSETS_DIR . 'js/swiper-bundle.min.js', [], '7.0.3', true );
+			wp_enqueue_script( 'easyTicker', AP_BLOCK_ASSETS_DIR . 'js/easy-ticker.min.js', [], '3.2.1', true );
+
+			wp_register_style( 'ap-block-posts-style', plugins_url( 'dist/style.css', __FILE__ ), [ 'wp-editor' ], AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
+		}
 	}
 
 	function enqueueAssets(){ wp_enqueue_style( 'dashicons' ); }
@@ -67,7 +50,6 @@ class AdvancedPostBlock {
 
 	function onLoaded(){
 		wp_register_style( 'ap-block-posts-editor-style', plugins_url( 'dist/editor.css', __FILE__ ), [ 'wp-edit-blocks' ], AP_BLOCK_PLUGIN_VERSION ); // Backend Style
-		wp_register_style( 'ap-block-posts-style', plugins_url( 'dist/style.css', __FILE__ ), [ 'wp-editor' ], AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
 
 		register_block_type( __DIR__, [
 			'editor_style'		=> 'ap-block-posts-editor-style',

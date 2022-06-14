@@ -114,7 +114,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							}} options={'slider' === layout || 'ticker' === layout ? subLayouts.filter(l => l.value !== 'default' && l.value !== 'title-meta') : subLayouts}>
 							</SelectControl>
 						</PanelRow>
-						<Title mt='5px' mb='5px'><span className='apbMutedText'>{__('There are more sub layouts in')}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro')}</span></Title>
+						<Title mt='5px' mb='5px'><span className='apbMutedText'>{__('There are more sub layouts in', 'advanced-post-block')}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro', 'advanced-post-block')}</span></Title>
 						<small>{__('Some settings may change when sub layout will be changed.', 'advanced-post-block')}</small>
 
 						{'ticker' !== layout && <>
@@ -234,6 +234,8 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							</PanelRow>}
 
 							<ProToggle label={__('Show Reading Time', 'advanced-post-block')} />
+							<ProToggle label={__('Show Reading Time Seconds', 'advanced-post-block')} />
+							<ProTitle label={__('Reading Time Label:', 'advanced-post-block')} />
 
 							<ToggleControl label={__('Show Comment', 'advanced-post-block')} checked={isMetaComment} onChange={val => setAttributes({ isMetaComment: val })} />
 						</>}
@@ -244,6 +246,8 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 						<ToggleControl label={__('Show Excerpt', 'advanced-post-block')} checked={isExcerpt} onChange={val => setAttributes({ isExcerpt: val })} />
 
 						{isExcerpt && <>
+							<ProToggle label={__('Show Excerpt from Content', 'advanced-post-block')} />
+
 							{/* Excerpt Length */}
 							<Title mt='0' mb='0'>{__('Excerpt Length:', 'advanced-post-block')}</Title>
 							<RangeControl value={excerptLength} onChange={val => setAttributes({ excerptLength: val })} min={0} max={maxExcerptLength} step={1} />
