@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display posts in a beautiful way!
- * Version: 1.7.3
+ * Version: 1.7.4
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.7.3' );
+define( 'AP_BLOCK_PLUGIN_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.7.4' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Advanced Post Block
@@ -29,15 +29,39 @@ class AdvancedPostBlock {
 		add_filter( 'excerpt_more', [$this, 'excerptMore'] );
 	}
 
+	function has_reusable_block( $block_name ){
+		$id = (!$id) ? get_the_ID() : $id;
+		if( $id ){
+			if ( has_block( 'block', $id ) ){
+				// Check reusable blocks
+				$content = get_post_field( 'post_content', $id );
+				$blocks = parse_blocks( $content );
+	
+				if ( !is_array( $blocks ) || empty( $blocks ) ) {
+					return false;
+				}
+	
+				foreach ( $blocks as $block ) {
+					if ( $block['blockName'] === 'core/block' && ! empty( $block['attrs']['ref'] ) ) {
+						if( has_block( $block_name, $block['attrs']['ref'] ) ){
+						   return true;
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+
 	function enqueueBlockAssets(){
-		if ( is_admin() || has_block( 'ap-block/posts', get_the_ID() ) ) {
+		if ( is_admin() || $this->has_reusable_block( 'ap-block/posts' ) || has_block( 'ap-block/posts', get_the_ID() ) ) {
 			wp_enqueue_script( 'swiperJS', AP_BLOCK_ASSETS_DIR . 'js/swiper-bundle.min.js', [], '7.0.3', true );
 			wp_enqueue_script( 'easyTicker', AP_BLOCK_ASSETS_DIR . 'js/easy-ticker.min.js', [], '3.2.1', true );
 
 			wp_register_style( 'ap-block-posts-style', plugins_url( 'dist/style.css', __FILE__ ), [ 'wp-editor', 'dashicons' ], AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
 		}
 
-		if( !is_admin() && !has_block( 'ap-block/posts', get_the_ID() ) ){
+		if( !is_admin() && !$this->has_reusable_block( 'ap-block/posts' ) || has_block( 'ap-block/posts', get_the_ID() ) ){
 			wp_dequeue_script('ap-block-posts-script');
 		}
 	}
