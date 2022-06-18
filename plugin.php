@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display posts in a beautiful way!
- * Version: 1.7.2
+ * Version: 1.7.3
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,14 +14,13 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.7.2' );
+define( 'AP_BLOCK_PLUGIN_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.7.3' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Advanced Post Block
 class AdvancedPostBlock {
 	function __construct(){
 		add_action( 'enqueue_block_assets', [$this, 'enqueueBlockAssets'] );
-		add_action( 'wp_enqueue_scripts', [$this, 'enqueueAssets'] );
 		if ( version_compare( $GLOBALS['wp_version'], '5.8-alpha-1', '<' ) ) {
 			add_filter( 'block_categories', [$this, 'blockCategories'] );
 		} else { add_filter( 'block_categories_all', [$this, 'blockCategories'] ); }
@@ -35,11 +34,13 @@ class AdvancedPostBlock {
 			wp_enqueue_script( 'swiperJS', AP_BLOCK_ASSETS_DIR . 'js/swiper-bundle.min.js', [], '7.0.3', true );
 			wp_enqueue_script( 'easyTicker', AP_BLOCK_ASSETS_DIR . 'js/easy-ticker.min.js', [], '3.2.1', true );
 
-			wp_register_style( 'ap-block-posts-style', plugins_url( 'dist/style.css', __FILE__ ), [ 'wp-editor' ], AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
+			wp_register_style( 'ap-block-posts-style', plugins_url( 'dist/style.css', __FILE__ ), [ 'wp-editor', 'dashicons' ], AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
+		}
+
+		if( !is_admin() && !has_block( 'ap-block/posts', get_the_ID() ) ){
+			wp_dequeue_script('ap-block-posts-script');
 		}
 	}
-
-	function enqueueAssets(){ wp_enqueue_style( 'dashicons' ); }
 
 	function blockCategories( $categories ){
 		return array_merge( [ [
@@ -63,6 +64,9 @@ class AdvancedPostBlock {
 	function render( $attributes ) {
 		extract( $attributes );
 
+		$className = $className ?? '';
+		$apbBlockClassName = 'wp-block-ap-block-posts apbAdvancedPosts ' . $className . ' align' . $align;
+
 		// All Posts
 		$defaultPostFilter = 'post' === $postType ? [
 			'category'	=> $selectedCategories
@@ -76,7 +80,7 @@ class AdvancedPostBlock {
 		], $defaultPostFilter ) );
 
 		ob_start(); ?>
-		<div class='wp-block-ap-block-posts apbAdvancedPosts <?php echo 'align' . esc_attr( $align ); ?>' id='apbAdvancedPosts-<?php echo esc_attr( $cId ); ?>' data-attributes='<?php echo esc_attr( wp_json_encode( $attributes ) ); ?>'>
+		<div class='<?php echo esc_attr( $apbBlockClassName ); ?>' id='apbAdvancedPosts-<?php echo esc_attr( $cId ); ?>' data-attributes='<?php echo esc_attr( wp_json_encode( $attributes ) ); ?>'>
 			<div class='apbStyle'></div>
 			<style>
 				<?php foreach ( $posts as $post ) {

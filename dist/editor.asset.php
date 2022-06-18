@@ -1,4 +1,4 @@
 <?php return [
-	'dependencies' => [ 'wp-blob', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-element', 'wp-html-entities', 'wp-i18n', 'wp-rich-text', 'jquery', 'swiperJS', 'easyTicker' ],
+	'dependencies' => [ 'wp-element', 'wp-data', 'wp-blocks', 'wp-block-editor', 'wp-i18n', 'wp-components', 'jquery', 'swiperJS', 'easyTicker' ],
 	'version' => AP_BLOCK_PLUGIN_VERSION
 ];
