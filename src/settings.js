@@ -46,12 +46,12 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 				{'general' === tab.name && <>
 					<PanelBody className='bPlPanelBody help' title={__('Help', 'advanced-post-block')}>
 						<div className='helpItem'>
-							<a href='https://apb.bplugins.com/docs/' target='_blank' rel='noreferrer'><Dashicon icon='book' size={23} />{__('Read Documentation', 'advanced-post-block')}</a>
+							<a href='https://apb.bplugins.com/docs/' target='_blank' rel='noreferrer'><Dashicon icon='book' />{__('Read Documentation', 'advanced-post-block')}</a>
 						</div>
 
 						<div className='helpItem rateUs'>
 							<a href='https://wordpress.org/support/plugin/advanced-post-block/reviews/#new-post' target='_blank' rel='noreferrer'>
-								<span><Dashicon icon='star-filled' size={23} />{__('Would you please rate us?', 'advanced-post-block')}</span>
+								<span><Dashicon icon='star-filled' />{__('Would you please rate us?', 'advanced-post-block')}</span>
 								<span>{__('We are new and we need your help to grow!🙏', 'advanced-post-block')}</span>
 							</a>
 						</div>
