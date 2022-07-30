@@ -15,6 +15,7 @@ import SelectPureControl from '../../Components/SelectPureControl';
 import ColorsControl from '../../Components/ColorsControl';
 import Typography from '../../Components/Typography';
 import BtnGroup from '../../Components/BtnGroup';
+import { tabController } from '../../Components/Helper/functions';
 
 import { ExcerptLengthCtx } from './Edit';
 import icons from './Const/icons';
@@ -42,9 +43,9 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 	return <>
 		<InspectorControls>
-			<TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={generalStyleTabs}>{tab => <>
+			<TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={generalStyleTabs} onSelect={() => tabController()}>{tab => <>
 				{'general' === tab.name && <>
-					<PanelBody className='bPlPanelBody help' title={__('Help', 'advanced-post-block')}>
+					<PanelBody className='bPlPanelBody help' title={__('Help', 'advanced-post-block')} initialOpen={false}>
 						<div className='helpItem'>
 							<a href='https://apb.bplugins.com/docs/' target='_blank' rel='noreferrer'><Dashicon icon='book' />{__('Read Documentation', 'advanced-post-block')}</a>
 						</div>

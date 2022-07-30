@@ -4,7 +4,8 @@ import { useState, useEffect, createContext, useRef } from '@wordpress/element';
 import { Spinner } from '@wordpress/components';
 const $ = jQuery;
 
-// Settings Components
+import { tabController } from '../../Components/Helper/functions';
+
 import Settings from './Settings';
 import { GeneralStyle, FImgStyle } from './Style';
 import MapPosts from './Layout/MapPosts';
@@ -12,11 +13,14 @@ import MapPosts from './Layout/MapPosts';
 export const ExcerptLengthCtx = createContext();
 
 const Edit = props => {
-	const { attributes, setAttributes, className, clientId, getPostTypes, posts, categories, isEditorSidebarOpened } = props;
+	const { attributes, setAttributes, className, clientId, isSelected, getPostTypes, posts, categories, isEditorSidebarOpened } = props;
 
 	const { align, layout, columns, columnGap, rowGap, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderSpeed, sliderEffect, sliderIsPage, sliderIsPageClickable, sliderIsPageDynamic, sliderIsPrevNext } = attributes;
 
 	useEffect(() => { clientId && setAttributes({ cId: clientId.substring(0, 10) }); }, [clientId]); // Set & Update clientId to cId
+
+	useEffect(() => tabController(), [isSelected]);
+
 	const sliderRef = useRef(null);
 	const sliderWrapperRef = useRef(null);
 	const tickerRef = useRef(null);

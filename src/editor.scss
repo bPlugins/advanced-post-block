@@ -3,7 +3,7 @@ $secondaryColor: #8344c5;
 
 // Common CSS
 .apbLoading {
-	color: $primaryColor !important;
+	color: $primaryColor  !important;
 	font-size: 21px !important;
 	font-weight: bold !important;
 	display: flex;
@@ -12,7 +12,6 @@ $secondaryColor: #8344c5;
 	.components-spinner {
 		margin-top: 0;
 		color: $primaryColor;
-		background-color: $primaryColor;
 	}
 }
 

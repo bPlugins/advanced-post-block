@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display posts in a beautiful way!
- * Version: 1.7.6
+ * Version: 1.7.7
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,19 +14,27 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.7.6' );
+define( 'AP_BLOCK_PLUGIN_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.7.7' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Advanced Post Block
-class AdvancedPostBlock {
+class APBAdvancedPostBlock{
 	function __construct(){
 		add_action( 'enqueue_block_assets', [$this, 'enqueueBlockAssets'] );
-		if ( version_compare( $GLOBALS['wp_version'], '5.8-alpha-1', '<' ) ) {
-			add_filter( 'block_categories', [$this, 'blockCategories'] );
-		} else { add_filter( 'block_categories_all', [$this, 'blockCategories'] ); }
 		add_action( 'wp_loaded', [$this, 'onLoaded'] );
 		add_action( 'rest_api_init', [$this, 'customRestAPI'] );
 		add_filter( 'excerpt_more', [$this, 'excerptMore'] );
+		register_activation_hook( __FILE__, [$this, 'onPluginActivate'] );
+
+		if ( version_compare( $GLOBALS['wp_version'], '5.8-alpha-1', '<' ) ) {
+			add_filter( 'block_categories', [$this, 'blockCategories'] );
+		} else { add_filter( 'block_categories_all', [$this, 'blockCategories'] ); }
+	}
+
+	function onPluginActivate(){
+		if ( is_plugin_active( 'advanced-post-block-pro/plugin.php' ) ){
+			deactivate_plugins( 'advanced-post-block-pro/plugin.php' );
+		}
 	}
 
 	function enqueueBlockAssets(){
@@ -62,7 +70,7 @@ class AdvancedPostBlock {
 
 		// All Posts
 		$defaultPostFilter = 'post' === $postType ? [
-			'category'	=> $selectedCategories
+			'category__in'	=> $selectedCategories
 		] : [];
 
 		$posts = get_posts( array_merge( [
@@ -394,4 +402,4 @@ class AdvancedPostBlock {
 		return "<p class='read-more'><a href=". esc_url( get_permalink( get_the_ID() ) ) .">". __( 'Read More &raquo;', 'b-blocks' ) ."</a></p>";
 	} // Excerpt More
 }
-new AdvancedPostBlock;
+new APBAdvancedPostBlock;

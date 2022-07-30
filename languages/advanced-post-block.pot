@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Advanced Post Block 1.7.6\n"
+"Project-Id-Version: Advanced Post Block 1.7.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/advanced-post-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-06-27T07:52:00+00:00\n"
+"POT-Creation-Date: 2022-07-30T09:35:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: advanced-post-block\n"
@@ -30,685 +30,685 @@ msgstr ""
 msgid "http://bplugins.com"
 msgstr ""
 
-#: plugin.php:130
+#: plugin.php:138
 #: dist/editor.js:1
-#: dist/editor.js:7588
+#: dist/editor.js:7606
 msgid "Please, select a sub layout"
 msgstr ""
 
-#: plugin.php:354
-#: plugin.php:364
+#: plugin.php:362
+#: plugin.php:372
 msgid "Author name and link"
 msgstr ""
 
-#: plugin.php:376
+#: plugin.php:384
 msgid "Category link lists"
 msgstr ""
 
-#: plugin.php:386
+#: plugin.php:394
 msgid "Comment"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6783
+#: dist/editor.js:6800
 msgid "Grid"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6784
+#: dist/editor.js:6801
 msgid "Masonry"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6785
+#: dist/editor.js:6802
 msgid "Slider"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6789
+#: dist/editor.js:6806
 msgid "Default"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6790
+#: dist/editor.js:6807
 msgid "Title Meta"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6791
+#: dist/editor.js:6808
 msgid "Left Image"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6792
+#: dist/editor.js:6809
 msgid "Right Image"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6793
+#: dist/editor.js:6810
 msgid "Overlay Content"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6794
+#: dist/editor.js:6811
 msgid "Overlay Content Hover"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6795
+#: dist/editor.js:6812
 msgid "Overlay Box"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6799
-#: dist/editor.js:7172
+#: dist/editor.js:6816
+#: dist/editor.js:7190
 msgid "Content"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6800
+#: dist/editor.js:6817
 msgid "Image"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6804
+#: dist/editor.js:6821
 msgid "Slide"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6805
+#: dist/editor.js:6822
 msgid "Fade"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6806
+#: dist/editor.js:6823
 msgid "Creative"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6810
+#: dist/editor.js:6827
 msgid "Author"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6811
-#: dist/editor.js:7201
+#: dist/editor.js:6828
+#: dist/editor.js:7219
 msgid "Title"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6812
+#: dist/editor.js:6829
 msgid "Date"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6813
+#: dist/editor.js:6830
 msgid "Last Modified"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6817
+#: dist/editor.js:6834
 msgid "Ascending"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6818
+#: dist/editor.js:6835
 msgid "Descending"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6822
+#: dist/editor.js:6839
 msgid "Left"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6823
+#: dist/editor.js:6840
 msgid "Center"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6824
+#: dist/editor.js:6841
 msgid "Right"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6825
+#: dist/editor.js:6842
 msgid "Justify"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6836
+#: dist/editor.js:6853
 msgid "General"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6837
+#: dist/editor.js:6854
 msgid "Style"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6890
-#: dist/editor.js:6892
-#: dist/editor.js:6975
+#: dist/editor.js:6908
+#: dist/editor.js:6910
+#: dist/editor.js:6993
 msgid "Pro"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6905
+#: dist/editor.js:6923
 msgid "Help"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6907
+#: dist/editor.js:6925
 msgid "Read Documentation"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6912
+#: dist/editor.js:6930
 msgid "Would you please rate us?"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6913
+#: dist/editor.js:6931
 msgid "We are new and we need your help to grow!🙏"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6919
+#: dist/editor.js:6937
 msgid "Layouts Settings"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6920
+#: dist/editor.js:6938
 msgid "Layout:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6940
+#: dist/editor.js:6958
 msgid "Sub Layout:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6975
+#: dist/editor.js:6993
 msgid "There are more sub layouts in"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6976
+#: dist/editor.js:6994
 msgid "Some settings may change when sub layout will be changed."
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6980
+#: dist/editor.js:6998
 msgid "Columns:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6987
+#: dist/editor.js:7005
 msgid "Column Gap:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6992
+#: dist/editor.js:7010
 msgid "Row Gap:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6996
+#: dist/editor.js:7014
 msgid "Enable Content Equal Height"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6998
+#: dist/editor.js:7016
 msgid "Slider Min Height:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7002
+#: dist/editor.js:7020
 msgid "Posts Query"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7004
+#: dist/editor.js:7022
 msgid "Post Type:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7018
+#: dist/editor.js:7036
 msgid "Select Categories:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7027
+#: dist/editor.js:7045
 msgid "Filter By Tags"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7028
+#: dist/editor.js:7046
 msgid "Filter By Custom Taxonomy"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7030
+#: dist/editor.js:7048
 msgid "Post Per Page:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7031
+#: dist/editor.js:7049
 msgid "Show All Posts"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7036
+#: dist/editor.js:7054
 msgid "Post Order By:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7041
+#: dist/editor.js:7059
 msgid "Post Order:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7045
+#: dist/editor.js:7063
 msgid "Post Offset"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7049
+#: dist/editor.js:7067
 msgid "Pagination Settings"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7050
-#: dist/editor.js:7147
+#: dist/editor.js:7068
+#: dist/editor.js:7165
 msgid "Show Pagination"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7052
+#: dist/editor.js:7070
 msgid "Previous Label:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7053
+#: dist/editor.js:7071
 msgid "Next Label:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7054
+#: dist/editor.js:7072
 msgid "Colors:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7055
+#: dist/editor.js:7073
 msgid "Active & Hover Colors:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7056
-#: dist/editor.js:7180
-#: dist/editor.js:7251
+#: dist/editor.js:7074
+#: dist/editor.js:7198
+#: dist/editor.js:7269
 msgid "Padding:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7057
+#: dist/editor.js:7075
 msgid "Space Between:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7061
+#: dist/editor.js:7079
 msgid "Elements Settings"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7063
+#: dist/editor.js:7081
 msgid "Feature Image:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7064
+#: dist/editor.js:7082
 msgid "Show Feature Image"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7066
+#: dist/editor.js:7084
 msgid "Feature Image Size:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7068
+#: dist/editor.js:7086
 msgid "Enable Feature Image Link"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7072
+#: dist/editor.js:7090
 msgid "Title:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7073
+#: dist/editor.js:7091
 msgid "Show Title"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7075
+#: dist/editor.js:7093
 msgid "Enable Title Link"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7079
+#: dist/editor.js:7097
 msgid "Meta Data:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7080
+#: dist/editor.js:7098
 msgid "Show Meta Data"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7083
+#: dist/editor.js:7101
 msgid "Show Author"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7085
+#: dist/editor.js:7103
 msgid "Show Date"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7087
+#: dist/editor.js:7105
 msgid "Show Category"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7090
+#: dist/editor.js:7108
 msgid "Category In:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7094
+#: dist/editor.js:7112
 msgid "Show Reading Time"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7095
+#: dist/editor.js:7113
 msgid "Show Reading Time Seconds"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7096
+#: dist/editor.js:7114
 msgid "Reading Time Label:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7098
+#: dist/editor.js:7116
 msgid "Show Comment"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7103
+#: dist/editor.js:7121
 msgid "Excerpt:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7104
+#: dist/editor.js:7122
 msgid "Show Excerpt"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7107
+#: dist/editor.js:7125
 msgid "Show Excerpt from Content"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7110
+#: dist/editor.js:7128
 msgid "Excerpt Length:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7112
+#: dist/editor.js:7130
 msgid "Excerpt max value will be your site default excerpt length"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7117
+#: dist/editor.js:7135
 msgid "Read More:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7118
+#: dist/editor.js:7136
 msgid "Show Read More"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7121
+#: dist/editor.js:7139
 msgid "Read More Label:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7124
+#: dist/editor.js:7142
 msgid "Open link in new tab"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7129
-#: dist/editor.js:7186
+#: dist/editor.js:7147
+#: dist/editor.js:7204
 msgid "Slider Options"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7130
+#: dist/editor.js:7148
 msgid "Enable Loop"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7132
+#: dist/editor.js:7150
 msgid "Enable Touch Move"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7134
+#: dist/editor.js:7152
 msgid "Enable Autoplay"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7136
+#: dist/editor.js:7154
 msgid "Speed & Delay (s):"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7138
+#: dist/editor.js:7156
 msgid "Smaller speed & delay value will be slide faster"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7141
+#: dist/editor.js:7159
 msgid "Effect:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7144
+#: dist/editor.js:7162
 msgid "To work fade & creative effects properly, set single column per view"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7146
+#: dist/editor.js:7164
 msgid "Pagination:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7150
+#: dist/editor.js:7168
 msgid "Enable Pagination Clickable"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7152
+#: dist/editor.js:7170
 msgid "Enable Pagination Dynamic Bullets"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7155
+#: dist/editor.js:7173
 msgid "Preview Next Button:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7156
+#: dist/editor.js:7174
 msgid "Show Preview Next Button"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7160
+#: dist/editor.js:7178
 msgid "Ticker Options"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7161
+#: dist/editor.js:7179
 msgid "Direction:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7162
+#: dist/editor.js:7180
 msgid "Speed:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7163
+#: dist/editor.js:7181
 msgid "Interval:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7164
+#: dist/editor.js:7182
 msgid "Height:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7165
+#: dist/editor.js:7183
 msgid "Post Visible:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7166
+#: dist/editor.js:7184
 msgid "Ticker Mouse Pause:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7174
-#: dist/editor.js:7227
+#: dist/editor.js:7192
+#: dist/editor.js:7245
 msgid "Text Align:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7178
+#: dist/editor.js:7196
 msgid "Background"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7182
-#: dist/editor.js:7253
+#: dist/editor.js:7200
+#: dist/editor.js:7271
 msgid "Border:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7188
+#: dist/editor.js:7206
 msgid "Pagination Bullets Color:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7190
+#: dist/editor.js:7208
 msgid "Pagination Width:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7192
+#: dist/editor.js:7210
 msgid "Pagination Height:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7194
+#: dist/editor.js:7212
 msgid "Pagination Border:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7197
+#: dist/editor.js:7215
 msgid "Preview Next Button Color:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7204
-#: dist/editor.js:7233
+#: dist/editor.js:7222
+#: dist/editor.js:7251
 msgid "Color:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7206
-#: dist/editor.js:7221
-#: dist/editor.js:7235
+#: dist/editor.js:7224
+#: dist/editor.js:7239
+#: dist/editor.js:7253
 msgid "Margin:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7210
+#: dist/editor.js:7228
 msgid "Meta Data"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7213
+#: dist/editor.js:7231
 msgid "Text Color:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7215
+#: dist/editor.js:7233
 msgid "Link Color:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7217
+#: dist/editor.js:7235
 msgid "Icon Color:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7219
+#: dist/editor.js:7237
 msgid "Category Colors On Image:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7225
+#: dist/editor.js:7243
 msgid "Excerpt"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7239
+#: dist/editor.js:7257
 msgid "Read More"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7241
+#: dist/editor.js:7259
 msgid "Button Align:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7249
+#: dist/editor.js:7267
 msgid "Hover Colors:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7265
+#: dist/editor.js:7283
 msgid "Upgrade To Pro"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7268
+#: dist/editor.js:7286
 msgid "Learn More"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7618
+#: dist/editor.js:7640
 msgid "No posts found!! Please add some posts"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7617
+#: dist/editor.js:7639
 msgid "Loading..."
 msgstr ""
 
