@@ -66,8 +66,15 @@ $secondaryColor: #8344c5;
 	cursor: pointer;
 }
 
-.apbUpgradeProText {
-	font-size: 15px;
+.apbUpgradeProModal {
+	h3 {
+		margin: 0 0 15px 0;
+	}
+
+	.apbUpgradeProText {
+		font-size: 15px;
+		margin: 25px 0 0 0;
+	}
 }
 
 .apbUpgradeProLearnMore {

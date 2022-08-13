@@ -30,16 +30,16 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 	const [isProModal, setIsProModal] = useState(false);
 	const maxExcerptLength = useContext(ExcerptLengthCtx);
 
-	const ProTitle = ({ className, label }) => <Title><span className={`apbMutedText ${className}`}>{label}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro', 'advanced-post-block')}</span></Title>
-
-	const ProToggle = ({ className, label }) => <ToggleControl className={`apbUpgradeProToggle ${className}`} label={<><span className='apbMutedText'>{label}</span> <span className='apbUpgradePro'>{__('Pro', 'advanced-post-block')}</span></>} checked={false} onChange={() => setIsProModal(true)} />
-
 	useEffect(() => {
 		if (('slider' === layout || 'ticker' === layout) && ('default' === subLayout || 'title-meta' === subLayout))
 			setAttributes({ subLayout: 'left-image', columns: { ...columns, desktop: 2 } })
 	}, [layout]);
 
 	const isPosts = posts?.length;
+
+	const ProTitle = ({ className, label }) => <Title><span className={`apbMutedText ${className}`}>{label}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro', 'advanced-post-block')}</span></Title>
+
+	const ProToggle = ({ className, label }) => <ToggleControl className={`apbUpgradeProToggle ${className}`} label={<><span className='apbMutedText'>{label}</span> <span className='apbUpgradePro'>{__('Pro', 'advanced-post-block')}</span></>} checked={false} onChange={() => setIsProModal(true)} />
 
 	return <>
 		<InspectorControls>
@@ -405,8 +405,32 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 		</BlockControls>
 
 
-		{isProModal && <Modal title={__('Upgrade To Pro', 'advanced-post-block')} onRequestClose={() => setIsProModal(false)}>
-			<p className='apbUpgradeProText'>{__('To unlock the features, upgrade to Pro')}</p>
+		{isProModal && <Modal className='apbUpgradeProModal' title={__('Upgrade To Pro', 'advanced-post-block')} onRequestClose={() => setIsProModal(false)}>
+			<h3>{__('Explore new features in Pro', 'advanced-post-block')}</h3>
+
+			<ul className='apbUpgradeProFeatures'>
+				<li>&emsp;<strong>{__('Layouts: ', 'advanced-post-block')}</strong>{__('Checkout more layouts and sub layouts.', 'advanced-post-block')}</li>
+
+				<li>&emsp;<strong>{__('Pagination: ', 'advanced-post-block')}</strong>{__('Add custom pagination bottom of the posts.', 'advanced-post-block')}</li>
+
+				<li>&emsp;<strong>{__('Tag Filter: ', 'advanced-post-block')}</strong>{__('ost Filter by tags (only for default post).', 'advanced-post-block')}</li>
+
+				<li>&emsp;<strong>{__('Post Offset: ', 'advanced-post-block')}</strong>{__('Offset to exclude first N posts.', 'advanced-post-block')}</li>
+
+				<li>&emsp;<strong>{__('Custom Taxonomy Filter: ', 'advanced-post-block')}</strong>{__('Custom Taxonomy filter for post and custom posts.', 'advanced-post-block')}</li>
+
+				<li>&emsp;<strong>{__('Reading Time: ', 'advanced-post-block')}</strong>{__('Show post reading time in meta area.', 'advanced-post-block')}</li>
+
+				<li>&emsp;<strong>{__('Excerpt from Content: ', 'advanced-post-block')}</strong>{__('Show excerpt from main content.', 'advanced-post-block')}</li>
+
+				<li>&emsp;<strong>{__('Ticker Layout Options: ', 'advanced-post-block')}</strong>{__('Options for ticker post layout.', 'advanced-post-block')}</li>
+
+				<li>&emsp;<strong>{__('Feature Image Size: ', 'advanced-post-block')}</strong>{__('Options to set feature image size.', 'advanced-post-block')}</li>
+
+				<li>&emsp;<strong>{__('Shortcode: ', 'advanced-post-block')}</strong>{__('Shortcode option to use anywhere.', 'advanced-post-block')}</li>
+			</ul>
+
+			<h4 className='apbUpgradeProText'>{__('To unlock those features! Upgrade to Pro')}</h4>
 
 			<a className='apbUpgradeProLearnMore' href='https://apb.bplugins.com/buy-now/' target='_blank' rel='noreferrer'>{__('Learn More', 'advanced-post-block')}</a>
 		</Modal>}
