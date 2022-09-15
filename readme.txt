@@ -2,10 +2,10 @@
 Contributors: abuhayat, charlescormier
 Donate link: https://gum.co/wpdonate/
 Tags: block, show posts, blog posts, display blog posts, embed custom posts, gutenberg posts
-Requires at least: 5.0+
-Tested up to: 6.0.1
+Requires at least: 5.3+
+Tested up to: 6.0.2
 Requires PHP: 7.1
-Stable tag: 1.7.8
+Stable tag: 1.7.9
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -51,6 +51,8 @@ Advanced Post Block is powerful but lightweight. Work with any theme, just need 
 - **Post Offset:** Offset to exclude first N posts.
 
 - **Custom Taxonomy Filter:** Custom Taxonomy filter for post and custom posts.
+
+- **Meta Data Icon:** Custom icon for meta data.
 
 - **Reading Time:** Show post reading time in meta area.
 
@@ -161,6 +163,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.7.9 =
+* Default font family removed.
+
 = 1.7.8 =
 * Pro feature lists add.
 
@@ -257,6 +262,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.7.9 =
+* Default font family removed.
 
 = 1.7.8 =
 * Pro feature lists add.

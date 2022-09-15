@@ -1,11 +1,11 @@
-import { mediaUrl } from './Const/functions';
+import { mediaUrl } from './utils/functions';
 
 const GeneralStyle = ({ attributes, clientId }) => {
 	const { layout, columnGap, rowGap, isContentEqualHight, sliderHeight, contentAlign, contentBG, contentPadding, border, sliderPageColor, sliderPageWidth, sliderPageHeight, sliderPageBorder, sliderPrevNextColor, isTitleLink, titleTypo, titleColor, titleMargin, metaTypo, metaTextColor, metaLinkColor, metaIconColor, metaColorsOnImage, metaMargin, excerptAlign, excerptTypo, excerptColor, excerptMargin, readMoreAlign, readMoreTypo, readMoreColors, readMoreHovColors, readMorePadding, readMoreBorder } = attributes;
 
 	return <style dangerouslySetInnerHTML={{
 		__html: `
-		@import url(${titleTypo?.googleFontLink || 'https://fonts.googleapis.com/css2?family=Roboto&display=swap'});
+		${titleTypo?.googleFontLink ? `@import url(${titleTypo?.googleFontLink});` : ''}
 		${metaTypo?.googleFontLink ? `@import url(${metaTypo?.googleFontLink});` : ''}
 		${excerptTypo?.googleFontLink ? `@import url(${excerptTypo?.googleFontLink});` : ''}
 		${readMoreTypo?.googleFontLink ? `@import url(${readMoreTypo?.googleFontLink});` : ''}

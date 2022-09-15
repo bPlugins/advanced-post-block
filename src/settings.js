@@ -18,10 +18,10 @@ import BtnGroup from '../../Components/BtnGroup';
 import { tabController } from '../../Components/Helper/functions';
 
 import { ExcerptLengthCtx } from './Edit';
-import icons from './Const/icons';
-import options from './Const/options';
+import icons from './utils/icons';
+import options from './utils/options';
 const { generalStyleTabs, subLayouts, categoriesPosition, effects, aligns, postsOrdersBy, postsOrders, pxUnit, emUnit, vhUnit } = options;
-import { filterSelected } from './Const/functions';
+import { filterSelected } from './utils/functions';
 
 const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }) => {
 	const { layout, subLayout, columns, columnGap, rowGap, isContentEqualHight, sliderHeight, postType, selectedCategories, isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder, contentAlign, contentBG, contentPadding, border, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderSpeed, sliderEffect, sliderIsPage, sliderIsPageClickable, sliderIsPageDynamic, sliderPageColor, sliderPageWidth, sliderPageHeight, sliderPageBorder, sliderIsPrevNext, sliderPrevNextColor, isFImg, isFImgLink, isTitle, isTitleLink, titleTypo, titleColor, titleMargin, isMeta, isMetaAuthor, isMetaDate, isMetaCategory, metaCategoryIn, isMetaComment, metaTypo, metaTextColor, metaLinkColor, metaIconColor, metaColorsOnImage, metaMargin, isExcerpt, excerptLength, excerptAlign, excerptTypo, excerptColor, excerptMargin, isReadMore, readMoreLabel, isLinkNewTab, readMoreAlign, readMoreTypo, readMoreColors, readMoreHovColors, readMorePadding, readMoreBorder } = attributes;
@@ -37,7 +37,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 	const isPosts = posts?.length;
 
-	const ProTitle = ({ className, label }) => <Title><span className={`apbMutedText ${className}`}>{label}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro', 'advanced-post-block')}</span></Title>
+	const ProTitle = ({ className, label }) => <Title className={className} mt='0'><span className='apbMutedText'>{label}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro', 'advanced-post-block')}</span></Title>
 
 	const ProToggle = ({ className, label }) => <ToggleControl className={`apbUpgradeProToggle ${className}`} label={<><span className='apbMutedText'>{label}</span> <span className='apbUpgradePro'>{__('Pro', 'advanced-post-block')}</span></>} checked={false} onChange={() => setIsProModal(true)} />
 
@@ -115,7 +115,8 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							}} options={'slider' === layout || 'ticker' === layout ? subLayouts.filter(l => l.value !== 'default' && l.value !== 'title-meta') : subLayouts}>
 							</SelectControl>
 						</PanelRow>
-						<Title mt='5px' mb='5px'><span className='apbMutedText'>{__('There are more sub layouts in', 'advanced-post-block')}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro', 'advanced-post-block')}</span></Title>
+
+						<ProTitle className='mt5' label={__('There are more sub layouts in', 'advanced-post-block')} />
 						<small>{__('Some settings may change when sub layout will be changed.', 'advanced-post-block')}</small>
 
 						{'ticker' !== layout && <>
@@ -167,8 +168,8 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							/>
 						</> : null}
 
-						{'post' === postType && <ProTitle label={__('Filter By Tags', 'advanced-post-block')} />}
-						<ProTitle label={__('Filter By Custom Taxonomy', 'advanced-post-block')} />
+						{'post' === postType && <ProTitle className='mt20' label={__('Filter By Tags', 'advanced-post-block')} />}
+						<ProTitle className='mt20' label={__('Filter By Custom Taxonomy', 'advanced-post-block')} />
 
 						<Title>{__('Post Per Page:', 'advanced-post-block')}</Title>
 						<ToggleControl label={__('Show All Posts', 'advanced-post-block')} checked={isPostsPerPageAll} onChange={val => setAttributes({ isPostsPerPageAll: val })} />
@@ -185,88 +186,20 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<SelectControl value={postsOrder} onChange={val => setAttributes({ postsOrder: val })} options={postsOrders} />
 						</PanelRow>
 
-						<ProTitle label={__('Post Offset', 'advanced-post-block')} />
+						<ProTitle className='mt20' label={__('Post Offset', 'advanced-post-block')} />
 					</PanelBody>
 
 
 					{'slider' !== layout && 'ticker' !== layout ? <PanelBody className='bPlPanelBody' title={__('Pagination Settings', 'advanced-post-block')} initialOpen={false}>
 						<ProToggle label={__('Show Pagination', 'advanced-post-block')} />
 
-						<ProTitle label={__('Previous Label:', 'advanced-post-block')} />
-						<ProTitle label={__('Next Label:', 'advanced-post-block')} />
-						<ProTitle label={__('Colors:', 'advanced-post-block')} />
-						<ProTitle label={__('Active & Hover Colors:', 'advanced-post-block')} />
-						<ProTitle label={__('Padding:', 'advanced-post-block')} />
-						<ProTitle label={__('Space Between:', 'advanced-post-block')} />
+						<ProTitle className='mt15' label={__('Previous Label:', 'advanced-post-block')} />
+						<ProTitle className='mt15' label={__('Next Label:', 'advanced-post-block')} />
+						<ProTitle className='mt15' label={__('Colors:', 'advanced-post-block')} />
+						<ProTitle className='mt15' label={__('Active & Hover Colors:', 'advanced-post-block')} />
+						<ProTitle className='mt15' label={__('Padding:', 'advanced-post-block')} />
+						<ProTitle className='mt15' label={__('Space Between:', 'advanced-post-block')} />
 					</PanelBody> : ''}
-
-
-					<PanelBody className='bPlPanelBody' title={__('Elements Settings', 'advanced-post-block')} initialOpen={false}>
-						{/*Feature Image */}
-						<Title mt='0'>{__('Feature Image:', 'advanced-post-block')}</Title>
-						<ToggleControl label={__('Show Feature Image', 'advanced-post-block')} checked={isFImg} onChange={val => setAttributes({ isFImg: val })} />
-
-						<ProTitle label={__('Feature Image Size:', 'advanced-post-block')} />
-
-						{isFImg && <ToggleControl className='mt15' label={__('Enable Feature Image Link', 'advanced-post-block')} checked={isFImgLink} onChange={val => setAttributes({ isFImgLink: val })} />}
-
-
-						{/* Title */}
-						<Title>{__('Title:', 'advanced-post-block')}</Title>
-						<ToggleControl label={__('Show Title', 'advanced-post-block')} checked={isTitle} onChange={val => setAttributes({ isTitle: val })} />
-
-						{isTitle && <ToggleControl label={__('Enable Title Link', 'advanced-post-block')} checked={isTitleLink} onChange={val => setAttributes({ isTitleLink: val })} />}
-
-
-						{/* Meta Data */}
-						<Title>{__('Meta Data:', 'advanced-post-block')}</Title>
-						<ToggleControl label={__('Show Meta Data', 'advanced-post-block')} checked={isMeta} onChange={val => setAttributes({ isMeta: val })} />
-
-						{isMeta && <>
-							<ToggleControl label={__('Show Author', 'advanced-post-block')} checked={isMetaAuthor} onChange={val => setAttributes({ isMetaAuthor: val })} />
-
-							<ToggleControl label={__('Show Date', 'advanced-post-block')} checked={isMetaDate} onChange={val => setAttributes({ isMetaDate: val })} />
-
-							<ToggleControl label={__('Show Category', 'advanced-post-block')} checked={isMetaCategory} onChange={val => setAttributes({ isMetaCategory: val })} />
-
-							{isMetaCategory && <PanelRow className='mt0 mb20'>
-								<Title mt='0' mb='0'>{__('Category In:', 'advanced-post-block')}</Title>
-								<RadioControl selected={metaCategoryIn} onChange={val => setAttributes({ metaCategoryIn: val })} options={categoriesPosition} />
-							</PanelRow>}
-
-							<ProToggle label={__('Show Reading Time', 'advanced-post-block')} />
-							<ProToggle label={__('Show Reading Time Seconds', 'advanced-post-block')} />
-							<ProTitle label={__('Reading Time Label:', 'advanced-post-block')} />
-
-							<ToggleControl label={__('Show Comment', 'advanced-post-block')} checked={isMetaComment} onChange={val => setAttributes({ isMetaComment: val })} />
-						</>}
-
-
-						{/* Excerpt */}
-						<Title>{__('Excerpt:', 'advanced-post-block')}</Title>
-						<ToggleControl label={__('Show Excerpt', 'advanced-post-block')} checked={isExcerpt} onChange={val => setAttributes({ isExcerpt: val })} />
-
-						{isExcerpt && <>
-							<ProToggle label={__('Show Excerpt from Content', 'advanced-post-block')} />
-
-							{/* Excerpt Length */}
-							<Title mt='0' mb='0'>{__('Excerpt Length:', 'advanced-post-block')}</Title>
-							<RangeControl value={excerptLength} onChange={val => setAttributes({ excerptLength: val })} min={0} max={maxExcerptLength} step={1} />
-							<small>{__('Excerpt max value will be your site default excerpt length', 'advanced-post-block')}</small>
-						</>}
-
-
-						{/* Read More */}
-						<Title>{__('Read More:', 'advanced-post-block')}</Title>
-						<ToggleControl label={__('Show Read More', 'advanced-post-block')} checked={isReadMore} onChange={val => setAttributes({ isReadMore: val })} />
-
-						{isReadMore && <>
-							<Title mt='0' mb='0'>{__('Read More Label:', 'advanced-post-block')}</Title>
-							<TextControl value={readMoreLabel} onChange={val => setAttributes({ readMoreLabel: '' === val ? 'Read More' : val })} />
-
-							<ToggleControl label={__('Open link in new tab', 'advanced-post-block')} checked={isLinkNewTab} onChange={val => setAttributes({ isLinkNewTab: val })} />
-						</>}
-					</PanelBody>
 
 
 					{'slider' === layout && <PanelBody className='bPlPanelBody' title={__('Slider Options', 'advanced-post-block')} initialOpen={false}>
@@ -302,12 +235,104 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 					{'ticker' === layout && <PanelBody className='bPlPanelBody' title={__('Ticker Options', 'advanced-post-block')} initialOpen={false}>
 						<ProTitle label={__('Direction:', 'advanced-post-block')} />
-						<ProTitle label={__('Speed:', 'advanced-post-block')} />
-						<ProTitle label={__('Interval:', 'advanced-post-block')} />
-						<ProTitle label={__('Height:', 'advanced-post-block')} />
-						<ProTitle label={__('Post Visible:', 'advanced-post-block')} />
-						<ProTitle label={__('Ticker Mouse Pause:', 'advanced-post-block')} />
+						<ProTitle className='mt15' label={__('Speed:', 'advanced-post-block')} />
+						<ProTitle className='mt15' label={__('Interval:', 'advanced-post-block')} />
+						<ProTitle className='mt15' label={__('Height:', 'advanced-post-block')} />
+						<ProTitle className='mt15' label={__('Post Visible:', 'advanced-post-block')} />
+						<ProTitle className='mt15' label={__('Ticker Mouse Pause:', 'advanced-post-block')} />
 					</PanelBody>}
+				</>}
+
+
+				{'elements' === tab.name && <>
+					<PanelBody className='bPlPanelBody' title={__('Feature Image', 'advanced-post-block')}>
+						<ToggleControl label={__('Show Feature Image', 'advanced-post-block')} checked={isFImg} onChange={val => setAttributes({ isFImg: val })} />
+
+						{isFImg && <>
+							<ProTitle className='mt10' label={__('Feature Image Size:', 'advanced-post-block')} />
+
+							<ToggleControl className='mt10' label={__('Enable Feature Image Link', 'advanced-post-block')} checked={isFImgLink} onChange={val => setAttributes({ isFImgLink: val })} />
+						</>}
+					</PanelBody>
+
+
+					<PanelBody className='bPlPanelBody' title={__('Title', 'advanced-post-block')} initialOpen={false}>
+						<ToggleControl label={__('Show Title', 'advanced-post-block')} checked={isTitle} onChange={val => setAttributes({ isTitle: val })} />
+
+						{isTitle && <ToggleControl className='mt10' label={__('Enable Title Link', 'advanced-post-block')} checked={isTitleLink} onChange={val => setAttributes({ isTitleLink: val })} />}
+					</PanelBody>
+
+
+					<PanelBody className='bPlPanelBody' title={__('Meta Data', 'advanced-post-block')} initialOpen={false}>
+						<ToggleControl label={__('Show Meta Data', 'advanced-post-block')} checked={isMeta} onChange={val => setAttributes({ isMeta: val })} />
+
+						{isMeta && <>
+							<Title mt='30px'><strong>{__('Author', 'advanced-post-block')}</strong></Title>
+
+							<ToggleControl label={__('Show Author', 'advanced-post-block')} checked={isMetaAuthor} onChange={val => setAttributes({ isMetaAuthor: val })} />
+
+							<ProTitle className='mt10' label={__('Author Icon:', 'advanced-post-block')} />
+
+
+							<Title mt='30px'><strong>{__('Date', 'advanced-post-block')}</strong></Title>
+
+							<ToggleControl label={__('Show Date', 'advanced-post-block')} checked={isMetaDate} onChange={val => setAttributes({ isMetaDate: val })} />
+
+							<ProTitle className='mt10' label={__('Date Icon:', 'advanced-post-block')} />
+
+
+							<Title mt='30px'><strong>{__('Category', 'advanced-post-block')}</strong></Title>
+
+							<ToggleControl label={__('Show Category', 'advanced-post-block')} checked={isMetaCategory} onChange={val => setAttributes({ isMetaCategory: val })} />
+
+							{isMetaCategory && <PanelRow>
+								<Title mt='0' mb='0'>{__('Category In:', 'advanced-post-block')}</Title>
+								<RadioControl selected={metaCategoryIn} onChange={val => setAttributes({ metaCategoryIn: val })} options={categoriesPosition} />
+							</PanelRow>}
+
+							<ProTitle className='mt10' label={__('Category Icon:', 'advanced-post-block')} />
+
+
+							<Title mt='30px'><strong>{__('Reading Time', 'advanced-post-block')}</strong></Title>
+
+							<ProToggle label={__('Show Reading Time', 'advanced-post-block')} />
+							<ProTitle className='mt10' label={__('Reading Time Icon:', 'advanced-post-block')} />
+							<ProToggle className='mt10' label={__('Show Reading Time Seconds', 'advanced-post-block')} />
+							<ProTitle className='mt10' label={__('Reading Time Label:', 'advanced-post-block')} />
+
+
+							<Title mt='30px'><strong>{__('Comment', 'advanced-post-block')}</strong></Title>
+
+							<ToggleControl label={__('Show Comment', 'advanced-post-block')} checked={isMetaComment} onChange={val => setAttributes({ isMetaComment: val })} />
+
+							<ProTitle className='mt10' label={__('Comment Icon:', 'advanced-post-block')} />
+						</>}
+					</PanelBody>
+
+
+					<PanelBody className='bPlPanelBody' title={__('Excerpt', 'advanced-post-block')} initialOpen={false}>
+						<ToggleControl label={__('Show Excerpt', 'advanced-post-block')} checked={isExcerpt} onChange={val => setAttributes({ isExcerpt: val })} />
+
+						{isExcerpt && <>
+							<ProToggle className='mt15' label={__('Show Excerpt from Content', 'advanced-post-block')} />
+
+							<Title mt='15px'>{__('Excerpt Length:', 'advanced-post-block')}</Title>
+							<RangeControl value={excerptLength} onChange={val => setAttributes({ excerptLength: val })} min={0} max={maxExcerptLength} step={1} />
+							<small>{__('Excerpt max value will be your site default excerpt length', 'advanced-post-block')}</small>
+						</>}
+					</PanelBody>
+
+
+					<PanelBody className='bPlPanelBody' title={__('Read More', 'advanced-post-block')} initialOpen={false}>
+						<ToggleControl label={__('Show Read More', 'advanced-post-block')} checked={isReadMore} onChange={val => setAttributes({ isReadMore: val })} />
+
+						{isReadMore && <>
+							<Title mt='10px'>{__('Read More Label:', 'advanced-post-block')}</Title>
+							<TextControl value={readMoreLabel} onChange={val => setAttributes({ readMoreLabel: '' === val ? 'Read More' : val })} />
+
+							<ToggleControl label={__('Open link in new tab', 'advanced-post-block')} checked={isLinkNewTab} onChange={val => setAttributes({ isLinkNewTab: val })} />
+						</>}
+					</PanelBody>
 				</>}
 
 
@@ -418,6 +443,8 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 				<li>&emsp;<strong>{__('Post Offset: ', 'advanced-post-block')}</strong>{__('Offset to exclude first N posts.', 'advanced-post-block')}</li>
 
 				<li>&emsp;<strong>{__('Custom Taxonomy Filter: ', 'advanced-post-block')}</strong>{__('Custom Taxonomy filter for post and custom posts.', 'advanced-post-block')}</li>
+
+				<li>&emsp;<strong>{__('Meta Data Icon: ', 'advanced-post-block')}</strong>{__('Custom icon for meta data.', 'advanced-post-block')}</li>
 
 				<li>&emsp;<strong>{__('Reading Time: ', 'advanced-post-block')}</strong>{__('Show post reading time in meta area.', 'advanced-post-block')}</li>
 

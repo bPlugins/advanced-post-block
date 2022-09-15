@@ -4,7 +4,8 @@ const PostMetaDate = props => {
 	const { atts: { isMetaDate }, post: { wbDate } } = props;
 
 	return isMetaDate && wbDate ? <span>
-		<Dashicon icon='calendar-alt' />&nbsp;
+		<Dashicon icon='calendar-alt' />
+
 		<span>{wbDate}</span>
 	</span> : null;
 };

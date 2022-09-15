@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display posts in a beautiful way!
- * Version: 1.7.8
+ * Version: 1.7.9
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.7.8' );
+define( 'AP_BLOCK_PLUGIN_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.7.9' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Advanced Post Block
@@ -45,7 +45,7 @@ class APBAdvancedPostBlock{
 	function blockCategories( $categories ){
 		return array_merge( [ [
 			'slug'	=> 'APBlock',
-			'title'	=> 'Advanced Post Block',
+			'title'	=> 'Advanced Post Block'
 		] ], $categories );
 	} // Categories
 
@@ -244,7 +244,7 @@ class APBAdvancedPostBlock{
 		if ( $isMetaAuthor ) {
 			ob_start(); ?>
 			<span>
-				<span class='dashicon dashicons dashicons-admin-users'></span>&nbsp;
+				<span class='dashicon dashicons dashicons-admin-users'></span>
 				<span><a href='<?php echo esc_url( get_author_posts_url( $post->post_author ) ); ?>' rel="author"><?php echo esc_html( get_the_author_meta( 'display_name', $post->post_author ) ); ?></a></span>
 			</span>
 			<?php return ob_get_clean();
@@ -258,7 +258,7 @@ class APBAdvancedPostBlock{
 		if ( $isMetaDate ) {
 			ob_start(); ?>
 			<span>
-				<span class='dashicon dashicons dashicons-calendar'></span>&nbsp;
+				<span class='dashicon dashicons dashicons-calendar'></span>
 				<span><?php echo get_the_date( 'M j, Y', $post->ID ); ?></span>
 			</span>
 			<?php return ob_get_clean();
@@ -272,7 +272,7 @@ class APBAdvancedPostBlock{
 		if ( $isMetaCategory && 'content' === $metaCategoryIn ) {
 			ob_start(); ?>
 			<span>
-				<span class='dashicon dashicons dashicons-category'></span>&nbsp;
+				<span class='dashicon dashicons dashicons-category'></span>
 				<span><?php echo get_the_category_list( esc_html__( ', ' ), '', $post->ID ); ?></span>
 			</span>
 			<?php return ob_get_clean();
@@ -286,7 +286,7 @@ class APBAdvancedPostBlock{
 		if ( $isMetaComment ) {
 			ob_start(); ?>
 			<span>
-				<span class='dashicon dashicons dashicons-admin-comments'></span>&nbsp;
+				<span class='dashicon dashicons dashicons-admin-comments'></span>
 				<a href='<?php echo esc_url( get_permalink( $post ) ); ?>/#comments' target='_blank' rel='noreferrer'><?php echo wp_count_comments( $post->ID )->total_comments; ?></a>
 			</span>
 			<?php return ob_get_clean();

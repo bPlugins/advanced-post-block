@@ -59,6 +59,7 @@ const options = {
 
 	generalStyleTabs: [
 		{ name: 'general', title: __('General', 'advanced-post-block') },
+		{ name: 'elements', title: __('Elements', 'advanced-post-block') },
 		{ name: 'style', title: __('Style', 'advanced-post-block') }
 	],
 

@@ -4,7 +4,7 @@ const PostMetaAuthor = props => {
 	const { atts: { isMetaAuthor }, post: { wbAuthor } } = props;
 
 	return isMetaAuthor ? <span>
-		<Dashicon icon='admin-users' />&nbsp;
+		<Dashicon icon='admin-users' />
 
 		{wbAuthor && <a href={wbAuthor.link} target='_blank' rel='noreferrer'>{wbAuthor.name}</a>}
 	</span> : null;
