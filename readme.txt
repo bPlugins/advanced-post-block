@@ -5,7 +5,7 @@ Tags: block, show posts, blog posts, display blog posts, embed custom posts, gut
 Requires at least: 5.3+
 Tested up to: 6.0.2
 Requires PHP: 7.1
-Stable tag: 1.8.0
+Stable tag: 1.8.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -53,6 +53,8 @@ Advanced Post Block is powerful but lightweight. Work with any theme, just need 
 - **Custom Taxonomy Filter:** Custom Taxonomy filter for post and custom posts.
 
 - **Meta Data Icon:** Custom icon for meta data.
+
+- **Date Format:** Date format option for meta date.
 
 - **Reading Time:** Show post reading time in meta area.
 
@@ -163,6 +165,10 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.8.1 =
+* Dynamic excerpt link
+* Reduce css assets load
+
 = 1.8.0 =
 * Remove custom excerpt
 
@@ -265,6 +271,10 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.8.1 =
+* Dynamic excerpt link
+* Reduce css assets load
 
 = 1.8.0 =
 * Remove custom excerpt

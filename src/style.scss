@@ -2,11 +2,6 @@
 $primaryColor: #4527a4;
 $secondaryColor: #8344c5;
 
-// Common CSS
-html {
-	scroll-behavior: smooth;
-}
-
 // Columns
 @for $i from 1 through 12 {
 	.columns-#{$i} {
@@ -346,4 +341,9 @@ html {
 			}
 		}
 	}
+}
+
+
+.wp-block-ap-block-posts .apbPost .apbPostFImg {
+	background-size: contain;
 }

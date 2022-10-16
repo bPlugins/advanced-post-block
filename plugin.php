@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display posts in a beautiful way!
- * Version: 1.8.0
+ * Version: 1.8.1
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.8.0' );
+define( 'AP_BLOCK_PLUGIN_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.8.1' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Advanced Post Block
@@ -51,7 +51,7 @@ class APBAdvancedPostBlock{
 
 	function onLoaded(){
 		wp_register_style( 'ap-block-posts-editor-style', plugins_url( 'dist/editor.css', __FILE__ ), [ 'wp-edit-blocks' ], AP_BLOCK_PLUGIN_VERSION ); // Backend Style
-		wp_register_style( 'ap-block-posts-style', plugins_url( 'dist/style.css', __FILE__ ), [ 'wp-editor', 'dashicons' ], AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
+		wp_register_style( 'ap-block-posts-style', plugins_url( 'dist/style.css', __FILE__ ), [ 'dashicons' ], AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
 
 		register_block_type( __DIR__, [
 			'editor_style'		=> 'ap-block-posts-editor-style',
@@ -302,10 +302,12 @@ class APBAdvancedPostBlock{
 			ob_start(); ?>
 			<div class='apbPostExcerpt apbInnerContent'>
 				<?php echo implode( ' ', array_slice(
-					explode( ' ',
-						wp_kses( get_the_excerpt( $post->ID ), [] )
-					),
+					explode( ' ', wp_kses( get_the_excerpt( $post->ID ), [] ) ),
 				0, $excerptLength ) ); ?>
+
+				<p class='read-more'>
+					<a href='<?php echo esc_url( get_permalink( $post ) ); ?>'><?php echo __( 'Read More &raquo;', 'advanced-post-block' ); ?></a>
+				</p>
 			</div>
 			<?php return ob_get_clean();
 		} else {

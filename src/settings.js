@@ -278,6 +278,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 							<ToggleControl label={__('Show Date', 'advanced-post-block')} checked={isMetaDate} onChange={val => setAttributes({ isMetaDate: val })} />
 
+							<ProTitle className='mt10' label={__('Date Format:', 'advanced-post-block')} />
 							<ProTitle className='mt10' label={__('Date Icon:', 'advanced-post-block')} />
 
 
@@ -296,9 +297,9 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<Title mt='30px'><strong>{__('Reading Time', 'advanced-post-block')}</strong></Title>
 
 							<ProToggle label={__('Show Reading Time', 'advanced-post-block')} />
-							<ProTitle className='mt10' label={__('Reading Time Icon:', 'advanced-post-block')} />
 							<ProToggle className='mt10' label={__('Show Reading Time Seconds', 'advanced-post-block')} />
 							<ProTitle className='mt10' label={__('Reading Time Label:', 'advanced-post-block')} />
+							<ProTitle className='mt10' label={__('Reading Time Icon:', 'advanced-post-block')} />
 
 
 							<Title mt='30px'><strong>{__('Comment', 'advanced-post-block')}</strong></Title>
@@ -317,7 +318,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<ProToggle className='mt15' label={__('Show Excerpt from Content', 'advanced-post-block')} />
 
 							<Title mt='15px'>{__('Excerpt Length:', 'advanced-post-block')}</Title>
-							<RangeControl value={excerptLength} onChange={val => setAttributes({ excerptLength: val })} min={0} max={maxExcerptLength} step={1} />
+							<RangeControl value={excerptLength} onChange={val => setAttributes({ excerptLength: val })} min={0} max={maxExcerptLength >= 55 ? maxExcerptLength - 1 : maxExcerptLength} step={1} />
 							<small>{__('Excerpt max value will be your site default excerpt length', 'advanced-post-block')}</small>
 						</>}
 					</PanelBody>
