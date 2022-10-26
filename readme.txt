@@ -3,7 +3,7 @@ Contributors: abuhayat, charlescormier
 Donate link: https://gum.co/wpdonate/
 Tags: block, show posts, blog posts, display blog posts, embed custom posts, gutenberg posts
 Requires at least: 5.3+
-Tested up to: 6.0.2
+Tested up to: 6.0.3
 Requires PHP: 7.1
 Stable tag: 1.8.1
 License: GPLv3 or later
