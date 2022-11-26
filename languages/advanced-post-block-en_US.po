@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Advanced Post Block 1.8.1\n"
+"Project-Id-Version: Advanced Post Block 1.8.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/advanced-post-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-10-16T08:38:20+00:00\n"
+"POT-Creation-Date: 2022-11-26T12:14:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: advanced-post-block\n"
@@ -32,7 +32,7 @@ msgstr ""
 
 #: plugin.php:138
 #: dist/editor.js:1
-#: dist/editor.js:7662
+#: dist/editor.js:7824
 msgid "Please, select a sub layout"
 msgstr ""
 
@@ -849,12 +849,12 @@ msgid "Learn More"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7696
+#: dist/editor.js:7858
 msgid "No posts found!! Please add some posts"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:7695
+#: dist/editor.js:7857
 msgid "Loading..."
 msgstr ""
 

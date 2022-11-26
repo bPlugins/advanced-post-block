@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display posts in a beautiful way!
- * Version: 1.8.1
+ * Version: 1.8.2
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.8.1' );
+define( 'AP_BLOCK_PLUGIN_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.8.2' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Advanced Post Block
@@ -86,7 +86,7 @@ class APBAdvancedPostBlock{
 			<style>
 				<?php foreach ( $posts as $post ) {
 					$imgUrl = preg_replace( '/<[^>]+>/', '', get_the_post_thumbnail_url( $post->ID, 'large' ) );
-					$displayCSS = $imgUrl ? 'grid' : 'flex';
+					$displayCSS = $isFImg && $imgUrl ? 'grid' : 'flex';
 
 					$sideImgCSS = "#apbAdvancedPosts-$cId .apbPostSideImage.apbPost-$post->ID{ display: $displayCSS; }";
 					$fImgCSS = $isFImg && $imgUrl ? "#apbAdvancedPosts-$cId .apbPostOverlay.apbPost-$post->ID, #apbAdvancedPosts-$cId .apbPost .apbPostFImg-$post->ID{ background-image: url( $imgUrl ); }" : '';

@@ -94,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 		}
 
+
+		// Remove attributes data
 		apbPosts?.removeAttribute('data-attributes');
 	});
 });

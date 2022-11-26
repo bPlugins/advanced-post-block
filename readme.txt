@@ -3,7 +3,7 @@ Contributors: abuhayat, charlescormier
 Donate link: https://gum.co/wpdonate/
 Tags: block, show posts, blog posts, display blog posts, embed custom posts, gutenberg posts
 Requires at least: 5.3+
-Tested up to: 6.0.3
+Tested up to: 6.1.1
 Requires PHP: 7.1
 Stable tag: 1.8.1
 License: GPLv3 or later
@@ -18,7 +18,7 @@ Advanced Post Block is an useful plugin for the new WordPress Gutenberg block ed
 Advanced Post Block is powerful but lightweight. Work with any theme, just need WordPress Gutenberg editor.
 
 
-**[Demos](https://apb.bplugins.com/#demos)**
+**[Demos](https://bplugins.com/products/advanced-post-block)**
 
 
 = Features =
@@ -165,6 +165,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.8.2 =
+* Fix side image layout
+
 = 1.8.1 =
 * Dynamic excerpt link
 * Reduce css assets load
@@ -271,6 +274,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.8.2 =
+* Fix side image layout
 
 = 1.8.1 =
 * Dynamic excerpt link

@@ -37,7 +37,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 	const isPosts = posts?.length;
 
-	const ProTitle = ({ className, label }) => <Title className={className} mt='0'><span className='apbMutedText'>{label}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro', 'advanced-post-block')}</span></Title>
+	const ProTitle = ({ className, label }) => <Title className={className}><span className='apbMutedText'>{label}</span> <span className='apbUpgradePro' onClick={() => setIsProModal(true)}>{__('Pro', 'advanced-post-block')}</span></Title>
 
 	const ProToggle = ({ className, label }) => <ToggleControl className={`apbUpgradeProToggle ${className}`} label={<><span className='apbMutedText'>{label}</span> <span className='apbUpgradePro'>{__('Pro', 'advanced-post-block')}</span></>} checked={false} onChange={() => setIsProModal(true)} />
 
@@ -60,7 +60,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 
 					<PanelBody className='bPlPanelBody' title={__('Layouts Settings', 'advanced-post-block')} initialOpen={true}>
-						<Title mt='0'>{__('Layout:', 'advanced-post-block')}</Title>
+						<Title className='mb5'>{__('Layout:', 'advanced-post-block')}</Title>
 						<ButtonGroup className='bPlBtnGroup'>
 							<Tooltip text='Grid' position='top'>
 								<Button icon={icons.grid} isPrimary={'grid' === layout} aria-pressed={'grid' === layout} isMedium={true} onClick={() => setAttributes({ layout: 'grid' })}></Button>
@@ -80,7 +80,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 						</ButtonGroup>
 
 						<PanelRow className='mt20'>
-							<Title mt='0' mb='0'>{__('Sub Layout:', 'advanced-post-block')}</Title>
+							<Title className=''>{__('Sub Layout:', 'advanced-post-block')}</Title>
 							<SelectControl value={subLayout} onChange={val => {
 								setAttributes({ subLayout: val });
 								'default' === val || 'title-meta' === val || 'left-image' === val || 'right-image' === val ? setAttributes({
@@ -121,7 +121,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 						{'ticker' !== layout && <>
 							<PanelRow className='mt20'>
-								<Title mt='0'>{__('Columns:', 'advanced-post-block')}</Title>
+								<Title className='mb5'>{__('Columns:', 'advanced-post-block')}</Title>
 								<BDevice device={device} onChange={val => setDevice(val)} />
 							</PanelRow>
 							<RangeControl value={columns[device]} onChange={val => { setAttributes({ columns: { ...columns, [device]: val } }) }} min={1} max={6} step={1} beforeIcon='grid-view' />
@@ -145,7 +145,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 					<PanelBody className='bPlPanelBody' title={__('Posts Query', 'advanced-post-block')} initialOpen={false}>
 						<PanelRow>
-							<Title mt='0' mb='0'>{__('Post Type:', 'advanced-post-block')}</Title>
+							<Title className=''>{__('Post Type:', 'advanced-post-block')}</Title>
 							<SelectControl value={postType} onChange={val => setAttributes({ postType: val })} options={getPostTypes} />
 						</PanelRow>
 
@@ -171,18 +171,18 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 						{'post' === postType && <ProTitle className='mt20' label={__('Filter By Tags', 'advanced-post-block')} />}
 						<ProTitle className='mt20' label={__('Filter By Custom Taxonomy', 'advanced-post-block')} />
 
-						<Title>{__('Post Per Page:', 'advanced-post-block')}</Title>
+						<Title className=''>{__('Post Per Page:', 'advanced-post-block')}</Title>
 						<ToggleControl label={__('Show All Posts', 'advanced-post-block')} checked={isPostsPerPageAll} onChange={val => setAttributes({ isPostsPerPageAll: val })} />
 
 						{false === isPostsPerPageAll && <RangeControl value={postsPerPage} onChange={val => setAttributes({ postsPerPage: val })} min={1} max={36} step={1} />}
 
 						<PanelRow>
-							<Title mt='0' mb='0'>{__('Post Order By:', 'advanced-post-block')}</Title>
+							<Title className=''>{__('Post Order By:', 'advanced-post-block')}</Title>
 							<SelectControl value={postsOrderBy} onChange={val => setAttributes({ postsOrderBy: val })} options={postsOrdersBy} />
 						</PanelRow>
 
 						<PanelRow>
-							<Title mt='0' mb='0'>{__('Post Order:', 'advanced-post-block')}</Title>
+							<Title className=''>{__('Post Order:', 'advanced-post-block')}</Title>
 							<SelectControl value={postsOrder} onChange={val => setAttributes({ postsOrder: val })} options={postsOrders} />
 						</PanelRow>
 
@@ -214,7 +214,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 						<small>{__('Smaller speed & delay value will be slide faster', 'advanced-post-block')}</small>
 
 						<PanelRow className='mt20'>
-							<Title mt='0' mb='0'>{__('Effect:', 'advanced-post-block')}</Title>
+							<Title className=''>{__('Effect:', 'advanced-post-block')}</Title>
 							<SelectControl value={sliderEffect} onChange={cng => setAttributes({ sliderEffect: cng })} options={effects} />
 						</PanelRow>
 						<small>{__('To work fade & creative effects properly, set single column per view', 'advanced-post-block')}</small>
@@ -267,14 +267,14 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 						<ToggleControl label={__('Show Meta Data', 'advanced-post-block')} checked={isMeta} onChange={val => setAttributes({ isMeta: val })} />
 
 						{isMeta && <>
-							<Title mt='30px'><strong>{__('Author', 'advanced-post-block')}</strong></Title>
+							<Title className='mt30'><strong>{__('Author', 'advanced-post-block')}</strong></Title>
 
 							<ToggleControl label={__('Show Author', 'advanced-post-block')} checked={isMetaAuthor} onChange={val => setAttributes({ isMetaAuthor: val })} />
 
 							<ProTitle className='mt10' label={__('Author Icon:', 'advanced-post-block')} />
 
 
-							<Title mt='30px'><strong>{__('Date', 'advanced-post-block')}</strong></Title>
+							<Title className='mt30'><strong>{__('Date', 'advanced-post-block')}</strong></Title>
 
 							<ToggleControl label={__('Show Date', 'advanced-post-block')} checked={isMetaDate} onChange={val => setAttributes({ isMetaDate: val })} />
 
@@ -282,19 +282,19 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<ProTitle className='mt10' label={__('Date Icon:', 'advanced-post-block')} />
 
 
-							<Title mt='30px'><strong>{__('Category', 'advanced-post-block')}</strong></Title>
+							<Title className='mt30'><strong>{__('Category', 'advanced-post-block')}</strong></Title>
 
 							<ToggleControl label={__('Show Category', 'advanced-post-block')} checked={isMetaCategory} onChange={val => setAttributes({ isMetaCategory: val })} />
 
 							{isMetaCategory && <PanelRow>
-								<Title mt='0' mb='0'>{__('Category In:', 'advanced-post-block')}</Title>
+								<Title className=''>{__('Category In:', 'advanced-post-block')}</Title>
 								<RadioControl selected={metaCategoryIn} onChange={val => setAttributes({ metaCategoryIn: val })} options={categoriesPosition} />
 							</PanelRow>}
 
 							<ProTitle className='mt10' label={__('Category Icon:', 'advanced-post-block')} />
 
 
-							<Title mt='30px'><strong>{__('Reading Time', 'advanced-post-block')}</strong></Title>
+							<Title className='mt30'><strong>{__('Reading Time', 'advanced-post-block')}</strong></Title>
 
 							<ProToggle label={__('Show Reading Time', 'advanced-post-block')} />
 							<ProToggle className='mt10' label={__('Show Reading Time Seconds', 'advanced-post-block')} />
@@ -302,7 +302,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<ProTitle className='mt10' label={__('Reading Time Icon:', 'advanced-post-block')} />
 
 
-							<Title mt='30px'><strong>{__('Comment', 'advanced-post-block')}</strong></Title>
+							<Title className='mt30'><strong>{__('Comment', 'advanced-post-block')}</strong></Title>
 
 							<ToggleControl label={__('Show Comment', 'advanced-post-block')} checked={isMetaComment} onChange={val => setAttributes({ isMetaComment: val })} />
 
@@ -317,7 +317,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 						{isExcerpt && <>
 							<ProToggle className='mt15' label={__('Show Excerpt from Content', 'advanced-post-block')} />
 
-							<Title mt='15px'>{__('Excerpt Length:', 'advanced-post-block')}</Title>
+							<Title className='mt15'>{__('Excerpt Length:', 'advanced-post-block')}</Title>
 							<RangeControl value={excerptLength} onChange={val => setAttributes({ excerptLength: val })} min={0} max={maxExcerptLength >= 55 ? maxExcerptLength - 1 : maxExcerptLength} step={1} />
 							<small>{__('Excerpt max value will be your site default excerpt length', 'advanced-post-block')}</small>
 						</>}
@@ -328,7 +328,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 						<ToggleControl label={__('Show Read More', 'advanced-post-block')} checked={isReadMore} onChange={val => setAttributes({ isReadMore: val })} />
 
 						{isReadMore && <>
-							<Title mt='10px'>{__('Read More Label:', 'advanced-post-block')}</Title>
+							<Title className='mt10'>{__('Read More Label:', 'advanced-post-block')}</Title>
 							<TextControl value={readMoreLabel} onChange={val => setAttributes({ readMoreLabel: '' === val ? 'Read More' : val })} />
 
 							<ToggleControl label={__('Open link in new tab', 'advanced-post-block')} checked={isLinkNewTab} onChange={val => setAttributes({ isLinkNewTab: val })} />
@@ -340,7 +340,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 				{'style' === tab.name && <>
 					{isPosts && <PanelBody className='bPlPanelBody' title={__('Content', 'advanced-post-block')}>
 						<PanelRow>
-							<Title mt='0' mb='0'>{__('Text Align:', 'advanced-post-block')}</Title>
+							<Title className=''>{__('Text Align:', 'advanced-post-block')}</Title>
 							<BtnGroup value={contentAlign} onChange={val => setAttributes({ contentAlign: val })} options={aligns} isIcon={true} />
 						</PanelRow>
 
@@ -393,7 +393,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 					{isPosts && isExcerpt && <PanelBody className='bPlPanelBody' title={__('Excerpt', 'advanced-post-block')} initialOpen={false}>
 						<PanelRow>
-							<Title mt='0' mb='0'>{__('Text Align:', 'advanced-post-block')}</Title>
+							<Title className=''>{__('Text Align:', 'advanced-post-block')}</Title>
 							<BtnGroup value={excerptAlign} onChange={val => setAttributes({ excerptAlign: val })} options={aligns} isIcon={true} />
 						</PanelRow>
 
@@ -407,7 +407,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 					{isPosts && isReadMore && <PanelBody className='bPlPanelBody' title={__('Read More', 'advanced-post-block')} initialOpen={false}>
 						<PanelRow>
-							<Title mt='0' mb='0'>{__('Button Align:', 'advanced-post-block')}</Title>
+							<Title className=''>{__('Button Align:', 'advanced-post-block')}</Title>
 							<BtnGroup value={readMoreAlign} onChange={val => setAttributes({ readMoreAlign: val })} options={aligns.filter(a => a.value !== 'justify')} isIcon={true} />
 						</PanelRow>
 

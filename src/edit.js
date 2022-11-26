@@ -206,7 +206,8 @@ export default withSelect((select, props) => {
 		posts: select('core').getEntityRecords('postType', postType, query),
 		categories: select('core').getEntityRecords('taxonomy', 'category', { per_page: -1 }),
 		media: id => select('core').getMedia(id),
-		authors: select('core').getAuthors(),
+		// authors: select('core').getAuthors(), // deprecated from 5.9
+		authors: select('core').getUsers({ who: 'authors' }),
 		isEditorSidebarOpened: select('core/edit-post').isEditorSidebarOpened()
 	};
 })(Edit);
