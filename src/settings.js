@@ -16,11 +16,12 @@ import ColorsControl from '../../Components/ColorsControl';
 import Typography from '../../Components/Typography';
 import BtnGroup from '../../Components/BtnGroup';
 import { tabController } from '../../Components/Helper/functions';
+import { pxUnit, emUnit, vhUnit } from '../../Components/Helper/options';
 
 import { ExcerptLengthCtx } from './Edit';
 import icons from './utils/icons';
 import options from './utils/options';
-const { generalStyleTabs, subLayouts, categoriesPosition, effects, aligns, postsOrdersBy, postsOrders, pxUnit, emUnit, vhUnit } = options;
+const { generalStyleTabs, subLayouts, categoriesPosition, effects, aligns, postsOrdersBy, postsOrders } = options;
 import { filterSelected } from './utils/functions';
 
 const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }) => {
@@ -84,7 +85,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<SelectControl value={subLayout} onChange={val => {
 								setAttributes({ subLayout: val });
 								'default' === val || 'title-meta' === val || 'left-image' === val || 'right-image' === val ? setAttributes({
-									contentBG: { color: '#f4f2fc', styles: `background-color: #f4f2fc;` },
+									contentBG: { color: '#f4f2fc' },
 									titleColor: '#4527a4',
 									metaCategoryIn: 'image',
 									metaTextColor: '#333',
@@ -92,7 +93,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 									metaIconColor: '#4527a4',
 									excerptColor: '#333',
 								}) : 'overlay-content' === val || 'overlay-content-hover' === val || 'overlay-box' === val ? setAttributes({
-									contentBG: { color: '#000000b3', styles: `background-color: #000000b3;` },
+									contentBG: { color: '#000000b3' },
 									titleColor: '#ccc0f0',
 									metaCategoryIn: 'content',
 									metaTextColor: '#fff',
@@ -139,7 +140,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 						{'grid' === layout && <ToggleControl className='mt10' label={__('Enable Content Equal Height', 'advanced-post-block')} checked={isContentEqualHight} onChange={val => setAttributes({ isContentEqualHight: val })} />}
 
-						{'slider' === layout && <UnitControl className='mt20' label={__('Slider Min Height:', 'advanced-post-block')} labelPosition='left' value={sliderHeight} onChange={val => setAttributes({ sliderHeight: val })} units={[pxUnit, emUnit, vhUnit]} />}
+						{'slider' === layout && <UnitControl className='mt20' label={__('Slider Min Height:', 'advanced-post-block')} labelPosition='left' value={sliderHeight} onChange={val => setAttributes({ sliderHeight: val })} units={[pxUnit(), emUnit(), vhUnit()]} />}
 					</PanelBody>
 
 
@@ -344,11 +345,11 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<BtnGroup value={contentAlign} onChange={val => setAttributes({ contentAlign: val })} options={aligns} isIcon={true} />
 						</PanelRow>
 
-						<Background label={__('Background', 'advanced-post-block')} background={contentBG} onChange={val => setAttributes({ contentBG: val })} defaults={{ color: '#f4f2fc' }} />
+						<Background label={__('Background', 'advanced-post-block')} value={contentBG} onChange={val => setAttributes({ contentBG: val })} defaults={{ color: '#f4f2fc' }} />
 
-						<SpaceControl className='mt20' label={__('Padding:', 'advanced-post-block')} space={contentPadding} onChange={val => setAttributes({ contentPadding: val })} defaults={{ vertical: '20px', horizontal: '25px' }} />
+						<SpaceControl className='mt20' label={__('Padding:', 'advanced-post-block')} value={contentPadding} onChange={val => setAttributes({ contentPadding: val })} defaults={{ vertical: '20px', horizontal: '25px' }} />
 
-						<BorderControl label={__('Border:', 'advanced-post-block')} border={border} onChange={val => setAttributes({ border: val })} defaults={{ radius: '5px' }} />
+						<BorderControl label={__('Border:', 'advanced-post-block')} value={border} onChange={val => setAttributes({ border: val })} defaults={{ radius: '5px' }} />
 					</PanelBody>}
 
 
@@ -356,11 +357,11 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 						{sliderIsPage && <>
 							<BColor label={__('Pagination Bullets Color:', 'advanced-post-block')} value={sliderPageColor} onChange={val => setAttributes({ sliderPageColor: val })} defaultColor='#4527a4' />
 
-							<UnitControl className='mt20' label={__('Pagination Width:', 'advanced-post-block')} labelPosition='left' value={sliderPageWidth} onChange={val => setAttributes({ sliderPageWidth: val })} units={[pxUnit, emUnit]} />
+							<UnitControl className='mt20' label={__('Pagination Width:', 'advanced-post-block')} labelPosition='left' value={sliderPageWidth} onChange={val => setAttributes({ sliderPageWidth: val })} units={[pxUnit(), emUnit()]} />
 
-							<UnitControl className='mt20' label={__('Pagination Height:', 'advanced-post-block')} labelPosition='left' value={sliderPageHeight} onChange={val => setAttributes({ sliderPageHeight: val })} units={[pxUnit, emUnit]} />
+							<UnitControl className='mt20' label={__('Pagination Height:', 'advanced-post-block')} labelPosition='left' value={sliderPageHeight} onChange={val => setAttributes({ sliderPageHeight: val })} units={[pxUnit(), emUnit()]} />
 
-							<BorderControl label={__('Pagination Border:', 'advanced-post-block')} border={sliderPageBorder} onChange={val => setAttributes({ sliderPageBorder: val })} defaults={{ radius: '50%' }} />
+							<BorderControl label={__('Pagination Border:', 'advanced-post-block')} value={sliderPageBorder} onChange={val => setAttributes({ sliderPageBorder: val })} defaults={{ radius: '50%' }} />
 						</>}
 
 						{sliderIsPrevNext && <BColor label={__('Preview Next Button Color:', 'advanced-post-block')} value={sliderPrevNextColor} onChange={val => setAttributes({ sliderPrevNextColor: val })} defaultColor='#4527a4' />}
@@ -368,16 +369,16 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 
 					{isPosts && isTitle && <PanelBody className='bPlPanelBody' title={__('Title', 'advanced-post-block')} initialOpen={false}>
-						<Typography typography={titleTypo} onChange={val => setAttributes({ titleTypo: val })} defaults={{ fontSize: 25 }} />
+						<Typography value={titleTypo} onChange={val => setAttributes({ titleTypo: val })} defaults={{ fontSize: 25 }} />
 
 						<BColor label={__('Color:', 'advanced-post-block')} value={titleColor} onChange={val => setAttributes({ titleColor: val })} defaultColor='#4527a4' />
 
-						<SpaceControl className='mt20' label={__('Margin:', 'advanced-post-block')} space={titleMargin} onChange={val => setAttributes({ titleMargin: val })} defaults={{ side: 4, bottom: '15px' }} />
+						<SpaceControl className='mt20' label={__('Margin:', 'advanced-post-block')} value={titleMargin} onChange={val => setAttributes({ titleMargin: val })} defaults={{ side: 4, bottom: '15px' }} />
 					</PanelBody>}
 
 
 					{isPosts && isMeta && <PanelBody className='bPlPanelBody' title={__('Meta Data', 'advanced-post-block')} initialOpen={false}>
-						<Typography typography={metaTypo} onChange={val => setAttributes({ metaTypo: val })} defaults={{ fontSize: 13, textTransform: 'uppercase' }} />
+						<Typography value={metaTypo} onChange={val => setAttributes({ metaTypo: val })} defaults={{ fontSize: 13, textTransform: 'uppercase' }} />
 
 						<BColor label={__('Text Color:', 'advanced-post-block')} value={metaTextColor} onChange={val => setAttributes({ metaTextColor: val })} defaultColor='#333' />
 
@@ -385,9 +386,9 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 						<BColor label={__('Icon Color:', 'advanced-post-block')} value={metaIconColor} onChange={val => setAttributes({ metaIconColor: val })} defaultColor='#4527a4' />
 
-						<ColorsControl label={__('Category Colors On Image:', 'advanced-post-block')} colors={metaColorsOnImage} onChange={val => setAttributes({ metaColorsOnImage: val })} defaults={{ color: '#fff', bg: '#4527a4' }} />
+						<ColorsControl label={__('Category Colors On Image:', 'advanced-post-block')} value={metaColorsOnImage} onChange={val => setAttributes({ metaColorsOnImage: val })} defaults={{ color: '#fff', bg: '#4527a4' }} />
 
-						<SpaceControl className='mt20' label={__('Margin:', 'advanced-post-block')} space={metaMargin} onChange={val => setAttributes({ metaMargin: val })} defaults={{ side: 4, bottom: '15px' }} />
+						<SpaceControl className='mt20' label={__('Margin:', 'advanced-post-block')} value={metaMargin} onChange={val => setAttributes({ metaMargin: val })} defaults={{ side: 4, bottom: '15px' }} />
 					</PanelBody>}
 
 
@@ -397,11 +398,11 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<BtnGroup value={excerptAlign} onChange={val => setAttributes({ excerptAlign: val })} options={aligns} isIcon={true} />
 						</PanelRow>
 
-						<Typography typography={excerptTypo} onChange={val => setAttributes({ excerptTypo: val })} defaults={{ fontSize: 15 }} />
+						<Typography value={excerptTypo} onChange={val => setAttributes({ excerptTypo: val })} defaults={{ fontSize: 15 }} />
 
 						<BColor label={__('Color:', 'advanced-post-block')} value={excerptColor} onChange={val => setAttributes({ excerptColor: val })} defaultColor='#333' />
 
-						<SpaceControl className='mt20' label={__('Margin:', 'advanced-post-block')} space={excerptMargin} onChange={val => setAttributes({ excerptMargin: val })} defaults={{ side: 4, bottom: '10px' }} />
+						<SpaceControl className='mt20' label={__('Margin:', 'advanced-post-block')} value={excerptMargin} onChange={val => setAttributes({ excerptMargin: val })} defaults={{ side: 4, bottom: '10px' }} />
 					</PanelBody>}
 
 
@@ -411,15 +412,15 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<BtnGroup value={readMoreAlign} onChange={val => setAttributes({ readMoreAlign: val })} options={aligns.filter(a => a.value !== 'justify')} isIcon={true} />
 						</PanelRow>
 
-						<Typography typography={readMoreTypo} onChange={val => setAttributes({ readMoreTypo: val })} defaults={{ fontSize: 14, textTransform: 'uppercase', fontWeight: 600 }} />
+						<Typography value={readMoreTypo} onChange={val => setAttributes({ readMoreTypo: val })} defaults={{ fontSize: 14, textTransform: 'uppercase', fontWeight: 600 }} />
 
-						<ColorsControl colors={readMoreColors} onChange={val => setAttributes({ readMoreColors: val })} defaults={{ color: '#fff', bg: '#8344c5' }} />
+						<ColorsControl value={readMoreColors} onChange={val => setAttributes({ readMoreColors: val })} defaults={{ color: '#fff', bg: '#8344c5' }} />
 
-						<ColorsControl label={__('Hover Colors:', 'advanced-post-block')} colors={readMoreHovColors} onChange={val => setAttributes({ readMoreHovColors: val })} defaults={{ color: '#fff', bg: '#4527a4' }} />
+						<ColorsControl label={__('Hover Colors:', 'advanced-post-block')} value={readMoreHovColors} onChange={val => setAttributes({ readMoreHovColors: val })} defaults={{ color: '#fff', bg: '#4527a4' }} />
 
-						<SpaceControl className='mt20' label={__('Padding:', 'advanced-post-block')} space={readMorePadding} onChange={val => setAttributes({ readMorePadding: val })} defaults={{ vertical: '12px', horizontal: '35px' }} />
+						<SpaceControl className='mt20' label={__('Padding:', 'advanced-post-block')} value={readMorePadding} onChange={val => setAttributes({ readMorePadding: val })} defaults={{ vertical: '12px', horizontal: '35px' }} />
 
-						<BorderControl label={__('Border:', 'advanced-post-block')} border={readMoreBorder} onChange={val => setAttributes({ readMoreBorder: val })} defaults={{ radius: '3px' }} />
+						<BorderControl label={__('Border:', 'advanced-post-block')} value={readMoreBorder} onChange={val => setAttributes({ readMoreBorder: val })} defaults={{ radius: '3px' }} />
 					</PanelBody>}
 				</>}
 			</>}</TabPanel>

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Post Block
  * Description: Advanced Post Block - Display posts in a beautiful way!
- * Version: 1.8.2
+ * Version: 1.8.3
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'AP_BLOCK_PLUGIN_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.8.2' );
+define( 'AP_BLOCK_PLUGIN_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.8.3' );
 define( 'AP_BLOCK_ASSETS_DIR', plugin_dir_url( __FILE__ ) . 'assets/' );
 
 // Advanced Post Block
@@ -298,11 +298,13 @@ class APBAdvancedPostBlock{
 	function postExcerpt( $attributes, $post ) {
 		extract( $attributes );
 
+		$excerptContent = get_the_excerpt( $post->ID );
+
 		if ( $isExcerpt ) {
 			ob_start(); ?>
 			<div class='apbPostExcerpt apbInnerContent'>
 				<?php echo implode( ' ', array_slice(
-					explode( ' ', wp_kses( get_the_excerpt( $post->ID ), [] ) ),
+					explode( ' ', wp_kses( preg_replace('/(<([^>]+)>)/', '', $excerptContent), [] ) ),
 				0, $excerptLength ) ); ?>
 
 				<p class='read-more'>

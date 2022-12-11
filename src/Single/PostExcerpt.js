@@ -4,7 +4,7 @@ import { truncate, renderHTML } from '../utils/functions';
 const PostExcerpt = props => {
 	const { atts: { isExcerpt, excerptLength }, post: { excerpt, content } } = props;
 
-	const renderContent = excerpt ? excerpt?.rendered : content?.rendered;
+	const renderContent = excerpt ? excerpt?.rendered : content?.raw.replace(/(<([^>]+)>)/gi, '');
 
 	return isExcerpt ? <div className='apbPostExcerpt apbInnerContent'>{renderHTML(truncate(renderContent, excerptLength))}</div> : null;
 };
