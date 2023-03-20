@@ -50,8 +50,8 @@ class APBAdvancedPostBlock{
 	} // Categories
 
 	function onLoaded(){
-		wp_register_style( 'ap-block-posts-editor-style', plugins_url( 'dist/editor.css', __FILE__ ), [ 'wp-edit-blocks' ], AP_BLOCK_PLUGIN_VERSION ); // Backend Style
-		wp_register_style( 'ap-block-posts-style', plugins_url( 'dist/style.css', __FILE__ ), [ 'dashicons' ], AP_BLOCK_PLUGIN_VERSION ); // Frontend Style
+		wp_register_style( 'ap-block-posts-editor-style', plugins_url( 'dist/editor.css', __FILE__ ), [ 'ap-block-posts-style' ], AP_BLOCK_PLUGIN_VERSION ); // Backend Style
+		wp_register_style( 'ap-block-posts-style', plugins_url( 'dist/style.css', __FILE__ ), [ 'dashicons' ], AP_BLOCK_PLUGIN_VERSION ); // Style
 
 		register_block_type( __DIR__, [
 			'editor_style'		=> 'ap-block-posts-editor-style',
@@ -66,7 +66,7 @@ class APBAdvancedPostBlock{
 		extract( $attributes );
 
 		$className = $className ?? '';
-		$apbBlockClassName = 'wp-block-ap-block-posts apbAdvancedPosts ' . $className . ' align' . $align;
+		$blockClassName = 'wp-block-ap-block-posts apbAdvancedPosts ' . $className . ' align' . $align;
 
 		// All Posts
 		$defaultPostFilter = 'post' === $postType ? [
@@ -81,7 +81,7 @@ class APBAdvancedPostBlock{
 		], $defaultPostFilter ) );
 
 		ob_start(); ?>
-		<div class='<?php echo esc_attr( $apbBlockClassName ); ?>' id='apbAdvancedPosts-<?php echo esc_attr( $cId ); ?>' data-attributes='<?php echo esc_attr( wp_json_encode( $attributes ) ); ?>'>
+		<div class='<?php echo esc_attr( $blockClassName ); ?>' id='apbAdvancedPosts-<?php echo esc_attr( $cId ); ?>' data-attributes='<?php echo esc_attr( wp_json_encode( $attributes ) ); ?>'>
 			<div class='apbStyle'></div>
 			<style>
 				<?php foreach ( $posts as $post ) {
@@ -403,7 +403,7 @@ class APBAdvancedPostBlock{
 	} // Custom rest
 
 	function excerptMore( $more ) {
-		return "<p class='read-more'><a href=". esc_url( get_permalink( get_the_ID() ) ) .">". __( 'Read More &raquo;', 'b-blocks' ) ."</a></p>";
+		return "<p class='read-more'><a href=". esc_url( get_permalink( get_the_ID() ) ) .">". __( 'Read More &raquo;', 'advanced-post-block' ) ."</a></p>";
 	} // Excerpt More
 }
 new APBAdvancedPostBlock;

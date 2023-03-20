@@ -176,7 +176,11 @@
 			"type": "object",
 			"default": {
 				"fontFamily": "Roboto",
-				"fontSize": 25,
+				"fontSize": {
+					"desktop": 25,
+					"tablet": 22,
+					"mobile": 20
+				},
 				"googleFontLink": "https://fonts.googleapis.com/css2?family=Roboto&display=swap"
 			}
 		},
@@ -187,6 +191,7 @@
 		"titleMargin": {
 			"type": "object",
 			"default": {
+				"side": 4,
 				"bottom": "15px"
 			}
 		},
@@ -217,7 +222,11 @@
 		"metaTypo": {
 			"type": "object",
 			"default": {
-				"fontSize": 13,
+				"fontSize": {
+					"desktop": 13,
+					"tablet": 13,
+					"mobile": 13
+				},
 				"textTransform": "uppercase"
 			}
 		},
@@ -243,6 +252,7 @@
 		"metaMargin": {
 			"type": "object",
 			"default": {
+				"side": 4,
 				"bottom": "15px"
 			}
 		},
@@ -261,7 +271,11 @@
 		"excerptTypo": {
 			"type": "object",
 			"default": {
-				"fontSize": 15
+				"fontSize": {
+					"desktop": 15,
+					"tablet": 15,
+					"mobile": 15
+				}
 			}
 		},
 		"excerptColor": {
@@ -271,6 +285,7 @@
 		"excerptMargin": {
 			"type": "object",
 			"default": {
+				"side": 4,
 				"bottom": "10px"
 			}
 		},
@@ -293,7 +308,11 @@
 		"readMoreTypo": {
 			"type": "object",
 			"default": {
-				"fontSize": 14,
+				"fontSize": {
+					"desktop": 14,
+					"tablet": 14,
+					"mobile": 14
+				},
 				"textTransform": "uppercase",
 				"fontWeight": 600
 			}

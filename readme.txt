@@ -1,6 +1,6 @@
-=== Advanced Post Block - Display posts in a beautiful way. ===
+=== Advanced Post Block - Post Grid for WordPress block editor ===
 Contributors: abuhayat, charlescormier
-Donate link: https://gum.co/wpdonate/
+Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, show posts, blog posts, display blog posts, embed custom posts, gutenberg posts
 Requires at least: 5.3+
 Tested up to: 6.1.1
@@ -15,7 +15,18 @@ Advanced Post Block is an useful plugin for the new WordPress Gutenberg block ed
 
 Advanced Post Block is an useful plugin for the new WordPress Gutenberg block editor. It added many new features for displaying posts or custom posts contents in your web page or posts.
 
-Advanced Post Block is powerful but lightweight. Work with any theme, just need WordPress Gutenberg editor.
+
+Advanced Post Block is a powerful and flexible block plugin that allows you to display your WordPress posts and pages in customizable and engaging layouts. With this plugin, you can create advanced post listings, highlight specific posts, and showcase your content in unique and interactive ways.
+
+The plugin includes a range of customizable blocks that you can use to create dynamic post listings, such as recent posts, popular posts, and featured posts. You can also customize the post layout with a range of settings, including post order, post excerpt length, and thumbnail size, to create a layout that best suits your needs.
+
+Advanced Post Block also includes a powerful post filter system that allows you to filter posts by category, tag, author, and more. This makes it easy to create post listings that are specific to your content and your users' interests.
+
+The plugin includes an intuitive block interface that makes it easy to add and customize post listings in your content. Simply select the Advanced Post Block from the Gutenberg block library, choose the post listing style you want, and customize the settings to your liking.
+
+Advanced Post Block is also optimized for performance and security. The plugin is designed to minimize its impact on your site's performance, and all post listings are automatically sanitized and validated to prevent security vulnerabilities.
+
+Overall, Advanced Post Block is a powerful and essential block plugin for anyone looking to create advanced and customizable post listings on their WordPress website. Try it out today and take your content to the next level!
 
 
 **[Demos](https://bplugins.com/products/advanced-post-block)**
@@ -54,6 +65,8 @@ Advanced Post Block is powerful but lightweight. Work with any theme, just need 
 
 - **Meta Data Icon:** Custom icon for meta data.
 
+- **Meta Author Link Toggle:** Show meta author with or without link.
+
 - **Date Format:** Date format option for meta date.
 
 - **Reading Time:** Show post reading time in meta area.
@@ -87,15 +100,15 @@ Advanced Post Block is powerful but lightweight. Work with any theme, just need 
 
 = ⭐ Check out our other WordPress Plugins- =
 
-🔥 **[Html5 Audio Player](https://audioplayerwp.com/)** – Best audio player plugin for WordPress.
+🔥 **[Html5 Audio Player](https://bplugins.com/products/html5-audio-player)** – Best audio player plugin for WordPress.
 
-🔥 **[Html5 Video Player](https://wpvideoplayer.com/)** – Best video player plugin for WordPress.
+🔥 **[Html5 Video Player](https://bplugins.com/products/html5-video-player)** – Best video player plugin for WordPress.
 
-🔥 **[PDF Poster](http://pdfposter.com/)** – A fully-featured PDF Viewer Plugin for WordPress.
+🔥 **[PDF Poster](https://bplugins.com/products/pdf-poster)** – A fully-featured PDF Viewer Plugin for WordPress.
 
-🔥 **[StreamCast](https://wordpress.org/plugins/streamcast)** – A fully-featured Radio Player Plugin for WordPress.
+🔥 **[StreamCast](https://bplugins.com/products/streamcast-radio-player)** – A fully-featured Radio Player Plugin for WordPress.
 
-🔥 **[3D Viewer](https://3d-viewer.bplugins.com/)** – Display interactive 3D models on the webs.
+🔥 **[3D Viewer](https://bplugins.com/products/3d-viewer)** – Display interactive 3D models on the webs.
 
 
 == Installation ==

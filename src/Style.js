@@ -3,100 +3,99 @@ import { getBackgroundCSS, getBorderCSS, getColorsCSS, getSpaceCSS, getTypoCSS }
 import { mediaUrl } from './utils/functions';
 
 const GeneralStyle = ({ attributes, clientId }) => {
-	const { layout, columnGap, rowGap, isContentEqualHight, sliderHeight, contentAlign, contentBG, contentPadding, border, sliderPageColor, sliderPageWidth, sliderPageHeight, sliderPageBorder, sliderPrevNextColor, isTitleLink, titleTypo, titleColor, titleMargin, metaTypo, metaTextColor, metaLinkColor, metaIconColor, metaColorsOnImage, metaMargin, excerptAlign, excerptTypo, excerptColor, excerptMargin, readMoreAlign, readMoreTypo, readMoreColors, readMoreHovColors, readMorePadding, readMoreBorder } = attributes;
+	const { layout, columnGap, rowGap, isContentEqualHight, sliderHeight, contentAlign, contentBG, contentPadding, border, sliderPageColor, sliderPageWidth, sliderPageHeight, sliderPageBorder, sliderPrevNextColor, titleTypo, titleColor, titleMargin, metaTypo, metaTextColor, metaLinkColor, metaIconColor, metaColorsOnImage, metaMargin, excerptAlign, excerptTypo, excerptColor, excerptMargin, readMoreAlign, readMoreTypo, readMoreColors, readMoreHovColors, readMorePadding, readMoreBorder } = attributes;
+
+	const mainSl = `#apbAdvancedPosts-${clientId}`;
+	const postSl = `${mainSl} .apbPost`;
+	const sliderPostsSl = `${mainSl} .apbSliderPosts`;
+	const postReadMoreSl = `${postSl} .apbPostReadMore`;
+	const postTitleSl = `${postSl} .apbPostTitle`;
+	const postMetaSl = `${postSl} .apbPostMeta`;
 
 	return <style dangerouslySetInnerHTML={{
 		__html: `
-		${getTypoCSS(titleTypo)?.googleFontLink ? `@import url(${getTypoCSS(titleTypo)?.googleFontLink});` : ''}
-		${getTypoCSS(metaTypo)?.googleFontLink ? `@import url(${getTypoCSS(metaTypo)?.googleFontLink});` : ''}
-		${getTypoCSS(excerptTypo)?.googleFontLink ? `@import url(${getTypoCSS(excerptTypo)?.googleFontLink});` : ''}
-		${getTypoCSS(readMoreTypo)?.googleFontLink ? `@import url(${getTypoCSS(readMoreTypo)?.googleFontLink});` : ''}
+		${getTypoCSS(`${postTitleSl}, ${postTitleSl} a`, titleTypo)}
+		${getTypoCSS(`${postMetaSl}, ${postMetaSl} *, ${postSl} .apbPostFImgCats`, metaTypo)}
+		${getTypoCSS(`${postSl} .apbPostExcerpt`, excerptTypo)}
+		${getTypoCSS(`${postReadMoreSl} a`, readMoreTypo)}
 		
-		#apbAdvancedPosts-${clientId} .apbPost{
+		${postSl}{
 			margin-bottom: ${'masonry' === layout ? `${rowGap}px` : '0px'};
-			${getBorderCSS(border) || 'border: 1px solid #4527a400; border-radius: 5px;'}
+			${getBorderCSS(border)}
 		}
-		#apbAdvancedPosts-${clientId} .apbPostDefault,
-		#apbAdvancedPosts-${clientId} .apbPostSideImage{
+		${mainSl} .apbPostDefault,
+		${mainSl} .apbPostSideImage{
 			text-align: ${contentAlign};
-			${getBackgroundCSS(contentBG) || 'background-color: #f4f2fc;'}
+			${getBackgroundCSS(contentBG)}
 		}
 
-		#apbAdvancedPosts-${clientId} .apbPost .apbPostText{
-			padding: ${getSpaceCSS(contentPadding) || '20px 25px'};
+		${postSl} .apbPostText{
+			padding: ${getSpaceCSS(contentPadding)};
 		}
-		#apbAdvancedPosts-${clientId} .apbPostOverlay .apbPostText{
-			${getBackgroundCSS(contentBG) || 'background-color: #f4f2fc;'}
+		${mainSl} .apbPostOverlay .apbPostText{
+			${getBackgroundCSS(contentBG)}
 			align-items: ${'left' === contentAlign ? 'flex-start' : 'right' === contentAlign ? 'flex-end' : 'center' === contentAlign ? 'center' : ''}
 		}
 
-		#apbAdvancedPosts-${clientId} .apbPost .apbPostTitle{
+		${postTitleSl}{
 			text-align: ${contentAlign};
-			${!isTitleLink ? getTypoCSS(titleTypo)?.styles || 'font-family: Roboto, sans-serif; font-size: 25px;' : ''}
 			color: ${titleColor};
-			margin: ${getSpaceCSS(titleMargin) || '0 0 15px 0'};
+			margin: ${getSpaceCSS(titleMargin)};
 		}
-		#apbAdvancedPosts-${clientId} .apbPost .apbPostTitle a{
-			${getTypoCSS(titleTypo)?.styles || 'font-family: Roboto, sans-serif; font-size: 25px;'}
+		${postTitleSl} a{
 			color: ${titleColor};
 		}
-		#apbAdvancedPosts-${clientId} .apbPost .apbPostMeta{
+		${postMetaSl}{
 			text-align: ${contentAlign};
-			${getTypoCSS(metaTypo)?.styles || 'font-size: 13px; text-transform: uppercase;'}
 			color: ${metaTextColor};
-			margin: ${getSpaceCSS(metaMargin) || '0 0 15px 0'};
+			margin: ${getSpaceCSS(metaMargin)};
 		}
-		#apbAdvancedPosts-${clientId} .apbPost .apbPostMeta a{
+		${postMetaSl} a{
 			color: ${metaLinkColor};
 		}
-		#apbAdvancedPosts-${clientId} .apbPost .apbPostMeta .dashicons{
+		${postMetaSl} .dashicons{
 			color: ${metaIconColor};
 		}
-		#apbAdvancedPosts-${clientId} .apbPost .apbPostFImgCats{
-			${getTypoCSS(metaTypo)?.styles || 'font-size: 13px; text-transform: uppercase;'}
+		${postSl} .apbPostFImgCats a{
+			${getColorsCSS(metaColorsOnImage)}
 		}
-		#apbAdvancedPosts-${clientId} .apbPost .apbPostFImgCats a{
-			${getColorsCSS(metaColorsOnImage) || 'color: #fff; background: #4527a4;'}
-		}
-		#apbAdvancedPosts-${clientId} .apbPost .apbPostExcerpt{
+		${postSl} .apbPostExcerpt{
 			text-align: ${excerptAlign};
-			${getTypoCSS(excerptTypo)?.styles || 'font-size: 15px;'}
 			color: ${excerptColor};
-			margin: ${getSpaceCSS(excerptMargin) || '0 0 10px 0'};
+			margin: ${getSpaceCSS(excerptMargin)};
 		}
-		#apbAdvancedPosts-${clientId} .apbPost .apbPostReadMore{
+		${postReadMoreSl}{
 			text-align: ${readMoreAlign};
 		}
-		#apbAdvancedPosts-${clientId} .apbPost .apbPostReadMore a{
-			${getTypoCSS(readMoreTypo)?.styles || 'font-size: 14px; text-transform: uppercase; font-weight: 600;'}
-			${getColorsCSS(readMoreColors) || 'color: #fff; background: #8344c5;'}
-			padding: ${getSpaceCSS(readMorePadding) || '12px 35px'};
-			${getBorderCSS(readMoreBorder) || 'border-radius: 3px;'}
+		${postReadMoreSl} a{
+			${getColorsCSS(readMoreColors)}
+			padding: ${getSpaceCSS(readMorePadding)};
+			${getBorderCSS(readMoreBorder)}
 		}
-		#apbAdvancedPosts-${clientId} .apbPost .apbPostReadMore a:hover{
-			${getColorsCSS(readMoreHovColors) || 'color: #fff; background: #4527a4;'}
+		${postReadMoreSl} a:hover{
+			${getColorsCSS(readMoreHovColors)}
 		}
 
-		#apbAdvancedPosts-${clientId} .apbGridPosts{
+		${mainSl} .apbGridPosts{
 			grid-gap: ${rowGap}px ${columnGap}px;
 			align-items: ${false === isContentEqualHight ? 'start' : 'initial'};
 		}
-		#apbAdvancedPosts-${clientId} .apbMasonryPosts{
+		${mainSl} .apbMasonryPosts{
 			gap: ${columnGap}px;
 		}
 
-		#apbAdvancedPosts-${clientId} .apbSliderPosts,
-		#apbAdvancedPosts-${clientId} .apbSliderPosts .swiper-slide{
+		${sliderPostsSl},
+		${sliderPostsSl} .swiper-slide{
 			min-height: ${sliderHeight};
 		}
-		#apbAdvancedPosts-${clientId} .apbSliderPosts .swiper-pagination .swiper-pagination-bullet{
+		${sliderPostsSl} .swiper-pagination .swiper-pagination-bullet{
 			background: ${sliderPageColor};
 			width: ${sliderPageWidth};
 			height: ${sliderPageHeight};
-			${getBorderCSS(sliderPageBorder) || 'border-radius: 50%;'}
+			${getBorderCSS(sliderPageBorder)}
 		}
-		#apbAdvancedPosts-${clientId} .apbSliderPosts .swiper-button-prev,
-		#apbAdvancedPosts-${clientId} .apbSliderPosts .swiper-button-next{
+		${sliderPostsSl} .swiper-button-prev,
+		${sliderPostsSl} .swiper-button-next{
 			color: ${sliderPrevNextColor};
 		}
 		`.replace(/\s+/g, ' ')

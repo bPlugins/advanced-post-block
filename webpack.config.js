@@ -35,7 +35,7 @@ module.exports = (env, argv) => {
 				cleanOnceBeforeBuildPatterns: [
 					'**/*',
 					'!editor.asset.php',
-					'!script.asset.php',
+					'!script.asset.php'
 				]
 			}), // Re generate 'dist' folder
 			new MiniCssExtractPlugin({
@@ -60,8 +60,8 @@ module.exports = (env, argv) => {
 							presets: [
 								'@babel/preset-env',
 								['@babel/preset-react', {
-									'pragma': 'wp.element.createElement',
-									'pragmaFrag': 'wp.element.Fragment',
+									// 'pragma': 'wp.element.createElement',
+									// 'pragmaFrag': 'wp.element.Fragment',
 									'development': isDev()
 								}]
 							]

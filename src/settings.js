@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from '@wordpress/element';
 import { InspectorControls, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, RangeControl, TextControl, ToggleControl, TabPanel, RadioControl, PanelRow, __experimentalUnitControl as UnitControl, Modal, ButtonGroup, Button, Tooltip, Dashicon } from '@wordpress/components';
 import SelectPure from 'select-pure';
+import produce from 'immer';
 
 // Settings Components
 import BDevice from '../../Components/BDevice';
@@ -271,6 +272,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<Title className='mt30'><strong>{__('Author', 'advanced-post-block')}</strong></Title>
 
 							<ToggleControl label={__('Show Author', 'advanced-post-block')} checked={isMetaAuthor} onChange={val => setAttributes({ isMetaAuthor: val })} />
+							<ProToggle label={__('Author Link', 'advanced-post-block')} />
 
 							<ProTitle className='mt10' label={__('Author Icon:', 'advanced-post-block')} />
 
@@ -369,7 +371,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 
 					{isPosts && isTitle && <PanelBody className='bPlPanelBody' title={__('Title', 'advanced-post-block')} initialOpen={false}>
-						<Typography value={titleTypo} onChange={val => setAttributes({ titleTypo: val })} defaults={{ fontSize: 25 }} />
+						<Typography value={titleTypo} onChange={val => setAttributes({ titleTypo: val })} defaults={{ fontSize: { desktop: 25, tablet: 22, mobile: 20 } }} produce={produce} />
 
 						<BColor label={__('Color:', 'advanced-post-block')} value={titleColor} onChange={val => setAttributes({ titleColor: val })} defaultColor='#4527a4' />
 
@@ -378,7 +380,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 
 
 					{isPosts && isMeta && <PanelBody className='bPlPanelBody' title={__('Meta Data', 'advanced-post-block')} initialOpen={false}>
-						<Typography value={metaTypo} onChange={val => setAttributes({ metaTypo: val })} defaults={{ fontSize: 13, textTransform: 'uppercase' }} />
+						<Typography value={metaTypo} onChange={val => setAttributes({ metaTypo: val })} defaults={{ fontSize: { desktop: 13, tablet: 13, mobile: 13 }, textTransform: 'uppercase' }} produce={produce} />
 
 						<BColor label={__('Text Color:', 'advanced-post-block')} value={metaTextColor} onChange={val => setAttributes({ metaTextColor: val })} defaultColor='#333' />
 
@@ -398,7 +400,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<BtnGroup value={excerptAlign} onChange={val => setAttributes({ excerptAlign: val })} options={aligns} isIcon={true} />
 						</PanelRow>
 
-						<Typography value={excerptTypo} onChange={val => setAttributes({ excerptTypo: val })} defaults={{ fontSize: 15 }} />
+						<Typography value={excerptTypo} onChange={val => setAttributes({ excerptTypo: val })} defaults={{ fontSize: { desktop: 15, tablet: 15, mobile: 15 } }} produce={produce} />
 
 						<BColor label={__('Color:', 'advanced-post-block')} value={excerptColor} onChange={val => setAttributes({ excerptColor: val })} defaultColor='#333' />
 
@@ -412,7 +414,7 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 							<BtnGroup value={readMoreAlign} onChange={val => setAttributes({ readMoreAlign: val })} options={aligns.filter(a => a.value !== 'justify')} isIcon={true} />
 						</PanelRow>
 
-						<Typography value={readMoreTypo} onChange={val => setAttributes({ readMoreTypo: val })} defaults={{ fontSize: 14, textTransform: 'uppercase', fontWeight: 600 }} />
+						<Typography value={readMoreTypo} onChange={val => setAttributes({ readMoreTypo: val })} defaults={{ fontSize: { desktop: 14, tablet: 14, mobile: 14 }, textTransform: 'uppercase', fontWeight: 600 }} produce={produce} />
 
 						<ColorsControl value={readMoreColors} onChange={val => setAttributes({ readMoreColors: val })} defaults={{ color: '#fff', bg: '#8344c5' }} />
 
@@ -447,6 +449,8 @@ const Settings = ({ attributes, setAttributes, posts, getPostTypes, categories }
 				<li>&emsp;<strong>{__('Custom Taxonomy Filter: ', 'advanced-post-block')}</strong>{__('Custom Taxonomy filter for post and custom posts.', 'advanced-post-block')}</li>
 
 				<li>&emsp;<strong>{__('Meta Data Icon: ', 'advanced-post-block')}</strong>{__('Custom icon for meta data.', 'advanced-post-block')}</li>
+
+				<li>&emsp;<strong>{__('Meta Author Link Toggle: ', 'advanced-post-block')}</strong>{__('Show meta author with or without link.', 'advanced-post-block')}</li>
 
 				<li>&emsp;<strong>{__('Reading Time: ', 'advanced-post-block')}</strong>{__('Show post reading time in meta area.', 'advanced-post-block')}</li>
 
