@@ -160,6 +160,10 @@
 			"type": "boolean",
 			"default": true
 		},
+		"fImgFitting": {
+			"type": "string",
+			"default": "cover"
+		},
 		"isFImgLink": {
 			"type": "boolean",
 			"default": false

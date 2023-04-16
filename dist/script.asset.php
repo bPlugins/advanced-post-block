@@ -1,4 +1,4 @@
 <?php return [
-	'dependencies' => [ 'wp-element', 'jquery', 'swiperJS', 'easyTicker' ],
+	'dependencies' => [ 'react', 'react-dom', 'jquery', 'swiperJS', 'easyTicker' ],
 	'version' => AP_BLOCK_PLUGIN_VERSION
 ];

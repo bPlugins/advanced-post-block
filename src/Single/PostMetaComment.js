@@ -1,12 +1,11 @@
-import { Dashicon } from '@wordpress/components';
-
-const PostMetaComment = props => {
-	const { atts: { isMetaComment }, post: { link, wbComment } } = props;
+const PostMetaComment = ({ post, attributes }) => {
+	const { link, commentCount } = post;
+	const { isMetaComment } = attributes;
 
 	return isMetaComment ? <span>
-		<Dashicon icon='admin-comments' />
+		<span className='dashicons dashicons-admin-comments' />
 
-		<a href={`${link}#comments`} target='_blank' rel='noreferrer'>{wbComment}</a>
+		<a href={`${link}/#comments`} target='_blank' rel='noreferrer'>{commentCount}</a>
 	</span> : null;
 };
 export default PostMetaComment;

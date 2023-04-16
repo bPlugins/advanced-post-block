@@ -1,18 +1,18 @@
-// Functions
-import { renderHTML, mediaUrl } from '../utils/functions';
+import { renderHTML } from '../utils/functions';
 
-const FeatureImage = props => {
-	const { atts: { layout, isFImg, isFImgLink, isMeta, isMetaCategory, metaCategoryIn, isLinkNewTab }, post: { id, wbCategories, featured_media } } = props;
+const FeatureImage = ({ post, attributes }) => {
+	const { id, link, thumbnail, categories } = post;
+	const { layout, isFImg, isFImgLink, isMeta, isMetaCategory, metaCategoryIn, isLinkNewTab } = attributes;
 
-	const condition = 'slider' === layout ? isFImg : isFImg && mediaUrl(featured_media);
+	const condition = 'slider' === layout ? isFImg : isFImg && thumbnail;
 
 	return condition ? <figure className={`apbPostFImg apbPostFImg-${id}`}>
-		{mediaUrl(featured_media) && <>
-			{isFImgLink ? <a target={isLinkNewTab ? '_blank' : '_self'} rel='noreferrer'></a> : ''}
+		{thumbnail && <>
+			{isFImgLink && <a href={link} target={isLinkNewTab ? '_blank' : '_self'} rel='noreferrer'></a>}
 
-			{isMeta && isMetaCategory && 'image' === metaCategoryIn && wbCategories ? <div className='apbPostFImgCats'>
-				{renderHTML(wbCategories.space)}
-			</div> : null}
+			{(isMeta && isMetaCategory && 'image' === metaCategoryIn) && <div className='apbPostFImgCats'>
+				{renderHTML(categories.space)}
+			</div>}
 		</>}
 	</figure> : null;
 };

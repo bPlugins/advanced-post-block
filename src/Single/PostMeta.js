@@ -3,14 +3,14 @@ import PostMetaDate from './PostMetaDate';
 import PostMetaCategory from './PostMetaCategory';
 import PostMetaComment from './PostMetaComment';
 
-const PostMeta = ({ atts, post }) => {
-	const { isMeta } = atts;
+const PostMeta = ({ post, attributes }) => {
+	const { isMeta } = attributes;
 
 	return isMeta && <div className='apbPostMeta'>
-		<PostMetaAuthor atts={atts} post={post} />
-		<PostMetaDate atts={atts} post={post} />
-		<PostMetaCategory atts={atts} post={post} />
-		<PostMetaComment atts={atts} post={post} />
+		<PostMetaAuthor post={post} attributes={attributes} />
+		<PostMetaDate post={post} attributes={attributes} />
+		<PostMetaCategory post={post} attributes={attributes} />
+		<PostMetaComment post={post} attributes={attributes} />
 	</div>;
 };
 export default PostMeta;

@@ -1,59 +1,52 @@
 import { __ } from '@wordpress/i18n';
 
-// Icons
-import icons from './icons';
+export const subLayouts = [
+	{ label: __('Default', 'advanced-post-block'), value: 'default' },
+	{ label: __('Title Meta', 'advanced-post-block'), value: 'title-meta' },
+	{ label: __('Left Image', 'advanced-post-block'), value: 'left-image' },
+	{ label: __('Right Image', 'advanced-post-block'), value: 'right-image' },
+	{ label: __('Overlay Content', 'advanced-post-block'), value: 'overlay-content' },
+	{ label: __('Overlay Content Hover', 'advanced-post-block'), value: 'overlay-content-hover' },
+	{ label: __('Overlay Box', 'advanced-post-block'), value: 'overlay-box' }
+];
 
-const options = {
-	layouts: [
-		{ label: __('Grid', 'advanced-post-block'), value: 'grid', icon: icons.grid },
-		{ label: __('Masonry', 'advanced-post-block'), value: 'masonry', icon: icons.masonry },
-		{ label: __('Slider', 'advanced-post-block'), value: 'slider', icon: icons.slider }
-	],
+export const categoriesPosition = [
+	{ label: __('Content', 'advanced-post-block'), value: 'content' },
+	{ label: __('Image', 'advanced-post-block'), value: 'image' }
+];
 
-	subLayouts: [
-		{ label: __('Default', 'advanced-post-block'), value: 'default' },
-		{ label: __('Title Meta', 'advanced-post-block'), value: 'title-meta' },
-		{ label: __('Left Image', 'advanced-post-block'), value: 'left-image' },
-		{ label: __('Right Image', 'advanced-post-block'), value: 'right-image' },
-		{ label: __('Overlay Content', 'advanced-post-block'), value: 'overlay-content' },
-		{ label: __('Overlay Content Hover', 'advanced-post-block'), value: 'overlay-content-hover' },
-		{ label: __('Overlay Box', 'advanced-post-block'), value: 'overlay-box' }
-	],
+export const effects = [
+	{ label: __('Slide', 'advanced-post-block'), value: 'slide' },
+	{ label: __('Fade', 'advanced-post-block'), value: 'fade' },
+	{ label: __('Creative', 'advanced-post-block'), value: 'creative' }
+];
 
-	categoriesPosition: [
-		{ label: __('Content', 'advanced-post-block'), value: 'content' },
-		{ label: __('Image', 'advanced-post-block'), value: 'image' }
-	],
+export const postsOrdersBy = [
+	{ label: __('Author', 'advanced-post-block'), value: 'author' },
+	{ label: __('Title', 'advanced-post-block'), value: 'title' },
+	{ label: __('Date', 'advanced-post-block'), value: 'date' },
+	{ label: __('Last Modified', 'advanced-post-block'), value: 'modified' },
+];
 
-	effects: [
-		{ label: __('Slide', 'advanced-post-block'), value: 'slide' },
-		{ label: __('Fade', 'advanced-post-block'), value: 'fade' },
-		{ label: __('Creative', 'advanced-post-block'), value: 'creative' }
-	],
+export const postsOrders = [
+	{ label: __('Ascending', 'advanced-post-block'), value: 'asc' },
+	{ label: __('Descending', 'advanced-post-block'), value: 'desc' }
+];
 
-	postsOrdersBy: [
-		{ label: __('Author', 'advanced-post-block'), value: 'author' },
-		{ label: __('Title', 'advanced-post-block'), value: 'title' },
-		{ label: __('Date', 'advanced-post-block'), value: 'date' },
-		{ label: __('Last Modified', 'advanced-post-block'), value: 'modified' },
-	],
+export const imageFittings = [
+	{ label: __('Cover', 'advanced-post-block'), value: 'cover' },
+	{ label: __('Contain', 'advanced-post-block'), value: 'contain' }
+];
 
-	postsOrders: [
-		{ label: __('Ascending', 'advanced-post-block'), value: 'asc' },
-		{ label: __('Descending', 'advanced-post-block'), value: 'desc' }
-	],
+export const aligns = [
+	{ label: __('Left', 'advanced-post-block'), value: 'left', icon: 'editor-alignleft' },
+	{ label: __('Center', 'advanced-post-block'), value: 'center', icon: 'editor-aligncenter' },
+	{ label: __('Right', 'advanced-post-block'), value: 'right', icon: 'editor-alignright' },
+	{ label: __('Justify', 'advanced-post-block'), value: 'justify', icon: 'editor-justify' }
+];
 
-	aligns: [
-		{ label: __('Left', 'advanced-post-block'), value: 'left', icon: 'editor-alignleft' },
-		{ label: __('Center', 'advanced-post-block'), value: 'center', icon: 'editor-aligncenter' },
-		{ label: __('Right', 'advanced-post-block'), value: 'right', icon: 'editor-alignright' },
-		{ label: __('Justify', 'advanced-post-block'), value: 'justify', icon: 'editor-justify' }
-	],
-
-	generalStyleTabs: [
-		{ name: 'general', title: __('General', 'advanced-post-block') },
-		{ name: 'elements', title: __('Elements', 'advanced-post-block') },
-		{ name: 'style', title: __('Style', 'advanced-post-block') }
-	]
-}
-export default options;
+export const generalStyleTabs = [
+	{ name: 'general', title: __('General', 'advanced-post-block') },
+	{ name: 'elements', title: __('Elements', 'advanced-post-block') },
+	{ name: 'style', title: __('Style', 'advanced-post-block') }
+];

@@ -1,12 +1,11 @@
-import { Dashicon } from '@wordpress/components';
+const PostMetaDate = ({ post, attributes }) => {
+	const { date } = post;
+	const { isMetaDate } = attributes;
 
-const PostMetaDate = props => {
-	const { atts: { isMetaDate }, post: { wbDate } } = props;
+	return isMetaDate ? <span>
+		<span className='dashicons dashicons-calendar-alt' />
 
-	return isMetaDate && wbDate ? <span>
-		<Dashicon icon='calendar-alt' />
-
-		<span>{wbDate}</span>
+		<span>{date}</span>
 	</span> : null;
 };
 export default PostMetaDate;

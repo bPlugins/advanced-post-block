@@ -1,4 +1,3 @@
-// Components
 import FeatureImage from '../Single/FeatureImage';
 import PostTitle from '../Single/PostTitle';
 import PostExcerpt from '../Single/PostExcerpt';
@@ -10,18 +9,18 @@ const SideImage = ({ post, attributes }) => {
 	const { layout, subLayout } = attributes;
 
 	return <article className={`apbPost apbPost-${id} apbPostSideImage ${'left-image' === subLayout ? 'leftImage' : 'right-image' === subLayout ? 'rightImage' : ''} ${'slider' === layout ? 'swiper-slide' : ''}`}>
-		{'left-image' === subLayout && <FeatureImage atts={attributes} post={post} />}
+		{'left-image' === subLayout && <FeatureImage post={post} attributes={attributes} />}
 
 		<div className='apbPostText'>
-			<PostTitle atts={attributes} post={post} />
+			<PostTitle post={post} attributes={attributes} />
 
-			<PostMeta atts={attributes} post={post} />
+			<PostMeta post={post} attributes={attributes} />
 
-			<PostExcerpt atts={attributes} post={post} />
-			<PostReadMore atts={attributes} post={post} />
+			<PostExcerpt post={post} attributes={attributes} />
+			<PostReadMore post={post} attributes={attributes} />
 		</div>
 
-		{'right-image' === subLayout && <FeatureImage atts={attributes} post={post} />}
+		{'right-image' === subLayout && <FeatureImage post={post} attributes={attributes} />}
 	</article>;
 };
 export default SideImage;

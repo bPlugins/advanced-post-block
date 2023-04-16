@@ -3,13 +3,13 @@ import { registerBlockType, updateCategory } from '@wordpress/blocks';
 import metadata from '../block.json';
 import Edit from './Edit';
 import './editor.scss';
-import icons from './utils/icons';
+import { postsIcon } from './utils/icons';
 
 // Update Block Category Icon
-updateCategory('APBlock', { icon: icons.advancedPosts(20) });
+updateCategory('APBlock', { icon: postsIcon(20) });
 
 registerBlockType(metadata, {
-	icon: icons.advancedPosts(24),
+	icon: postsIcon(24),
 
 	// Build in Functions
 	edit: Edit,

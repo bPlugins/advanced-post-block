@@ -1,9 +1,7 @@
 import { getBackgroundCSS, getBorderCSS, getColorsCSS, getSpaceCSS, getTypoCSS } from '../../Components/Helper/getCSS';
 
-import { mediaUrl } from './utils/functions';
-
-const GeneralStyle = ({ attributes, clientId }) => {
-	const { layout, columnGap, rowGap, isContentEqualHight, sliderHeight, contentAlign, contentBG, contentPadding, border, sliderPageColor, sliderPageWidth, sliderPageHeight, sliderPageBorder, sliderPrevNextColor, titleTypo, titleColor, titleMargin, metaTypo, metaTextColor, metaLinkColor, metaIconColor, metaColorsOnImage, metaMargin, excerptAlign, excerptTypo, excerptColor, excerptMargin, readMoreAlign, readMoreTypo, readMoreColors, readMoreHovColors, readMorePadding, readMoreBorder } = attributes;
+const Style = ({ attributes, clientId }) => {
+	const { layout, columnGap, rowGap, isContentEqualHight, sliderHeight, fImgFitting, contentAlign, contentBG, contentPadding, border, sliderPageColor, sliderPageWidth, sliderPageHeight, sliderPageBorder, sliderPrevNextColor, titleTypo, titleColor, titleMargin, metaTypo, metaTextColor, metaLinkColor, metaIconColor, metaColorsOnImage, metaMargin, excerptAlign, excerptTypo, excerptColor, excerptMargin, readMoreAlign, readMoreTypo, readMoreColors, readMoreHovColors, readMorePadding, readMoreBorder } = attributes;
 
 	const mainSl = `#apbAdvancedPosts-${clientId}`;
 	const postSl = `${mainSl} .apbPost`;
@@ -14,10 +12,14 @@ const GeneralStyle = ({ attributes, clientId }) => {
 
 	return <style dangerouslySetInnerHTML={{
 		__html: `
-		${getTypoCSS(`${postTitleSl}, ${postTitleSl} a`, titleTypo)}
-		${getTypoCSS(`${postMetaSl}, ${postMetaSl} *, ${postSl} .apbPostFImgCats`, metaTypo)}
-		${getTypoCSS(`${postSl} .apbPostExcerpt`, excerptTypo)}
-		${getTypoCSS(`${postReadMoreSl} a`, readMoreTypo)}
+		${getTypoCSS('', titleTypo)?.googleFontLink}
+		${getTypoCSS('', metaTypo)?.googleFontLink}
+		${getTypoCSS('', excerptTypo)?.googleFontLink}
+		${getTypoCSS('', readMoreTypo)?.googleFontLink}
+		${getTypoCSS(`${postTitleSl}, ${postTitleSl} a`, titleTypo)?.styles}
+		${getTypoCSS(`${postMetaSl}, ${postMetaSl} *, ${postSl} .apbPostFImgCats`, metaTypo)?.styles}
+		${getTypoCSS(`${postSl} .apbPostExcerpt`, excerptTypo)?.styles}
+		${getTypoCSS(`${postReadMoreSl} a`, readMoreTypo)?.styles}
 		
 		${postSl}{
 			margin-bottom: ${'masonry' === layout ? `${rowGap}px` : '0px'};
@@ -55,6 +57,9 @@ const GeneralStyle = ({ attributes, clientId }) => {
 		}
 		${postMetaSl} .dashicons{
 			color: ${metaIconColor};
+		}
+		${postSl} .apbPostFImg{
+			background-size: ${fImgFitting};
 		}
 		${postSl} .apbPostFImgCats a{
 			${getColorsCSS(metaColorsOnImage)}
@@ -101,20 +106,19 @@ const GeneralStyle = ({ attributes, clientId }) => {
 		`.replace(/\s+/g, ' ')
 	}} />
 }
+export default Style;
 
-const FImgStyle = ({ posts, attributes, clientId }) => {
+export const FImgStyle = ({ posts, attributes, clientId }) => {
 	const { isFImg } = attributes;
 
 	return <style>
 		{posts.map(post => {
-			const { id, featured_media } = post;
-			const fImgUrl = mediaUrl(featured_media)?.replace(/<[^>]+>/g, '');
+			const { id, thumbnail } = post;
 
-			const sideImgCSS = `#apbAdvancedPosts-${clientId} .apbPostSideImage.apbPost-${id}{ display: ${isFImg && fImgUrl ? 'grid' : 'flex'}; }`;
-			const fImgCSS = isFImg && fImgUrl ? `#apbAdvancedPosts-${clientId} .apbPostOverlay.apbPost-${id}, #apbAdvancedPosts-${clientId} .apbPost .apbPostFImg-${id}{ background-image: url(${fImgUrl}); }` : '';
+			const sideImgCSS = `#apbAdvancedPosts-${clientId} .apbPostSideImage.apbPost-${id}{ display: ${isFImg && thumbnail ? 'grid' : 'flex'}; }`;
+			const fImgCSS = isFImg && thumbnail ? `#apbAdvancedPosts-${clientId} .apbPostOverlay.apbPost-${id}, #apbAdvancedPosts-${clientId} .apbPost .apbPostFImg-${id}{ background-image: url(${thumbnail}); }` : '';
 
 			return sideImgCSS + fImgCSS;
 		})}
-	</style>;
-};
-export { GeneralStyle, FImgStyle }
+	</style>
+}

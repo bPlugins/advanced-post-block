@@ -1,6 +1,3 @@
-import { Fragment } from '@wordpress/element';
-
-// Components
 import FeatureImage from '../Single/FeatureImage';
 import PostTitle from '../Single/PostTitle';
 import PostExcerpt from '../Single/PostExcerpt';
@@ -12,17 +9,17 @@ const Default = ({ post, attributes }) => {
 	const { layout, subLayout } = attributes;
 
 	return <article className={`apbPost apbPost-${id} apbPostDefault ${'slider' === layout ? 'swiper-slide' : ''}`}>
-		<FeatureImage atts={attributes} post={post} />
+		<FeatureImage post={post} attributes={attributes} />
 
 		<div className='apbPostText'>
-			<PostTitle atts={attributes} post={post} />
+			<PostTitle post={post} attributes={attributes} />
 
-			<PostMeta atts={attributes} post={post} />
+			<PostMeta post={post} attributes={attributes} />
 
-			{'title-meta' !== subLayout && <Fragment>
-				<PostExcerpt atts={attributes} post={post} />
-				<PostReadMore atts={attributes} post={post} />
-			</Fragment>}
+			{'title-meta' !== subLayout && <>
+				<PostExcerpt post={post} attributes={attributes} />
+				<PostReadMore post={post} attributes={attributes} />
+			</>}
 		</div>
 	</article>;
 };

@@ -1,12 +1,11 @@
-import { Dashicon } from '@wordpress/components';
-
-const PostMetaAuthor = props => {
-	const { atts: { isMetaAuthor }, post: { wbAuthor } } = props;
+const PostMetaAuthor = ({ post, attributes }) => {
+	const { author } = post;
+	const { isMetaAuthor } = attributes;
 
 	return isMetaAuthor ? <span>
-		<Dashicon icon='admin-users' />
+		<span className='dashicons dashicons-admin-users' />
 
-		{wbAuthor && <a href={wbAuthor.link} target='_blank' rel='noreferrer'>{wbAuthor.name}</a>}
+		<a href={author.link} target='_blank' rel='noreferrer'>{author.name}</a>
 	</span> : null;
 };
 export default PostMetaAuthor;

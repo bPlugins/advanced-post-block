@@ -1,15 +1,13 @@
-import { Dashicon } from '@wordpress/components';
-
-// Functions
 import { renderHTML } from '../utils/functions';
 
-const PostMetaCategory = props => {
-	const { atts: { isMetaCategory, metaCategoryIn }, post: { wbCategories } } = props;
+const PostMetaCategory = ({ post, attributes }) => {
+	const { categories } = post;
+	const { isMetaCategory, metaCategoryIn } = attributes;
 
-	return isMetaCategory && 'content' === metaCategoryIn && wbCategories ? <span>
-		<Dashicon icon='category' />
+	return (isMetaCategory && 'content' === metaCategoryIn) ? <span>
+		<span className='dashicons dashicons-category' />
 
-		{renderHTML(wbCategories.coma)}
+		{renderHTML(categories.coma)}
 	</span> : null;
 };
 export default PostMetaCategory;
