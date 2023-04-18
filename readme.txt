@@ -5,7 +5,7 @@ Tags: block, show posts, blog posts, display blog posts, embed custom posts, gut
 Requires at least: 5.3+
 Tested up to: 6.2
 Requires PHP: 7.1
-Stable tag: 1.8.4
+Stable tag: 1.8.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -178,6 +178,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.8.5 =
+* Fixed for FSE
+
 = 1.8.4 =
 * Performance improvements
 
@@ -293,6 +296,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.8.5 =
+* Fixed for FSE
 
 = 1.8.4 =
 * Performance improvements

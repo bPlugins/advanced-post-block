@@ -168,6 +168,6 @@ export default withSelect((select, { attributes }) => {
 
 		media: id => getMedia(id),
 
-		isEditorSidebarOpened: select('core/edit-post').isEditorSidebarOpened()
+		isEditorSidebarOpened: !!select('core/edit-post')?.isEditorSidebarOpened()
 	};
 })(Edit);
