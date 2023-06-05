@@ -4,7 +4,7 @@ import { withSelect } from '@wordpress/data';
 import { Spinner } from '@wordpress/components';
 const $ = jQuery;
 
-import { tabController } from '../../Components/Helper/functions';
+import { tabController } from '../../Components/utils/functions';
 
 import Settings from './Settings';
 import Style, { FImgStyle } from './Style';

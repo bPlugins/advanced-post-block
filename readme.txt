@@ -3,7 +3,7 @@ Contributors: abuhayat, charlescormier
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, show posts, blog posts, display blog posts, embed custom posts, gutenberg posts
 Requires at least: 5.3+
-Tested up to: 6.2
+Tested up to: 6.2.2
 Requires PHP: 7.1
 Stable tag: 1.8.5
 License: GPLv3 or later
@@ -134,6 +134,10 @@ Overall, Advanced Post Block is a powerful and essential block plugin for anyone
 = Is this plugin support custom post type? =
 
 Yes! All the custom posts that come to your site. You just need to select that custom post from the right setting panel.
+
+= I have a custom post type, but it's not showing up for selection. =
+
+It's possible that your custom post type is not supported by the REST API. You can add REST API support for your custom content types by following the steps outlined in this article: [Adding REST API Support for Custom Content Types](https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-rest-api-support-for-custom-content-types)
 
 = Is this support responsive for different devices? =
 

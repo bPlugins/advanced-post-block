@@ -19,6 +19,10 @@
 			"type": "string",
 			"default": ""
 		},
+		"isPremium": {
+			"type": "string",
+			"default": true
+		},
 		"layout": {
 			"type": "string",
 			"default": "grid"
@@ -55,7 +59,15 @@
 			"type": "string",
 			"default": "post"
 		},
+		"selectedTaxonomies": {
+			"type": "object",
+			"default": {}
+		},
 		"selectedCategories": {
+			"type": "array",
+			"default": []
+		},
+		"selectedTags": {
 			"type": "array",
 			"default": []
 		},
@@ -74,6 +86,51 @@
 		"postsOrder": {
 			"type": "string",
 			"default": "desc"
+		},
+		"postsOffset": {
+			"type": "number",
+			"default": 0
+		},
+		"isPagination": {
+			"type": "boolean",
+			"default": false
+		},
+		"paginationCurrentPage": {
+			"type": "number",
+			"default": 1
+		},
+		"paginationPrevLabel": {
+			"type": "string",
+			"default": "Prev"
+		},
+		"paginationNextLabel": {
+			"type": "string",
+			"default": "Next"
+		},
+		"paginationColors": {
+			"type": "object",
+			"default": {
+				"color": "#fff",
+				"bg": "#4527a4"
+			}
+		},
+		"paginationHovColors": {
+			"type": "object",
+			"default": {
+				"color": "#fff",
+				"bg": "#8344c5"
+			}
+		},
+		"paginationPadding": {
+			"type": "object",
+			"default": {
+				"vertical": "8px",
+				"horizontal": "15px"
+			}
+		},
+		"paginationSpacing": {
+			"type": "string",
+			"default": "15px"
 		},
 		"contentAlign": {
 			"type": "string",
@@ -109,6 +166,12 @@
 		"sliderIsAutoplay": {
 			"type": "boolean",
 			"default": true
+		},
+		"sliderAutoplayOptions": {
+			"type": "object",
+			"default": {
+				"delay": 1.5
+			}
 		},
 		"sliderSpeed": {
 			"type": "number",
@@ -156,9 +219,37 @@
 			"type": "string",
 			"default": "#4527a4"
 		},
+		"tickerDirection": {
+			"type": "string",
+			"default": "up"
+		},
+		"tickerSpeed": {
+			"type": "string",
+			"default": "slow"
+		},
+		"tickerInterval": {
+			"type": "number",
+			"default": 2000
+		},
+		"tickerHeight": {
+			"type": "string",
+			"default": "0px"
+		},
+		"tickerVisible": {
+			"type": "number",
+			"default": 3
+		},
+		"tickerIsMousePause": {
+			"type": "boolean",
+			"default": true
+		},
 		"isFImg": {
 			"type": "boolean",
 			"default": true
+		},
+		"fImgSize": {
+			"type": "string",
+			"default": "full"
 		},
 		"fImgFitting": {
 			"type": "string",
@@ -207,9 +298,25 @@
 			"type": "boolean",
 			"default": true
 		},
+		"isMetaAuthorLink": {
+			"type": "boolean",
+			"default": true
+		},
+		"metaAuthorIcon": {
+			"type": "string",
+			"default": ""
+		},
 		"isMetaDate": {
 			"type": "boolean",
 			"default": true
+		},
+		"metaDateFormat": {
+			"type": "string",
+			"default": "M j, Y"
+		},
+		"metaDateIcon": {
+			"type": "string",
+			"default": ""
 		},
 		"isMetaCategory": {
 			"type": "boolean",
@@ -219,9 +326,33 @@
 			"type": "string",
 			"default": "content"
 		},
+		"metaCategoryIcon": {
+			"type": "string",
+			"default": ""
+		},
+		"isMetaReadTime": {
+			"type": "boolean",
+			"default": false
+		},
+		"metaReadTimeIcon": {
+			"type": "string",
+			"default": ""
+		},
+		"isMetaReadTimeSec": {
+			"type": "boolean",
+			"default": false
+		},
+		"metaReadTimeLabel": {
+			"type": "string",
+			"default": "Min read"
+		},
 		"isMetaComment": {
 			"type": "boolean",
 			"default": false
+		},
+		"metaCommentIcon": {
+			"type": "string",
+			"default": ""
 		},
 		"metaTypo": {
 			"type": "object",
@@ -250,7 +381,7 @@
 			"type": "object",
 			"default": {
 				"color": "#fff",
-				"bg": "#4527a4"
+				"bg": "#8344c5"
 			}
 		},
 		"metaMargin": {
@@ -263,6 +394,10 @@
 		"isExcerpt": {
 			"type": "boolean",
 			"default": true
+		},
+		"isExcerptFromContent": {
+			"type": "boolean",
+			"default": false
 		},
 		"excerptLength": {
 			"type": "number",

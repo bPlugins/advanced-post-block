@@ -4,10 +4,10 @@ const PostTitle = ({ post, attributes }) => {
 
 	return isTitle ? <>
 		{isTitleLink ?
-			<h2 className='apbPostTitle'>
+			<h3 className='apbPostTitle'>
 				<a href={link} target={isLinkNewTab ? '_blank' : '_self'} rel='noreferrer' dangerouslySetInnerHTML={{ __html: title }} />
-			</h2> :
-			<h2 className='apbPostTitle' dangerouslySetInnerHTML={{ __html: title }} />}
+			</h3> :
+			<h3 className='apbPostTitle' dangerouslySetInnerHTML={{ __html: title }} />}
 	</> : null;
 };
 export default PostTitle;

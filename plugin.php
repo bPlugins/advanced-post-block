@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Advanced Post Block
- * Description: Advanced Post Block - Display posts in a beautiful way!
+ * Plugin Name: Advanced Post Block Old
+ * Description: Advanced Post Block Old - Display posts in a beautiful way!
  * Version: 1.8.5
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
@@ -215,9 +215,9 @@ class APBAdvancedPostBlock{
 
 		if ( $isTitle ) {
 			ob_start(); ?>
-			<h2 class='apbPostTitle'>
+			<h3 class='apbPostTitle'>
 				<?php echo $isTitleLink ? "<a href=". esc_url( get_permalink( $post ) ) ." target='$tab' rel='noreferrer'>$post->post_title</a>" : $post->post_title; ?>
-			</h2>
+			</h3>
 			<?php return ob_get_clean();
 		} else {
 			return '';
