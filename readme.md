@@ -69,7 +69,7 @@ Advanced Post Block bundles or depends on the following high-quality libraries:
 - **[jQuery Easy Ticker](https://github.com/vaakash/jquery-easy-ticker)** (MIT): Smooth vertical scrolling for the news ticker layout.
 - **[react-responsive-masonry](https://github.com/cedricdelpoux/react-responsive-masonry)** (MIT): Fluid responsive masonry grid system.
 - **[React Router](https://reactrouter.com/)** (MIT): Client-side routing for the plugin's admin dashboard.
-- **[Freemius Lite SDK (Custom)](https://bplugins.com)** (GPLv3): A modified version of the Freemius SDK optimized for the bPlugins API to handle usage tracking and analytics.
+- **[Freemius Lite SDK (Custom)](https://bplugins.com)**: A modified version of the Freemius SDK optimized for the bPlugins API to handle usage tracking and analytics.
 
 ---
 
