@@ -1,0 +1,43 @@
+@use 'variables' as vars;
+
+@mixin generate-columns($i) {
+	.columns-#{$i} {
+		grid-template-columns: repeat(#{$i}, 1fr);
+	}
+
+	.cols-#{$i} {
+		columns: #{$i};
+	}
+}
+
+@mixin generate-tablet-columns($i) {
+	.columns-tablet-#{$i} {
+		grid-template-columns: repeat(#{$i}, 1fr);
+	}
+
+	.cols-tablet-#{$i} {
+		columns: #{$i};
+	}
+}
+
+@mixin generate-mobile-columns($i) {
+	.columns-mobile-#{$i} {
+		grid-template-columns: repeat(#{$i}, 1fr);
+	}
+
+	.cols-mobile-#{$i} {
+		columns: #{$i};
+	}
+}
+
+@mixin tablet {
+	@media only screen and (max-width: vars.$tablet) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media only screen and (max-width: vars.$mobile) {
+		@content;
+	}
+}

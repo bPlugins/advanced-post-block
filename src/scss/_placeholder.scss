@@ -1,0 +1,179 @@
+@use 'variables' as vars;
+@use 'mixins' as mix;
+
+.#{vars.$prefix}LoadingPlaceholder {
+	.#{vars.$prefix}LoadingItem {
+		width: 100%;
+		height: 60px;
+		display: inline-block;
+		background-color: vars.$loadingColor1;
+		border-radius: 3px;
+		animation: apbBgBlink 1.5s linear infinite alternate;
+	}
+
+	.#{vars.$prefix}Post {
+		border: 1px solid vars.$loadingColor1;
+
+		.#{vars.$prefix}Thumb {
+			position: relative;
+		}
+
+		.#{vars.$prefix}Text {
+			padding: 20px 15px;
+		}
+
+		.#{vars.$prefix}Title,
+		.#{vars.$prefix}Meta {
+			margin-bottom: 15px;
+		}
+
+		.#{vars.$prefix}Title {
+			span {
+				height: 25px;
+
+				&:first-child {
+					margin-bottom: 4px;
+				}
+
+				&:last-child {
+					width: 80%;
+				}
+			}
+		}
+
+		.#{vars.$prefix}Meta {
+			span {
+				width: 95%;
+				height: 14px;
+			}
+		}
+
+		.#{vars.$prefix}Excerpt {
+			display: grid;
+			gap: 5px;
+			margin-bottom: 10px;
+
+			span {
+				height: 15px;
+
+				&:last-child {
+					width: 60%;
+				}
+			}
+		}
+
+		.#{vars.$prefix}ReadMore {
+			height: 42px;
+
+			span {
+				width: 148px;
+				height: 42px;
+			}
+		}
+	}
+
+	.#{vars.$prefix}GridPosts {
+		grid-gap: 15px 15px;
+	}
+
+	.#{vars.$prefix}SliderSkeleton {
+		position: relative;
+
+		.swiper-wrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 15px 15px;
+
+			@include mix.tablet {
+				grid-template-columns: 1fr;
+
+				.swiper-slide:last-child {
+					display: none;
+				}
+			}
+		}
+
+		.#{vars.$prefix}Post {
+			display: grid;
+			grid-template-columns: 1fr 1.3fr;
+			align-items: center;
+
+			.#{vars.$prefix}Thumb {
+				height: 100%;
+			}
+		}
+
+		.swiper-button-prev,
+		.swiper-button-next {
+			color: vars.$loadingColor3;
+		}
+
+		.swiper-pagination {
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			background-color: vars.$loadingColor3;
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+
+			&::before,
+			&::after {
+				content: '';
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+				background-color: vars.$loadingColor3;
+				position: absolute;
+				top: 2px;
+			}
+
+			&::before {
+				left: -20px;
+			}
+
+			&::after {
+				right: -20px;
+			}
+		}
+	}
+
+	.#{vars.$prefix}TickerPosts {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+
+		.#{vars.$prefix}Post {
+			display: grid;
+			grid-template-columns: 1fr 1.3fr;
+
+			.#{vars.$prefix}Thumb {
+				height: 207px;
+				padding-bottom: 0;
+			}
+
+			.#{vars.$prefix}Title {
+				span:first-child {
+					display: none;
+				}
+			}
+
+			.#{vars.$prefix}Excerpt {
+
+				span:nth-child(1),
+				span:nth-child(2) {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.newsTickerSkeleton {
+		.newsTickerSkeletonBar {
+			height: 16px;
+			border-radius: 8px;
+			width: 60%;
+		}
+	}
+}

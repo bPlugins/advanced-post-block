@@ -1,0 +1,52 @@
+@use 'variables' as vars;
+
+@keyframes apbBgBlink {
+	from {
+		background-color: vars.$loadingColor1;
+	}
+
+	to {
+		background-color: vars.$loadingColor2;
+	}
+}
+
+@keyframes apbPulse {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.05);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes apbMarqueeScroll {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes apbTypewriterAnim {
+	0% {
+		clip-path: inset(0 100% 0 0);
+	}
+
+	50%,
+	100% {
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+@keyframes apbTypewriterCursor {
+	50% {
+		border-color: transparent;
+	}
+}

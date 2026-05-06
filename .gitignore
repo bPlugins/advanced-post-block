@@ -1,5 +1,6 @@
-# Ignore everything
-bundled
-dist/*
-!dist/*.php
 node_modules
+*.zip
+.eslintrc.js
+gulpfile.mjs
+package.json
+webpack.config.js

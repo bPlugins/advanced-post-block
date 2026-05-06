@@ -1,0 +1,7 @@
+@use '../variables' as vars;
+
+.wp-block-ap-block-posts {
+	.#{vars.$prefix}MasonryPosts .#{vars.$prefix}Post {
+		width: 100%;
+	}
+}

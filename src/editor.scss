@@ -1,105 +1,95 @@
-$primaryColor: #4527a4;
-$secondaryColor: #8344c5;
+$primaryColor: #146EF5;
+$titleColor: #070127;
+$contentColor: #485781;
 
-// Common CSS
-.apbLoading {
-	color: $primaryColor !important;
-	font-size: 21px !important;
-	font-weight: bold !important;
-	display: flex;
-	align-items: center;
+$prefix: 'apb';
 
-	.components-spinner {
-		margin-top: 0;
-		color: $primaryColor;
-	}
-}
-
-.apbNoPosts {
+.#{$prefix}NotFound {
 	color: red;
 	text-align: center;
 	font-size: 20px;
 }
 
-.apbUpgradeProToggle {
-	.components-form-toggle {
-		opacity: .75;
-	}
-}
-
-.apbProGroupBtn {
-	position: relative;
-
-	&::before {
-		content: 'Pro';
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		color: #fff;
-		background: $primaryColor;
-		padding: 2px 8px;
-		border-radius: 50px;
-		z-index: 10;
+// Posts
+.wp-block-ap-block-posts {
+	>.#{$prefix}TickerPosts {
 		display: none;
 	}
-
-	&:hover::before {
-		display: block;
-	}
-
-	svg {
-		opacity: .75;
-	}
 }
 
-.apbMutedText {
-	opacity: .75;
-}
-
-.apbUpgradePro {
-	color: #fff;
-	background: $primaryColor;
-	padding: 2px 8px;
-	margin: 0 0 0 5px;
-	border-radius: 50px;
-	cursor: pointer;
-}
-
-.apbUpgradeProModal {
-	h3 {
-		margin: 0 0 15px 0;
-	}
-
-	.apbUpgradeProText {
-		font-size: 15px;
-		margin: 25px 0 0 0;
+.bPlPanelBody {
+	.link {
+		font-weight: 500;
+		text-decoration: none;
+		color: $primaryColor;
+		cursor: pointer;
 	}
 }
 
-.apbUpgradeProLearnMore {
-	display: inline-block;
-	font-size: 16px;
-	font-weight: 500;
-	color: #fff;
-	background-color: $primaryColor;
-	text-decoration: none;
-	padding: 12px 20px;
-	margin-top: 20px;
-	border-radius: 50px;
+.apbLayoutSelector {
+	width: 100%;
+	background: #fff;
+	padding: 24px;
+	border-radius: 12px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 
-	&:hover,
-	&:focus {
-		color: #fff;
-		background-color: $secondaryColor;
+	h2 {
+		font-size: 22px;
+		font-weight: 500;
+		text-align: center;
+		color: $titleColor;
+		margin: 0px 0 25px 0;
 	}
-}
 
-// Advanced Posts
-.wp-block-ap-block-posts.apbAdvancedPosts {
+	.apbLayouts {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 20px;
 
-	>.apbSliderPosts,
-	>.apbTickerPosts {
-		display: none;
+		.apbLayout {
+			min-width: 220px;
+			max-width: 350px;
+			min-height: 120px;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 16px;
+			padding: 16px;
+			border: 1px solid #E2E8F0;
+			border-radius: 8px;
+			cursor: pointer;
+
+			.proBadge {
+				display: none;
+			}
+
+			svg {
+				width: 60px;
+				height: 60px;
+				fill: $contentColor;
+			}
+
+			.label {
+				color: $titleColor;
+				font-size: 18px;
+				font-weight: 600;
+			}
+
+			&:hover {
+				box-shadow: 0 0 0 3px #E2E8F01a;
+			}
+		}
+	}
+
+	p {
+		font-size: 16px;
+		font-weight: 500;
+		text-align: center;
+		color: #485781;
+		margin: 16px 0 0 0;
 	}
 }

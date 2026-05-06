@@ -1,21 +1,34 @@
-export const sliderConfig = (attributes) => {
-	const { columns, columnGap, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderSpeed, sliderEffect, sliderIsPageClickable, sliderIsPageDynamic } = attributes;
+import { prefix } from './data';
+
+export const masonryConfig = (container, attributes) => {
+	const { columnGap, rowGap } = attributes;
 
 	return {
-		// Optional parameters
+		container,
+		baseWidth: 400,
+		gutterX: columnGap,
+		gutterY: rowGap,
+		minify: false,
+		ultimateGutter: 5,
+		surroundingGutter: false
+	}
+}
+
+export const sliderConfig = (attributes) => {
+	const { columns, columnGap, sliderIsLoop, sliderIsTouchMove, sliderIsAutoplay, sliderAutoplayOptions = { delay: 1.5 }, sliderSpeed, sliderEffect, sliderIsPageClickable, sliderIsPageDynamic } = attributes;
+
+	return {
 		direction: 'horizontal',
 		slidesPerView: columns?.mobile,
 		breakpoints: {
-			// when window width is >= 576px
-			576: { slidesPerView: columns?.tablet },
-			// when window width is >= 768px
-			768: { slidesPerView: columns?.desktop },
+			641: { slidesPerView: columns?.tablet },
+			1025: { slidesPerView: columns?.desktop },
 		},
 		spaceBetween: columnGap,
 		loop: sliderIsLoop,
 		allowTouchMove: sliderIsTouchMove,
 		grabCursor: sliderIsTouchMove,
-		autoplay: sliderIsAutoplay ? { delay: sliderSpeed * 1000 } : false,
+		autoplay: sliderIsAutoplay ? { delay: sliderAutoplayOptions?.delay * 1000 } : false,
 		speed: sliderSpeed * 1000,
 		effect: sliderEffect,
 		fadeEffect: { crossFade: true },
@@ -48,14 +61,14 @@ export const sliderConfig = (attributes) => {
 }
 
 export const setSliderHeight = (id) => {
-	const slideHeightArray = [];
-	const swiperSlide = document.querySelectorAll(`#${id} .apbSliderPosts .swiper-slide`);
-	const swiperSlideText = document.querySelectorAll(`#${id} .apbSliderPosts .swiper-slide .apbPostText`);
-	swiperSlideText?.forEach(slideText => {
-		slideHeightArray.push(slideText?.clientHeight);
+	const heightArray = [];
+	const slideEls = document.querySelectorAll(`#${id} .swiper .swiper-slide`);
+	const textEls = document.querySelectorAll(`#${id} .swiper .swiper-slide .${prefix}Text`);
+	textEls?.forEach(textEl => {
+		heightArray.push(textEl?.clientHeight);
 	});
-	swiperSlide?.length && swiperSlide.forEach(slide => {
-		slide.style.height = `${Math.max(...slideHeightArray)}px`;
+	slideEls?.length && slideEls.forEach(slideEl => {
+		slideEl.querySelector('article').style.height = `${Math.max(...heightArray)}px`;
 	});
 }
 
@@ -68,8 +81,8 @@ export const tickerConfig = (attributes) => {
 		speed: 'slow',
 		interval: 2000,
 		height: 'auto',
-		visible: 3,
 		gap: rowGap,
+		visible: 3,
 		mousePause: true
 	}
 }

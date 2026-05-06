@@ -1,0 +1,48 @@
+@use '../variables' as vars;
+@use '../mixins' as mix;
+
+.wp-block-ap-block-posts {
+	.#{vars.$prefix}SliderPosts {
+		position: relative;
+		overflow: hidden;
+		height: auto;
+
+		.swiper-wrapper {
+			height: auto;
+			align-items: center;
+		}
+
+		.swiper-pagination .swiper-pagination-bullet:focus {
+			outline: 0;
+		}
+
+		.#{vars.$prefix}Overlay:not(.#{vars.$prefix}OverlayBox) .#{vars.$prefix}Text {
+			width: -webkit-fill-available !important;
+		}
+
+		article {
+			box-sizing: border-box;
+		}
+
+		@include mix.mobile {
+
+			.swiper-button-prev,
+			.swiper-rtl .swiper-button-next {
+				left: 0;
+
+				&::after {
+					font-size: 30px;
+				}
+			}
+
+			.swiper-button-next,
+			.swiper-rtl .swiper-button-prev {
+				right: 0;
+
+				&::after {
+					font-size: 30px;
+				}
+			}
+		}
+	}
+}
