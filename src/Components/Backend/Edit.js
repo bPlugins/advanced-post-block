@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { __ } from '@wordpress/i18n';
 import { useBlockProps } from '@wordpress/block-editor';
 
@@ -13,12 +13,10 @@ const Edit = props => {
 	const { layout, subLayout, columns } = attributes;
 	const blockProps = useBlockProps();
 
-	const [isProModalOpen, setIsProModalOpen] = useState(false);
-
 	useEffect(() => tabController(), [isSelected]);
 
 	return <>
-		{layout && <Settings {...{ attributes, setAttributes, isProModalOpen, setIsProModalOpen }} />}
+		{layout && <Settings {...{ attributes, setAttributes }} />}
 
 		<div {...blockProps}>
 			{!layout ?

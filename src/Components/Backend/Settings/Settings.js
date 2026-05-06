@@ -1,9 +1,8 @@
 import { withSelect } from '@wordpress/data';
-import { __ } from '@wordpress/i18n';
 import { InspectorControls, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
 import { TabPanel } from '@wordpress/components';
 
-import { FrontShortCode, AdvertiseCard, ProModal } from '../../../../../bpl-tools/ProControls';
+import { FrontShortCode, AdvertiseCard } from '../../../../../bpl-tools/ProControls';
 import { tabController, updateData } from '../../../../../bpl-tools/utils/functions';
 
 import General from './General';
@@ -12,7 +11,7 @@ import Style from './Style';
 import { generalStyleTabs } from '../../../utils/options';
 import { pricingUrl, shortCodePostType } from '../../../utils/data';
 
-const Settings = ({ attributes, setAttributes, isProModalOpen, setIsProModalOpen, taxOfPostType, currentPostType, currentPostId }) => {
+const Settings = ({ attributes, setAttributes, taxOfPostType, currentPostType, currentPostId }) => {
 	const { contentAlign } = attributes;
 
 	// Set max excerpt length
@@ -53,16 +52,6 @@ const Settings = ({ attributes, setAttributes, isProModalOpen, setIsProModalOpen
 
 			<AdvertiseCard planLink={pricingUrl} />
 		</InspectorControls>
-
-
-		<ProModal isProModalOpen={isProModalOpen} setIsProModalOpen={setIsProModalOpen} link={pricingUrl} title={__('Unlock More with<br/>Advanced Post Block Pro!', 'advanced-post-block')} description={__(`The free features of Plugin do a lot-still, without PRO, you're holding yourself back from getting more.`, 'advanced-post-block')} features={[
-			'More Layouts: Grid 1, Magazine 1, and Magazine 2 layouts.',
-			'Display from posts, pages, or custom posts.',
-			'Advanced Query: Presets, Tags, and Filters.',
-			'Display Post View and Reading Time and Custom Taxonomies.',
-			'Flexible pagination and infinity loading.',
-			'Image Grayscale, Lazy Loading, and Default Image.'
-		]}></ProModal>
 
 
 		<BlockControls>
