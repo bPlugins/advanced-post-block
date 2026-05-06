@@ -74,35 +74,29 @@ Everything you need to build a professional and modern content display:
 
 - **Core Layouts:** Choose from professional Grid, Masonry, Slider, Ticker and News Ticker views.
 
-- **Flexible Sub-layouts:** Optimize displays with Left/Right Image, Overlay Box, Title-Meta layouts, and more.
+- **Flexible Sub-layouts:** Optimize displays with Default, Left/Right Image, Overlay, and Title-Meta layouts.
 
-- **Dynamic Post Query:** Advanced filtering by post type, posts per page, categories, authors, and custom sorting.
+- **Slider Options:** Customize the slider layout with loop, touch move, autoplay, speed, effect, pagination and navigation with the customization and styling.
+
+- **Dynamic Post Query:** Advanced filtering by post type, posts per page, categories, authors, taxonomy relation (AND/OR), post orders and more.
 
 - **Element Visibility:** Full control to show or hide thumbnails, titles, metadata, excerpts, and read more buttons.
 
-- **Featured Image Settings:** Toggle links and adjust image fitting (Cover/Contain) for a polished look.
+- **Feature Image Settings:** Toggle link, set dimensions (Width/Height), and adjust image fitting (Cover/Contain) for a polished look.
 
-- **Title Control:** Customize post title layout, enable link, and set precise typography.
+- **Title Control:** Customize post title with enable link, select tag, set typography, alignment, colors, and margin.
 
-- **Metadata Flexibility:** Show or hide post date, author, categories, and comment counts.
+- **Flexible Metadata:** Show or hide post author, date, categories with position, and comment counts with typography, different colors and margin.
 
-- **Meta Info Customization:** Personalize metadata with custom icons, colors, links, and more.
+- **Dynamic Excerpt:** Display excerpt from post excerpt or content with limit, alignment, typography, colors, and margin.
 
-- **Custom Read More:** Define labels, colors, and hover effects for your "Read More" or "Continue" buttons.
+- **Customized Read More:** Show Read More button with custom label and icon with link tab and style for alignment, typography, padding, colors, borders, shadows and hover animation.
+
+- **Interactive Container Design:** Alignment, backgrounds, borders, and shadows with padding support for article blocks and content areas.
 
 - **Shortcode Support:** Seamlessly display post blocks anywhere on your site using shortcodes.
 
 - **Responsive Ready:** Fully optimized for a perfect experience on mobile, tablet, and desktop devices.
-
-- **Advanced Styling:** Apply hover background, border, and shadows to post containers for interactive designs.
-
-- **Image Effects:** Flexible controls for image width, height, radius, shadows, and hover animations.
-
-- **Post Title:** Customize title tags, specific word/character limits, and custom hover colors.
-
-- **Meta Styling:** Full control over metadata hover colors, icons, and alignment settings.
-
-- **Excerpt & Read More:** Fully customize hover colors and add stylized icons to your "Read More" buttons.
 
 - **Developer Friendly:** Built with clean code following the best WordPress developmental standards.
 
@@ -112,51 +106,45 @@ Everything you need to build a professional and modern content display:
 
 **What’s Included in Pro:**
 
-- **Exclusive Layouts:** Unlock the **Grid 1, Magazine 1, and Magazine 2** layouts and cinematic sub-layouts like **Overlay Half Content**.
+- **Exclusive Layouts:** Unlock the **Grid 1**, **Magazine 1**, and **Magazine 2** layouts and sub-layouts like **Overlay Content Box**, **Overlay Half Content**, and **List Even/Odd**.
 
-- **News Ticker Options:** Fine-tune direction, speed, and display intervals for news tickers.
+- **Ticker Options:** Customize the Ticker layout with direction, speed, interval, height, and pause on mouse hover options.
+
+- **News Ticker Pro:** Fine-tune News Ticker layout with label, theme, type, direction, speed, animation, and pause on mouse hover options.
 
 - **Display Pages:** Showcase standard WordPress pages alongside your posts.
 
-- **Query Presets:** Instant configurations for **Popular, Random, Sticky, and Related Posts**.
+- **Query Presets:** Instant query configurations for **Popular**, **Random**, **Sticky**, **Most Comments**, **Related Posts**, and more.
 
-- **Deeper Filtering:** Advanced filtering by **Tags, Custom Taxonomies, Search Queries,** and more.
+- **Deeper Filtering:** Advanced posts query by **Tags**, **Custom Taxonomies**, **Search Queries** and more **Order By** options.
 
-- **Post Precision:** Use **Offset** to skip the first "N" posts or manually **Include/Exclude** content by ID.
+- **Post Precision:** Use **Offset** to skip the first "N" posts or manually **Include/Exclude** content by IDs, **Exclude current and sticky posts**.
 
-- **Exclude Current Post:** Prevent duplicates by excluding the current post in single templates.
-
-- **Sticky Management:** Easy toggle to include or completely **Exclude Sticky Posts**.
-
-- **Load More / AJAX Loading:** Modern **Pagination, Navigation, Infinite Scroll,** and AJAX **Load More** buttons.
+- **Pagination & AJAX:** Modern **Pagination**, **Navigation**, **Infinite Scroll**, and **Load More** button to display more posts.
 
 - **Sortable Elements:** Intuitive drag-and-drop interface to rearrange Post Title, Metadata, and Excerpt.
 
-- **Feature Image Customization:** Define exact image dimensions and custom sizes per block.
+- **Title Control:** Set precise **Word/Character limits** with ellipsis to adjust title length.
 
-- **Meta Icon Customization:** Upload **Custom Icons** for author, date, category, reading time, and comment counts.
+- **Feature Image:** Define the image size, lazyload, and set default Placeholder image with normal-hover grayscale effects and hover radius styling.
 
-- **Meta Author Link:** Choose whether author names link to their archive pages.
+- **Metadata Customization:** Set separator and gaps between meta items, reorder/sorting the meta items, set alignment for the metadata.
 
-- **Meta Date Format:** Full support for custom **PHP Date formats**.
+- **Meta Author:** Set the author link and set custom icon for the author meta.
 
-- **Taxonomies in Metadata:** Display categories, tags, and custom taxonomies within post meta.
+- **Meta Date:** Set the date format, show date as time ago and set custom icon for the date meta.
 
-- **Reading Time Indicator:** Boost engagement with estimated reading time (minutes/seconds).
+- **Meta Category:** Set the category on image position, and set padding, border radius for the Badge display.
 
-- **Post View Tracking:** Display post view counts with custom icons in the metadata section.
+-**Tags and Custom Taxonomies:** Display tags and custom taxonomies in the meta with the custom icon.
 
-- **Metadata Controls:** Advanced controls for gap, separator, and sorting of metadata items.
+- **Meta Reading Time:** Show post read time with seconds, label and custom icon.
 
-- **Time Ago Format:** Display post dates in a relative "Time Ago" format for a modern feel.
+- **Post View Count:** Enable post view count with custom to display the post views in meta area.
 
-- **Image Optimization:** Professional Lazy Loading and Default Placeholder image support.
+- **Excerpt Control:** Display the SEO Meta description from Yoast, Rank Math, or AIOSEO at the excerpt and display the ellipsis.
 
-- **SEO Meta Support:** Pull post excerpts directly from Yoast, Rank Math, or AIOSEO meta descriptions.
-
-- **Category Badge Premium Styling:** Choose different positions on images, and set premium padding and radius.
-
-- **Advanced Read More:** Unlock more icons, icon positioning, and advanced hover animations like pulse.
+- **Advanced Read More:** Unlock more icons, set icon gap, and position with pulse animations.
 
 - **Custom Query Hook:** Leverage the **`apb_query`** filter for deep developer-level control.
 

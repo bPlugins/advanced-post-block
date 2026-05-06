@@ -5,24 +5,23 @@ import SubLayout from '../../Common/SubLayout/SubLayout';
 import { tickerConfig } from '../../../utils/configs';
 import { prefix } from '../../../utils/data';
 
-const Ticker = ({ posts, attributes, id }) => {
+const Ticker = ({ posts, attributes }) => {
 	const { subLayout, rowGap } = attributes;
 
 	const tickerRef = useRef(null);
 	const tickerWrapperRef = useRef(null);
 
-	const mainSl = `#${id}`;
-
 	useEffect(() => {
 		const tickerWrapEl = tickerWrapperRef.current;
-		if (tickerWrapEl) {
+		if (tickerWrapEl && posts?.length) {
 			// Re init ticker
 			tickerWrapEl.innerHTML = '';
-			tickerWrapEl.innerHTML = tickerRef.current.outerHTML;
+			const cloned = tickerRef.current.cloneNode(true);
+			tickerWrapEl.appendChild(cloned);
 
-			$(`${mainSl} .${prefix}TickerWrapper .${prefix}TickerPosts`).easyTicker(tickerConfig(attributes));
+			$(cloned).easyTicker(tickerConfig(attributes));
 		}
-	}, [subLayout, rowGap]);
+	}, [posts, subLayout, rowGap]);
 
 	return <>
 		<div className={`${prefix}TickerWrapper`} ref={tickerWrapperRef}></div>

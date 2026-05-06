@@ -23,7 +23,7 @@ const DisplayPosts = ({ posts, attributes, id, Slider, Ticker }) => {
 			return <Slider posts={posts} attributes={attributes} id={id} />
 
 		case 'ticker':
-			return <Ticker posts={posts} attributes={attributes} id={id} />;
+			return <Ticker posts={posts} attributes={attributes} />;
 
 		case 'newsTicker':
 			return <NewsTicker posts={posts} attributes={attributes} id={id} />;

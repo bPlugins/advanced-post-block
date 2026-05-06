@@ -747,8 +747,6 @@
 	},
 	"editorScript": [
 		"file:./index.js",
-		"wp-server-side-render",
-		"ap-block-posts-view-script",
 		"wp-api-request",
 		"wp-api",
 		"easyTicker"

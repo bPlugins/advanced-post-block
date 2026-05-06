@@ -141,7 +141,7 @@ const Layout = ({ attributes, setAttributes, device }) => {
 		/>}
 
 		<Notice status='premium' isIcon={true}>
-			{__('Magazine layouts, and overlay settings are available in the Premium version.', 'advanced-post-block')}
+			{__('Grid 1, Magazine 1, Magazine 2 layouts, and overlay settings are available in the Premium version.', 'advanced-post-block')}
 		</Notice>
 	</PanelBody>
 };
