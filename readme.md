@@ -1,6 +1,6 @@
 # Advanced Post Block — Showcase Posts with Style
 
-![Advanced Post Block Banner](./.docs/assets/banner.png)
+![Advanced Post Block Banner](https://ps.w.org/advanced-post-block/assets/banner-772x250.png)
 
 [![WordPress Support](https://img.shields.io/badge/WordPress-6.5+-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org/plugins/advanced-post-block/)
 [![PHP Support](https://img.shields.io/badge/PHP-7.1+-777bb4.svg?style=flat-square&logo=php)](./readme.txt)
@@ -38,17 +38,11 @@ Unlock advanced functionality for high-performing websites:
 ### Interactive Layout Switching
 Switch between any layout—Grid, Masonry, Slider, etc.—and see the changes update in real-time within the Gutenberg editor.
 
-![Layout Switching](./.docs/assets/docs-advanced-post-block-layout-switch.gif)
-
 ### Dynamic Sub-layouts
 Adjust the relationship between images and text with a few clicks. Try "Overlay Box" for a cinematic feel or "Left/Right Even Odd" for an editorial look.
 
-![Sub Layouts](./.docs/assets/docs-advanced-post-block-sub-layout.gif)
-
 ### Advanced Query Controls
 Filter by category, tag, author, or search query. Use presets to instantly show "Popular" or "Related" posts.
-
-![Query Controls](./.docs/assets/docs-advanced-post-block-posts-query.gif)
 
 ---
 
@@ -57,11 +51,25 @@ Filter by category, tag, author, or search query. Use presets to instantly show 
 This project is built with modern web technologies to ensure performance and flexibility:
 
 - **Frontend Framework:** [React](https://reactjs.org/) (used for both Gutenberg Editor components and frontend hydration).
-- **Slider Library:** [Swiper.js](https://swiperjs.com/) for high-performance touch carousels.
+- **Slider Library:** [Swiper.js](https://swiperjs.com/) for high-performance touch carousels and news tickers.
+- **Masonry Layout:** [react-responsive-masonry](https://github.com/cedricdelpoux/react-responsive-masonry) for fluid, responsive post grids.
 - **Build System:** `@wordpress/scripts` (Webpack) for block bundling and `Gulp` for asset management/deployment.
 - **Styling:** SASS/SCSS with a custom design system for consistent UI.
 - **Admin Dashboard:** Powered by `React Router` for a single-page app experience.
 - **Backend:** PHP with custom WordPress REST API extensions.
+- **Licensing & Analytics:** Custom **BPlugins SDK** (based on Freemius Lite) calling through `api.bplugins.com`.
+
+---
+
+## 📚 Third-Party Libraries
+
+Advanced Post Block bundles or depends on the following high-quality libraries:
+
+- **[Swiper](https://swiperjs.com/)** (MIT): Powering the touch-enabled sliders and vertical news tickers.
+- **[jQuery Easy Ticker](https://github.com/vaakash/jquery-easy-ticker)** (MIT): Smooth vertical scrolling for the news ticker layout.
+- **[react-responsive-masonry](https://github.com/cedricdelpoux/react-responsive-masonry)** (MIT): Fluid responsive masonry grid system.
+- **[React Router](https://reactrouter.com/)** (MIT): Client-side routing for the plugin's admin dashboard.
+- **[Freemius Lite SDK (Custom)](https://bplugins.com)** (GPLv3): A modified version of the Freemius SDK optimized for the bPlugins API to handle usage tracking and analytics.
 
 ---
 
@@ -100,17 +108,6 @@ This project is built with modern web technologies to ensure performance and fle
 ---
 
 ## 🔌 Developer API
-
-### Custom Query Filter
-Use the `apb_query` filter to programmatically modify any `WP_Query` parameter:
-
-```php
-add_filter( 'apb_query', function( $args ) {
-	 $args['meta_key'] = '_is_featured';
-	 $args['meta_value'] = '1';
-	 return $args;
-} );
-```
 
 ### Shortcode Support
 Embed any block configuration using the generated ID:
