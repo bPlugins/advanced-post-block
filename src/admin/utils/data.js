@@ -1,4 +1,5 @@
 import { gridIcon, masonryIcon, sliderIcon, tickerIcon } from '../../utils/icons';
+import supportThumbnail from '../../assets/image/support.png';
 
 const slug = 'advanced-post-block';
 
@@ -18,7 +19,8 @@ export const dashboardInfo = (info) => {
 			thumbnail: `https://bplugins.com/wp-content/themes/b-technologies/assets/images/products/${slug}.png`,
 			proThumbnail: `https://bplugins.com/wp-content/themes/b-technologies/assets/images/products/${slug}-pro.png`,
 			video: 'https://www.youtube.com/watch?v=milYZrqLJsE',
-			isYoutube: true
+			isYoutube: true,
+			supportThumbnail
 		},
 		pages: {
 			org: `https://wordpress.org/plugins/${slug}/`,

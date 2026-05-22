@@ -2,9 +2,9 @@
 @use '../mixins' as mix;
 
 .wp-block-ap-block-posts {
-    .#{vars.$prefix}TickerPosts {
-        >div {
-            width: 100%;
-        }
-    }
+	.#{vars.$prefix}TickerPosts {
+		>div {
+			width: 100%;
+		}
+	}
 }
