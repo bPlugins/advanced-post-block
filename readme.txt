@@ -4,8 +4,8 @@ Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, post grid, post slider, post filter, post list
 Requires at least: 6.5
 Tested up to: 7.0
-Requires PHP: 7.1
-Stable tag: 2.2.0
+Requires PHP: 7.4
+Stable tag: 2.2.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -315,6 +315,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Changelog ==
+
+= 2.2.1 - 25 Jun 2026 =
+* **Update:** Admin Dashboard: Improved UI with better feature organization.
 
 = 2.2.0 - 06 May 2026 =
 * **New:** Advanced Title Customization: Choose specific SEO title tags, align text perfectly, and set custom hover colors for a professional look.
