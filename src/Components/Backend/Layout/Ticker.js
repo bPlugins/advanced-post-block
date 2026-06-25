@@ -30,6 +30,6 @@ const Ticker = ({ posts, attributes }) => {
 				{posts.map(post => <SubLayout key={post.id} {...{ post, attributes }} />)}
 			</div>
 		</div>
-	</>;
+	</>
 }
 export default Ticker;
