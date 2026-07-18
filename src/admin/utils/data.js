@@ -159,6 +159,13 @@ export const welcomeInfo = (adminUrl) => ({
 	},
 	changelogs: [
 		{
+			version: '2.2.2 - 19 Jul 2026',
+			type: 'new',
+			list: [
+				'<strong>New:</strong> Template Library: Browse and import professionally designed post layouts with one click using the new <strong>Template Library</strong> button in the editor toolbar — complete with search, filters, and live preview.'
+			]
+		},
+		{
 			version: '2.2.1 - 25 Jun 2026',
 			type: 'update',
 			list: [

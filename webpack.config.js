@@ -13,7 +13,8 @@ module.exports = {
 	entry: {
 		...defaultConfig.entry(),
 		'admin/dashboard': './src/admin/dashboard.js',
-		'admin/post': './src/admin/post.js'
+		'admin/post': './src/admin/post.js',
+		'template-library': './src/template-library/index.js'
 	},
 	plugins: [
 		...plugins,

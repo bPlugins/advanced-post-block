@@ -20,6 +20,7 @@ module.exports = {
 		Swiper: 'readonly',
 		wpApiSettings: 'readonly',
 		apbpricingurl: 'readonly',
+		apbtemplatenonce: 'readonly',
 		apbPostViewTracker: 'readonly'
 	},
 	parserOptions: {
