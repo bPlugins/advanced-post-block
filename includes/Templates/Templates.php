@@ -11,6 +11,7 @@ class Templates {
 		add_action( 'wp_ajax_apb_templates', [$this, 'apb_templates'] );
 		add_action( 'wp_ajax_apb_template_import', [$this, 'apb_template_import'] );
 		add_action( 'wp_ajax_apb_template_counts', [$this, 'apb_template_counts'] );
+		add_action( 'wp_ajax_apb_template_favorites', [$this, 'apb_template_favorites'] );
 	}
 
 	public function apb_templates_main(){
@@ -179,6 +180,30 @@ class Templates {
 		} catch ( \Throwable $th ) {
 			wp_send_json_error( $th->getMessage() );
 		}
+	}
+	public function apb_template_favorites(){
+		$nonce = sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ?? null ) );
+
+		if( !wp_verify_nonce( $nonce, 'apb_template' )){
+			wp_send_json_error( 'Invalid Request' );
+		}
+
+		$prefix = sanitize_key( wp_unslash( $_POST['prefix'] ?? 'apb' ) );
+		$optionKey = $prefix . 'FavoritesTemplates';
+
+		// Save when a favorites payload is posted, then return the current state
+		if ( isset( $_POST['favorites'] ) ) {
+			$raw = json_decode( wp_unslash( $_POST['favorites'] ), true );
+
+			$favorites = [
+				'patterns'	=> array_values( array_unique( array_map( 'absint', (array) ( $raw['patterns'] ?? [] ) ) ) ),
+				'pages'		=> array_values( array_unique( array_map( 'absint', (array) ( $raw['pages'] ?? [] ) ) ) ),
+			];
+
+			update_option( $optionKey, $favorites, false );
+		}
+
+		wp_send_json_success( get_option( $optionKey, [ 'patterns' => [], 'pages' => [] ] ) );
 	}
 }
 new Templates();

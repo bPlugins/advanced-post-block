@@ -316,7 +316,7 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
-= 2.2.2 - 19 Jul 2026 =
+= 2.2.2 - 22 Jul 2026 =
 * **New:** Template Library: Browse and import professionally designed post layouts with one click using the new **Template Library** button in the editor toolbar — complete with search, filters, and live preview.
 
 = 2.2.1 - 25 Jun 2026 =

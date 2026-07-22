@@ -3,7 +3,7 @@ import { __ } from '@wordpress/i18n';
 import BPLTemplateLibrary from '../../../bpl-tools/TemplateLibrary';
 
 import { pluginIcon } from '../utils/icons';
-import { pricingUrl } from '../utils/data';
+import { prefix, pricingUrl } from '../utils/data';
 
 /**
  * Plugin-specific TemplateLibrary wrapper for Advanced Post Block
@@ -14,6 +14,7 @@ const TemplateLibrary = () => {
 	const isPremium = false; // Free version — Pro templates show the "Get Pro" link
 
 	return <BPLTemplateLibrary
+		prefix={prefix}
 		logo={pluginIcon}
 		buttonLabel={__('Template Library', 'advanced-post-block')}
 		modalTitle={__('Templates Library', 'advanced-post-block')}
