@@ -1,13 +1,30 @@
 import { __ } from '@wordpress/i18n';
 
-import { gridIcon, masonryIcon, newsTickerIcon, sliderIcon, tickerIcon } from './icons';
+import { accordionIcon, arrowDownIcon, arrowUpIcon, gridIcon, longArrowDownIcon, longArrowUpIcon, masonryIcon, minusIcon, newsTickerIcon, plusIcon, sliderIcon, tickerIcon } from './icons';
 
 export const layouts = [
 	{ label: __('Grid', 'advanced-post-block'), value: 'grid', icon: gridIcon },
 	{ label: __('Masonry', 'advanced-post-block'), value: 'masonry', icon: masonryIcon },
 	{ label: __('Slider', 'advanced-post-block'), value: 'slider', icon: sliderIcon },
 	{ label: __('Ticker', 'advanced-post-block'), value: 'ticker', icon: tickerIcon },
-	{ label: __('News Ticker', 'advanced-post-block'), value: 'newsTicker', icon: newsTickerIcon }
+	{ label: __('News Ticker', 'advanced-post-block'), value: 'newsTicker', icon: newsTickerIcon },
+	{ label: __('Accordion', 'advanced-post-block'), value: 'accordion', icon: accordionIcon }
+];
+
+export const accordionThemes = [
+	{ label: __('Classic', 'advanced-post-block'), value: 'classic' },
+	{ label: __('Card Stack', 'advanced-post-block'), value: 'card-stack' }
+];
+
+export const accordionIconPositions = [
+	{ label: __('Left', 'advanced-post-block'), value: 'left' },
+	{ label: __('Right', 'advanced-post-block'), value: 'right' }
+];
+
+export const accordionIndicatorIcons = [
+	{ label: __('Plus Minus', 'advanced-post-block'), value: [minusIcon, plusIcon] },
+	{ label: __('Arrow', 'advanced-post-block'), value: [arrowUpIcon, arrowDownIcon] },
+	{ label: __('Long Arrow', 'advanced-post-block'), value: [longArrowUpIcon, longArrowDownIcon] }
 ];
 
 export const subLayouts = [

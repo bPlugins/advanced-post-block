@@ -129,3 +129,16 @@ $prefix: 'apb';
 		}
 	}
 }
+
+// Accordion indicator-icon picker preview (inspector)
+.apbAccIndicatorPreview {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+
+	svg {
+		width: 16px;
+		height: 16px;
+		fill: currentColor;
+	}
+}

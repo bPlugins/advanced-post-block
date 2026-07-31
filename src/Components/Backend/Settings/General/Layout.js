@@ -4,16 +4,18 @@ import { Label, Device, HelpTooltip, Notice, BtnGroup } from '../../../../../../
 
 import { pxUnit, emUnit, vhUnit } from '../../../../../../bpl-tools/utils/options';
 import { layouts, subLayouts, contentHeights } from '../../../../utils/options';
-import { subLayoutSwitch } from '../../../../utils/switcher';
+import { subLayoutSwitch, accordionThemeSwitch } from '../../../../utils/switcher';
 import scrollTo from '../../../../utils/scrollTo';
 
 const Layout = ({ attributes, setAttributes, device }) => {
-	const { layout, subLayout, columns, columnGap, rowGap, isContentEqualHight, sliderHeight, content } = attributes;
+	const { layout, subLayout, columns, columnGap, rowGap, isContentEqualHight, accordion = {}, sliderHeight, content } = attributes;
+	const { theme = 'classic' } = accordion || {};
 
 	const isGrid = 'grid' === layout;
 	const isSlider = 'slider' === layout;
 	const isTicker = 'ticker' === layout;
 	const isNewsTicker = 'newsTicker' === layout;
+	const isAccordion = 'accordion' === layout;
 
 	return <PanelBody className='bPlPanelBody' title={__('Layout', 'advanced-post-block')} initialOpen={true}>
 		<Label className='mb5'>
@@ -31,10 +33,19 @@ const Layout = ({ attributes, setAttributes, device }) => {
 				const needsDefault =
 					['left-image', 'right-image'].includes(subLayout);
 
+				// Preset the border sides for the accordion theme; reset to all
+				// sides when leaving the accordion so other layouts aren't affected.
+				const borderAttrs = 'accordion' === val
+					? accordionThemeSwitch(theme, attributes)
+					: isAccordion
+						? { border: { ...attributes.border, side: 'all' }, hoverBorder: { ...attributes.hoverBorder, side: 'all' } }
+						: {};
+
 				setAttributes({
 					layout: val,
 					subLayout: needsLeftImage ? 'left-image' : needsDefault ? 'default' : subLayout,
-					columns: isSliderOrTicker ? { ...columns, desktop: 2 } : columns
+					columns: isSliderOrTicker ? { ...columns, desktop: 2 } : columns,
+					...borderAttrs
 				});
 			}}
 			options={layouts}
@@ -45,7 +56,7 @@ const Layout = ({ attributes, setAttributes, device }) => {
 		{isTicker && <div className='mt10 mb5'>Configure the <span className='link' onClick={() => scrollTo(document.querySelector('.bPlPanelBody.apbTickerOptions'))}>Ticker Options</span>.</div>}
 		{isNewsTicker && <div className='mt10 mb5'>Configure the <span className='link' onClick={() => scrollTo(document.querySelector('.bPlPanelBody.apbNewsTickerOptions'))}>News Ticker Options</span>.</div>}
 
-		{!isNewsTicker && <>
+		{!isNewsTicker && !isAccordion && <>
 			<SelectControl
 				className='mt20'
 				label={<>
@@ -67,7 +78,7 @@ const Layout = ({ attributes, setAttributes, device }) => {
 			<Notice status='warning'>{__('Some settings may change when sub layout will be changed.', 'advanced-post-block')}</Notice>
 		</>}
 
-		{!isTicker && !isNewsTicker && <>
+		{!isTicker && !isNewsTicker && !isAccordion && <>
 			<PanelRow className='gap5 mt20'>
 				<Label className='mb5'>
 					{__('Columns:', 'advanced-post-block')}
@@ -84,7 +95,7 @@ const Layout = ({ attributes, setAttributes, device }) => {
 			/>
 		</>}
 
-		{!isTicker && !isNewsTicker && <>
+		{!isTicker && !isNewsTicker && !isAccordion && <>
 			<Label>
 				{__('Column Gap:', 'advanced-post-block')}
 				<HelpTooltip text={__('Horizontal space between post items.', 'advanced-post-block')} />
@@ -98,9 +109,9 @@ const Layout = ({ attributes, setAttributes, device }) => {
 			/>
 		</>}
 
-		{!isSlider && !isTicker && !isNewsTicker && <>
+		{!isSlider && !isNewsTicker && <>
 			<Label>
-				{__('Row Gap:', 'advanced-post-block')}
+				{isAccordion ? __('Gap:', 'advanced-post-block') : __('Row Gap:', 'advanced-post-block')}
 				<HelpTooltip text={__('Vertical space between post items.', 'advanced-post-block')} />
 			</Label>
 
@@ -131,7 +142,7 @@ const Layout = ({ attributes, setAttributes, device }) => {
 			units={[pxUnit(), emUnit(), vhUnit()]}
 		/>}
 
-		{!isTicker && !isNewsTicker && <SelectControl
+		{!isTicker && !isNewsTicker && !isAccordion && <SelectControl
 			className='mt20'
 			label={__('Content Height:', 'advanced-post-block')}
 			labelPosition='left'

@@ -9,7 +9,15 @@ import { pricingUrl } from '../../../../utils/data';
 import { categoriesPosition } from '../../../../utils/options';
 
 const MetaData = ({ attributes, setAttributes, taxOfPostType, updateObj }) => {
-	const { postType, isMeta, isMetaAuthor, isMetaDate, isMetaCategory, metaCategoryIn, isMetaComment } = attributes;
+	const { layout, postType, isMeta, isMetaAuthor, isMetaDate, isMetaCategory, metaCategoryIn, isMetaComment } = attributes;
+
+	const isAccordion = 'accordion' === layout;
+	const categoryPositions = isAccordion
+		? [
+			{ label: __('With Meta', 'advanced-post-block'), value: 'content' },
+			{ label: __('With Title', 'advanced-post-block'), value: 'aboveContent' }
+		]
+		: categoriesPosition;
 
 	return <PanelBody className='bPlPanelBody' title={__('Meta Data', 'advanced-post-block')} initialOpen={false}>
 		<ToggleControl label={__('Show Meta Data', 'advanced-post-block')} checked={isMeta} onChange={val => setAttributes({ isMeta: val })} />
@@ -43,7 +51,7 @@ const MetaData = ({ attributes, setAttributes, taxOfPostType, updateObj }) => {
 						} else if ('aboveContent' === val) {
 							updateObj('categoryOnImage', { top: '0px', right: '0px', bottom: '15px', left: '0px' }, 'styles', 'margin');
 						}
-					}} options={categoriesPosition} />
+					}} options={categoryPositions} />
 				</>}
 				<Notice status='premium' isIcon={true}>{__('Custom positions, icons, and overlay settings are available in the Premium version.', 'advanced-post-block')}</Notice>
 			</PanelBody>}

@@ -6,6 +6,7 @@ import { shortCodePostType } from '../../../utils/data';
 import NewsTickerOptions from './General/SubLayouts/NewsTickerOptions';
 import TickerOptions from './General/SubLayouts/TickerOptions';
 import SliderOptions from './General/SubLayouts/SliderOptions';
+import AccordionOptions from './General/SubLayouts/AccordionOptions';
 import Pagination from './General/Pagination';
 import Layout from './General/Layout';
 import PostsQuery from './General/PostsQuery';
@@ -16,6 +17,7 @@ const General = ({ attributes, setAttributes, updateObj, device, postTypes, allT
 	const isSlider = 'slider' === layout;
 	const isTicker = 'ticker' === layout;
 	const isNewsTicker = 'newsTicker' === layout;
+	const isAccordion = 'accordion' === layout;
 
 	const props = { attributes, setAttributes, updateObj }
 
@@ -33,6 +35,8 @@ const General = ({ attributes, setAttributes, updateObj, device, postTypes, allT
 		{isTicker && <TickerOptions />}
 
 		{isNewsTicker && <NewsTickerOptions />}
+
+		{isAccordion && <AccordionOptions {...props} />}
 	</>
 }
 

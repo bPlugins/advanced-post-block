@@ -4,16 +4,21 @@ import { useBlockProps } from '@wordpress/block-editor';
 
 import { tabController } from '../../../../bpl-tools/utils/functions';
 import { crownIcon } from '../../../../bpl-tools/utils/icons';
+import useIframeAssetSync from '../../../../bpl-tools/hooks/useIframeAssetSync';
 
 import Settings from './Settings/Settings';
 import APBPosts from './APBPosts';
 import { layouts } from '../../utils/options';
+import { accordionThemeSwitch } from '../../utils/switcher';
 import { pricingUrl } from '../../utils/data';
 
 const Edit = props => {
 	const { attributes, setAttributes, isSelected } = props;
-	const { layout, subLayout, columns } = attributes;
+	const { layout, subLayout, columns, accordion = {} } = attributes;
+	const { theme = 'classic' } = accordion || {};
 	const blockProps = useBlockProps();
+
+	useIframeAssetSync(['ap-block-posts-editor-style-css', 'ap-block-posts-style-css', 'apb-template-library-style-css']);
 
 	useEffect(() => tabController(), [isSelected]);
 
@@ -33,7 +38,8 @@ const Edit = props => {
 								setAttributes({
 									layout: value,
 									subLayout: (['slider', 'ticker'].includes(value) && ['default', 'title-meta'].includes(subLayout)) || ('ticker' === value && 'overlay-half-content' === subLayout) ? 'left-image' : subLayout,
-									columns: ['slider', 'ticker'].includes(value) ? { ...columns, desktop: 2 } : columns
+									columns: ['slider', 'ticker'].includes(value) ? { ...columns, desktop: 2 } : columns,
+									...('accordion' === value ? accordionThemeSwitch(theme, attributes) : {})
 								});
 							}}>
 								<span className='proBadge'>Pro</span>

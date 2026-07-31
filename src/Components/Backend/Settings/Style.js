@@ -2,6 +2,7 @@ import Article from './Style/Article';
 import Content from './Style/Content';
 import FeatureImage from './Style/FeatureImage';
 import SliderOptions from './Style/SliderOptions';
+import AccordionOptions from './Style/AccordionOptions';
 import Title from './Style/Title';
 import MetaData from './Style/MetaData';
 import Excerpt from './Style/Excerpt';
@@ -12,15 +13,18 @@ const Style = (props) => {
 	const { layout } = attributes;
 
 	const isNewsTicker = 'newsTicker' === layout;
+	const isAccordion = 'accordion' === layout;
 
 	return <>
 		<Article {...props} />
 
 		<Content {...props} />
 
-		{!isNewsTicker && <FeatureImage {...props} />}
+		{!isNewsTicker && !isAccordion && <FeatureImage {...props} />}
 
 		<SliderOptions {...props} />
+
+		<AccordionOptions {...props} />
 
 		<Title {...props} />
 

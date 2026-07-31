@@ -9,10 +9,11 @@ const Elements = (props) => {
 	const { attributes } = props;
 	const { layout, isTitle, isMeta, isExcerpt } = attributes;
 	const isNewsTicker = 'newsTicker' === layout;
+	const isAccordion = 'accordion' === layout;
 
 	return <>
 		{(isTitle || isMeta || isExcerpt) && !isNewsTicker && <Sorting />}
-		{!isNewsTicker && <FeatureImage {...props} />}
+		{!isNewsTicker && !isAccordion && <FeatureImage {...props} />}
 		<Title {...props} />
 		{!isNewsTicker && <MetaData {...props} />}
 		{!isNewsTicker && <Excerpt {...props} />}

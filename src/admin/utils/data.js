@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 
 import { gridIcon, masonryIcon, sliderIcon, tickerIcon } from '../../utils/icons';
-import { gutenbergTabIcon, shortcodeTabIcon, elementorTabIcon, phpTabIcon, postSectionDemoIcon, allPostsDemoIcon } from './icons';
+import { gutenbergTabIcon, templateTabIcon, shortcodeTabIcon, elementorTabIcon, postSectionDemoIcon, allPostsDemoIcon } from './icons';
 
 const slug = 'advanced-post-block';
 
@@ -49,7 +49,7 @@ export const dashboardInfo = (info) => {
 }
 
 export const welcomeInfo = (adminUrl) => ({
-	keywords: ['Grid', 'Masonry', 'Slider', 'Ticker', 'Post Section'],
+	keywords: ['Grid', 'Masonry', 'Slider', 'Ticker', 'Accordion', 'Post Section'],
 	keywordsLabel: 'Layouts',
 	gettingStarted: {
 		tabs: [
@@ -67,7 +67,7 @@ export const welcomeInfo = (adminUrl) => ({
 					{
 						num: 2,
 						title: 'Choose a Layout',
-						body: 'Select the layout from — <strong>Grid</strong>, <strong>Grid 1</strong>, <strong>Masonry</strong>, <strong>Slider</strong>, <strong>Ticker</strong>, <strong>News Ticker</strong>, <strong>Magazine 1</strong>, or <strong>Magazine 2</strong>. Switching layouts is non-destructive; your query settings are preserved.'
+						body: 'Select the layout from — <strong>Grid</strong>, <strong>Grid 1</strong>, <strong>Masonry</strong>, <strong>Slider</strong>, <strong>Ticker</strong>, <strong>News Ticker</strong>, <strong>Accordion</strong>, <strong>Magazine 1</strong>, or <strong>Magazine 2</strong>. Switching layouts is non-destructive; your query settings are preserved.'
 					},
 					{
 						num: 3,
@@ -78,6 +78,34 @@ export const welcomeInfo = (adminUrl) => ({
 						num: 4,
 						title: 'Style Elements & Publish',
 						body: 'Use the <strong>Elements</strong> tab to toggle and reorder post content (image, title, meta, excerpt, read more), then the <strong>Style</strong> tab to set colors, typography, borders, and hover effects. Publish when ready.'
+					}
+				]
+			},
+			{
+				key: 'template',
+				label: 'Template Library',
+				icon: templateTabIcon,
+				steps: [
+					{
+						num: 1,
+						title: 'Open the Template Library',
+						body: 'In the block editor, click the <strong>Template Library</strong> button in the top toolbar (next to the block inserter) to open the templates modal.',
+						link: { url: `${adminUrl}/post-new.php`, label: 'Open Editor' }
+					},
+					{
+						num: 2,
+						title: 'Browse & Filter Templates',
+						body: 'Switch between the <strong>Patterns</strong> and <strong>Favorites</strong> tabs, then narrow the gallery by access (<strong>All</strong>, <strong>Free</strong>, <strong>Pro</strong>), by category (Grid, List, Magazine, Masonry, Overlay), or search templates by name.'
+					},
+					{
+						num: 3,
+						title: 'Preview & Save Favorites',
+						body: 'Click the <strong>eye</strong> icon on a template to open its live demo in a new tab, or the <strong>heart</strong> icon to save it — favorites stay one click away under the <strong>Favorites</strong> tab.'
+					},
+					{
+						num: 4,
+						title: 'Import & Customize',
+						body: 'Hit <strong>+ Import</strong> and the template is inserted right into your content as editable blocks — then tweak the query, elements, and styles as usual. Pro templates show <strong>Get Pro</strong> until your license is active.'
 					}
 				]
 			},
@@ -131,33 +159,17 @@ export const welcomeInfo = (adminUrl) => ({
 						body: 'Type <code>[apb id=YOUR_ID]</code> into the widget\'s Shortcode field (replace <em>YOUR_ID</em> with your actual post ID) and click <strong>Preview</strong> to see the posts rendered live.'
 					}
 				]
-			},
-			{
-				key: 'php',
-				label: 'Theme / PHP',
-				icon: phpTabIcon,
-				steps: [
-					{
-						num: 1,
-						title: 'Create a ShortCode',
-						body: 'Go to <strong>Advanced Posts &rsaquo; ShortCode Generator</strong>, click <strong>Add New ShortCode</strong>, configure your layout and query, then publish. Note the post ID shown in the list table.',
-						link: { url: `${adminUrl}/edit.php?post_type=apb`, label: 'ShortCode Generator' }
-					},
-					{
-						num: 2,
-						title: 'Open Your Template',
-						body: 'Open the theme template file where you want to display the posts block — for example <code>single.php</code>, <code>page.php</code>, or a custom template part.'
-					},
-					{
-						num: 3,
-						title: 'Render via do_shortcode',
-						body: 'Add <code>&lt;?php echo do_shortcode(\'[apb id=YOUR_ID]\'); ?&gt;</code> in your template (replace <em>YOUR_ID</em> with your actual post ID) to render the block on the front end.'
-					}
-				]
 			}
 		]
 	},
 	changelogs: [
+		{
+			version: '2.3.0 - 30 Jul 2026',
+			type: 'new',
+			list: [
+				'<strong>New:</strong> Accordion Layout: Added a new collapsible Accordion layout to display posts as expandable panels — great for FAQs, docs, and long-form lists. Includes <strong>Classic</strong> and <strong>Card Stack</strong> themes, single open mode, expand-icon controls, and full styling.'
+			]
+		},
 		{
 			version: '2.2.2 - 22 Jul 2026',
 			type: 'new',
@@ -300,6 +312,7 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogsReadMoreLabel: 'View More Changelogs',
 	proFeatures: [
 		'More Layouts: Grid 1, Magazine 1, and Magazine 2 layouts.',
+		'Accordion Pro Themes: Thumbnail, Numbered FAQ, Split Panel, and Minimal Lines.',
 		'Display from posts, pages, or custom posts.',
 		'Advanced Query: Presets, Tags, and Filters.',
 		'Display Post View and Reading Time and Custom Taxonomies.',

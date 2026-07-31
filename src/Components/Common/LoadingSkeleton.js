@@ -25,8 +25,20 @@ const SkeletonArticle = () => <article className={`${prefix}Post`}>
 	</div>
 </article>
 
+const SkeletonAccordionItem = () => <div className={`${prefix}AccordionItem ${prefix}Post`}>
+	<div className={`${prefix}AccordionHeader`}>
+		<div className={`${prefix}AccordionTrigger`}>
+			<span className={`${prefix}AccordionHeaderText`}>
+				<span className={`${prefix}LoadingItem`} style={{ width: '55%', height: '18px' }}></span>
+			</span>
+			<span className={`${prefix}AccordionIndicator ${prefix}LoadingItem`} style={{ width: '18px', height: '18px' }}></span>
+		</div>
+	</div>
+</div>
+
 const LoadingSkeleton = ({ attributes }) => {
-	const { layout, columns, isPostsPerPageAll, postsPerPage, sliderHeight, sliderIsPage, sliderIsPrevNext } = attributes;
+	const { layout, columns, isPostsPerPageAll, postsPerPage, sliderHeight, sliderIsPage, sliderIsPrevNext, accordion } = attributes;
+	const { theme: accordionTheme = 'classic', maxWidth = { desktop: '' } } = accordion || {};
 
 	const colD = columns?.desktop || 3;
 	const colT = columns?.tablet || 2;
@@ -64,7 +76,11 @@ const LoadingSkeleton = ({ attributes }) => {
 							<span className={`${prefix}LoadingItem newsTickerSkeletonBar`}></span>
 						</div>
 					</div> :
-					<div className={gridClass}>{renderSkeletons(Math.max(1, numPosts))}</div>
+					layout === 'accordion' ?
+						<div className={`${prefix}AccordionPosts theme-${accordionTheme}`} style={maxWidth?.desktop ? { maxWidth: maxWidth.desktop } : undefined}>
+							{Array.from({ length: Math.max(1, numPosts) }).map((_, index) => <SkeletonAccordionItem key={index} />)}
+						</div> :
+						<div className={gridClass}>{renderSkeletons(Math.max(1, numPosts))}</div>
 		}
 	</div>
 };

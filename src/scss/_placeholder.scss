@@ -76,6 +76,46 @@
 		grid-gap: 15px 15px;
 	}
 
+	.#{vars.$prefix}AccordionPosts {
+		display: flex;
+		flex-direction: column;
+		margin-inline: auto;
+
+		.#{vars.$prefix}AccordionItem {
+			// override the generic .apbPost skeleton spacing
+			border: 1px solid vars.$loadingColor1;
+		}
+
+		.#{vars.$prefix}AccordionHeader {
+			margin: 0;
+		}
+
+		.#{vars.$prefix}AccordionTrigger {
+			display: flex;
+			align-items: center;
+			gap: 14px;
+			padding: 18px 20px;
+		}
+
+		.#{vars.$prefix}AccordionHeaderText {
+			flex: 1;
+			min-width: 0;
+		}
+
+		// Card-like theme: separated rows with a full border
+		&.theme-card-stack {
+			gap: 15px;
+		}
+
+		// Line theme: divider rows only, no full border
+		&.theme-classic {
+			.#{vars.$prefix}AccordionItem {
+				border: 0;
+				border-bottom: 1px solid vars.$loadingColor1;
+			}
+		}
+	}
+
 	.#{vars.$prefix}SliderSkeleton {
 		position: relative;
 

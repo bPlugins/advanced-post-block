@@ -1,5 +1,34 @@
 import { primaryColor, secondaryColor } from '../../../bpl-tools/utils/data';
 
+// Presets the border/hover-border SIDES + radius so the dynamic Base border
+// renders per accordion theme (card = all sides, line themes = a single edge).
+// Colour/width still come from the Border / Hover Border controls.
+export const accordionThemeSwitch = (theme, attributes) => {
+	const { border = {}, hoverBorder = {} } = attributes;
+
+	const defaultValue = {
+		gap: 15,
+		side: 'all', radius: '8px', width: '1px', hoverWidth: '1px',
+		padding: { side: 4, top: '0px', right: '20px', bottom: '18px', left: '20px' }
+	};
+
+	const config = {
+		classic: {
+			gap: 0,
+			side: 'bottom', radius: '0px', width: '1px', hoverWidth: '1px',
+			padding: { side: 4, top: '0px', right: '4px', bottom: '20px', left: '4px' }
+		},
+		'card-stack': defaultValue
+	}[theme] || defaultValue;
+
+	return {
+		border: { ...border, side: config.side, width: config.width, radius: config.radius },
+		hoverBorder: { ...hoverBorder, side: config.side, width: config.hoverWidth, radius: config.radius },
+		rowGap: config.gap,
+		contentPadding: config.padding
+	};
+};
+
 export const subLayoutSwitch = (val, attributes) => {
 	const { columns } = attributes;
 	let newAttrs = {};

@@ -1,6 +1,7 @@
 import SubLayout from './SubLayout/SubLayout';
 import Masonry from './Layout/Masonry';
 import NewsTicker from './Layout/NewsTicker';
+import Accordion from './Layout/Accordion';
 
 import { prefix } from '../../utils/data';
 
@@ -27,6 +28,9 @@ const DisplayPosts = ({ posts, attributes, id, Slider, Ticker }) => {
 
 		case 'newsTicker':
 			return <NewsTicker posts={posts} attributes={attributes} id={id} />;
+
+		case 'accordion':
+			return <Accordion posts={posts} attributes={attributes} id={id} />;
 
 		default:
 			return <div className={`${prefix}GridPosts columns-${desktop} columns-tablet-${tablet} columns-mobile-${mobile}`}>

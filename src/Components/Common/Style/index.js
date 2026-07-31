@@ -11,6 +11,7 @@ import ReadMore from './ReadMore';
 
 import Grid from './Layouts/Grid';
 import Slider from './Layouts/Slider';
+import Accordion from './Layouts/Accordion';
 
 const Style = ({ attributes, id }) => {
 	const { contentAlign } = attributes;
@@ -49,6 +50,7 @@ const Style = ({ attributes, id }) => {
 			${ReadMore(props)}
 			${Grid(props)}
 			${Slider(props)}
+			${Accordion(props)}
 		`.replace(/\s+/g, ' ')
 	}} />
 }

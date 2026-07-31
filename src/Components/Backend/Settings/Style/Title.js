@@ -8,10 +8,13 @@ import { primaryColor } from '../../../../../../bpl-tools/utils/data';
 import { aligns } from '../../../../utils/options';
 
 const Title = ({ attributes, setAttributes, updateObj }) => {
-	const { isTitle, titleTypo, titleColor, titleMargin, title = {} } = attributes;
+	const { layout, isTitle, titleTypo, titleColor, titleMargin, title = {} } = attributes;
 	const { styles = {} } = title || {};
 
 	const { textAlign = '', hoverColor = '' } = styles || {};
+
+	// The accordion header neutralizes the title margin, so hide the control.
+	const isAccordion = 'accordion' === layout;
 
 	if (!isTitle) return null;
 
@@ -24,7 +27,7 @@ const Title = ({ attributes, setAttributes, updateObj }) => {
 
 		<ColorControl label={<>{__('Hover Color:', 'advanced-post-block')} <Badge /></>} value={hoverColor} onChange={val => updateObj('title', val, 'styles', 'hoverColor')} defaultColor='' />
 
-		<SpaceControl className='mt20' label={<>{__('Margin:', 'advanced-post-block')} <HelpTooltip text={__('Space around the post title.', 'advanced-post-block')} /></>} value={titleMargin} onChange={val => setAttributes({ titleMargin: val })} defaults={{ side: 4, bottom: '15px' }} />
+		{!isAccordion && <SpaceControl className='mt20' label={<>{__('Margin:', 'advanced-post-block')} <HelpTooltip text={__('Space around the post title.', 'advanced-post-block')} /></>} value={titleMargin} onChange={val => setAttributes({ titleMargin: val })} defaults={{ side: 4, bottom: '15px' }} />}
 	</PanelBody>
 }
 export default Title;
