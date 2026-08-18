@@ -28,7 +28,7 @@ const General = ({ attributes, setAttributes, updateObj, device, postTypes, allT
 
 		<PostsQuery {...props} postTypes={postTypes} allTaxonomies={allTaxonomies} />
 
-		{!isSlider && !isTicker && !isNewsTicker && !isPostsPerPageAll ? <Pagination /> : ''}
+		{!isSlider && !isTicker && !isNewsTicker && !isPostsPerPageAll ? <Pagination {...props} /> : ''}
 
 		{isSlider && <SliderOptions {...props} />}
 
@@ -50,7 +50,7 @@ export default withSelect((select, { attributes }) => {
 	return {
 		device: getDeviceType()?.toLowerCase(),
 
-		postTypes: getPostTypes({ per_page: -1 })?.filter(p => ![shortCodePostType, 'page', 'attachment', 'nav_menu_item'].includes(p.slug) && !p.slug.startsWith('wp_'))?.map(({ name, slug }) => ({ label: name, value: slug })),
+		postTypes: getPostTypes({ per_page: -1 })?.filter(p => ![shortCodePostType, 'attachment', 'nav_menu_item'].includes(p.slug) && !p.slug.startsWith('wp_'))?.map(({ name, slug }) => ({ label: name, value: slug })),
 
 		allTaxonomies: 'post' === postType ? taxonomies?.filter(tax => tax.types.includes('post')).filter(tax => tax.slug !== 'category' && tax.slug !== 'post_tag') : taxonomies?.filter(tax => tax.types.includes(postType)),
 	}

@@ -4,7 +4,7 @@ const Image = ({ attributes, postSl, prefix }) => {
 	const { fImgFitting = 'cover', image = {} } = attributes;
 	const { width = '100%', height = '60%', styles = {} } = image || {};
 
-	const { border = { width: '0px', style: 'none' }, radius = { top: '0px', right: '0px', bottom: '0px', left: '0px' }, shadow = [], hoverShadow = [], margin = { top: '', right: '', bottom: '', left: '' }, hoverAnimation = 'none' } = styles || {};
+	const { border = { width: '0px', style: 'none' }, radius = { top: '0px', right: '0px', bottom: '0px', left: '0px' }, hoverRadius = { top: '0px', right: '0px', bottom: '0px', left: '0px' }, shadow = [], hoverShadow = [], margin = { top: '', right: '', bottom: '', left: '' }, hoverAnimation = 'none' } = styles || {};
 
 	return `
 		${postSl} .${prefix}Thumb{
@@ -16,6 +16,7 @@ const Image = ({ attributes, postSl, prefix }) => {
 			${isValidCSS('margin', getBoxCSS(margin))}
 		}
 		${postSl}:hover .${prefix}Thumb{
+			${isValidCSS('border-radius', getBoxCSS(hoverRadius))}
 			${isValidCSS('box-shadow', getMultiShadowCSS(hoverShadow))}
 		}
 		${postSl} .${prefix}Thumb img,

@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { PanelBody, PanelRow } from '@wordpress/components';
 
-import { Label, ColorControl, BtnGroup, Typography, HelpTooltip, Badge } from '../../../../../../bpl-tools/Components';
+import { Label, ColorControl, BtnGroup, Typography, HelpTooltip } from '../../../../../../bpl-tools/Components';
 import { SpaceControl } from '../../../../../../bpl-tools/Components/Deprecated';
 
 import { aligns } from '../../../../utils/options';
@@ -24,7 +24,7 @@ const Excerpt = ({ attributes, setAttributes, updateObj }) => {
 
 		<ColorControl label={__('Color:', 'advanced-post-block')} value={excerptColor} onChange={val => setAttributes({ excerptColor: val })} defaultColor='' />
 
-		<ColorControl label={<>{__('Hover Color:', 'advanced-post-block')} <Badge /></>} value={hoverColor} onChange={val => updateObj('excerpt', val, 'styles', 'hoverColor')} defaultColor='' />
+		<ColorControl label={__('Hover Color:', 'advanced-post-block')} value={hoverColor} onChange={val => updateObj('excerpt', val, 'styles', 'hoverColor')} defaultColor='' />
 
 		<SpaceControl className='mt20' label={<>{__('Margin:', 'advanced-post-block')} <HelpTooltip text={__('Space around the excerpt text.', 'advanced-post-block')} /></>} value={excerptMargin} onChange={val => setAttributes({ excerptMargin: val })} defaults={{ side: 4, bottom: '10px' }} />
 	</PanelBody>

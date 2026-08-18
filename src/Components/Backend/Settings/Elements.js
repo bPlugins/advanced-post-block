@@ -12,7 +12,7 @@ const Elements = (props) => {
 	const isAccordion = 'accordion' === layout;
 
 	return <>
-		{(isTitle || isMeta || isExcerpt) && !isNewsTicker && <Sorting />}
+		{(isTitle || isMeta || isExcerpt) && !isNewsTicker && <Sorting {...props} />}
 		{!isNewsTicker && !isAccordion && <FeatureImage {...props} />}
 		<Title {...props} />
 		{!isNewsTicker && <MetaData {...props} />}

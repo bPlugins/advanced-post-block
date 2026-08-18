@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { PanelBody, SelectControl, RangeControl, ToggleControl, PanelRow, __experimentalUnitControl as UnitControl } from '@wordpress/components';
-import { Label, Device, HelpTooltip, Notice, BtnGroup } from '../../../../../../bpl-tools/Components';
+import { Label, Device, HelpTooltip, Notice, BtnGroup, Badge } from '../../../../../../bpl-tools/Components';
 
 import { pxUnit, emUnit, vhUnit } from '../../../../../../bpl-tools/utils/options';
 import { layouts, subLayouts, contentHeights } from '../../../../utils/options';
@@ -15,12 +15,14 @@ const Layout = ({ attributes, setAttributes, device }) => {
 	const isSlider = 'slider' === layout;
 	const isTicker = 'ticker' === layout;
 	const isNewsTicker = 'newsTicker' === layout;
+	const isMagazine1 = 'magazine1' === layout;
 	const isAccordion = 'accordion' === layout;
 
 	return <PanelBody className='bPlPanelBody' title={__('Layout', 'advanced-post-block')} initialOpen={true}>
 		<Label className='mb5'>
 			{__('Layout:', 'advanced-post-block')}
-			<HelpTooltip text={__('Choose your preferred post layout.', 'advanced-post-block')} />
+			<Badge size='regular' />
+			<HelpTooltip text={__('Choose your preferred post layout. Magazine 1 is newly available in the free version.', 'advanced-post-block')} />
 		</Label>
 
 		<BtnGroup
@@ -31,7 +33,7 @@ const Layout = ({ attributes, setAttributes, device }) => {
 					(isSliderOrTicker && ['default', 'title-meta'].includes(subLayout)) ||
 					('ticker' === val && 'overlay-half-content' === subLayout);
 				const needsDefault =
-					['left-image', 'right-image'].includes(subLayout);
+					'magazine1' === val && ['left-image', 'right-image'].includes(subLayout);
 
 				// Preset the border sides for the accordion theme; reset to all
 				// sides when leaving the accordion so other layouts aren't affected.
@@ -61,24 +63,66 @@ const Layout = ({ attributes, setAttributes, device }) => {
 				className='mt20'
 				label={<>
 					{__('Sub Layout:', 'advanced-post-block')}
+					<Badge size='regular' />
 					<HelpTooltip text={__('Select a sub-layout for your post grid. Some settings may change based on this selection.', 'advanced-post-block')} />
 				</>}
 				value={subLayout}
 				onChange={val => {
 					setAttributes({
 						subLayout: val,
-						...subLayoutSwitch(val, attributes)
+						...(!isMagazine1 ? subLayoutSwitch(val, attributes) : {})
 					});
 				}}
-				options={isTicker
-					? subLayouts.filter(l => l.value !== 'overlay-half-content')
-					: subLayouts}
+				options={
+					isMagazine1
+						? subLayouts.filter(l => !['left-image', 'right-image'].includes(l.value))
+						: isTicker
+							? subLayouts.filter(l => l.value !== 'overlay-half-content')
+							: subLayouts
+				}
 			/>
 
 			<Notice status='warning'>{__('Some settings may change when sub layout will be changed.', 'advanced-post-block')}</Notice>
 		</>}
 
-		{!isTicker && !isNewsTicker && !isAccordion && <>
+		{isMagazine1 && <>
+			<Label className='mt20'>
+				{__('Sidebar List Layout:', 'advanced-post-block')}
+				<Badge size='regular' />
+				<HelpTooltip text={__('Select a sub-layout for the secondary items.', 'advanced-post-block')} />
+			</Label>
+
+			<SelectControl
+				value={attributes.magazine?.subLayout || 'left-image'}
+				onChange={val => setAttributes({ magazine: { ...attributes.magazine, subLayout: val } })}
+				options={[
+					{ label: __('List - Left Image', 'advanced-post-block'), value: 'left-image' },
+					{ label: __('List - Right Image', 'advanced-post-block'), value: 'right-image' }
+				]}
+			/>
+
+			<PanelRow className='gap5 mt20'>
+				<Label>
+					{__('First Post Min Height:', 'advanced-post-block')}
+					<Badge size='regular' />
+					<HelpTooltip text={__('Set the minimum height for the first (hero) post in the magazine layout.', 'advanced-post-block')} />
+				</Label>
+				<Device />
+			</PanelRow>
+
+			<UnitControl
+				value={attributes.magazine?.minHeight?.[device]}
+				onChange={val => setAttributes({
+					magazine: {
+						...attributes.magazine,
+						minHeight: { ...attributes.magazine?.minHeight, [device]: val }
+					}
+				})}
+				units={[pxUnit(), emUnit(), vhUnit()]}
+			/>
+		</>}
+
+		{!isTicker && !isNewsTicker && !isMagazine1 && !isAccordion && <>
 			<PanelRow className='gap5 mt20'>
 				<Label className='mb5'>
 					{__('Columns:', 'advanced-post-block')}
@@ -142,7 +186,7 @@ const Layout = ({ attributes, setAttributes, device }) => {
 			units={[pxUnit(), emUnit(), vhUnit()]}
 		/>}
 
-		{!isTicker && !isNewsTicker && !isAccordion && <SelectControl
+		{!isTicker && !isNewsTicker && !isMagazine1 && !isAccordion && <SelectControl
 			className='mt20'
 			label={__('Content Height:', 'advanced-post-block')}
 			labelPosition='left'
@@ -152,7 +196,7 @@ const Layout = ({ attributes, setAttributes, device }) => {
 		/>}
 
 		<Notice status='premium' isIcon={true}>
-			{__('Grid 1, Magazine 1, Magazine 2 layouts, and overlay settings are available in the Premium version.', 'advanced-post-block')}
+			{__('Grid 1, Magazine 2, and Timeline layouts, plus the even/odd list and overlay content box sub layouts, are available in the Premium version.', 'advanced-post-block')}
 		</Notice>
 	</PanelBody>
 };

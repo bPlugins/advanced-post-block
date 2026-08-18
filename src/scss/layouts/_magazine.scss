@@ -1,0 +1,219 @@
+@use '../variables' as vars;
+@use '../mixins' as mix;
+
+.wp-block-ap-block-posts {
+
+	.#{vars.$prefix}Magazine1Posts {
+		>.#{vars.$prefix}Post {
+			&.#{vars.$prefix}Overlay {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+
+				.#{vars.$prefix}Text {
+					background-color: #000000b3 !important;
+					padding: 30px !important;
+					width: 100% !important;
+					min-height: auto !important;
+					height: 100% !important;
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: 3;
+					display: flex;
+					flex-direction: column;
+
+					.#{vars.$prefix}Title a {
+						color: #e7f0fe !important;
+						font-size: 32px !important;
+					}
+
+					.#{vars.$prefix}Meta {
+						color: #fff !important;
+
+						* {
+							color: inherit !important;
+						}
+
+						.dashicons,
+						svg {
+							color: #e7f0fe !important;
+						}
+					}
+
+					.#{vars.$prefix}Excerpt {
+						color: #fff !important;
+						display: block !important;
+						margin-top: 15px !important;
+					}
+				}
+
+				&.#{vars.$prefix}OverlayHalfContent .#{vars.$prefix}Text {
+					background: linear-gradient(0deg, #000000bf 0%, #0000 100%) !important;
+					padding-top: 100px !important;
+					position: absolute;
+					top: 0;
+					height: 100% !important;
+
+					.#{vars.$prefix}Title a {
+						color: #fff !important;
+					}
+				}
+
+				&.#{vars.$prefix}OverlayBox .#{vars.$prefix}Text {
+					text-align: center !important;
+					justify-content: center !important;
+					align-items: center !important;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					bottom: auto;
+					width: 80% !important;
+					height: auto !important;
+				}
+
+				img {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					z-index: 1;
+				}
+			}
+		}
+
+		display: grid;
+		grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+		align-items: flex-start;
+		grid-auto-rows: min-content;
+
+		@include mix.mobile {
+			grid-template-columns: 1fr !important;
+		}
+
+		.#{vars.$prefix}Post {
+			.#{vars.$prefix}Thumb {
+				overflow: hidden;
+
+				img {
+					transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+				}
+			}
+
+			&:hover {
+				.#{vars.$prefix}Title a {
+					color: vars.$primaryColor;
+				}
+
+				.#{vars.$prefix}Thumb img {
+					transform: scale(1.05);
+				}
+			}
+		}
+
+		>.#{vars.$prefix}Post {
+			grid-column: 1;
+			grid-row: 1;
+			min-width: 0;
+			position: relative;
+		}
+
+		.#{vars.$prefix}Magazine1List {
+			grid-column: 2;
+			grid-row: 1;
+			position: relative;
+			height: 100%;
+			max-height: 100%;
+			min-height: 0;
+			padding: 0;
+			margin: 0;
+			overflow: hidden;
+			border: none;
+
+			.#{vars.$prefix}Magazine1ListInner {
+				display: flex;
+				flex-direction: column;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				overflow-y: auto;
+				padding-right: 10px;
+
+				@include mix.tablet {
+					position: relative;
+					top: auto;
+					left: auto;
+					right: auto;
+					bottom: auto;
+					overflow-y: visible;
+					padding-right: 0;
+				}
+
+				.#{vars.$prefix}Post {
+					flex: 0 0 auto;
+					height: auto;
+					min-height: min-content;
+
+					.#{vars.$prefix}Text {
+						padding: 10px 15px !important;
+					}
+
+					.#{vars.$prefix}Excerpt {
+						display: none;
+					}
+				}
+
+				&::-webkit-scrollbar {
+					width: 5px;
+				}
+
+				&::-webkit-scrollbar-track {
+					background: rgba(0, 0, 0, 0.05);
+					border-radius: 10px;
+				}
+
+				&::-webkit-scrollbar-thumb {
+					background: rgba(vars.$primaryColor, 0.3);
+					border-radius: 10px;
+					transition: background 0.3s;
+
+					&:hover {
+						background: vars.$primaryColor;
+					}
+				}
+			}
+		}
+
+		@include mix.tablet {
+			grid-template-columns: 1fr;
+			overflow: visible;
+
+			>.#{vars.$prefix}Post {
+				grid-column: auto;
+				grid-row: auto;
+			}
+
+			.#{vars.$prefix}Magazine1List {
+				grid-column: auto;
+				grid-row: auto;
+				height: auto;
+				max-height: none;
+				min-height: 0;
+				overflow: visible;
+
+				.#{vars.$prefix}Magazine1ListInner {
+					position: relative;
+					height: auto;
+					overflow-y: visible;
+					padding-right: 0;
+				}
+			}
+		}
+	}
+}

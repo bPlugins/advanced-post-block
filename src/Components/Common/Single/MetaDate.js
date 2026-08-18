@@ -1,16 +1,19 @@
 import MetaImage from './MetaImage';
 
-const PostMetaDate = ({ post, attributes }) => {
+const PostMetaDate = ({ post, attributes, separatorEl }) => {
 	const { date } = post;
 
 	const { isMetaDate } = attributes;
 
 	const displayDate = date;
 
-	return (isMetaDate && date) ? <span className='metaItem'>
-		<MetaImage item='date' />
+	return (isMetaDate && date) ? <>
+		{separatorEl}
+		<span className='metaItem'>
+			<MetaImage item='date' />
 
-		<span>{displayDate}</span>
-	</span> : null;
+			<span>{displayDate}</span>
+		</span>
+	</> : null;
 };
 export default PostMetaDate;

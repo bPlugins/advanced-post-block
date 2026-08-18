@@ -5,12 +5,12 @@ import { useWPAjax } from '../../../bpl-tools/hooks';
 import { postsAjaxHandler } from '../utils/data';
 
 const useAjaxPosts = (nonce, attributes, pageNumber) => {
-	const { postType, taxonomyRelation = 'AND', selectedCategories = [], postsAuthors = [], isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder, currentPostId, isExcerptFromContent = false, excerptLength = 25, excerpt = {} } = attributes;
+	const { postType, taxonomyRelation = 'AND', selectedCategories = [], selectedTags = [], postsAuthors = [], isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder, postsOffset = 0, postsInclude = [], postsExclude = [], currentPostId, fImgSize = 'full', isExcerptFromContent = false, excerptLength = 25, excerpt = {} } = attributes;
 	const { from = 'excerpt' } = excerpt || {};
 
 	const excerptFrom = (isExcerptFromContent || 'content' === from) ? 'content' : 'excerpt';
 
-	const queryAttr = { postType, taxonomyRelation, selectedCategories, postsAuthors, isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder, currentPostId, excerptFrom, excerptLength }
+	const queryAttr = { postType, taxonomyRelation, selectedCategories, selectedTags, postsAuthors, isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder, postsOffset, postsInclude, postsExclude, currentPostId, fImgSize, excerptFrom, excerptLength }
 	const { data = null, saveData, isLoading } = useWPAjax(postsAjaxHandler, { _wpnonce: nonce, queryAttr, pageNumber }, false);
 
 	const [posts, setPosts] = useState([]);
@@ -21,6 +21,8 @@ const useAjaxPosts = (nonce, attributes, pageNumber) => {
 			const dataPosts = Array.isArray(data) ? data : (data?.posts || []);
 			const dataTotalPosts = Array.isArray(data) ? 0 : (data?.totalPosts || 0);
 
+			// Pagination and Navigation both replace the list; the appending types
+			// (Infinity Scroll, Load More button) are premium-only.
 			setPosts(dataPosts);
 
 			if (dataTotalPosts > 0 || Array.isArray(data)) {

@@ -4,7 +4,7 @@ const Meta = ({ attributes, postMetaSl, contentFlexAlign }) => {
 	const { metaTextColor, metaLinkColor, metaIconColor, metaMargin, meta = {}, } = attributes;
 	const { styles = {} } = meta || {};
 
-	const { hoverColor = '', linkHoverColor = '', iconHoverColor = '' } = styles || {};
+	const { hoverColor = '', linkHoverColor = '', iconHoverColor = '', separatorColor = '' } = styles || {};
 
 	return `
 		${postMetaSl}{
@@ -30,6 +30,9 @@ const Meta = ({ attributes, postMetaSl, contentFlexAlign }) => {
 		${postMetaSl} .metaItem:hover svg{
 			${isValidCSS('fill', iconHoverColor)}
 			${isValidCSS('color', iconHoverColor)}
+		}
+		${postMetaSl} .metaSeparator{
+			${isValidCSS('color', separatorColor)}
 		}
 	`;
 }

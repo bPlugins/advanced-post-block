@@ -1,5 +1,6 @@
 import { sanitizeHTML } from '../../../bpl-tools/utils/common';
 
+// The trailing ellipsis is a premium-only option, so nothing is appended here.
 export const truncate = (str, limit = {}) => {
 	if (!str) return '';
 	const { type = 'word', value } = limit;

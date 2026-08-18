@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { TabPanel, PanelBody, PanelRow, SelectControl } from '@wordpress/components';
 
-import { Label, BtnGroup, ColorsControl, Typography, HelpTooltip, ShadowControl, Badge, Notice } from '../../../../../../bpl-tools/Components';
+import { Label, BtnGroup, ColorsControl, Typography, HelpTooltip, ShadowControl, Notice } from '../../../../../../bpl-tools/Components';
 import { BorderControl, SpaceControl } from '../../../../../../bpl-tools/Components/Deprecated';
 import { normalHoverTabs } from '../../../../../../bpl-tools/utils/options';
 import { primaryColor, secondaryColor } from '../../../../../../bpl-tools/utils/data';
@@ -32,17 +32,17 @@ const ReadMore = ({ attributes, setAttributes, updateObj }) => {
 
 				<BorderControl label={__('Border:', 'advanced-post-block')} value={readMoreBorder} onChange={val => setAttributes({ readMoreBorder: val })} defaults={{ radius: '3px' }} />
 
-				<ShadowControl className='mt10' label={<>{__('Shadow:', 'advanced-post-block')} <Badge /></>} value={shadow} onChange={val => updateObj('readMore', val, 'styles', 'shadow')} />
+				<ShadowControl className='mt10' label={__('Shadow:', 'advanced-post-block')} value={shadow} onChange={val => updateObj('readMore', val, 'styles', 'shadow')} />
 			</>}
 
 			{'hover' === tab.name && <>
 				<ColorsControl className='mt10' label={__('Hover Colors:', 'advanced-post-block')} value={readMoreHovColors} onChange={val => setAttributes({ readMoreHovColors: val })} defaults={{ color: '#fff', bg: secondaryColor }} />
 
-				<BorderControl className='mt10' label={<>{__('Hover Border:', 'advanced-post-block')} <Badge /></>} value={hoverBorder} onChange={val => updateObj('readMore', val, 'styles', 'hoverBorder')} defaults={{ radius: '3px' }} />
+				<BorderControl className='mt10' label={__('Hover Border:', 'advanced-post-block')} value={hoverBorder} onChange={val => updateObj('readMore', val, 'styles', 'hoverBorder')} defaults={{ radius: '3px' }} />
 
-				<ShadowControl className='mt10' label={<>{__('Hover Shadow:', 'advanced-post-block')} <Badge /></>} value={hoverShadow} onChange={val => updateObj('readMore', val, 'styles', 'hoverShadow')} />
+				<ShadowControl className='mt10' label={__('Hover Shadow:', 'advanced-post-block')} value={hoverShadow} onChange={val => updateObj('readMore', val, 'styles', 'hoverShadow')} />
 
-				<SelectControl className='mt10' label={<>{__('Hover Animation:', 'advanced-post-block')} <Badge /></>} labelPosition='left' value={hoverAnimation} onChange={val => updateObj('readMore', val, 'styles', 'hoverAnimation')} options={[
+				<SelectControl className='mt10' label={__('Hover Animation:', 'advanced-post-block')} labelPosition='left' value={hoverAnimation} onChange={val => updateObj('readMore', val, 'styles', 'hoverAnimation')} options={[
 					{ label: __('None', 'advanced-post-block'), value: 'none' },
 					{ label: __('Zoom In', 'advanced-post-block'), value: 'zoom-in' },
 					{ label: __('Zoom Out', 'advanced-post-block'), value: 'zoom-out' }

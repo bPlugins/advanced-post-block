@@ -26,7 +26,9 @@ const SubLayout = ({ post, attributes }) => {
 		case 'overlay-half-content':
 			return <Overlay post={post} attributes={attributes} postClass={postClass} />;
 		default:
-			return null;
+			// Premium-only sub-layouts (the even/odd lists) can survive in saved content
+			// after a downgrade — fall back to Default so the post still renders.
+			return <Default post={post} attributes={attributes} postClass={postClass} />;
 	}
 }
 export default SubLayout;

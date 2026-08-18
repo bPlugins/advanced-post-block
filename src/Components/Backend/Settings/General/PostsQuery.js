@@ -1,13 +1,14 @@
 import { __ } from '@wordpress/i18n';
 import { Fragment } from 'react';
-import { PanelBody, SelectControl, RangeControl, PanelRow } from '@wordpress/components';
-import { Label, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
+import { PanelBody, SelectControl, RangeControl, TextControl, PanelRow, __experimentalNumberControl as NumberControl } from '@wordpress/components';
+import { Label, HelpTooltip, Notice, Badge } from '../../../../../../bpl-tools/Components';
 
 import { postsOrdersBy, postsOrders } from '../../../../utils/options';
+import { strToIntArr } from '../../../../utils/functions';
 import AsyncTokenField from './AsyncTokenField';
 
 const PostsQuery = ({ attributes, setAttributes, postTypes }) => {
-	const { postType, taxonomyRelation = 'AND', selectedCategories = [], postsAuthors = [], postsPerPage, postsOrderBy, postsOrder } = attributes;
+	const { postType, taxonomyRelation = 'AND', selectedCategories = [], selectedTags, postsAuthors = [], isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder, postsOffset, postsInclude, postsExclude } = attributes;
 
 	return <PanelBody className='bPlPanelBody' title={__('Posts Query', 'advanced-post-block')} initialOpen={false}>
 		<SelectControl label={<>{__('Post Type:', 'advanced-post-block')} <HelpTooltip text={__('Select the source for your posts (e.g., Posts, Pages).', 'advanced-post-block')} /></>} labelPosition='left' value={postType} onChange={val => setAttributes({ postType: val })} options={postTypes} />
@@ -25,6 +26,15 @@ const PostsQuery = ({ attributes, setAttributes, postTypes }) => {
 				value={selectedCategories}
 				onChange={ids => setAttributes({ selectedCategories: ids })}
 				apiPath="/wp/v2/categories"
+			/>
+		</>}
+
+		{'post' === postType && <>
+			<AsyncTokenField
+				label={<>{__('Select Tags:', 'advanced-post-block')} <Badge size='regular' /></>}
+				value={selectedTags || []}
+				onChange={ids => setAttributes({ selectedTags: ids })}
+				apiPath="/wp/v2/tags"
 			/>
 		</>}
 
@@ -52,7 +62,18 @@ const PostsQuery = ({ attributes, setAttributes, postTypes }) => {
 			<SelectControl value={postsOrder} onChange={val => setAttributes({ postsOrder: val })} options={postsOrders} />
 		</PanelRow>
 
-		<Notice status='premium' isIcon={true}>{__('Custom post types, taxonomy filtering, advanced sorting, offset, and precise post inclusion/exclusion are available in the Premium version.', 'advanced-post-block')}</Notice>
+		{!isPostsPerPageAll && <>
+			<NumberControl className='mt20' label={<>{__('Post Offset:', 'advanced-post-block')} <Badge size='regular' /> <HelpTooltip text={__('Number of posts to skip. This works when Posts Per Page is not set to -1.', 'advanced-post-block')} /></>} value={postsOffset} onChange={val => setAttributes({ postsOffset: parseInt(val) })} min={0} />
+			<Notice>{__('`Post Offset` will not work if `Post Per Page` is -1', 'advanced-post-block')}</Notice>
+		</>}
+
+		<TextControl className='mt20' label={<>{__('Include Posts:', 'advanced-post-block')} <Badge size='regular' /> <HelpTooltip text={__('Specific post IDs to display (separated by commas).', 'advanced-post-block')} /></>} value={postsInclude?.join(',')} onChange={val => setAttributes({ postsInclude: strToIntArr(val) })} />
+		<Notice>{__('Enter the posts id by coma separated Ex: `23,45,16`', 'advanced-post-block')}</Notice>
+
+		<TextControl className='mt20' label={<>{__('Exclude Posts:', 'advanced-post-block')} <Badge size='regular' /> <HelpTooltip text={__('Post IDs to skip (separated by commas).', 'advanced-post-block')} /></>} value={postsExclude?.join(',')} onChange={val => setAttributes({ postsExclude: strToIntArr(val) })} />
+		<Notice>{__('Enter the posts id by coma separated Ex: `23,45,16`', 'advanced-post-block')}</Notice>
+
+		<Notice status='premium' isIcon={true}>{__('Query presets, custom taxonomy filtering, search queries, advanced sorting, and excluding the current or sticky posts are available in the Premium version.', 'advanced-post-block')}</Notice>
 	</PanelBody>
 };
 export default PostsQuery;

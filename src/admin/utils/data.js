@@ -49,7 +49,7 @@ export const dashboardInfo = (info) => {
 }
 
 export const welcomeInfo = (adminUrl) => ({
-	keywords: ['Grid', 'Masonry', 'Slider', 'Ticker', 'Accordion', 'Post Section'],
+	keywords: ['Grid', 'Masonry', 'Slider', 'Ticker', 'Accordion', 'Magazine 1', 'Post Section'],
 	keywordsLabel: 'Layouts',
 	gettingStarted: {
 		tabs: [
@@ -67,12 +67,12 @@ export const welcomeInfo = (adminUrl) => ({
 					{
 						num: 2,
 						title: 'Choose a Layout',
-						body: 'Select the layout from — <strong>Grid</strong>, <strong>Grid 1</strong>, <strong>Masonry</strong>, <strong>Slider</strong>, <strong>Ticker</strong>, <strong>News Ticker</strong>, <strong>Accordion</strong>, <strong>Magazine 1</strong>, or <strong>Magazine 2</strong>. Switching layouts is non-destructive; your query settings are preserved.'
+						body: 'Select the layout from — <strong>Grid</strong>, <strong>Grid 1</strong>, <strong>Masonry</strong>, <strong>Slider</strong>, <strong>Ticker</strong>, <strong>News Ticker</strong>, <strong>Accordion</strong>, <strong>Magazine 1</strong>, <strong>Magazine 2</strong>, or <strong>Timeline</strong>. Switching layouts is non-destructive; your query settings are preserved.'
 					},
 					{
 						num: 3,
 						title: 'Configure the Posts Query',
-						body: 'In the <strong>Posts Query</strong> panel, set the Post Type, filter by categories, tags, or authors, choose a Query Preset (Popular, Random, Sticky, Related), and control the number and order of posts.'
+						body: 'In the <strong>Posts Query</strong> panel, filter by categories, tags, or authors, skip posts with <strong>Post Offset</strong>, target exact posts with <strong>Include/Exclude Posts</strong>, and control the number and order of posts. Then pick a <strong>Load More / Pagination</strong> type to split long lists across pages.'
 					},
 					{
 						num: 4,
@@ -163,6 +163,20 @@ export const welcomeInfo = (adminUrl) => ({
 		]
 	},
 	changelogs: [
+		{
+			version: '2.4.0 - 18 Aug 2026',
+			type: 'new',
+			list: [
+				'<strong>New:</strong> Magazine 1 Layout: The hero-plus-sidebar magazine layout is now free — pair a large featured post with a scrollable list of secondary posts, with its own sidebar list layout and responsive hero min-height.',
+				'<strong>New:</strong> Overlay Half Content Sub Layout: Text sits over the bottom half of the image behind a soft gradient.',
+				'<strong>New:</strong> Load More / Pagination: Numbered <strong>Pagination</strong> and prev/next <strong>Navigation</strong> — with custom labels, alignment, colors, active/hover colors, padding, spacing, and back-to-top on page change.',
+				'<strong>New:</strong> Query Controls: Select <strong>Pages</strong> as a post source, filter posts by <strong>Tags</strong>, skip posts with <strong>Post Offset</strong>, and target exact posts with <strong>Include Posts</strong> and <strong>Exclude Posts</strong>.',
+				'<strong>New:</strong> Element Sorting: Drag and drop to reorder the title, meta data, and excerpt inside each post.',
+				'<strong>New:</strong> Feature Image: Pick any registered <strong>image size</strong>, set a <strong>fallback image</strong> for posts without a thumbnail, and animate the corner radius on hover.',
+				'<strong>New:</strong> Title Limit: Trim titles by word or character count.',
+				'<strong>New:</strong> Meta Separator: Add a custom character between meta data items.'
+			]
+		},
 		{
 			version: '2.3.0 - 30 Jul 2026',
 			type: 'new',
@@ -311,13 +325,14 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogsLimit: 6,
 	changelogsReadMoreLabel: 'View More Changelogs',
 	proFeatures: [
-		'More Layouts: Grid 1, Magazine 1, and Magazine 2 layouts.',
+		'More Layouts: Grid 1, Magazine 2, and Timeline layouts.',
 		'Accordion Pro Themes: Thumbnail, Numbered FAQ, Split Panel, and Minimal Lines.',
-		'Display from posts, pages, or custom posts.',
-		'Advanced Query: Presets, Tags, and Filters.',
+		'Ticker and News Ticker options.',
+		'Advanced Query: Presets, Custom Taxonomies, and Search.',
 		'Display Post View and Reading Time and Custom Taxonomies.',
-		'Flexible pagination and infinity loading.',
-		'Image Grayscale, Lazy Loading, and Default Image.'
+		'Infinity Scroll and Load More button with a loading spinner.',
+		'Meta sorting, gaps, custom icons, date formats, and time ago.',
+		'Image Grayscale and Lazy Loading, and title ellipsis.'
 	],
 })
 

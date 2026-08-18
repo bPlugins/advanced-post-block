@@ -11,7 +11,7 @@ import Style from './Style';
 import { generalStyleTabs } from '../../../utils/options';
 import { pricingUrl, shortCodePostType } from '../../../utils/data';
 
-const Settings = ({ attributes, setAttributes, taxOfPostType, currentPostType, currentPostId }) => {
+const Settings = ({ attributes, setAttributes, taxOfPostType, currentPostType, currentPostId, imageSizes }) => {
 	const { contentAlign } = attributes;
 
 	// Set max excerpt length
@@ -44,7 +44,7 @@ const Settings = ({ attributes, setAttributes, taxOfPostType, currentPostType, c
 			<TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={generalStyleTabs} onSelect={() => tabController()}>{tab => <>
 				{'general' === tab.name && <General {...props} />}
 
-				{'elements' === tab.name && <Elements {...props} taxOfPostType={taxOfPostType} />}
+				{'elements' === tab.name && <Elements {...props} taxOfPostType={taxOfPostType} imageSizes={imageSizes} />}
 
 				{'style' === tab.name && <Style {...props} />}
 			</>}</TabPanel>
@@ -64,6 +64,7 @@ export default withSelect((select, { attributes }) => {
 
 	const { getTaxonomies } = select('core');
 	const { getDeviceType, getCurrentPostId, getCurrentPostType } = select('core/editor');
+	const { getSettings } = select('core/block-editor');
 
 	const taxonomies = getTaxonomies({ per_page: -1 });
 	const taxOfPostType = taxonomies?.filter(tax => tax.types.includes(postType) && tax.slug !== 'category')
@@ -76,6 +77,8 @@ export default withSelect((select, { attributes }) => {
 
 		currentPostType: getCurrentPostType(),
 
-		taxOfPostType
+		taxOfPostType,
+
+		imageSizes: getSettings()?.imageSizes?.map(s => ({ label: s.name, value: s.slug }))
 	}
 })(Settings);

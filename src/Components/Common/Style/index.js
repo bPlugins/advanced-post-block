@@ -8,9 +8,11 @@ import Image from './Image';
 import CategoryBadge from './CategoryBadge';
 import Excerpt from './Excerpt';
 import ReadMore from './ReadMore';
+import Pagination from './Pagination';
 
 import Grid from './Layouts/Grid';
 import Slider from './Layouts/Slider';
+import Magazine from './Layouts/Magazine';
 import Accordion from './Layouts/Accordion';
 
 const Style = ({ attributes, id }) => {
@@ -24,6 +26,7 @@ const Style = ({ attributes, id }) => {
 	const postReadMoreSl = `${postSl} .${prefix}ReadMore`;
 	const postTitleSl = `${postSl} .${prefix}Title`;
 	const postMetaSl = `${postSl} .${prefix}Meta`;
+	const loadMoreSl = `${mainSl} .${prefix}LoadMore`;
 
 	const props = {
 		attributes,
@@ -35,12 +38,14 @@ const Style = ({ attributes, id }) => {
 		postReadMoreSl,
 		postTitleSl,
 		postMetaSl,
+		loadMoreSl,
 		contentFlexAlign
 	};
 
 	return <style dangerouslySetInnerHTML={{
 		__html: `
 			${Typography(props)}
+			${Pagination(props)}
 			${Base(props)}
 			${Title(props)}
 			${Meta(props)}
@@ -50,6 +55,7 @@ const Style = ({ attributes, id }) => {
 			${ReadMore(props)}
 			${Grid(props)}
 			${Slider(props)}
+			${Magazine(props)}
 			${Accordion(props)}
 		`.replace(/\s+/g, ' ')
 	}} />

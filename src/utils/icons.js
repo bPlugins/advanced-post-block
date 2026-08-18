@@ -91,3 +91,10 @@ export const longArrowUpIcon = <svg xmlns='http://www.w3.org/2000/svg' viewBox='
 export const longArrowDownIcon = <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 322 576'>
 	<path d='m138.4 566.6c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3-12.5-12.5-32.8-12.5-45.3 0l-73.4 73.4v-434.7c0-17.7-14.3-32-32-32-17.7 0-32 14.3-32 32v434.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0-12.5 12.5-12.5 32.8 0 45.3l128 128z' />
 </svg>
+
+export const magazine1Icon = <svg xmlns='http://www.w3.org/2000/svg' width={24} height={24} viewBox='0 0 32 32'>
+	<rect width='20' height='32' rx='1' ry='1' />
+	<rect width='10' height='9.33' x='22' y='0' rx='0.5' ry='0.5' opacity='0.6' />
+	<rect width='10' height='9.34' x='22' y='11.33' rx='0.5' ry='0.5' opacity='0.6' />
+	<rect width='10' height='9.33' x='22' y='22.67' rx='0.5' ry='0.5' opacity='0.6' />
+</svg>;

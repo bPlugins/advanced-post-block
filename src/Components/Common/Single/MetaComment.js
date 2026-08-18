@@ -1,14 +1,17 @@
 import MetaImage from './MetaImage';
 
-const MetaComment = ({ post, attributes }) => {
+const MetaComment = ({ post, attributes, separatorEl }) => {
 	const { link, title, commentCount, commentStatus } = post;
 
 	const { isMetaComment } = attributes;
 
-	return (isMetaComment && 'open' === commentStatus) ? <span className='metaItem'>
-		<MetaImage item='comment' />
+	return (isMetaComment && 'open' === commentStatus) ? <>
+		{separatorEl}
+		<span className='metaItem'>
+			<MetaImage item='comment' />
 
-		<a href={`${link}/#comments`} target='_blank' rel='noreferrer' aria-label={`Comments of ${title}`}>{commentCount}</a>
-	</span> : null;
+			<a href={`${link}/#comments`} target='_blank' rel='noreferrer' aria-label={`Comments of ${title}`}>{commentCount}</a>
+		</span>
+	</> : null;
 };
 export default MetaComment;

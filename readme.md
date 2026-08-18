@@ -5,7 +5,7 @@
 [![WordPress Support](https://img.shields.io/badge/WordPress-6.5+-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org/plugins/advanced-post-block/)
 [![PHP Support](https://img.shields.io/badge/PHP-7.1+-777bb4.svg?style=flat-square&logo=php)](./readme.txt)
 [![GPLv3 License](https://img.shields.io/badge/License-GPLv3-green.svg?style=flat-square)](./readme.txt)
-[![Stable Version](https://img.shields.io/badge/Version-2.2.0-blue.svg?style=flat-square)](./readme.txt)
+[![Stable Version](https://img.shields.io/badge/Version-2.4.0-blue.svg?style=flat-square)](./readme.txt)
 
 **Advanced Post Block** is the ultimate Gutenberg block for displaying WordPress posts, pages, and custom content beautifully. It offers a wide range of layouts—including Grid, Masonry, Slider, and News Tickers—giving you total control over your site's content display without writing a single line of code.
 
@@ -15,21 +15,29 @@
 
 ### 💎 Core Layouts (Free)
 Everything you need to build a professional and modern content display:
-- **Diverse Layouts:** Choose from professional **Grid, Masonry, Slider, Ticker, and News Ticker** views.
+- **Diverse Layouts:** Choose from professional **Grid, Masonry, Slider, Ticker, News Ticker, Magazine 1, and Accordion** views.
+- **Flexible Sub-layouts:** Default, Title Meta, Left/Right Image, Overlay Content, and **Overlay Half Content**.
+- **Post Query:** Filter by post type (posts, pages, or any custom post type), categories, **tags**, and authors, with **Post Offset** and **Include/Exclude Posts** by ID.
+- **Pagination:** Numbered **Pagination** and prev/next **Navigation** with labels, alignment, colors, padding, spacing, and back-to-top.
+- **Element Sorting:** Drag and drop to reorder the title, meta data, and excerpt.
 - **Interactive Styling:** Apply **Hover Backgrounds, Borders, and Shadows** for engaging user experiences.
-- **Image Controls:** Advanced settings for **Width, Height, Border Radius, Margins, and Animations**.
-- **Post Title:** Control over title tags, length limits, and custom hover colors.
-- **Meta Styling:** Full control over metadata hover colors for all elements.
+- **Image Controls:** Image **size**, a **fallback image**, width, height, border radius, hover radius, margins, and animations.
+- **Post Title:** Control over title tags, word/character limits, and custom hover colors.
+- **Meta Styling:** A custom **separator** plus full control over metadata hover colors for all elements.
 - **Read More Styles:** Custom **Button Icons**, hover borders, and shadow effects for better CTAs.
 
 ### 👑 Premium Power (Pro)
 Unlock advanced functionality for high-performing websites:
-- **Metadata Mastery:** Advanced **Gap, Separator, Sorting,** and **Time Ago** date formats.
-- **SEO & Content:** Pull excerpts directly from **SEO Meta** (Yoast, Rank Math) and dynamic source selection.
+- **Exclusive Layouts:** **Grid 1**, **Magazine 2**, and **Timeline**, plus the **List Even/Odd** and **Overlay Content Box** sub-layouts.
+- **Accordion & Ticker Pro:** Four extra accordion themes, multiple open panels, and the full **Ticker** and **News Ticker** option panels.
+- **Advanced Query:** **Query Presets**, **Custom Taxonomies**, **Search Queries**, extra **Order By** options, and excluding the current or sticky posts.
+- **More Load More Types:** **Infinite Scroll** and a **Load More** button.
+- **Metadata Mastery:** Meta **gap**, drag-and-drop **sorting**, alignment, separator color, and **Time Ago** date formats.
+- **SEO & Content:** Pull excerpts directly from **SEO Meta** (Yoast, Rank Math, All in One SEO) and toggle the excerpt ellipsis.
 - **Post View Tracking:** Display **Popularity Counts** with customizable icons and metadata items.
 - **Premium Badges:** Choose **Unique Positions** on images with pro padding and border radius settings.
-- **Performance Optimized:** Professional **Lazy Loading** and **Default Placeholder Image** support.
-- **Advanced Read More:** Unlock **Premium Icons**, icon positioning, and pulse hover animations.
+- **Performance Optimized:** Professional **Lazy Loading** and normal/hover **grayscale** filters.
+- **Advanced Read More:** Unlock **Premium Icons**, icon gap and positioning, an Auto/Bottom position, and pulse hover animations.
 
 ---
 

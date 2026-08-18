@@ -37,13 +37,12 @@ const Edit = props => {
 							return <div key={value} className='apbLayout' onClick={() => {
 								setAttributes({
 									layout: value,
-									subLayout: (['slider', 'ticker'].includes(value) && ['default', 'title-meta'].includes(subLayout)) || ('ticker' === value && 'overlay-half-content' === subLayout) ? 'left-image' : subLayout,
+									subLayout: (['slider', 'ticker'].includes(value) && ['default', 'title-meta'].includes(subLayout)) || ('ticker' === value && 'overlay-half-content' === subLayout) ? 'left-image' :
+										('magazine1' === value && ['left-image', 'right-image'].includes(subLayout)) ? 'default' : subLayout,
 									columns: ['slider', 'ticker'].includes(value) ? { ...columns, desktop: 2 } : columns,
 									...('accordion' === value ? accordionThemeSwitch(theme, attributes) : {})
 								});
 							}}>
-								<span className='proBadge'>Pro</span>
-
 								{icon}
 
 								<div className='label'>{label}</div>
@@ -56,7 +55,7 @@ const Edit = props => {
 					<div className='proLayoutsNotice'>
 						{crownIcon}
 						<p>
-							{__('Grid 1, Magazine 1, and Magazine 2 layouts are available in the', 'advanced-post-block')} <a href={pricingUrl} target='_blank' rel='noopener noreferrer'>{__('PREMIUM VERSION', 'advanced-post-block')}</a>
+							{__('Grid 1, Magazine 2, and Timeline layouts are available in the', 'advanced-post-block')} <a href={pricingUrl} target='_blank' rel='noopener noreferrer'>{__('PREMIUM VERSION', 'advanced-post-block')}</a>
 						</p>
 					</div>
 				</div> :

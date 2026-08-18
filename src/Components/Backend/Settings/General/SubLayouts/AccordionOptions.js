@@ -2,7 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { renderToString } from '@wordpress/element';
 import { PanelBody, ToggleControl, SelectControl, Button, ButtonGroup, __experimentalUnitControl as UnitControl } from '@wordpress/components';
 
-import { Label, HelpTooltip, Notice } from '../../../../../../../bpl-tools/Components';
+import { Label, HelpTooltip, Notice, Badge } from '../../../../../../../bpl-tools/Components';
 import { pxUnit, emUnit, remUnit } from '../../../../../../../bpl-tools/utils/options';
 
 import { accordionThemes, accordionIconPositions, accordionIndicatorIcons } from '../../../../../utils/options';
@@ -14,7 +14,7 @@ const AccordionOptions = ({ attributes, setAttributes }) => {
 
 	const setAccordion = obj => setAttributes({ accordion: { ...accordion, ...obj } });
 
-	return <PanelBody className='bPlPanelBody apbAccordionOptions' title={__('Accordion Options', 'advanced-post-block')} initialOpen={false}>
+	return <PanelBody className='bPlPanelBody apbAccordionOptions' title={<>{__('Accordion Options', 'advanced-post-block')} <Badge /></>} initialOpen={false}>
 		<UnitControl className='mb20' label={<>
 			{__('Max Width:', 'advanced-post-block')}
 			<HelpTooltip text={__('Cap the accordion width and center it. Leave empty for full width.', 'advanced-post-block')} />

@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
-import { Label, HelpTooltip, Badge, Notice, BtnGroup } from '../../../../../../bpl-tools/Components';
+import { Label, HelpTooltip, Notice, BtnGroup } from '../../../../../../bpl-tools/Components';
 import { readMoreIcons } from '../../../../utils/readMoreIcons';
 
 const ReadMore = ({ attributes, setAttributes, updateObj }) => {
@@ -17,7 +17,7 @@ const ReadMore = ({ attributes, setAttributes, updateObj }) => {
 			<ToggleControl className='mt20' label={__('Open link in new tab', 'advanced-post-block')} checked={isLinkNewTab} onChange={val => setAttributes({ isLinkNewTab: val })} />
 
 			<hr />
-			<Label>{<>{__('Select Icon', 'advanced-post-block')} <Badge /></>}</Label>
+			<Label>{__('Select Icon', 'advanced-post-block')}</Label>
 			<BtnGroup value={icon} onChange={val => updateObj('readMore', val, 'icon')} options={readMoreIcons} isIcon={true} />
 		</>}
 

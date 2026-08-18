@@ -5,6 +5,7 @@
 @use 'scss/placeholder';
 @use 'scss/post';
 @use 'scss/layouts';
+@use 'scss/load-more';
 
 // Dynamic Column Generation
 @for $i from 1 through 6 {

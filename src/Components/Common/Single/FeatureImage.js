@@ -5,12 +5,15 @@ const FeatureImage = ({ post, attributes }) => {
 	const { link, thumbnail = {} } = post;
 	const { url, alt } = thumbnail || {};
 
-	const { isFImg, isFImgLink, isLinkNewTab } = attributes;
+	const { isFImg, isFImgLink, isLinkNewTab, image = {} } = attributes;
+	const { defaultImage = '' } = image || {};
 
-	return (isFImg && url) ? <figure className={`${prefix}Thumb`}>
+	const finalImgUrl = url || defaultImage;
+
+	return (isFImg && finalImgUrl) ? <figure className={`${prefix}Thumb`}>
 		{isFImgLink ? <a href={link} target={isLinkNewTab ? '_blank' : '_self'} rel='noreferrer' aria-label={alt}>
-			<img src={url} alt={alt} />
-		</a> : <img src={url} alt={alt} />}
+			<img src={finalImgUrl} alt={alt} />
+		</a> : <img src={finalImgUrl} alt={alt} />}
 
 		<MetaCategoryBadge post={post} attributes={attributes} location='image' />
 	</figure> : null;
