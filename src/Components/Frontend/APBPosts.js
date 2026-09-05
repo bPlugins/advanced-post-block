@@ -21,7 +21,7 @@ const APBPosts = ({ nonce, attributes, id }) => {
 			<LoadingSkeleton attributes={attributes} /> :
 			<DisplayPosts {...{ posts, attributes, id, Slider, Ticker }} />}
 
-		{(!['slider', 'ticker', 'newsTicker'].includes(layout) && !isPostsPerPageAll && totalPosts > postsPerPage) && <LoadMore {...{ attributes, id, pageNumber, totalCount: totalPosts }} onChange={val => setPageNumber(val)} />}
+		{(!['slider', 'ticker', 'newsTicker'].includes(layout) && !isPostsPerPageAll && totalPosts > postsPerPage) && <LoadMore {...{ attributes, id, pageNumber, totalCount: totalPosts, isLoading }} onChange={val => setPageNumber(val)} />}
 	</>
 }
 export default APBPosts;

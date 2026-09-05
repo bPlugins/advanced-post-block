@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 
 import { gridIcon, masonryIcon, sliderIcon, tickerIcon } from '../../utils/icons';
-import { gutenbergTabIcon, templateTabIcon, shortcodeTabIcon, elementorTabIcon, postSectionDemoIcon, allPostsDemoIcon } from './icons';
+import { gutenbergTabIcon, templateTabIcon, shortcodeTabIcon, pageBuilderTabIcon, postSectionDemoIcon, allPostsDemoIcon } from './icons';
 
 const slug = 'advanced-post-block';
 
@@ -138,9 +138,9 @@ export const welcomeInfo = (adminUrl) => ({
 				]
 			},
 			{
-				key: 'elementor',
-				label: 'Elementor',
-				icon: elementorTabIcon,
+				key: 'pageBuilder',
+				label: 'Page Builder',
+				icon: pageBuilderTabIcon,
 				steps: [
 					{
 						num: 1,
@@ -151,7 +151,7 @@ export const welcomeInfo = (adminUrl) => ({
 					{
 						num: 2,
 						title: 'Add a Shortcode Widget',
-						body: 'Open the Elementor editor on any page. Search for the <strong>Shortcode</strong> widget and drag it to your desired location on the canvas.'
+						body: 'Add the Page Builder <strong>Shortcode</strong> widget to your page and insert to the page.'
 					},
 					{
 						num: 3,
@@ -163,6 +163,21 @@ export const welcomeInfo = (adminUrl) => ({
 		]
 	},
 	changelogs: [
+		{
+			version: '2.5.0 - 6 Sep 2026',
+			type: 'new',
+			list: [
+				'<strong>New:</strong> Magazine 2 Layout: A full-width hero post above a responsive grid of the remaining posts, with its own <strong>Magazine Grid Layout</strong> selector, column and gap controls, and a responsive hero min-height.',
+				'<strong>New:</strong> Load More Button: A third Load More type that appends the next posts in place, with a custom button label and a loading state.',
+				'<strong>New:</strong> Exclude Sticky Posts: Completely remove sticky posts from any query.',
+				'<strong>New:</strong> Meta Author Link: Link the author name to their author archive.',
+				'<strong>New:</strong> Meta Date as Time Ago: Show the post date as "3 days ago" instead of a fixed date.',
+				'<strong>New:</strong> Meta Reading Time: Show the estimated reading time in the meta row, with a custom label.',
+				'<strong>New:</strong> Post View Count: Display tracked post views in the meta row.',
+				'<strong>New:</strong> Category Badge Spacing: Padding and border radius controls for the on-image category badge.',
+				'<strong>New:</strong> Image Grayscale: Apply a grayscale filter to the feature image, on normal state and on hover.'
+			]
+		},
 		{
 			version: '2.4.0 - 18 Aug 2026',
 			type: 'new',

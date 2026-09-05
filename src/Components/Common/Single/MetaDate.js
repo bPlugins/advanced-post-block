@@ -1,13 +1,17 @@
+import { getTimeAgo } from '../../../utils/functions';
+
 import MetaImage from './MetaImage';
 
 const PostMetaDate = ({ post, attributes, separatorEl }) => {
-	const { date } = post;
+	const { date: postDate, dateGMT } = post;
 
-	const { isMetaDate } = attributes;
+	const { isMetaDate, meta = {} } = attributes;
+	const { date = {} } = meta || {};
+	const { timeAgo = false } = date || {};
 
-	const displayDate = date;
+	const displayDate = timeAgo ? getTimeAgo(dateGMT || postDate) : postDate;
 
-	return (isMetaDate && date) ? <>
+	return (isMetaDate && postDate) ? <>
 		{separatorEl}
 		<span className='metaItem'>
 			<MetaImage item='date' />

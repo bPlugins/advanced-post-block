@@ -5,7 +5,7 @@
 [![WordPress Support](https://img.shields.io/badge/WordPress-6.5+-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org/plugins/advanced-post-block/)
 [![PHP Support](https://img.shields.io/badge/PHP-7.1+-777bb4.svg?style=flat-square&logo=php)](./readme.txt)
 [![GPLv3 License](https://img.shields.io/badge/License-GPLv3-green.svg?style=flat-square)](./readme.txt)
-[![Stable Version](https://img.shields.io/badge/Version-2.4.0-blue.svg?style=flat-square)](./readme.txt)
+[![Stable Version](https://img.shields.io/badge/Version-2.5.0-blue.svg?style=flat-square)](./readme.txt)
 
 **Advanced Post Block** is the ultimate Gutenberg block for displaying WordPress posts, pages, and custom content beautifully. It offers a wide range of layouts—including Grid, Masonry, Slider, and News Tickers—giving you total control over your site's content display without writing a single line of code.
 

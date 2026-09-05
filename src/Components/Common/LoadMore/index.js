@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 
 import Pagination from './Pagination';
 import Navigation from './Navigation';
+import Button from './Button';
 import { getPaginationPage, savePaginationPage } from '../../../utils/paginationStorage';
 
-const LoadMore = ({ attributes, id, pageNumber = 1, totalCount, onChange }) => {
+const LoadMore = ({ attributes, id, pageNumber = 1, totalCount, onChange, isLoading }) => {
 	const { postsPerPage, isPagination, paginationPrevLabel, paginationNextLabel, loadMore = {} } = attributes;
-	const { type = '', scrollTop = {} } = loadMore || {};
+	const { type = '', scrollTop = {}, button = {} } = loadMore || {};
 
 	// Determine the actual type. Old 'isPagination' attribute takes precedence or maps to 'pagination'
 	const loadMoreType = isPagination ? 'pagination' : type;
@@ -58,6 +59,12 @@ const LoadMore = ({ attributes, id, pageNumber = 1, totalCount, onChange }) => {
 				prevLabel={paginationPrevLabel}
 				nextLabel={paginationNextLabel}
 				scrollTop={scrollTop}
+			/>;
+		case 'button':
+			return <Button
+				{...defaultProps}
+				{...button}
+				isLoading={isLoading}
 			/>;
 		default:
 			return null;

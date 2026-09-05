@@ -3,27 +3,33 @@ import { Fragment } from 'react';
 import PostMetaAuthor from './MetaAuthor';
 import PostMetaDate from './MetaDate';
 import PostMetaCategory from './MetaCategory';
+import PostMetaReadTime from './MetaReadTime';
 import PostMetaComment from './MetaComment';
+import PostMetaViewCount from './MetaViewCount';
 import { prefix } from '../../../utils/data';
 
 const Meta = ({ post, attributes }) => {
-	const { isMeta, isMetaAuthor, isMetaDate, isMetaCategory, metaCategoryIn, isMetaComment, meta = {} } = attributes;
+	const { isMeta, isMetaAuthor, isMetaDate, isMetaCategory, metaCategoryIn, isMetaReadTime, isMetaComment, meta = {} } = attributes;
 	const { sorting = ['author', 'date', 'category', 'readTime', 'comment', 'viewCount', 'taxonomy'], separator = '', gap = '10px' } = meta;
 
 	const componentMap = (separatorEl) => ({
 		author: <PostMetaAuthor {...{ post, attributes, separatorEl }} />,
 		date: <PostMetaDate {...{ post, attributes, separatorEl }} />,
 		category: <PostMetaCategory {...{ post, attributes, separatorEl }} />,
-		comment: <PostMetaComment {...{ post, attributes, separatorEl }} />
+		readTime: <PostMetaReadTime {...{ post, attributes, separatorEl }} />,
+		comment: <PostMetaComment {...{ post, attributes, separatorEl }} />,
+		viewCount: <PostMetaViewCount {...{ post, attributes, separatorEl }} />
 	});
 
-	// Reading time, view count and custom taxonomies are premium-only, so their sorting
-	// keys are dropped here rather than rendered — the saved order still round-trips.
+	// Custom taxonomies are premium-only, so that sorting key is dropped here rather
+	// than rendered — the saved order still round-trips.
 	const visibleMetaElements = sorting.filter(key => {
 		if (key === 'author') return isMetaAuthor;
 		if (key === 'date') return isMetaDate;
 		if (key === 'category') return isMetaCategory && !['image', 'aboveContent'].includes(metaCategoryIn);
+		if (key === 'readTime') return isMetaReadTime;
 		if (key === 'comment') return isMetaComment;
+		if (key === 'viewCount') return meta.viewCount?.isVisible;
 
 		return false;
 	});

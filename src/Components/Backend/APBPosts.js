@@ -28,7 +28,7 @@ const APBPosts = ({ attributes, id }) => {
 					<NoPosts />
 			)}
 
-		{(!['slider', 'ticker', 'newsTicker'].includes(layout) && !isPostsPerPageAll && totalPosts > postsPerPage) && <LoadMore {...{ attributes, id, pageNumber, totalCount: totalPosts }} onChange={val => setPageNumber(val)} />}
+		{(!['slider', 'ticker', 'newsTicker'].includes(layout) && !isPostsPerPageAll && totalPosts > postsPerPage) && <LoadMore {...{ attributes, id, pageNumber, totalCount: totalPosts, isLoading }} onChange={val => setPageNumber(val)} />}
 	</>
 }
 export default APBPosts;

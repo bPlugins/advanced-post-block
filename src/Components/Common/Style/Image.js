@@ -4,7 +4,7 @@ const Image = ({ attributes, postSl, prefix }) => {
 	const { fImgFitting = 'cover', image = {} } = attributes;
 	const { width = '100%', height = '60%', styles = {} } = image || {};
 
-	const { border = { width: '0px', style: 'none' }, radius = { top: '0px', right: '0px', bottom: '0px', left: '0px' }, hoverRadius = { top: '0px', right: '0px', bottom: '0px', left: '0px' }, shadow = [], hoverShadow = [], margin = { top: '', right: '', bottom: '', left: '' }, hoverAnimation = 'none' } = styles || {};
+	const { grayScale = false, hoverGrayScale = false, border = { width: '0px', style: 'none' }, radius = { top: '0px', right: '0px', bottom: '0px', left: '0px' }, hoverRadius = { top: '0px', right: '0px', bottom: '0px', left: '0px' }, shadow = [], hoverShadow = [], margin = { top: '', right: '', bottom: '', left: '' }, hoverAnimation = 'none' } = styles || {};
 
 	return `
 		${postSl} .${prefix}Thumb{
@@ -22,10 +22,12 @@ const Image = ({ attributes, postSl, prefix }) => {
 		${postSl} .${prefix}Thumb img,
 		${postSl}.${prefix}Overlay img{
 			${isValidCSS('object-fit', fImgFitting)}
+			${isValidCSS('filter', grayScale ? 'grayscale(100%)' : 'none')}
 			${'zoom-out' === hoverAnimation ? 'transform: scale(1.1);' : ''}
 		}
 		${postSl}:hover .${prefix}Thumb img,
 		${postSl}.${prefix}Overlay:hover img{
+			${isValidCSS('filter', hoverGrayScale ? 'grayscale(100%)' : 'none')}
 			${'zoom-in' === hoverAnimation ? 'transform: scale(1.1);' : ''}
 			${'zoom-out' === hoverAnimation ? 'transform: scale(1.0);' : ''}
 		}

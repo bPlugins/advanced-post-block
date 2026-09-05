@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { PanelBody, SelectControl, TextControl, ToggleControl, RangeControl, __experimentalUnitControl as UnitControl } from '@wordpress/components';
 
-import { Badge, BtnGroup, ColorsControl, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
+import { BtnGroup, ColorsControl, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
 import { SpaceControl } from '../../../../../../bpl-tools/Components/Deprecated';
 import { pxUnit, emUnit } from '../../../../../../bpl-tools/utils/options';
 import { primaryColor, titleColor } from '../../../../../../bpl-tools/utils/data';
@@ -10,17 +10,15 @@ import { loadMoreTypes, flexAligns } from '../../../../utils/options';
 
 const Pagination = ({ attributes, setAttributes, updateObj }) => {
 	const { isPostsPerPageAll, isPagination, paginationPrevLabel, paginationNextLabel, paginationColors, paginationHovColors, paginationPadding, paginationSpacing, loadMore = {} } = attributes;
-	const { type = '', alignment = 'center', scrollTop = {} } = loadMore || {};
+	const { type = '', alignment = 'center', scrollTop = {}, button = {} } = loadMore || {};
 	const { enabled = false, offset: scrollTopOffset = 50 } = scrollTop || {};
+	const { label: btnLabel = 'Load More' } = button || {};
 
 	const loadMoreType = isPagination ? 'pagination' : type;
 
 	if (isPostsPerPageAll) return null;
 
-	return <PanelBody className='bPlPanelBody' title={<>
-		{__('Load More / Pagination', 'advanced-post-block')}
-		<Badge size='regular' />
-	</>} initialOpen={false}>
+	return <PanelBody className='bPlPanelBody' title={__('Load More / Pagination', 'advanced-post-block')} initialOpen={false}>
 		<SelectControl
 			label={<>
 				{__('Type', 'advanced-post-block')}
@@ -48,15 +46,18 @@ const Pagination = ({ attributes, setAttributes, updateObj }) => {
 		</>}
 
 
+		{'button' === loadMoreType && <TextControl className='mt20' label={__('Button Label', 'advanced-post-block')} value={btnLabel} onChange={val => updateObj('loadMore', val, 'button', 'label')} />}
+
+
 		<ColorsControl label={__('Colors', 'advanced-post-block')} value={paginationColors} onChange={val => setAttributes({ paginationColors: val })} defaults={{ color: '#fff', bg: primaryColor }} />
 
 		<ColorsControl label={__('Active/Hover Colors', 'advanced-post-block')} value={paginationHovColors} onChange={val => setAttributes({ paginationHovColors: val })} defaults={{ color: '#fff', bg: titleColor }} />
 
 		<SpaceControl className='mt20' label={__('Padding:', 'advanced-post-block')} value={paginationPadding} onChange={val => setAttributes({ paginationPadding: val })} defaults={{ vertical: '8px', horizontal: '15px' }} />
 
-		<UnitControl className='mt20' label={__('Space Between:', 'advanced-post-block')} labelPosition='left' value={paginationSpacing} onChange={val => setAttributes({ paginationSpacing: val })} units={[pxUnit(), emUnit()]} />
+		{'button' !== loadMoreType && <UnitControl className='mt20' label={__('Space Between:', 'advanced-post-block')} labelPosition='left' value={paginationSpacing} onChange={val => setAttributes({ paginationSpacing: val })} units={[pxUnit(), emUnit()]} />}
 
-		<Notice status='premium' isIcon={true}>{__('Infinity Scroll and the Load More button are available in the Premium version.', 'advanced-post-block')}</Notice>
+		<Notice status='premium' isIcon={true}>{__('Infinity Scroll is available in the Premium version.', 'advanced-post-block')}</Notice>
 	</PanelBody>
 }
 export default Pagination;

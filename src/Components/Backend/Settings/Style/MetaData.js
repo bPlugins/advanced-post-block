@@ -54,13 +54,15 @@ const CategoriesBadge = ({ attributes, setAttributes, updateObj }) => {
 	const { metaColorsOnImage, categoryOnImage = {} } = attributes;
 	const { styles = {} } = categoryOnImage || {};
 
-	const { margin = { top: '0px', right: '0px', bottom: '10px', left: '10px' } } = styles || {};
+	const { padding = { top: '3px', right: '8px', bottom: '3px', left: '8px' }, radius = { top: '3px', right: '3px', bottom: '3px', left: '3px' }, margin = { top: '0px', right: '0px', bottom: '10px', left: '10px' } } = styles || {};
 
 	return <PanelBody className='bPlPanelBody' title={__('Categories Badge', 'advanced-post-block')} initialOpen={false}>
 		<ColorsControl label={__('Colors:', 'advanced-post-block')} value={metaColorsOnImage} onChange={val => setAttributes({ metaColorsOnImage: val })} defaults={{ color: '#fff', bg: primaryColor }} />
 
-		<BoxControl className='mt20' label={__('Margin', 'advanced-post-block')} values={margin} onChange={val => updateObj('categoryOnImage', val, 'styles', 'margin')} />
+		<BoxControl className='mt20' label={__('Padding:', 'advanced-post-block')} values={padding} onChange={val => updateObj('categoryOnImage', val, 'styles', 'padding')} />
 
-		<Notice status='premium' isIcon={true}>{__('Precise padding and border radius controls for categories are available in the Premium version.', 'advanced-post-block')}</Notice>
+		<BoxControl className='mt20' label={__('Border Radius:', 'advanced-post-block')} values={radius} onChange={val => updateObj('categoryOnImage', val, 'styles', 'radius')} />
+
+		<BoxControl className='mt20' label={__('Margin', 'advanced-post-block')} values={margin} onChange={val => updateObj('categoryOnImage', val, 'styles', 'margin')} />
 	</PanelBody>
 }

@@ -9,8 +9,8 @@ import { pricingUrl } from '../../../../utils/data';
 import { categoriesPosition } from '../../../../utils/options';
 
 const MetaData = ({ attributes, setAttributes, taxOfPostType, updateObj }) => {
-	const { layout, postType, isMeta, isMetaAuthor, isMetaDate, isMetaCategory, metaCategoryIn, isMetaComment, meta = {} } = attributes;
-	const { separator = '' } = meta || {};
+	const { layout, postType, isMeta, isMetaAuthor, isMetaAuthorLink, isMetaDate, isMetaCategory, metaCategoryIn, isMetaReadTime, metaReadTimeLabel, isMetaComment, meta = {} } = attributes;
+	const { separator = '', date = {}, viewCount = {} } = meta || {};
 
 	const isAccordion = 'accordion' === layout;
 	const categoryPositions = isAccordion
@@ -31,13 +31,17 @@ const MetaData = ({ attributes, setAttributes, taxOfPostType, updateObj }) => {
 			<PanelBody className='bPlPanelBody' title={__('Author', 'advanced-post-block')} initialOpen={false}>
 				<ToggleControl label={__('Show Author', 'advanced-post-block')} checked={isMetaAuthor} onChange={val => setAttributes({ isMetaAuthor: val })} />
 
-				<Notice status='premium' isIcon={true}>{__('Author link and custom author icons are available in the Premium version.', 'advanced-post-block')}</Notice>
+				{isMetaAuthor && <ToggleControl className='mt10' label={__('Author Link', 'advanced-post-block')} checked={isMetaAuthorLink} onChange={val => setAttributes({ isMetaAuthorLink: val })} />}
+
+				<Notice status='premium' isIcon={true}>{__('Custom author icons are available in the Premium version.', 'advanced-post-block')}</Notice>
 			</PanelBody>
 
 			<PanelBody className='bPlPanelBody' title={__('Date', 'advanced-post-block')} initialOpen={false}>
 				<ToggleControl label={__('Show Date', 'advanced-post-block')} checked={isMetaDate} onChange={val => setAttributes({ isMetaDate: val })} />
 
-				<Notice status='premium' isIcon={true}>{__('Date as Time Ago, preset and custom data format, and date icons are available in the Premium version.', 'advanced-post-block')}</Notice>
+				{isMetaDate && <ToggleControl className='mt10' label={__('Date as Time Ago', 'advanced-post-block')} checked={date.timeAgo} onChange={val => updateObj('meta', val, 'date', 'timeAgo')} />}
+
+				<Notice status='premium' isIcon={true}>{__('Preset and custom date formats and date icons are available in the Premium version.', 'advanced-post-block')}</Notice>
 			</PanelBody>
 
 			{'post' === postType && <PanelBody className='bPlPanelBody' title={__('Category', 'advanced-post-block')} initialOpen={false}>
@@ -64,11 +68,16 @@ const MetaData = ({ attributes, setAttributes, taxOfPostType, updateObj }) => {
 				<PremiumPanel title={__('Taxonomy Filter', 'advanced-post-block')} description={__('Tags and custom taxonomies with custom icons are available in the Premium version.', 'advanced-post-block')} pricingUrl={pricingUrl} />
 			</PanelBody>}
 
-			<PanelBody className='bPlPanelBody' title={<>
-				{__('Reading Time', 'advanced-post-block')}
-				<PremiumBadge />
-			</>} initialOpen={false}>
-				<PremiumPanel title={__('Reading Time', 'advanced-post-block')} description={__('Reading Time with seconds, label and custom icon are available in the Premium version.', 'advanced-post-block')} pricingUrl={pricingUrl} />
+			<PanelBody className='bPlPanelBody' title={__('Reading Time', 'advanced-post-block')} initialOpen={false}>
+				<ToggleControl label={<>{__('Show Reading Time', 'advanced-post-block')} <HelpTooltip text={__('Estimated time to read the post content based on word count.', 'advanced-post-block')} /></>} checked={isMetaReadTime} onChange={val => setAttributes({ isMetaReadTime: val })} />
+
+				{isMetaReadTime && <>
+					<Notice>{__('Reading Time will be displayed if the post has content!', 'advanced-post-block')}</Notice>
+
+					<TextControl className='mt10' label={__('Reading Time Label:', 'advanced-post-block')} value={metaReadTimeLabel} onChange={val => setAttributes({ metaReadTimeLabel: val })} placeholder={__('Reading Time Label', 'advanced-post-block')} />
+				</>}
+
+				<Notice status='premium' isIcon={true}>{__('Reading time with seconds and a custom reading time icon are available in the Premium version.', 'advanced-post-block')}</Notice>
 			</PanelBody>
 
 			<PanelBody className='bPlPanelBody' title={__('Comment', 'advanced-post-block')} initialOpen={false}>
@@ -81,11 +90,10 @@ const MetaData = ({ attributes, setAttributes, taxOfPostType, updateObj }) => {
 				<Notice status='premium' isIcon={true}>{__('Custom comment icon is available in the Premium version.', 'advanced-post-block')}</Notice>
 			</PanelBody>
 
-			<PanelBody className='bPlPanelBody' title={<>
-				{__('View Count', 'advanced-post-block')}
-				<PremiumBadge />
-			</>} initialOpen={false}>
-				<PremiumPanel title={__('View Count', 'advanced-post-block')} description={__('View count with custom icon is available in the Premium version.', 'advanced-post-block')} pricingUrl={pricingUrl} />
+			<PanelBody className='bPlPanelBody' title={__('View Count', 'advanced-post-block')} initialOpen={false}>
+				<ToggleControl label={__('Show View Count', 'advanced-post-block')} checked={viewCount.isVisible} onChange={val => updateObj('meta', val, 'viewCount', 'isVisible')} />
+
+				<Notice status='premium' isIcon={true}>{__('Custom view count icon is available in the Premium version.', 'advanced-post-block')}</Notice>
 			</PanelBody>
 		</>}
 

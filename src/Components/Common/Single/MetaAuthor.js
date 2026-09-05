@@ -2,16 +2,18 @@ import MetaImage from './MetaImage';
 
 const MetaAuthor = ({ post, attributes, separatorEl }) => {
 	const { author } = post;
-	const { name } = author || {};
+	const { name, link } = author || {};
 
-	const { isMetaAuthor } = attributes;
+	const { isMetaAuthor, isMetaAuthorLink = true } = attributes;
 
 	return (isMetaAuthor && name) ? <>
 		{separatorEl}
 		<span className='metaItem'>
 			<MetaImage item='author' />
 
-			<span>{name}</span>
+			{!isMetaAuthorLink ?
+				<span>{name}</span> :
+				<a href={link} target='_blank' rel='noreferrer' aria-label={name}>{name}</a>}
 		</span>
 	</> : null;
 };

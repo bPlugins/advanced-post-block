@@ -27,6 +27,14 @@ const DisplayPosts = ({ posts, attributes, id, Slider, Ticker }) => {
 				</div>}
 			</div>;
 
+		case 'magazine2':
+			return <div className={`${prefix}Magazine2Posts`}>
+				{posts[0] && <SubLayout key={posts[0].id} {...{ post: posts[0], attributes, index: 0 }} />}
+				{posts.length > 1 && <div className={`${prefix}GridPosts columns-${desktop} columns-tablet-${tablet} columns-mobile-${mobile}`}>
+					{posts.slice(1).map((post, index) => <SubLayout key={post.id} {...{ post, attributes: { ...attributes, subLayout: attributes.magazine?.subLayout || 'default' }, index: index + 1 }} />)}
+				</div>}
+			</div>;
+
 		case 'masonry':
 			return <Masonry posts={posts} attributes={attributes} />;
 

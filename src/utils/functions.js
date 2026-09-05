@@ -1,3 +1,5 @@
+import { __, sprintf, _n } from '@wordpress/i18n';
+
 import { sanitizeHTML } from '../../../bpl-tools/utils/common';
 
 // The trailing ellipsis is a premium-only option, so nothing is appended here.
@@ -182,3 +184,42 @@ export const filterPassword = (posts = [], has_password) => {
 			return posts
 	}
 }
+
+export const getTimeAgo = (dateStr) => {
+	if (!dateStr) return '';
+	const date = new Date(dateStr.replace(/-/g, '/'));
+	const now = new Date();
+	const diff = Math.floor((now - date) / 1000);
+
+	if (diff < 60) return __('Just now', 'advanced-post-block');
+
+	if (diff < 3600) {
+		const minutes = Math.floor(diff / 60);
+		// translators: %d: number of minutes
+		return sprintf(_n('%d minute ago', '%d minutes ago', minutes, 'advanced-post-block'), minutes);
+	}
+	if (diff < 86400) {
+		const hours = Math.floor(diff / 3600);
+		// translators: %d: number of hours
+		return sprintf(_n('%d hour ago', '%d hours ago', hours, 'advanced-post-block'), hours);
+	}
+	if (diff < 604800) {
+		const days = Math.floor(diff / 86400);
+		// translators: %d: number of days
+		return sprintf(_n('%d day ago', '%d days ago', days, 'advanced-post-block'), days);
+	}
+	if (diff < 2592000) {
+		const weeks = Math.floor(diff / 604800);
+		// translators: %d: number of weeks
+		return sprintf(_n('%d week ago', '%d weeks ago', weeks, 'advanced-post-block'), weeks);
+	}
+	if (diff < 31536000) {
+		const months = Math.floor(diff / 2592000);
+		// translators: %d: number of months
+		return sprintf(_n('%d month ago', '%d months ago', months, 'advanced-post-block'), months);
+	}
+
+	const years = Math.floor(diff / 31536000);
+	// translators: %d: number of years
+	return sprintf(_n('%d year ago', '%d years ago', years, 'advanced-post-block'), years);
+};

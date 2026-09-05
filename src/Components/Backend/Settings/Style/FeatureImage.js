@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { TabPanel, PanelBody, __experimentalBorderBoxControl, BorderBoxControl as BBControl, SelectControl } from '@wordpress/components';
+import { TabPanel, PanelBody, ToggleControl, __experimentalBorderBoxControl, BorderBoxControl as BBControl, SelectControl } from '@wordpress/components';
 const BorderBoxControl = BBControl || __experimentalBorderBoxControl;
 
 import { Badge, BoxControl, ShadowControl, Notice } from '../../../../../../bpl-tools/Components';
@@ -9,11 +9,13 @@ const FeatureImage = ({ attributes, updateObj }) => {
 	const { subLayout, image = {} } = attributes;
 	const { styles = {} } = image || {};
 
-	const { border = { width: '0px', style: 'none' }, radius = { top: '0px', right: '0px', bottom: '0px', left: '0px' }, hoverRadius = { top: '0px', right: '0px', bottom: '0px', left: '0px' }, shadow = [], hoverShadow = [], margin = { top: '', right: '', bottom: '', left: '' }, hoverAnimation = 'none' } = styles || {};
+	const { grayScale = false, hoverGrayScale = false, border = { width: '0px', style: 'none' }, radius = { top: '0px', right: '0px', bottom: '0px', left: '0px' }, hoverRadius = { top: '0px', right: '0px', bottom: '0px', left: '0px' }, shadow = [], hoverShadow = [], margin = { top: '', right: '', bottom: '', left: '' }, hoverAnimation = 'none' } = styles || {};
 
 	return <PanelBody className='bPlPanelBody' title={__('Feature Image', 'advanced-post-block')} initialOpen={false}>
 		<TabPanel className='bPlTabPanel small' activeClass='activeTab' tabs={normalHoverTabs}>{tab => <>
 			{'normal' === tab.name && <>
+				<ToggleControl className='mt10' label={__('Grayscale', 'advanced-post-block')} checked={grayScale} onChange={val => updateObj('image', val, 'styles', 'grayScale')} />
+
 				{!subLayout.includes('overlay') && <>
 					<BorderBoxControl className='mt20' label={__('Border', 'advanced-post-block')} value={border} onChange={val => updateObj('image', val, 'styles', 'border')} />
 
@@ -26,6 +28,8 @@ const FeatureImage = ({ attributes, updateObj }) => {
 			</>}
 
 			{'hover' === tab.name && <>
+				<ToggleControl className='mt10' label={__('Hover Grayscale', 'advanced-post-block')} checked={hoverGrayScale} onChange={val => updateObj('image', val, 'styles', 'hoverGrayScale')} />
+
 				<SelectControl className='mt20' label={__('Animation:', 'advanced-post-block')} labelPosition='left' value={hoverAnimation} onChange={val => updateObj('image', val, 'styles', 'hoverAnimation')} options={[
 					{ label: __('None', 'advanced-post-block'), value: 'none' },
 					{ label: __('Zoom In', 'advanced-post-block'), value: 'zoom-in' },
@@ -40,7 +44,7 @@ const FeatureImage = ({ attributes, updateObj }) => {
 			</>}
 		</>}</TabPanel>
 
-		<Notice status='premium' isIcon={true}>{__('Normal and hover grayscale filters and the Scale Up hover animation are available in the Premium version.', 'advanced-post-block')}</Notice>
+		<Notice status='premium' isIcon={true}>{__('The Scale Up hover animation is available in the Premium version.', 'advanced-post-block')}</Notice>
 	</PanelBody>
 }
 export default FeatureImage;

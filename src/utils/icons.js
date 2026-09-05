@@ -98,3 +98,10 @@ export const magazine1Icon = <svg xmlns='http://www.w3.org/2000/svg' width={24} 
 	<rect width='10' height='9.34' x='22' y='11.33' rx='0.5' ry='0.5' opacity='0.6' />
 	<rect width='10' height='9.33' x='22' y='22.67' rx='0.5' ry='0.5' opacity='0.6' />
 </svg>;
+
+export const magazine2Icon = <svg xmlns='http://www.w3.org/2000/svg' width={24} height={24} viewBox='0 0 32 32'>
+	<rect width='32' height='20' rx='1' ry='1' />
+	<rect height='10' width='9.33' y='22' x='0' rx='0.5' ry='0.5' opacity='0.6' />
+	<rect height='10' width='9.34' y='22' x='11.33' rx='0.5' ry='0.5' opacity='0.6' />
+	<rect height='10' width='9.33' y='22' x='22.67' rx='0.5' ry='0.5' opacity='0.6' />
+</svg>;

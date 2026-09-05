@@ -6,7 +6,8 @@ const Grid = ({ attributes, mainSl, prefix }) => {
 	return `
 		${mainSl} .${prefix}GridPosts,
 		${mainSl} .${prefix}Magazine1Posts,
-		${mainSl} .${prefix}Magazine1ListInner{
+		${mainSl} .${prefix}Magazine1ListInner,
+		${mainSl} .${prefix}Magazine2Posts{
 			${isValidCSS('row-gap', rowGap + 'px')}
 			${isValidCSS('column-gap', columnGap + 'px')}
 		}

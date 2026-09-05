@@ -17,7 +17,16 @@ const path = require('path');
 const potPath = path.join(__dirname, '..', 'languages', 'advanced-post-block-js.pot');
 
 if (!fs.existsSync(potPath)) {
-	console.error('languages/advanced-post-block-js.pot not found — run `npm run build` first.');
+	console.error([
+		'languages/advanced-post-block-js.pot not found.',
+		'',
+		'The POT is a side effect of babel transpiling src/, so it is only written',
+		'when babel-loader actually runs. A warm cache means every file is a cache',
+		'hit, babel never runs, and no POT is produced — a partially warm cache is',
+		'worse still, silently producing a POT with only the changed files\' strings.',
+		'',
+		'Run a cold build:  npm run clean:cache && npm run build'
+	].join('\n'));
 	process.exit(1);
 }
 

@@ -3,7 +3,8 @@
 
 .wp-block-ap-block-posts {
 
-	.#{vars.$prefix}Magazine1Posts {
+	.#{vars.$prefix}Magazine1Posts,
+	.#{vars.$prefix}Magazine2Posts {
 		>.#{vars.$prefix}Post {
 			&.#{vars.$prefix}Overlay {
 				position: relative;
@@ -85,7 +86,9 @@
 				}
 			}
 		}
+	}
 
+	.#{vars.$prefix}Magazine1Posts {
 		display: grid;
 		grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
 		align-items: flex-start;
@@ -212,6 +215,53 @@
 					height: auto;
 					overflow-y: visible;
 					padding-right: 0;
+				}
+			}
+		}
+	}
+
+	.#{vars.$prefix}Magazine2Posts {
+		display: flex;
+		flex-direction: column;
+
+		&::before,
+		&::after {
+			content: none;
+		}
+
+		>.#{vars.$prefix}Post {
+			position: relative;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+		}
+
+		@include mix.tablet {
+			>.#{vars.$prefix}Post {
+				height: 400px;
+
+				.#{vars.$prefix}Title a {
+					font-size: 36px;
+				}
+
+				.#{vars.$prefix}Text {
+					padding: 30px;
+				}
+			}
+		}
+
+		@include mix.mobile {
+			>.#{vars.$prefix}Post {
+				height: 350px;
+				border-radius: 10px;
+
+				.#{vars.$prefix}Title a {
+					font-size: 26px;
+				}
+
+				.#{vars.$prefix}Excerpt {
+					display: none;
 				}
 			}
 		}

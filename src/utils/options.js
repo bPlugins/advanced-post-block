@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 
-import { accordionIcon, arrowDownIcon, arrowUpIcon, gridIcon, longArrowDownIcon, longArrowUpIcon, magazine1Icon, masonryIcon, minusIcon, newsTickerIcon, plusIcon, sliderIcon, tickerIcon } from './icons';
+import { accordionIcon, arrowDownIcon, arrowUpIcon, gridIcon, longArrowDownIcon, longArrowUpIcon, magazine1Icon, magazine2Icon, masonryIcon, minusIcon, newsTickerIcon, plusIcon, sliderIcon, tickerIcon } from './icons';
 
 export const layouts = [
 	{ label: __('Grid', 'advanced-post-block'), value: 'grid', icon: gridIcon },
@@ -9,6 +9,7 @@ export const layouts = [
 	{ label: __('Ticker', 'advanced-post-block'), value: 'ticker', icon: tickerIcon },
 	{ label: __('News Ticker', 'advanced-post-block'), value: 'newsTicker', icon: newsTickerIcon },
 	{ label: __('Magazine 1', 'advanced-post-block'), value: 'magazine1', icon: magazine1Icon },
+	{ label: __('Magazine 2', 'advanced-post-block'), value: 'magazine2', icon: magazine2Icon },
 	{ label: __('Accordion', 'advanced-post-block'), value: 'accordion', icon: accordionIcon }
 ];
 
@@ -53,7 +54,8 @@ export const categoriesPosition = [
 export const loadMoreTypes = [
 	{ label: __('None', 'advanced-post-block'), value: '' },
 	{ label: __('Pagination', 'advanced-post-block'), value: 'pagination' },
-	{ label: __('Navigation', 'advanced-post-block'), value: 'navigation' }
+	{ label: __('Navigation', 'advanced-post-block'), value: 'navigation' },
+	{ label: __('Load More Button', 'advanced-post-block'), value: 'button' }
 ];
 
 export const effects = [

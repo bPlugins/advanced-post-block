@@ -16,13 +16,14 @@ const Layout = ({ attributes, setAttributes, device }) => {
 	const isTicker = 'ticker' === layout;
 	const isNewsTicker = 'newsTicker' === layout;
 	const isMagazine1 = 'magazine1' === layout;
+	const isMagazine2 = 'magazine2' === layout;
 	const isAccordion = 'accordion' === layout;
 
 	return <PanelBody className='bPlPanelBody' title={__('Layout', 'advanced-post-block')} initialOpen={true}>
 		<Label className='mb5'>
 			{__('Layout:', 'advanced-post-block')}
 			<Badge size='regular' />
-			<HelpTooltip text={__('Choose your preferred post layout. Magazine 1 is newly available in the free version.', 'advanced-post-block')} />
+			<HelpTooltip text={__('Choose your preferred post layout. Magazine 1 and Magazine 2 are available in the free version.', 'advanced-post-block')} />
 		</Label>
 
 		<BtnGroup
@@ -70,11 +71,11 @@ const Layout = ({ attributes, setAttributes, device }) => {
 				onChange={val => {
 					setAttributes({
 						subLayout: val,
-						...(!isMagazine1 ? subLayoutSwitch(val, attributes) : {})
+						...(!isMagazine1 && !isMagazine2 ? subLayoutSwitch(val, attributes) : {})
 					});
 				}}
 				options={
-					isMagazine1
+					isMagazine1 || isMagazine2
 						? subLayouts.filter(l => !['left-image', 'right-image'].includes(l.value))
 						: isTicker
 							? subLayouts.filter(l => l.value !== 'overlay-half-content')
@@ -85,20 +86,25 @@ const Layout = ({ attributes, setAttributes, device }) => {
 			<Notice status='warning'>{__('Some settings may change when sub layout will be changed.', 'advanced-post-block')}</Notice>
 		</>}
 
-		{isMagazine1 && <>
+		{(isMagazine1 || isMagazine2) && <>
 			<Label className='mt20'>
-				{__('Sidebar List Layout:', 'advanced-post-block')}
-				<Badge size='regular' />
+				{isMagazine1
+					? __('Sidebar List Layout:', 'advanced-post-block')
+					: __('Magazine Grid Layout:', 'advanced-post-block')
+				}
 				<HelpTooltip text={__('Select a sub-layout for the secondary items.', 'advanced-post-block')} />
 			</Label>
 
 			<SelectControl
-				value={attributes.magazine?.subLayout || 'left-image'}
-				onChange={val => setAttributes({ magazine: { ...attributes.magazine, subLayout: val } })}
-				options={[
+				value={attributes.magazine?.subLayout || (isMagazine1 ? 'left-image' : 'default')}
+				onChange={val => setAttributes({
+					magazine: { ...attributes.magazine, subLayout: val },
+					...(isMagazine2 ? subLayoutSwitch(val, attributes) : {})
+				})}
+				options={isMagazine1 ? [
 					{ label: __('List - Left Image', 'advanced-post-block'), value: 'left-image' },
 					{ label: __('List - Right Image', 'advanced-post-block'), value: 'right-image' }
-				]}
+				] : subLayouts}
 			/>
 
 			<PanelRow className='gap5 mt20'>
@@ -186,7 +192,7 @@ const Layout = ({ attributes, setAttributes, device }) => {
 			units={[pxUnit(), emUnit(), vhUnit()]}
 		/>}
 
-		{!isTicker && !isNewsTicker && !isMagazine1 && !isAccordion && <SelectControl
+		{!isTicker && !isNewsTicker && !isMagazine1 && !isMagazine2 && !isAccordion && <SelectControl
 			className='mt20'
 			label={__('Content Height:', 'advanced-post-block')}
 			labelPosition='left'
@@ -196,7 +202,7 @@ const Layout = ({ attributes, setAttributes, device }) => {
 		/>}
 
 		<Notice status='premium' isIcon={true}>
-			{__('Grid 1, Magazine 2, and Timeline layouts, plus the even/odd list and overlay content box sub layouts, are available in the Premium version.', 'advanced-post-block')}
+			{__('Grid 1 and Timeline layouts, plus the even/odd list and overlay content box sub layouts, are available in the Premium version.', 'advanced-post-block')}
 		</Notice>
 	</PanelBody>
 };

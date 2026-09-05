@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { Fragment } from 'react';
-import { PanelBody, SelectControl, RangeControl, TextControl, PanelRow, __experimentalNumberControl as NumberControl } from '@wordpress/components';
+import { PanelBody, SelectControl, RangeControl, TextControl, ToggleControl, PanelRow, __experimentalNumberControl as NumberControl } from '@wordpress/components';
 import { Label, HelpTooltip, Notice, Badge } from '../../../../../../bpl-tools/Components';
 
 import { postsOrdersBy, postsOrders } from '../../../../utils/options';
@@ -8,7 +8,7 @@ import { strToIntArr } from '../../../../utils/functions';
 import AsyncTokenField from './AsyncTokenField';
 
 const PostsQuery = ({ attributes, setAttributes, postTypes }) => {
-	const { postType, taxonomyRelation = 'AND', selectedCategories = [], selectedTags, postsAuthors = [], isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder, postsOffset, postsInclude, postsExclude } = attributes;
+	const { postType, taxonomyRelation = 'AND', selectedCategories = [], selectedTags, postsAuthors = [], isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder, postsOffset, postsInclude, postsExclude, isExcludeSticky } = attributes;
 
 	return <PanelBody className='bPlPanelBody' title={__('Posts Query', 'advanced-post-block')} initialOpen={false}>
 		<SelectControl label={<>{__('Post Type:', 'advanced-post-block')} <HelpTooltip text={__('Select the source for your posts (e.g., Posts, Pages).', 'advanced-post-block')} /></>} labelPosition='left' value={postType} onChange={val => setAttributes({ postType: val })} options={postTypes} />
@@ -73,7 +73,9 @@ const PostsQuery = ({ attributes, setAttributes, postTypes }) => {
 		<TextControl className='mt20' label={<>{__('Exclude Posts:', 'advanced-post-block')} <Badge size='regular' /> <HelpTooltip text={__('Post IDs to skip (separated by commas).', 'advanced-post-block')} /></>} value={postsExclude?.join(',')} onChange={val => setAttributes({ postsExclude: strToIntArr(val) })} />
 		<Notice>{__('Enter the posts id by coma separated Ex: `23,45,16`', 'advanced-post-block')}</Notice>
 
-		<Notice status='premium' isIcon={true}>{__('Query presets, custom taxonomy filtering, search queries, advanced sorting, and excluding the current or sticky posts are available in the Premium version.', 'advanced-post-block')}</Notice>
+		<ToggleControl className='mt20' label={<>{__('Exclude Sticky Posts', 'advanced-post-block')} <HelpTooltip text={__('Completely remove sticky posts from the results.', 'advanced-post-block')} /></>} checked={isExcludeSticky} onChange={val => setAttributes({ isExcludeSticky: val })} />
+
+		<Notice status='premium' isIcon={true}>{__('Query presets, custom taxonomy filtering, search queries, advanced sorting, and excluding the current post are available in the Premium version.', 'advanced-post-block')}</Notice>
 	</PanelBody>
 };
 export default PostsQuery;
