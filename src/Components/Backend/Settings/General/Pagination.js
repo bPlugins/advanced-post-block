@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { PanelBody, SelectControl, TextControl, ToggleControl, RangeControl, __experimentalUnitControl as UnitControl } from '@wordpress/components';
 
-import { BtnGroup, ColorsControl, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
+import { Badge, BtnGroup, ColorsControl, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
 import { SpaceControl } from '../../../../../../bpl-tools/Components/Deprecated';
 import { pxUnit, emUnit } from '../../../../../../bpl-tools/utils/options';
 import { primaryColor, titleColor } from '../../../../../../bpl-tools/utils/data';
@@ -46,7 +46,7 @@ const Pagination = ({ attributes, setAttributes, updateObj }) => {
 		</>}
 
 
-		{'button' === loadMoreType && <TextControl className='mt20' label={__('Button Label', 'advanced-post-block')} value={btnLabel} onChange={val => updateObj('loadMore', val, 'button', 'label')} />}
+		{'button' === loadMoreType && <TextControl className='mt20' label={<>{__('Button Label', 'advanced-post-block')} <Badge size='regular' /></>} value={btnLabel} onChange={val => updateObj('loadMore', val, 'button', 'label')} />}
 
 
 		<ColorsControl label={__('Colors', 'advanced-post-block')} value={paginationColors} onChange={val => setAttributes({ paginationColors: val })} defaults={{ color: '#fff', bg: primaryColor }} />

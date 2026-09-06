@@ -31,7 +31,7 @@ const PostsQuery = ({ attributes, setAttributes, postTypes }) => {
 
 		{'post' === postType && <>
 			<AsyncTokenField
-				label={<>{__('Select Tags:', 'advanced-post-block')} <Badge size='regular' /></>}
+				label={__('Select Tags:', 'advanced-post-block')}
 				value={selectedTags || []}
 				onChange={ids => setAttributes({ selectedTags: ids })}
 				apiPath="/wp/v2/tags"
@@ -63,17 +63,17 @@ const PostsQuery = ({ attributes, setAttributes, postTypes }) => {
 		</PanelRow>
 
 		{!isPostsPerPageAll && <>
-			<NumberControl className='mt20' label={<>{__('Post Offset:', 'advanced-post-block')} <Badge size='regular' /> <HelpTooltip text={__('Number of posts to skip. This works when Posts Per Page is not set to -1.', 'advanced-post-block')} /></>} value={postsOffset} onChange={val => setAttributes({ postsOffset: parseInt(val) })} min={0} />
+			<NumberControl className='mt20' label={<>{__('Post Offset:', 'advanced-post-block')} <HelpTooltip text={__('Number of posts to skip. This works when Posts Per Page is not set to -1.', 'advanced-post-block')} /></>} value={postsOffset} onChange={val => setAttributes({ postsOffset: parseInt(val) })} min={0} />
 			<Notice>{__('`Post Offset` will not work if `Post Per Page` is -1', 'advanced-post-block')}</Notice>
 		</>}
 
-		<TextControl className='mt20' label={<>{__('Include Posts:', 'advanced-post-block')} <Badge size='regular' /> <HelpTooltip text={__('Specific post IDs to display (separated by commas).', 'advanced-post-block')} /></>} value={postsInclude?.join(',')} onChange={val => setAttributes({ postsInclude: strToIntArr(val) })} />
+		<TextControl className='mt20' label={<>{__('Include Posts:', 'advanced-post-block')} <HelpTooltip text={__('Specific post IDs to display (separated by commas).', 'advanced-post-block')} /></>} value={postsInclude?.join(',')} onChange={val => setAttributes({ postsInclude: strToIntArr(val) })} />
 		<Notice>{__('Enter the posts id by coma separated Ex: `23,45,16`', 'advanced-post-block')}</Notice>
 
-		<TextControl className='mt20' label={<>{__('Exclude Posts:', 'advanced-post-block')} <Badge size='regular' /> <HelpTooltip text={__('Post IDs to skip (separated by commas).', 'advanced-post-block')} /></>} value={postsExclude?.join(',')} onChange={val => setAttributes({ postsExclude: strToIntArr(val) })} />
+		<TextControl className='mt20' label={<>{__('Exclude Posts:', 'advanced-post-block')} <HelpTooltip text={__('Post IDs to skip (separated by commas).', 'advanced-post-block')} /></>} value={postsExclude?.join(',')} onChange={val => setAttributes({ postsExclude: strToIntArr(val) })} />
 		<Notice>{__('Enter the posts id by coma separated Ex: `23,45,16`', 'advanced-post-block')}</Notice>
 
-		<ToggleControl className='mt20' label={<>{__('Exclude Sticky Posts', 'advanced-post-block')} <HelpTooltip text={__('Completely remove sticky posts from the results.', 'advanced-post-block')} /></>} checked={isExcludeSticky} onChange={val => setAttributes({ isExcludeSticky: val })} />
+		<ToggleControl className='mt20' label={<>{__('Exclude Sticky Posts', 'advanced-post-block')} <Badge size='regular' /> <HelpTooltip text={__('Completely remove sticky posts from the results.', 'advanced-post-block')} /></>} checked={isExcludeSticky} onChange={val => setAttributes({ isExcludeSticky: val })} />
 
 		<Notice status='premium' isIcon={true}>{__('Query presets, custom taxonomy filtering, search queries, advanced sorting, and excluding the current post are available in the Premium version.', 'advanced-post-block')}</Notice>
 	</PanelBody>

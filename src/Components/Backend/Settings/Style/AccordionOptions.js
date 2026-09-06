@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { PanelBody, TabPanel } from '@wordpress/components';
 
-import { ColorControl, Label, Notice, Badge } from '../../../../../../bpl-tools/Components';
+import { ColorControl, Label, Notice } from '../../../../../../bpl-tools/Components';
 import { SpaceControl } from '../../../../../../bpl-tools/Components/Deprecated';
 import { normalHoverTabs } from '../../../../../../bpl-tools/utils/options';
 
@@ -16,7 +16,7 @@ const AccordionOptions = ({ attributes, setAttributes }) => {
 	const setAccordion = obj => setAttributes({ accordion: { ...accordion, ...obj } });
 	const setStyles = obj => setAccordion({ styles: { ...styles, ...obj } });
 
-	return <PanelBody className='bPlPanelBody apbAccordionStyle' title={<>{__('Accordion Options', 'advanced-post-block')} <Badge /></>} initialOpen={false}>
+	return <PanelBody className='bPlPanelBody apbAccordionStyle' title={__('Accordion Options', 'advanced-post-block')} initialOpen={false}>
 		<Label>{__('Header Background:', 'advanced-post-block')}</Label>
 		<TabPanel className='bPlTabPanel small' activeClass='activeTab' tabs={normalHoverTabs}>{tab => <>
 			{'normal' === tab.name && <ColorControl value={headerBG} onChange={val => setStyles({ headerBG: val })} defaultColor='' />}

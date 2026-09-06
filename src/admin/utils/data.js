@@ -49,7 +49,7 @@ export const dashboardInfo = (info) => {
 }
 
 export const welcomeInfo = (adminUrl) => ({
-	keywords: ['Grid', 'Masonry', 'Slider', 'Ticker', 'Accordion', 'Magazine 1', 'Post Section'],
+	keywords: ['Grid', 'Masonry', 'Slider', 'Ticker', 'News Ticker', 'Accordion', 'Magazine 1', 'Magazine 2'],
 	keywordsLabel: 'Layouts',
 	gettingStarted: {
 		tabs: [
@@ -175,6 +175,7 @@ export const welcomeInfo = (adminUrl) => ({
 				'<strong>New:</strong> Meta Reading Time: Show the estimated reading time in the meta row, with a custom label.',
 				'<strong>New:</strong> Post View Count: Display tracked post views in the meta row.',
 				'<strong>New:</strong> Category Badge Spacing: Padding and border radius controls for the on-image category badge.',
+				'<strong>New:</strong> Meta Separator Color: Give the separator character between meta items its own color.',
 				'<strong>New:</strong> Image Grayscale: Apply a grayscale filter to the feature image, on normal state and on hover.'
 			]
 		},
@@ -340,14 +341,14 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogsLimit: 6,
 	changelogsReadMoreLabel: 'View More Changelogs',
 	proFeatures: [
-		'More Layouts: Grid 1, Magazine 2, and Timeline layouts.',
+		'More Layouts: Grid 1 and Timeline layouts.',
 		'Accordion Pro Themes: Thumbnail, Numbered FAQ, Split Panel, and Minimal Lines.',
 		'Ticker and News Ticker options.',
 		'Advanced Query: Presets, Custom Taxonomies, and Search.',
-		'Display Post View and Reading Time and Custom Taxonomies.',
-		'Infinity Scroll and Load More button with a loading spinner.',
-		'Meta sorting, gaps, custom icons, date formats, and time ago.',
-		'Image Grayscale and Lazy Loading, and title ellipsis.'
+		'Tags and Custom Taxonomies in the meta row, each with its own icon.',
+		'Infinity Scroll with a trigger offset, spinner, and loading label.',
+		'Meta sorting and gaps, custom meta icons, date formats, and reading time seconds.',
+		'Image Lazy Loading, the Scale Up hover animation, and title ellipsis.'
 	],
 })
 

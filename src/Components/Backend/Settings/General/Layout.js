@@ -22,7 +22,6 @@ const Layout = ({ attributes, setAttributes, device }) => {
 	return <PanelBody className='bPlPanelBody' title={__('Layout', 'advanced-post-block')} initialOpen={true}>
 		<Label className='mb5'>
 			{__('Layout:', 'advanced-post-block')}
-			<Badge size='regular' />
 			<HelpTooltip text={__('Choose your preferred post layout. Magazine 1 and Magazine 2 are available in the free version.', 'advanced-post-block')} />
 		</Label>
 
@@ -64,7 +63,6 @@ const Layout = ({ attributes, setAttributes, device }) => {
 				className='mt20'
 				label={<>
 					{__('Sub Layout:', 'advanced-post-block')}
-					<Badge size='regular' />
 					<HelpTooltip text={__('Select a sub-layout for your post grid. Some settings may change based on this selection.', 'advanced-post-block')} />
 				</>}
 				value={subLayout}
@@ -90,7 +88,7 @@ const Layout = ({ attributes, setAttributes, device }) => {
 			<Label className='mt20'>
 				{isMagazine1
 					? __('Sidebar List Layout:', 'advanced-post-block')
-					: __('Magazine Grid Layout:', 'advanced-post-block')
+					: <>{__('Magazine Grid Layout:', 'advanced-post-block')} <Badge size='regular' /></>
 				}
 				<HelpTooltip text={__('Select a sub-layout for the secondary items.', 'advanced-post-block')} />
 			</Label>
@@ -110,7 +108,6 @@ const Layout = ({ attributes, setAttributes, device }) => {
 			<PanelRow className='gap5 mt20'>
 				<Label>
 					{__('First Post Min Height:', 'advanced-post-block')}
-					<Badge size='regular' />
 					<HelpTooltip text={__('Set the minimum height for the first (hero) post in the magazine layout.', 'advanced-post-block')} />
 				</Label>
 				<Device />

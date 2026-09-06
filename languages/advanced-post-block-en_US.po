@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-05T09:12:29+00:00\n"
+"POT-Creation-Date: 2026-09-06T11:03:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: advanced-post-block\n"
@@ -895,11 +895,15 @@ msgid "Icon Hover Color:"
 msgstr ""
 
 #: build/index.js:1
+msgid "Separator Color:"
+msgstr ""
+
+#: build/index.js:1
 msgid "Space around the meta data elements."
 msgstr ""
 
 #: build/index.js:1
-msgid "Custom alignment and separator color are available in the Premium version."
+msgid "Custom meta alignment is available in the Premium version."
 msgstr ""
 
 #: build/index.js:1

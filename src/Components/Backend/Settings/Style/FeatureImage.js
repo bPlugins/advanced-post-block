@@ -14,7 +14,7 @@ const FeatureImage = ({ attributes, updateObj }) => {
 	return <PanelBody className='bPlPanelBody' title={__('Feature Image', 'advanced-post-block')} initialOpen={false}>
 		<TabPanel className='bPlTabPanel small' activeClass='activeTab' tabs={normalHoverTabs}>{tab => <>
 			{'normal' === tab.name && <>
-				<ToggleControl className='mt10' label={__('Grayscale', 'advanced-post-block')} checked={grayScale} onChange={val => updateObj('image', val, 'styles', 'grayScale')} />
+				<ToggleControl className='mt10' label={<>{__('Grayscale', 'advanced-post-block')} <Badge size='regular' /></>} checked={grayScale} onChange={val => updateObj('image', val, 'styles', 'grayScale')} />
 
 				{!subLayout.includes('overlay') && <>
 					<BorderBoxControl className='mt20' label={__('Border', 'advanced-post-block')} value={border} onChange={val => updateObj('image', val, 'styles', 'border')} />
@@ -28,7 +28,7 @@ const FeatureImage = ({ attributes, updateObj }) => {
 			</>}
 
 			{'hover' === tab.name && <>
-				<ToggleControl className='mt10' label={__('Hover Grayscale', 'advanced-post-block')} checked={hoverGrayScale} onChange={val => updateObj('image', val, 'styles', 'hoverGrayScale')} />
+				<ToggleControl className='mt10' label={<>{__('Hover Grayscale', 'advanced-post-block')} <Badge size='regular' /></>} checked={hoverGrayScale} onChange={val => updateObj('image', val, 'styles', 'hoverGrayScale')} />
 
 				<SelectControl className='mt20' label={__('Animation:', 'advanced-post-block')} labelPosition='left' value={hoverAnimation} onChange={val => updateObj('image', val, 'styles', 'hoverAnimation')} options={[
 					{ label: __('None', 'advanced-post-block'), value: 'none' },
@@ -37,7 +37,7 @@ const FeatureImage = ({ attributes, updateObj }) => {
 				]} />
 
 				{!subLayout.includes('overlay') && <>
-					<BoxControl className='mt20' label={<>{__('Hover Radius', 'advanced-post-block')} <Badge size='regular' /></>} values={hoverRadius} onChange={val => updateObj('image', val, 'styles', 'hoverRadius')} />
+					<BoxControl className='mt20' label={__('Hover Radius', 'advanced-post-block')} values={hoverRadius} onChange={val => updateObj('image', val, 'styles', 'hoverRadius')} />
 
 					<ShadowControl className='mt20' label={__('Hover Shadow:', 'advanced-post-block')} value={hoverShadow} onChange={val => updateObj('image', val, 'styles', 'hoverShadow')} />
 				</>}

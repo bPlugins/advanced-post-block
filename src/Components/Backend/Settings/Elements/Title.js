@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { PanelBody, SelectControl, ToggleControl, RangeControl } from '@wordpress/components';
-import { Badge, Label, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
+import { Label, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
 
 import { titleTags } from '../../../../utils/options';
 
@@ -19,7 +19,7 @@ const Title = ({ attributes, setAttributes, updateObj }) => {
 
 			<SelectControl className='mt20' label={<>{__('Title Tag:', 'advanced-post-block')} <HelpTooltip text={__('Select the HTML tag for the post title (H1-H6, div, p, etc.).', 'advanced-post-block')} /></>} labelPosition='left' value={tag} options={titleTags} onChange={val => updateObj('title', val, 'tag')} />
 
-			<Label>{__('Title Limit', 'advanced-post-block')} <Badge size='regular' /></Label>
+			<Label>{__('Title Limit', 'advanced-post-block')}</Label>
 			<SelectControl label={__('Limit Type:', 'advanced-post-block')} labelPosition='left' value={type} onChange={val => updateObj('title', val, 'limit', 'type')} options={[
 				{ label: __('Word', 'advanced-post-block'), value: 'word' },
 				{ label: __('Character', 'advanced-post-block'), value: 'char' }

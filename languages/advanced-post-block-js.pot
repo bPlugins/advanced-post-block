@@ -931,11 +931,15 @@ msgid "Icon Hover Color:"
 msgstr ""
 
 #: build/index.js:1
+msgid "Separator Color:"
+msgstr ""
+
+#: build/index.js:1
 msgid "Space around the meta data elements."
 msgstr ""
 
 #: build/index.js:1
-msgid "Custom alignment and separator color are available in the Premium version."
+msgid "Custom meta alignment is available in the Premium version."
 msgstr ""
 
 #: build/index.js:1

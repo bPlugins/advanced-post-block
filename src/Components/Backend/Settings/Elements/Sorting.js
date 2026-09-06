@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { PanelBody } from '@wordpress/components';
-import { Badge, SortableControl, HelpTooltip } from '../../../../../../bpl-tools/Components';
+import { SortableControl, HelpTooltip } from '../../../../../../bpl-tools/Components';
 
 const Sorting = ({ attributes, setAttributes }) => {
 	const { layout, subLayout, elementsSort, isTitle, isMeta, isExcerpt } = attributes;
@@ -18,10 +18,7 @@ const Sorting = ({ attributes, setAttributes }) => {
 		.map(id => allPossible.find(i => i.id === id))
 		.filter(Boolean);
 
-	return <PanelBody className='bPlPanelBody' title={<>
-		{__('Elements', 'advanced-post-block')}
-		<Badge size='regular' />
-	</>}>
+	return <PanelBody className='bPlPanelBody' title={__('Elements', 'advanced-post-block')}>
 		<SortableControl
 			label={<>{__('Sort Element:', 'advanced-post-block')} <HelpTooltip text={__('Drag and sort to reorder the appearance of the title, meta data and excerpt.', 'advanced-post-block')} /></>}
 			value={sortingValue}

@@ -42,9 +42,13 @@ Choose from various display styles:
 
 - **Ticker:** Show content as a scrolling headline list.
 
+- **News Ticker:** Run headlines through a compact bar with its own label ribbon — ideal for breaking news and announcements.
+
 - **Accordion:** Display posts as collapsible panels that expand on click — perfect for FAQs, documentation, and long lists.
 
 - **Magazine 1:** Pair a large hero post with a scrollable sidebar list of secondary posts — the classic editorial front page.
+
+- **Magazine 2:** Stack a full-width hero post above a responsive grid of the remaining posts.
 
 Each layout includes sub-layouts such as Title Meta, Left or Right Image, Overlay Content, and Overlay Half Content.
 
@@ -114,6 +118,8 @@ Everything you need to build a professional and modern content display:
 
 - **Flexible Metadata:** Show or hide the post author (with an optional **author link**), date (with a **“Time Ago”** display), categories with position, **reading time** with a custom label, comment counts, and the **post view count** — with a custom **separator**, typography, different colors and margin.
 
+- **Meta Separator Color:** Give the character between meta items its own color.
+
 - **Category Badge Styling:** Set the padding, border radius and margin of the on-image category badge.
 
 - **Dynamic Excerpt:** Display excerpt from post excerpt or content with limit, alignment, typography, colors, and margin.
@@ -136,7 +142,7 @@ Everything you need to build a professional and modern content display:
 
 - **Premium Templates:** Unlock the full Template Library — import Pro-only, professionally designed post layouts in one click.
 
-- **Exclusive Layouts:** Unlock the **Grid 1**, **Magazine 2**, and **Timeline** layouts, plus the **List Left/Right Even-Odd** and **Overlay Content Box** sub-layouts.
+- **Exclusive Layouts:** Unlock the **Grid 1** and **Timeline** layouts, plus the **List Left/Right Even-Odd** and **Overlay Content Box** sub-layouts.
 
 - **Timeline Layout:** Lay posts out as a dated sequence, **Vertical** or **Horizontal**, with control over max width, orientation, line width, dot style, dot position and dot size, a date shown **Inline**, in the **Gutter** or on a **Badge**, and **Year/Month** grouping.
 
@@ -162,7 +168,7 @@ Everything you need to build a professional and modern content display:
 
 - **Advanced Read More:** 14 extra arrow icons, an icon gap and left/right icon position, an **Auto/Bottom** button position, and a pulse hover animation.
 
-- **Metadata Customization:** Set the gap between meta items, drag-and-drop reorder them, and set the meta alignment and separator color.
+- **Metadata Customization:** Set the gap between meta items, drag-and-drop reorder them, and set the meta alignment.
 
 - **Meta Author:** Set a custom author icon.
 
@@ -170,7 +176,7 @@ Everything you need to build a professional and modern content display:
 
 - **Meta Category:** Top Left, Top Right and Bottom Right on-image positions, plus a custom category icon.
 
-- **Tags & Custom Taxonomies:** Show tags and custom taxonomy terms in the meta row, each with its own custom icon.
+- **Custom Taxonomies:** Show custom taxonomy terms in the meta row, each with its own custom icon.
 
 - **Meta Reading Time:** Show the reading time **with seconds**, and replace the default reading time icon with your own.
 
@@ -356,6 +362,7 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 * **New:** Meta Date as Time Ago: Show the post date as "3 days ago" instead of a fixed date.
 * **New:** Meta Reading Time: Show the estimated reading time in the meta row, with a custom label.
 * **New:** Post View Count: Display tracked post views in the meta row.
+* **New:** Meta Separator Color: Give the separator character between meta items its own color.
 * **New:** Category Badge Spacing: Padding and border radius controls for the on-image category badge.
 * **New:** Image Grayscale: Apply a grayscale filter to the feature image, on normal state and on hover.
 

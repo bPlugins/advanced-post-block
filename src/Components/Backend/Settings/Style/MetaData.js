@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { TabPanel, PanelBody } from '@wordpress/components';
 
-import { BoxControl, ColorControl, ColorsControl, Typography, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
+import { Badge, BoxControl, ColorControl, ColorsControl, Typography, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
 import { SpaceControl } from '../../../../../../bpl-tools/Components/Deprecated';
 
 import { normalHoverTabs } from '../../../../../../bpl-tools/utils/options';
@@ -12,7 +12,7 @@ const MetaData = (props) => {
 	const { isMeta, metaCategoryIn, metaTypo, metaTextColor, metaLinkColor, metaIconColor, metaMargin, meta = {} } = attributes;
 	const { styles = {} } = meta || {};
 
-	const { hoverColor = '', linkHoverColor = '', iconHoverColor = '' } = styles || {};
+	const { hoverColor = '', linkHoverColor = '', iconHoverColor = '', separatorColor = '' } = styles || {};
 
 	if (!isMeta) return null;
 
@@ -34,6 +34,8 @@ const MetaData = (props) => {
 				<ColorControl label={__('Link Hover Color:', 'advanced-post-block')} value={linkHoverColor} onChange={val => updateObj('meta', val, 'styles', 'linkHoverColor')} defaultColor='' />
 
 				<ColorControl label={__('Icon Hover Color:', 'advanced-post-block')} value={iconHoverColor} onChange={val => updateObj('meta', val, 'styles', 'iconHoverColor')} defaultColor='' />
+
+				<ColorControl label={<>{__('Separator Color:', 'advanced-post-block')} <Badge size='regular' /></>} value={separatorColor} onChange={val => updateObj('meta', val, 'styles', 'separatorColor')} defaultColor='' />
 			</>}
 		</>}</TabPanel>
 
@@ -45,7 +47,7 @@ const MetaData = (props) => {
 			<CategoriesBadge {...props} />
 		</>}
 
-		<Notice status='premium' isIcon={true}>{__('Custom alignment and separator color are available in the Premium version.', 'advanced-post-block')}</Notice>
+		<Notice status='premium' isIcon={true}>{__('Custom meta alignment is available in the Premium version.', 'advanced-post-block')}</Notice>
 	</PanelBody>
 }
 export default MetaData;
@@ -59,9 +61,9 @@ const CategoriesBadge = ({ attributes, setAttributes, updateObj }) => {
 	return <PanelBody className='bPlPanelBody' title={__('Categories Badge', 'advanced-post-block')} initialOpen={false}>
 		<ColorsControl label={__('Colors:', 'advanced-post-block')} value={metaColorsOnImage} onChange={val => setAttributes({ metaColorsOnImage: val })} defaults={{ color: '#fff', bg: primaryColor }} />
 
-		<BoxControl className='mt20' label={__('Padding:', 'advanced-post-block')} values={padding} onChange={val => updateObj('categoryOnImage', val, 'styles', 'padding')} />
+		<BoxControl className='mt20' label={<>{__('Padding:', 'advanced-post-block')} <Badge size='regular' /></>} values={padding} onChange={val => updateObj('categoryOnImage', val, 'styles', 'padding')} />
 
-		<BoxControl className='mt20' label={__('Border Radius:', 'advanced-post-block')} values={radius} onChange={val => updateObj('categoryOnImage', val, 'styles', 'radius')} />
+		<BoxControl className='mt20' label={<>{__('Border Radius:', 'advanced-post-block')} <Badge size='regular' /></>} values={radius} onChange={val => updateObj('categoryOnImage', val, 'styles', 'radius')} />
 
 		<BoxControl className='mt20' label={__('Margin', 'advanced-post-block')} values={margin} onChange={val => updateObj('categoryOnImage', val, 'styles', 'margin')} />
 	</PanelBody>

@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { PanelBody, SelectControl, ToggleControl, __experimentalUnitControl as UnitControl } from '@wordpress/components';
-import { Badge, InlineMediaUpload, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
+import { InlineMediaUpload, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
 import { imageFittings } from '../../../../utils/options';
 import { emUnit, perUnit, pxUnit } from '../../../../../../bpl-tools/utils/options';
 
@@ -16,7 +16,7 @@ const FeatureImage = ({ attributes, setAttributes, updateObj, imageSizes }) => {
 				<ToggleControl className='mt10' label={__('Enable Link', 'advanced-post-block')} checked={isFImgLink} onChange={val => setAttributes({ isFImgLink: val })} />
 			</>}
 
-			<SelectControl className='mt20' label={<>{__('Size:', 'advanced-post-block')} <Badge size='regular' /> <HelpTooltip text={__('Select the image size (thumbnail, medium, large, full). Image may crop based on the image size.', 'advanced-post-block')} /></>} labelPosition='left' value={fImgSize} onChange={val => setAttributes({ fImgSize: val })} options={imageSizes} />
+			<SelectControl className='mt20' label={<>{__('Size:', 'advanced-post-block')} <HelpTooltip text={__('Select the image size (thumbnail, medium, large, full). Image may crop based on the image size.', 'advanced-post-block')} /></>} labelPosition='left' value={fImgSize} onChange={val => setAttributes({ fImgSize: val })} options={imageSizes} />
 
 			{!subLayout.includes('overlay') && <>
 				<UnitControl className='mt20' label={<>{__('Width:', 'advanced-post-block')} <HelpTooltip text={__('Define custom width for the post image.', 'advanced-post-block')} /></>} labelPosition='left' value={width} onChange={val => updateObj('image', val, 'width')} units={[pxUnit(), perUnit(), emUnit()]} />
@@ -28,7 +28,7 @@ const FeatureImage = ({ attributes, setAttributes, updateObj, imageSizes }) => {
 
 			<SelectControl className='mt20' label={<>{__('Fitting:', 'advanced-post-block')} <HelpTooltip text={__('Choose how the image should fit within its container.', 'advanced-post-block')} /></>} labelPosition='left' value={fImgFitting} onChange={val => setAttributes({ fImgFitting: val })} options={imageFittings} />
 
-			<InlineMediaUpload className='mt20' label={<>{__('Default Image:', 'advanced-post-block')} <Badge size='regular' /></>} value={defaultImage} types={['image']} onChange={val => updateObj('image', val, 'defaultImage')} placeholder={__('Placeholder Image URL', 'advanced-post-block')} />
+			<InlineMediaUpload className='mt20' label={__('Default Image:', 'advanced-post-block')} value={defaultImage} types={['image']} onChange={val => updateObj('image', val, 'defaultImage')} placeholder={__('Placeholder Image URL', 'advanced-post-block')} />
 		</>}
 
 		<Notice status='premium' isIcon={true}>{__('Image lazy loading and grayscale filters are available in the Premium version.', 'advanced-post-block')}</Notice>
