@@ -55,7 +55,7 @@ const Edit = props => {
 					<div className='proLayoutsNotice'>
 						{crownIcon}
 						<p>
-							{__('Grid 1, Magazine 2, and Timeline layouts are available in the', 'advanced-post-block')} <a href={pricingUrl} target='_blank' rel='noopener noreferrer'>{__('PREMIUM VERSION', 'advanced-post-block')}</a>
+							{__('Grid 1 and Timeline layouts are available in the', 'advanced-post-block')} <a href={pricingUrl} target='_blank' rel='noopener noreferrer'>{__('PREMIUM VERSION', 'advanced-post-block')}</a>
 						</p>
 					</div>
 				</div> :

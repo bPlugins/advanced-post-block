@@ -31,7 +31,7 @@ const FeatureImage = ({ attributes, setAttributes, updateObj, imageSizes }) => {
 			<InlineMediaUpload className='mt20' label={__('Default Image:', 'advanced-post-block')} value={defaultImage} types={['image']} onChange={val => updateObj('image', val, 'defaultImage')} placeholder={__('Placeholder Image URL', 'advanced-post-block')} />
 		</>}
 
-		<Notice status='premium' isIcon={true}>{__('Image lazy loading and grayscale filters are available in the Premium version.', 'advanced-post-block')}</Notice>
+		<Notice status='premium' isIcon={true}>{__('Image lazy loading is available in the Premium version.', 'advanced-post-block')}</Notice>
 	</PanelBody>
 };
 export default FeatureImage;

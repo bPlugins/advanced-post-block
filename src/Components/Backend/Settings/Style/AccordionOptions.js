@@ -31,6 +31,8 @@ const AccordionOptions = ({ attributes, setAttributes }) => {
 		<ColorControl label={__('Indicator Active Color:', 'advanced-post-block')} value={indicatorActiveColor} onChange={val => setStyles({ indicatorActiveColor: val })} defaultColor='' />
 
 		<Notice className='mt20'>{__('Body background uses Content Background, item border/shadow use the Article panel (open state = Hover Border), body padding uses Content Padding.', 'advanced-post-block')}</Notice>
+
+		<Notice status='premium' isIcon={true}>{__('Lift Up and Zoom In hover animations are available in the Premium version.', 'advanced-post-block')}</Notice>
 	</PanelBody>
 }
 export default AccordionOptions;

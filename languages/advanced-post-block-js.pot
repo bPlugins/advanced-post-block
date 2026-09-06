@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 
 #: build/index.js:1
-msgid "Grid 1, Magazine 2, and Timeline layouts are available in the"
+msgid "Grid 1 and Timeline layouts are available in the"
 msgstr ""
 
 #: build/index.js:1
@@ -122,9 +122,7 @@ msgid "Placeholder Image URL"
 msgstr ""
 
 #: build/index.js:1
-msgid ""
-"Image lazy loading and grayscale filters are available in the Premium "
-"version."
+msgid "Image lazy loading is available in the Premium version."
 msgstr ""
 
 #: build/index.js:1
@@ -313,8 +311,8 @@ msgstr ""
 
 #: build/index.js:1
 msgid ""
-"More icons, icon positioning, and gap adjustments are available in the "
-"Premium version."
+"More icons, icon gap and left/right icon position, and an Auto/Bottom "
+"button position are available in the Premium version."
 msgstr ""
 
 #: build/index.js:1
@@ -803,6 +801,10 @@ msgid ""
 msgstr ""
 
 #: build/index.js:1
+msgid "Lift Up and Zoom In hover animations are available in the Premium version."
+msgstr ""
+
+#: build/index.js:1
 msgid "Article"
 msgstr ""
 
@@ -979,7 +981,7 @@ msgid "Hover Animation:"
 msgstr ""
 
 #: build/index.js:1
-msgid "Interactive pulse animations is available in the Premium version."
+msgid "The interactive pulse hover animation is available in the Premium version."
 msgstr ""
 
 #: build/index.js:1

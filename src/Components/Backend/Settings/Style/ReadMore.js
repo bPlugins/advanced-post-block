@@ -50,7 +50,7 @@ const ReadMore = ({ attributes, setAttributes, updateObj }) => {
 			</>}
 		</>}</TabPanel>
 
-		<Notice status='premium' isIcon={true}>{__('Interactive pulse animations is available in the Premium version.', 'advanced-post-block')}</Notice>
+		<Notice status='premium' isIcon={true}>{__('The interactive pulse hover animation is available in the Premium version.', 'advanced-post-block')}</Notice>
 	</PanelBody>
 }
 export default ReadMore;

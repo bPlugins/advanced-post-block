@@ -21,7 +21,7 @@ const ReadMore = ({ attributes, setAttributes, updateObj }) => {
 			<BtnGroup value={icon} onChange={val => updateObj('readMore', val, 'icon')} options={readMoreIcons} isIcon={true} />
 		</>}
 
-		<Notice status='premium' isIcon={true}>{__('More icons, icon positioning, and gap adjustments are available in the Premium version.', 'advanced-post-block')}</Notice>
+		<Notice status='premium' isIcon={true}>{__('More icons, icon gap and left/right icon position, and an Auto/Bottom button position are available in the Premium version.', 'advanced-post-block')}</Notice>
 	</PanelBody>
 };
 export default ReadMore;
