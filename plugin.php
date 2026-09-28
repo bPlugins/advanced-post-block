@@ -5,7 +5,7 @@
  * Version: 2.5.0
  * Author: bPlugins
  * Author URI: https://bplugins.com
- * Plugin URI: https://bplugins.com/products/advanced-post-block
+ * Plugin URI: https://bplugins.com/products/advanced-post-block/
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain: advanced-post-block

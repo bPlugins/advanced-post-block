@@ -22,7 +22,7 @@ const General = ({ attributes, setAttributes, updateObj, device, postTypes, allT
 	const props = { attributes, setAttributes, updateObj }
 
 	return <>
-		<HelpPanel slug='advanced-post-block' docsLink='https://bplugins.com/docs/advanced-post-block' />
+		<HelpPanel slug='advanced-post-block' docsLink='https://bplugins.com/docs/advanced-post-block/' />
 
 		<Layout {...props} device={device} />
 
