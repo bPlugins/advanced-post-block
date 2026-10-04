@@ -73,12 +73,12 @@ const NewsTicker = ({ posts, attributes, id }) => {
 		</div>
 
 		<div className={`newsTickerNav`}>
-			<button ref={setPrevEl} className={`newsTickerNavBtn ${prevClass}`} aria-label='Previous'>
+			<button ref={setPrevEl} className={`newsTickerNavBtn ${prevClass}`} aria-label={__('Previous', 'advanced-post-block')}>
 				<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='3' strokeLinecap='round' strokeLinejoin='round'>
 					<polyline points='18 15 12 9 6 15' />
 				</svg>
 			</button>
-			<button ref={setNextEl} className={`newsTickerNavBtn ${nextClass}`} aria-label='Next'>
+			<button ref={setNextEl} className={`newsTickerNavBtn ${nextClass}`} aria-label={__('Next', 'advanced-post-block')}>
 				<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='3' strokeLinecap='round' strokeLinejoin='round'>
 					<polyline points='6 9 12 15 18 9' />
 				</svg>

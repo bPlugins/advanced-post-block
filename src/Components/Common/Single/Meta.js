@@ -22,7 +22,7 @@ const Meta = ({ post, attributes }) => {
 	});
 
 	// Custom taxonomies are premium-only, so that sorting key is dropped here rather
-	// than rendered — the saved order still round-trips.
+	// than rendered - the saved order still round-trips.
 	const visibleMetaElements = sorting.filter(key => {
 		if (key === 'author') return isMetaAuthor;
 		if (key === 'date') return isMetaDate;

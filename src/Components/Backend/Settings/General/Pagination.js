@@ -29,7 +29,7 @@ const Pagination = ({ attributes, setAttributes, updateObj }) => {
 			onChange={val => setAttributes({ isPagination: false, loadMore: { ...loadMore, type: val } })}
 			options={loadMoreTypes}
 		/>
-		<Notice status='warning'>{__(`Load More / Pagination will not work if 'Post Per Page' is -1`, 'advanced-post-block')}</Notice>
+		<Notice status='warning'>{__('Load More / Pagination will not work if \'Post Per Page\' is -1', 'advanced-post-block')}</Notice>
 
 
 		<BtnGroup className='mt20' label={__('Alignment', 'advanced-post-block')} value={alignment} onChange={val => updateObj('loadMore', val, 'alignment')} options={flexAligns} isIcon={true} />

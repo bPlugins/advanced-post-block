@@ -27,7 +27,7 @@ const SubLayout = ({ post, attributes }) => {
 			return <Overlay post={post} attributes={attributes} postClass={postClass} />;
 		default:
 			// Premium-only sub-layouts (the even/odd lists) can survive in saved content
-			// after a downgrade — fall back to Default so the post still renders.
+			// after a downgrade - fall back to Default so the post still renders.
 			return <Default post={post} attributes={attributes} postClass={postClass} />;
 	}
 }

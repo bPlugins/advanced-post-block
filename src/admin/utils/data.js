@@ -12,8 +12,8 @@ export const dashboardInfo = (info) => {
 
 	return {
 		name: `Advanced Post Block${proSuffix}`,
-		displayName: `Advanced Post Block${proSuffix} - Showcase Posts with Grid, List, Card Layouts and Filters`,
-		description: 'Advanced Post Block is a powerful and flexible block plugin that allows you to display posts, display blog posts, and embed custom posts in a fully customizable and responsive layout.',
+		displayName: `Advanced Post Block${proSuffix} - ${__('Showcase Posts with Grid, List, Card Layouts and Filters', 'advanced-post-block')}`,
+		description: __('Advanced Post Block is a powerful and flexible block plugin that allows you to display posts, display blog posts, and embed custom posts in a fully customizable and responsive layout.', 'advanced-post-block'),
 		slug,
 		version,
 		isPremium,
@@ -42,15 +42,15 @@ export const dashboardInfo = (info) => {
 		deleteDataOnUninstall,
 		uninstallNonce,
 		startButton: {
-			label: 'Start Now',
+			label: __('Start Now', 'advanced-post-block'),
 			url: `${adminUrl}/post-new.php?post_type=apb`
 		}
 	}
 }
 
 export const welcomeInfo = (adminUrl) => ({
-	keywords: ['Grid', 'Masonry', 'Slider', 'Ticker', 'News Ticker', 'Accordion', 'Magazine 1', 'Magazine 2'],
-	keywordsLabel: 'Layouts',
+	keywords: [__('Grid', 'advanced-post-block'), __('Masonry', 'advanced-post-block'), __('Slider', 'advanced-post-block'), __('Ticker', 'advanced-post-block'), __('News Ticker', 'advanced-post-block'), __('Accordion', 'advanced-post-block'), __('Magazine 1', 'advanced-post-block'), __('Magazine 2', 'advanced-post-block')],
+	keywordsLabel: __('Layouts', 'advanced-post-block'),
 	gettingStarted: {
 		tabs: [
 			{
@@ -60,109 +60,118 @@ export const welcomeInfo = (adminUrl) => ({
 				steps: [
 					{
 						num: 1,
-						title: 'Add the APB Block',
-						body: 'Open the block editor on any post or page. Click the <strong>+</strong> icon in the top-left corner or type <strong>/Advanced Posts</strong> to find and insert the Advanced Posts block.',
-						link: { url: `${adminUrl}/post-new.php`, label: 'Open Editor' }
+						title: __('Add the APB Block', 'advanced-post-block'),
+						body: __('Open the block editor on any post or page. Click the <strong>+</strong> icon in the top-left corner or type <strong>/Advanced Posts</strong> to find and insert the Advanced Posts block.', 'advanced-post-block'),
+						link: { url: `${adminUrl}/post-new.php`, label: __('Open Editor', 'advanced-post-block') }
 					},
 					{
 						num: 2,
-						title: 'Choose a Layout',
-						body: 'Select the layout from — <strong>Grid</strong>, <strong>Grid 1</strong>, <strong>Masonry</strong>, <strong>Slider</strong>, <strong>Ticker</strong>, <strong>News Ticker</strong>, <strong>Accordion</strong>, <strong>Magazine 1</strong>, <strong>Magazine 2</strong>, or <strong>Timeline</strong>. Switching layouts is non-destructive; your query settings are preserved.'
+						title: __('Choose a Layout', 'advanced-post-block'),
+						body: __('Select the layout from - <strong>Grid</strong>, <strong>Grid 1</strong>, <strong>Masonry</strong>, <strong>Slider</strong>, <strong>Ticker</strong>, <strong>News Ticker</strong>, <strong>Accordion</strong>, <strong>Magazine 1</strong>, <strong>Magazine 2</strong>, or <strong>Timeline</strong>. Switching layouts is non-destructive; your query settings are preserved.', 'advanced-post-block')
 					},
 					{
 						num: 3,
-						title: 'Configure the Posts Query',
-						body: 'In the <strong>Posts Query</strong> panel, filter by categories, tags, or authors, skip posts with <strong>Post Offset</strong>, target exact posts with <strong>Include/Exclude Posts</strong>, and control the number and order of posts. Then pick a <strong>Load More / Pagination</strong> type to split long lists across pages.'
+						title: __('Configure the Posts Query', 'advanced-post-block'),
+						body: __('In the <strong>Posts Query</strong> panel, filter by categories, tags, or authors, skip posts with <strong>Post Offset</strong>, target exact posts with <strong>Include/Exclude Posts</strong>, and control the number and order of posts. Then pick a <strong>Load More / Pagination</strong> type to split long lists across pages.', 'advanced-post-block')
 					},
 					{
 						num: 4,
-						title: 'Style Elements & Publish',
-						body: 'Use the <strong>Elements</strong> tab to toggle and reorder post content (image, title, meta, excerpt, read more), then the <strong>Style</strong> tab to set colors, typography, borders, and hover effects. Publish when ready.'
+						title: __('Style Elements & Publish', 'advanced-post-block'),
+						body: __('Use the <strong>Elements</strong> tab to toggle and reorder post content (image, title, meta, excerpt, read more), then the <strong>Style</strong> tab to set colors, typography, borders, and hover effects. Publish when ready.', 'advanced-post-block')
 					}
 				]
 			},
 			{
 				key: 'template',
-				label: 'Template Library',
+				label: __('Template Library', 'advanced-post-block'),
 				icon: templateTabIcon,
 				steps: [
 					{
 						num: 1,
-						title: 'Open the Template Library',
-						body: 'In the block editor, click the <strong>Template Library</strong> button in the top toolbar (next to the block inserter) to open the templates modal.',
-						link: { url: `${adminUrl}/post-new.php`, label: 'Open Editor' }
+						title: __('Open the Template Library', 'advanced-post-block'),
+						body: __('In the block editor, click the <strong>Template Library</strong> button in the top toolbar (next to the block inserter) to open the templates modal.', 'advanced-post-block'),
+						link: { url: `${adminUrl}/post-new.php`, label: __('Open Editor', 'advanced-post-block') }
 					},
 					{
 						num: 2,
-						title: 'Browse & Filter Templates',
-						body: 'Switch between the <strong>Patterns</strong> and <strong>Favorites</strong> tabs, then narrow the gallery by access (<strong>All</strong>, <strong>Free</strong>, <strong>Pro</strong>), by category (Grid, List, Magazine, Masonry, Overlay), or search templates by name.'
+						title: __('Browse & Filter Templates', 'advanced-post-block'),
+						body: __('Switch between the <strong>Patterns</strong> and <strong>Favorites</strong> tabs, then narrow the gallery by access (<strong>All</strong>, <strong>Free</strong>, <strong>Pro</strong>), by category (Grid, List, Magazine, Masonry, Overlay), or search templates by name.', 'advanced-post-block')
 					},
 					{
 						num: 3,
-						title: 'Preview & Save Favorites',
-						body: 'Click the <strong>eye</strong> icon on a template to open its live demo in a new tab, or the <strong>heart</strong> icon to save it — favorites stay one click away under the <strong>Favorites</strong> tab.'
+						title: __('Preview & Save Favorites', 'advanced-post-block'),
+						body: __('Click the <strong>eye</strong> icon on a template to open its live demo in a new tab, or the <strong>heart</strong> icon to save it - favorites stay one click away under the <strong>Favorites</strong> tab.', 'advanced-post-block')
 					},
 					{
 						num: 4,
-						title: 'Import & Customize',
-						body: 'Hit <strong>+ Import</strong> and the template is inserted right into your content as editable blocks — then tweak the query, elements, and styles as usual. Pro templates show <strong>Get Pro</strong> until your license is active.'
+						title: __('Import & Customize', 'advanced-post-block'),
+						body: __('Hit <strong>+ Import</strong> and the template is inserted right into your content as editable blocks - then tweak the query, elements, and styles as usual. Pro templates show <strong>Get Pro</strong> until your license is active.', 'advanced-post-block')
 					}
 				]
 			},
 			{
 				key: 'shortcode',
-				label: 'ShortCode',
+				label: __('ShortCode', 'advanced-post-block'),
 				icon: shortcodeTabIcon,
 				steps: [
 					{
 						num: 1,
-						title: 'Open ShortCode Generator',
-						body: 'Go to <strong>Advanced Posts &rsaquo; ShortCode Generator</strong> in your WordPress admin and click <strong>Add New ShortCode</strong>.',
-						link: { url: `${adminUrl}/edit.php?post_type=apb`, label: 'ShortCode Generator' }
+						title: __('Open ShortCode Generator', 'advanced-post-block'),
+						body: __('Go to <strong>Advanced Posts &rsaquo; ShortCode Generator</strong> in your WordPress admin and click <strong>Add New ShortCode</strong>.', 'advanced-post-block'),
+						link: { url: `${adminUrl}/edit.php?post_type=apb`, label: __('ShortCode Generator', 'advanced-post-block') }
 					},
 					{
 						num: 2,
-						title: 'Configure the Block',
-						body: 'In the block editor, use the sidebar to choose your layout, set the Posts Query filters (post type, categories, tags, order), and adjust Elements and Style settings.'
+						title: __('Configure the Block', 'advanced-post-block'),
+						body: __('In the block editor, use the sidebar to choose your layout, set the Posts Query filters (post type, categories, tags, order), and adjust Elements and Style settings.', 'advanced-post-block')
 					},
 					{
 						num: 3,
-						title: 'Publish & Copy the Shortcode',
-						body: 'Publish the post. Return to the ShortCode Generator list — the shortcode <code>[apb id=POST_ID]</code> is shown in the list table. Click it to copy to clipboard.'
+						title: __('Publish & Copy the Shortcode', 'advanced-post-block'),
+						body: __('Publish the post. Return to the ShortCode Generator list - the shortcode <code>[apb id=POST_ID]</code> is shown in the list table. Click it to copy to clipboard.', 'advanced-post-block')
 					},
 					{
 						num: 4,
-						title: 'Paste Anywhere',
-						body: 'Paste the copied shortcode (e.g. <code>[apb id=123]</code>) into any post, page, widget area, or block using the <strong>Shortcode</strong> block.'
+						title: __('Paste Anywhere', 'advanced-post-block'),
+						body: __('Paste the copied shortcode (e.g. <code>[apb id=123]</code>) into any post, page, widget area, or block using the <strong>Shortcode</strong> block.', 'advanced-post-block')
 					}
 				]
 			},
 			{
 				key: 'pageBuilder',
-				label: 'Page Builder',
+				label: __('Page Builder', 'advanced-post-block'),
 				icon: pageBuilderTabIcon,
 				steps: [
 					{
 						num: 1,
-						title: 'Create a ShortCode',
-						body: 'Go to <strong>Advanced Posts &rsaquo; ShortCode Generator</strong>, click <strong>Add New ShortCode</strong>, configure your layout and query, then publish. Note the shortcode from the list table.',
-						link: { url: `${adminUrl}/edit.php?post_type=apb`, label: 'ShortCode Generator' }
+						title: __('Create a ShortCode', 'advanced-post-block'),
+						body: __('Go to <strong>Advanced Posts &rsaquo; ShortCode Generator</strong>, click <strong>Add New ShortCode</strong>, configure your layout and query, then publish. Note the shortcode from the list table.', 'advanced-post-block'),
+						link: { url: `${adminUrl}/edit.php?post_type=apb`, label: __('ShortCode Generator', 'advanced-post-block') }
 					},
 					{
 						num: 2,
-						title: 'Add a Shortcode Widget',
-						body: 'Add the Page Builder <strong>Shortcode</strong> widget to your page and insert to the page.'
+						title: __('Add a Shortcode Widget', 'advanced-post-block'),
+						body: __('Add the Page Builder <strong>Shortcode</strong> widget to your page and insert to the page.', 'advanced-post-block')
 					},
 					{
 						num: 3,
-						title: 'Enter & Preview',
-						body: 'Type <code>[apb id=YOUR_ID]</code> into the widget\'s Shortcode field (replace <em>YOUR_ID</em> with your actual post ID) and click <strong>Preview</strong> to see the posts rendered live.'
+						title: __('Enter & Preview', 'advanced-post-block'),
+						body: __('Type <code>[apb id=YOUR_ID]</code> into the widget\'s Shortcode field (replace <em>YOUR_ID</em> with your actual post ID) and click <strong>Preview</strong> to see the posts rendered live.', 'advanced-post-block')
 					}
 				]
 			}
 		]
 	},
 	changelogs: [
+		{
+			version: '2.5.1 - 4 Oct 2026',
+			type: 'new',
+			list: [
+				'<strong>New:</strong> Template Library: Imports and favorites now help rank the most popular templates - only reported when you allow usage tracking.',
+				'<strong>Update:</strong> Translations: The admin dashboard, block settings, and front-end labels (view counts, comment links, ticker navigation) are now fully translatable.',
+				'<strong>Fix:</strong> Slider: The Autoplay Delay labels used the wrong text domain and could not be translated.'
+			]
+		},
 		{
 			version: '2.5.0 - 6 Sep 2026',
 			type: 'new',
@@ -183,9 +192,9 @@ export const welcomeInfo = (adminUrl) => ({
 			version: '2.4.0 - 18 Aug 2026',
 			type: 'new',
 			list: [
-				'<strong>New:</strong> Magazine 1 Layout: The hero-plus-sidebar magazine layout is now free — pair a large featured post with a scrollable list of secondary posts, with its own sidebar list layout and responsive hero min-height.',
+				'<strong>New:</strong> Magazine 1 Layout: The hero-plus-sidebar magazine layout is now free - pair a large featured post with a scrollable list of secondary posts, with its own sidebar list layout and responsive hero min-height.',
 				'<strong>New:</strong> Overlay Half Content Sub Layout: Text sits over the bottom half of the image behind a soft gradient.',
-				'<strong>New:</strong> Load More / Pagination: Numbered <strong>Pagination</strong> and prev/next <strong>Navigation</strong> — with custom labels, alignment, colors, active/hover colors, padding, spacing, and back-to-top on page change.',
+				'<strong>New:</strong> Load More / Pagination: Numbered <strong>Pagination</strong> and prev/next <strong>Navigation</strong> - with custom labels, alignment, colors, active/hover colors, padding, spacing, and back-to-top on page change.',
 				'<strong>New:</strong> Query Controls: Select <strong>Pages</strong> as a post source, filter posts by <strong>Tags</strong>, skip posts with <strong>Post Offset</strong>, and target exact posts with <strong>Include Posts</strong> and <strong>Exclude Posts</strong>.',
 				'<strong>New:</strong> Element Sorting: Drag and drop to reorder the title, meta data, and excerpt inside each post.',
 				'<strong>New:</strong> Feature Image: Pick any registered <strong>image size</strong>, set a <strong>fallback image</strong> for posts without a thumbnail, and animate the corner radius on hover.',
@@ -197,14 +206,14 @@ export const welcomeInfo = (adminUrl) => ({
 			version: '2.3.0 - 30 Jul 2026',
 			type: 'new',
 			list: [
-				'<strong>New:</strong> Accordion Layout: Added a new collapsible Accordion layout to display posts as expandable panels — great for FAQs, docs, and long-form lists. Includes <strong>Classic</strong> and <strong>Card Stack</strong> themes, single open mode, expand-icon controls, and full styling.'
+				'<strong>New:</strong> Accordion Layout: Added a new collapsible Accordion layout to display posts as expandable panels - great for FAQs, docs, and long-form lists. Includes <strong>Classic</strong> and <strong>Card Stack</strong> themes, single open mode, expand-icon controls, and full styling.'
 			]
 		},
 		{
 			version: '2.2.2 - 22 Jul 2026',
 			type: 'new',
 			list: [
-				'<strong>New:</strong> Template Library: Browse and import professionally designed post layouts with one click using the new <strong>Template Library</strong> button in the editor toolbar — complete with search, filters, and live preview.'
+				'<strong>New:</strong> Template Library: Browse and import professionally designed post layouts with one click using the new <strong>Template Library</strong> button in the editor toolbar - complete with search, filters, and live preview.'
 			]
 		},
 		{
@@ -339,189 +348,189 @@ export const welcomeInfo = (adminUrl) => ({
 		}
 	],
 	changelogsLimit: 6,
-	changelogsReadMoreLabel: 'View More Changelogs',
+	changelogsReadMoreLabel: __('View More Changelogs', 'advanced-post-block'),
 	proFeatures: [
-		'More Layouts: Grid 1 and Timeline layouts.',
-		'Accordion Pro Themes: Thumbnail, Numbered FAQ, Split Panel, and Minimal Lines.',
-		'Ticker and News Ticker options.',
-		'Advanced Query: Presets, Custom Taxonomies, and Search.',
-		'Tags and Custom Taxonomies in the meta row, each with its own icon.',
-		'Infinity Scroll with a trigger offset, spinner, and loading label.',
-		'Meta sorting and gaps, custom meta icons, date formats, and reading time seconds.',
-		'Image Lazy Loading, the Scale Up hover animation, and title ellipsis.'
+		__('More Layouts: Grid 1 and Timeline layouts.', 'advanced-post-block'),
+		__('Accordion Pro Themes: Thumbnail, Numbered FAQ, Split Panel, and Minimal Lines.', 'advanced-post-block'),
+		__('Ticker and News Ticker options.', 'advanced-post-block'),
+		__('Advanced Query: Presets, Custom Taxonomies, and Search.', 'advanced-post-block'),
+		__('Tags and Custom Taxonomies in the meta row, each with its own icon.', 'advanced-post-block'),
+		__('Infinity Scroll with a trigger offset, spinner, and loading label.', 'advanced-post-block'),
+		__('Meta sorting and gaps, custom meta icons, date formats, and reading time seconds.', 'advanced-post-block'),
+		__('Image Lazy Loading, the Scale Up hover animation, and title ellipsis.', 'advanced-post-block')
 	],
 })
 
 export const demoInfo = {
-	allInOneLabel: 'See All Demos',
+	allInOneLabel: __('See All Demos', 'advanced-post-block'),
 	allInOneLink: 'https://apb.bplugins.com/all-demos-in-one-place/',
 	demos: [
 		{
 			icon: gridIcon,
-			title: 'Grid',
+			title: __('Grid', 'advanced-post-block'),
 			children: [
 				{
-					title: 'Retro Print Teal',
+					title: __('Retro Print Teal', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/retro-print-teal/'
 				},
 				{
-					title: 'Strata Daily',
+					title: __('Strata Daily', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/strata-daily/'
 				},
 				{
-					title: 'Willow Journal',
+					title: __('Willow Journal', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/willow-journal/'
 				},
 				{
-					title: 'Sable Folio',
+					title: __('Sable Folio', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/sable-folio/'
 				},
 				{
-					title: 'Solstice Review',
+					title: __('Solstice Review', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/solstice-review/'
 				},
 				{
-					title: 'Slate Ledger',
+					title: __('Slate Ledger', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/slate-ledger/'
 				},
 				{
-					title: 'Lumen Review',
+					title: __('Lumen Review', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/lumen-review/'
 				},
 				{
-					title: 'Vellum Folio',
+					title: __('Vellum Folio', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/vellum-folio/'
 				},
 				{
-					title: 'Meridian Ledger',
+					title: __('Meridian Ledger', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/meridian-ledger/'
 				},
 				{
-					title: 'Meridian Journal Gallery',
+					title: __('Meridian Journal Gallery', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/meridian-journal-gallery/'
 				},
 				{
-					title: 'Slate Stand Gallery',
+					title: __('Slate Stand Gallery', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/slate-stand-gallery/'
 				},
 				{
-					title: 'Slate Edition',
+					title: __('Slate Edition', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/slate-edition/'
 				},
 				{
-					title: 'Meridian Edition',
+					title: __('Meridian Edition', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/meridian-edition/'
 				},
 				{
-					title: 'Vellum Ledger',
+					title: __('Vellum Ledger', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/vellum-ledger/'
 				},
 				{
-					title: 'Obsidian Review',
+					title: __('Obsidian Review', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/obsidian-review/'
 				},
 				{
-					title: 'Obsidian Journal',
+					title: __('Obsidian Journal', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/obsidian-journal/'
 				},
 				{
-					title: 'Obsidian Press',
+					title: __('Obsidian Press', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/obsidian-press/'
 				},
 				{
-					title: 'Meridian Daily',
+					title: __('Meridian Daily', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/meridian-daily/'
 				},
 				{
-					title: 'Aurora Daily',
+					title: __('Aurora Daily', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/aurora-daily/'
 				},
 				{
-					title: 'Vista Daily',
+					title: __('Vista Daily', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/vista-daily/'
 				},
 				{
-					title: 'Compact Cyber Neon',
+					title: __('Compact Cyber Neon', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/compact-cyber-neon/'
 				},
 				{
-					title: 'Compact Neo Brutal',
+					title: __('Compact Neo Brutal', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/compact-neo-brutal/'
 				},
 				{
-					title: 'Compact Elite Clean',
+					title: __('Compact Elite Clean', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/compact-elite-clean/'
 				},
 				{
-					title: 'Minimal Cyber Neon',
+					title: __('Minimal Cyber Neon', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/minimal-cyber-neon/'
 				},
 				{
-					title: 'Minimal Neo Brutal',
+					title: __('Minimal Neo Brutal', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/minimal-neo-brutal/'
 				},
 				{
-					title: 'Minimal Elite Clean',
+					title: __('Minimal Elite Clean', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/minimal-elite-clean/'
 				},
 				{
-					title: 'Default',
+					title: __('Default', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/grid-default-layout/',
 				},
 				{
-					title: 'Title Meta',
+					title: __('Title Meta', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/grid-title-meta-layout/'
 				},
 				{
-					title: 'Side Image',
+					title: __('Side Image', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/grid-side-image-layout/'
 				},
 				{
-					title: 'Overlay',
+					title: __('Overlay', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/grid-overlay-layout/'
 				}
 			]
 		},
 		{
-			title: 'Grid 1',
+			title: __('Grid 1', 'advanced-post-block'),
 			children: [
 				{
-					title: 'Basalt Press',
+					title: __('Basalt Press', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/basalt-press/'
 				},
 				{
-					title: 'Lumen Folio',
+					title: __('Lumen Folio', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/lumen-folio/'
 				}
@@ -529,30 +538,30 @@ export const demoInfo = {
 		},
 		{
 			icon: masonryIcon,
-			title: 'Masonry',
+			title: __('Masonry', 'advanced-post-block'),
 			children: [
 				{
-					title: 'Vista Dispatch',
+					title: __('Vista Dispatch', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/vista-dispatch/'
 				},
 				{
-					title: 'Default',
+					title: __('Default', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/masonry-default-layout/'
 				},
 				{
-					title: 'Title Meta',
+					title: __('Title Meta', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/masonry-title-meta-layout/'
 				},
 				{
-					title: 'Side Image',
+					title: __('Side Image', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/masonry-side-image-layout/'
 				},
 				{
-					title: 'Overlay',
+					title: __('Overlay', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/masonry-overlay-layout/'
 				}
@@ -560,30 +569,30 @@ export const demoInfo = {
 		},
 		{
 			icon: sliderIcon,
-			title: 'Slider',
+			title: __('Slider', 'advanced-post-block'),
 			children: [
 				{
-					title: 'Side Image',
+					title: __('Side Image', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/slider-side-image-layout/'
 				},
 				{
-					title: 'Overlay',
+					title: __('Overlay', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/slider-overlay-layout/'
 				}
 			]
 		},
 		{
-			title: 'Magazine 1',
+			title: __('Magazine 1', 'advanced-post-block'),
 			children: [
 				{
-					title: 'Mica Gazette',
+					title: __('Mica Gazette', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/mica-gazette/'
 				},
 				{
-					title: 'Quartz Stand',
+					title: __('Quartz Stand', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/quartz-stand/'
 				}
@@ -591,15 +600,15 @@ export const demoInfo = {
 		},
 		{
 			icon: tickerIcon,
-			title: 'Ticker',
+			title: __('Ticker', 'advanced-post-block'),
 			children: [
 				{
-					title: 'Side Image',
+					title: __('Side Image', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/ticker-side-image-layout/'
 				},
 				{
-					title: 'Overlay',
+					title: __('Overlay', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/ticker-overlay-layout/'
 				}
@@ -607,30 +616,30 @@ export const demoInfo = {
 		},
 		{
 			icon: postSectionDemoIcon,
-			title: 'Post Section',
+			title: __('Post Section', 'advanced-post-block'),
 			children: [
 				{
-					title: 'Post Section (Design 1)',
+					title: __('Post Section (Design 1)', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/design-1/'
 				},
 				{
-					title: 'Post Section (Design 2)',
+					title: __('Post Section (Design 2)', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/post-section-design-2/'
 				},
 				{
-					title: 'Post Section (Design 3)',
+					title: __('Post Section (Design 3)', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/post-section-design-3/'
 				},
 				{
-					title: 'Post Section (Design 4)',
+					title: __('Post Section (Design 4)', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/post-section-design-4/'
 				},
 				{
-					title: 'Post Section (Design 5)',
+					title: __('Post Section (Design 5)', 'advanced-post-block'),
 					type: 'iframe',
 					url: 'https://apb.bplugins.com/demo/post-section-design-5/'
 				}
@@ -638,7 +647,7 @@ export const demoInfo = {
 		},
 		{
 			icon: allPostsDemoIcon,
-			title: 'All Posts',
+			title: __('All Posts', 'advanced-post-block'),
 			type: 'iframe',
 			url: 'https://apb.bplugins.com/demo/all-posts/'
 		}
@@ -655,7 +664,7 @@ export const pricingInfo = {
 		null
 	],
 	button: {
-		label: 'Buy Now ➜'
+		label: __('Buy Now ➜', 'advanced-post-block')
 	},
 	featured: {
 		selected: 3, // choose from licenses item

@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import { useState, useEffect } from 'react';
+import { __ } from '@wordpress/i18n';
 import { FormTokenField } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import { useDebounce } from '@wordpress/compose';
@@ -85,10 +86,10 @@ const AsyncTokenField = ({ label, value = [], onChange, apiPath, __experimentalE
 		onChange={handleOnChange}
 		__experimentalExpandOnFocus={__experimentalExpandOnFocus}
 		messages={{
-			added: 'Added',
-			removed: 'Removed',
-			remove: 'Remove',
-			__experimentalInvalid: 'Invalid item'
+			added: __('Added', 'advanced-post-block'),
+			removed: __('Removed', 'advanced-post-block'),
+			remove: __('Remove', 'advanced-post-block'),
+			__experimentalInvalid: __('Invalid item', 'advanced-post-block')
 		}}
 		{...props}
 	/>

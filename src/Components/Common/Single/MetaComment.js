@@ -1,3 +1,4 @@
+import { __, sprintf } from '@wordpress/i18n';
 import MetaImage from './MetaImage';
 
 const MetaComment = ({ post, attributes, separatorEl }) => {
@@ -10,7 +11,7 @@ const MetaComment = ({ post, attributes, separatorEl }) => {
 		<span className='metaItem'>
 			<MetaImage item='comment' />
 
-			<a href={`${link}/#comments`} target='_blank' rel='noreferrer' aria-label={`Comments of ${title}`}>{commentCount}</a>
+			<a href={`${link}/#comments`} target='_blank' rel='noreferrer' aria-label={sprintf( /* translators: %s: Post title. */ __('Comments of %s', 'advanced-post-block'), title)}>{commentCount}</a>
 		</span>
 	</> : null;
 };

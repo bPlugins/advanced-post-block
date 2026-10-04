@@ -11,7 +11,7 @@ import { prefix, pricingUrl } from '../utils/data';
  */
 const TemplateLibrary = () => {
 	const nonce = apbtemplatenonce;
-	const isPremium = false; // Free version — Pro templates show the "Get Pro" link
+	const isPremium = false; // Free version - Pro templates show the "Get Pro" link
 
 	return <BPLTemplateLibrary
 		prefix={prefix}

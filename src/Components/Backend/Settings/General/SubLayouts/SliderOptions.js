@@ -16,9 +16,9 @@ const SliderOptions = ({ attributes, setAttributes }) => {
 		<ToggleControl className='mt10' label={__('Enable Autoplay', 'advanced-post-block')} checked={sliderIsAutoplay} onChange={val => setAttributes({ sliderIsAutoplay: val })} />
 
 		{sliderIsAutoplay && <>
-			<Label className='mt10'>{__('Autoplay Delay (s):', 'content-slider-block')} <HelpTooltip text={__('Delay between slides in seconds. Smaller values mean faster autoplay.', 'advanced-post-block')} /></Label>
+			<Label className='mt10'>{__('Autoplay Delay (s):', 'advanced-post-block')} <HelpTooltip text={__('Delay between slides in seconds. Smaller values mean faster autoplay.', 'advanced-post-block')} /></Label>
 			<RangeControl value={sliderAutoplayOptions.delay} onChange={val => setAttributes({ sliderAutoplayOptions: { ...sliderAutoplayOptions, delay: val } })} min={0} max={10} step={.05} />
-			<Notice>{__('Smaller delay value will be autoplay faster', 'content-slider-block')}</Notice>
+			<Notice>{__('Smaller delay value will be autoplay faster', 'advanced-post-block')}</Notice>
 		</>}
 
 		<Label>{__('Speed (s):', 'advanced-post-block')}</Label>

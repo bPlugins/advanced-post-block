@@ -1,3 +1,4 @@
+import { sprintf, _n } from '@wordpress/i18n';
 import MetaImage from './MetaImage';
 
 const MetaViewCount = ({ post, attributes, separatorEl }) => {
@@ -11,7 +12,7 @@ const MetaViewCount = ({ post, attributes, separatorEl }) => {
 		<span className='metaItem'>
 			<MetaImage item='viewCount' />
 
-			<span>{views} {views > 1 ? 'Views' : 'View'}</span>
+			<span>{sprintf( /* translators: %s: Number of post views. */ _n('%s View', '%s Views', Number(views) || 0, 'advanced-post-block'), views)}</span>
 		</span>
 	</> : null;
 };

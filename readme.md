@@ -1,13 +1,13 @@
-# Advanced Post Block — Showcase Posts with Style
+# Advanced Post Block - Showcase Posts with Style
 
 ![Advanced Post Block Banner](https://ps.w.org/advanced-post-block/assets/banner-772x250.png)
 
 [![WordPress Support](https://img.shields.io/badge/WordPress-6.5+-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org/plugins/advanced-post-block/)
 [![PHP Support](https://img.shields.io/badge/PHP-7.1+-777bb4.svg?style=flat-square&logo=php)](./readme.txt)
 [![GPLv3 License](https://img.shields.io/badge/License-GPLv3-green.svg?style=flat-square)](./readme.txt)
-[![Stable Version](https://img.shields.io/badge/Version-2.5.0-blue.svg?style=flat-square)](./readme.txt)
+[![Stable Version](https://img.shields.io/badge/Version-2.5.1-blue.svg?style=flat-square)](./readme.txt)
 
-**Advanced Post Block** is the ultimate Gutenberg block for displaying WordPress posts, pages, and custom content beautifully. It offers a wide range of layouts—including Grid, Masonry, Slider, and News Tickers—giving you total control over your site's content display without writing a single line of code.
+**Advanced Post Block** is the ultimate Gutenberg block for displaying WordPress posts, pages, and custom content beautifully. It offers a wide range of layouts - including Grid, Masonry, Slider, and News Tickers - giving you total control over your site's content display without writing a single line of code.
 
 ---
 
@@ -44,7 +44,7 @@ Unlock advanced functionality for high-performing websites:
 ## 📸 Visual Showcase
 
 ### Interactive Layout Switching
-Switch between any layout—Grid, Masonry, Slider, etc.—and see the changes update in real-time within the Gutenberg editor.
+Switch between any layout - Grid, Masonry, Slider, etc. - and see the changes update in real-time within the Gutenberg editor.
 
 ### Dynamic Sub-layouts
 Adjust the relationship between images and text with a few clicks. Try "Overlay Box" for a cinematic feel or "Left/Right Even Odd" for an editorial look.

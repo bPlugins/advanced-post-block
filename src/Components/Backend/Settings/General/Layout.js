@@ -1,4 +1,5 @@
 import { __ } from '@wordpress/i18n';
+import { createInterpolateElement } from '@wordpress/element';
 import { PanelBody, SelectControl, RangeControl, ToggleControl, PanelRow, __experimentalUnitControl as UnitControl } from '@wordpress/components';
 import { Label, Device, HelpTooltip, Notice, BtnGroup, Badge } from '../../../../../../bpl-tools/Components';
 
@@ -54,9 +55,9 @@ const Layout = ({ attributes, setAttributes, device }) => {
 			isTextIcon={true}
 		/>
 
-		{isSlider && <div className='mt10 mb5'>Configure the <span className='link' onClick={() => scrollTo(document.querySelector('.bPlPanelBody.apbSliderOptions'))}>Slider Options</span>.</div>}
-		{isTicker && <div className='mt10 mb5'>Configure the <span className='link' onClick={() => scrollTo(document.querySelector('.bPlPanelBody.apbTickerOptions'))}>Ticker Options</span>.</div>}
-		{isNewsTicker && <div className='mt10 mb5'>Configure the <span className='link' onClick={() => scrollTo(document.querySelector('.bPlPanelBody.apbNewsTickerOptions'))}>News Ticker Options</span>.</div>}
+		{isSlider && <div className='mt10 mb5'>{createInterpolateElement(__('Configure the <span>Slider Options</span>.', 'advanced-post-block'), { span: <span className='link' onClick={() => scrollTo(document.querySelector('.bPlPanelBody.apbSliderOptions'))} /> })}</div>}
+		{isTicker && <div className='mt10 mb5'>{createInterpolateElement(__('Configure the <span>Ticker Options</span>.', 'advanced-post-block'), { span: <span className='link' onClick={() => scrollTo(document.querySelector('.bPlPanelBody.apbTickerOptions'))} /> })}</div>}
+		{isNewsTicker && <div className='mt10 mb5'>{createInterpolateElement(__('Configure the <span>News Ticker Options</span>.', 'advanced-post-block'), { span: <span className='link' onClick={() => scrollTo(document.querySelector('.bPlPanelBody.apbNewsTickerOptions'))} /> })}</div>}
 
 		{!isNewsTicker && !isAccordion && <>
 			<SelectControl

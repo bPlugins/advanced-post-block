@@ -23,7 +23,7 @@ const Excerpt = ({ attributes, setAttributes }) => {
 
 			<Label className='mt20'>{__('Excerpt Length:', 'advanced-post-block')} <HelpTooltip text={__('Number of words to show in the excerpt. Set -1 to show all content.', 'advanced-post-block')} /></Label>
 			<RangeControl value={excerptLength} onChange={val => setAttributes({ excerptLength: val })} min={-1} max={120} step={1} />
-			<Notice>{__(`Set -1 to show all the ${('content' === from || isExcerptFromContent) ? 'content' : 'excerpt'}`, 'advanced-post-block')}</Notice>
+			<Notice>{('content' === from || isExcerptFromContent) ? __('Set -1 to show all the content', 'advanced-post-block') : __('Set -1 to show all the excerpt', 'advanced-post-block')}</Notice>
 		</>}
 
 		<Notice status='premium' isIcon={true}>{__('SEO meta content and precise ellipsis control are available in the Premium version.', 'advanced-post-block')}</Notice>
