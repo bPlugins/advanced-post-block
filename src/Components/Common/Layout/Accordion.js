@@ -1,4 +1,6 @@
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState, useEffect, useMemo } from 'react';
+
+import { sanitizeSVG } from '../../../../../bpl-tools/utils/common';
 
 import Title from '../Single/Title';
 import Meta from '../Single/Meta';
@@ -20,10 +22,14 @@ const AccordionItem = ({ post, attributes, index, id, theme, isOpen, onToggle })
 	const panelId = `${id}-accPanel-${index}`;
 
 
+	// Indicator markup is author-controlled: sanitize before injecting.
+	const safeIconUp = useMemo(() => sanitizeSVG(indicatorIconUp), [indicatorIconUp]);
+	const safeIconDown = useMemo(() => sanitizeSVG(indicatorIconDown), [indicatorIconDown]);
+
 	// Custom indicator icons (up shown when open, down when closed); otherwise the CSS morph.
 	// key forces a remount on toggle so the swap-in animation replays.
 	const indicator = showIcon ?
-		<span key={isOpen ? 'up' : 'down'} className={`${prefix}AccordionIndicator ${isOpen ? 'upIcon' : 'downIcon'}`} aria-hidden='true' dangerouslySetInnerHTML={{ __html: isOpen ? indicatorIconUp : indicatorIconDown }} /> :
+		<span key={isOpen ? 'up' : 'down'} className={`${prefix}AccordionIndicator ${isOpen ? 'upIcon' : 'downIcon'}`} aria-hidden='true' dangerouslySetInnerHTML={{ __html: isOpen ? safeIconUp : safeIconDown }} /> :
 		null;
 
 	const onKeyDown = e => {

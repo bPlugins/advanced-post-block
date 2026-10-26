@@ -1,4 +1,6 @@
-import { sanitizeHTML } from '../../../../../bpl-tools/utils/common';
+import { useMemo } from 'react';
+
+import { sanitizeHTML, sanitizeSVG, sanitizeURL } from '../../../../../bpl-tools/utils/common';
 
 import { prefix } from '../../../utils/data';
 
@@ -8,16 +10,21 @@ const ReadMore = ({ post, attributes }) => {
 	const { isReadMore, readMoreLabel, isLinkNewTab, readMore = {} } = attributes;
 	const { icon } = readMore || {};
 
-	const isSvgIcon = icon && icon.startsWith('<svg');
+	const isSvgIcon = 'string' === typeof icon && icon.trim().startsWith('<svg');
 
-	const iconEl = icon ? (isSvgIcon ? <span
+	// The icon is author-controlled markup: never inject it raw. sanitizeSVG drops
+	// scripts, SMIL and on* handlers; useMemo keeps it from re-parsing per post.
+	const safeSvg = useMemo(() => (isSvgIcon ? sanitizeSVG(icon) : ''), [icon, isSvgIcon]);
+	const safeSrc = !isSvgIcon && icon ? sanitizeURL(icon) : null;
+
+	const iconEl = isSvgIcon ? (safeSvg ? <span
 		className={`${prefix}ReadMoreIcon`}
-		dangerouslySetInnerHTML={{ __html: icon }}
-	/> : <img
-		src={icon}
+		dangerouslySetInnerHTML={{ __html: safeSvg }}
+	/> : null) : (safeSrc ? <img
+		src={safeSrc}
 		alt=''
 		className={`${prefix}ReadMoreIcon`}
-	/>) : null;
+	/> : null);
 
 	return isReadMore ? <div className={`${prefix}ReadMore`}>
 		<a href={link} target={isLinkNewTab ? '_blank' : '_self'} rel='noreferrer' aria-label={readMoreLabel}>

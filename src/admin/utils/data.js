@@ -43,7 +43,7 @@ export const dashboardInfo = (info) => {
 		uninstallNonce,
 		startButton: {
 			label: __('Start Now', 'advanced-post-block'),
-			url: `${adminUrl}/post-new.php?post_type=apb`
+			url: `${adminUrl}post-new.php?post_type=apb`
 		}
 	}
 }
@@ -62,7 +62,7 @@ export const welcomeInfo = (adminUrl) => ({
 						num: 1,
 						title: __('Add the APB Block', 'advanced-post-block'),
 						body: __('Open the block editor on any post or page. Click the <strong>+</strong> icon in the top-left corner or type <strong>/Advanced Posts</strong> to find and insert the Advanced Posts block.', 'advanced-post-block'),
-						link: { url: `${adminUrl}/post-new.php`, label: __('Open Editor', 'advanced-post-block') }
+						link: { url: `${adminUrl}post-new.php`, label: __('Open Editor', 'advanced-post-block') }
 					},
 					{
 						num: 2,
@@ -90,7 +90,7 @@ export const welcomeInfo = (adminUrl) => ({
 						num: 1,
 						title: __('Open the Template Library', 'advanced-post-block'),
 						body: __('In the block editor, click the <strong>Template Library</strong> button in the top toolbar (next to the block inserter) to open the templates modal.', 'advanced-post-block'),
-						link: { url: `${adminUrl}/post-new.php`, label: __('Open Editor', 'advanced-post-block') }
+						link: { url: `${adminUrl}post-new.php`, label: __('Open Editor', 'advanced-post-block') }
 					},
 					{
 						num: 2,
@@ -118,7 +118,7 @@ export const welcomeInfo = (adminUrl) => ({
 						num: 1,
 						title: __('Open ShortCode Generator', 'advanced-post-block'),
 						body: __('Go to <strong>Advanced Posts &rsaquo; ShortCode Generator</strong> in your WordPress admin and click <strong>Add New ShortCode</strong>.', 'advanced-post-block'),
-						link: { url: `${adminUrl}/edit.php?post_type=apb`, label: __('ShortCode Generator', 'advanced-post-block') }
+						link: { url: `${adminUrl}edit.php?post_type=apb`, label: __('ShortCode Generator', 'advanced-post-block') }
 					},
 					{
 						num: 2,
@@ -146,7 +146,7 @@ export const welcomeInfo = (adminUrl) => ({
 						num: 1,
 						title: __('Create a ShortCode', 'advanced-post-block'),
 						body: __('Go to <strong>Advanced Posts &rsaquo; ShortCode Generator</strong>, click <strong>Add New ShortCode</strong>, configure your layout and query, then publish. Note the shortcode from the list table.', 'advanced-post-block'),
-						link: { url: `${adminUrl}/edit.php?post_type=apb`, label: __('ShortCode Generator', 'advanced-post-block') }
+						link: { url: `${adminUrl}edit.php?post_type=apb`, label: __('ShortCode Generator', 'advanced-post-block') }
 					},
 					{
 						num: 2,
@@ -163,6 +163,17 @@ export const welcomeInfo = (adminUrl) => ({
 		]
 	},
 	changelogs: [
+		{
+			version: '2.5.2 - 26 Oct 2026',
+			type: 'security',
+			list: [
+				'<strong>Security:</strong> Read More Icon: Custom SVG icons are now sanitized on the server and again in the browser before they are rendered. Scripts, animation triggers, and event handler attributes are removed, closing a stored XSS that a Contributor could trigger from a post (reported by Patchstack).',
+				'<strong>Security:</strong> Accordion Layout: The custom Up/Down indicator icons go through the same SVG sanitization.',
+				'<strong>Security:</strong> Block Output: Block settings embedded in the front-end markup are now hex-encoded, so saved HTML entities can no longer turn back into live markup in the browser.',
+				'<strong>Fix:</strong> Admin Dashboard: Quick links (Open Editor, ShortCode Generator) no longer contain a double slash and now open the correct admin screens.',
+				'<strong>Fix:</strong> Admin Dashboard: The dashboard script no longer throws an error when the Freemius opt-in screen is shown in its place.'
+			]
+		},
 		{
 			version: '2.5.1 - 4 Oct 2026',
 			type: 'new',

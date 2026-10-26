@@ -6,6 +6,12 @@ import { dashboardInfo } from './utils/data';
 
 document.addEventListener('DOMContentLoaded', () => {
 	const dashboardEl = document.getElementById('apbDashboard');
+
+	// Freemius opt-in/licence screens render on this page in place of the dashboard container
+	if (!dashboardEl) {
+		return;
+	}
+
 	let info = {};
 	try {
 		const raw = dashboardEl.dataset.info;
