@@ -2,6 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 
 import Header from '../../../../bpl-tools/Admin/Header';
+import BFCMBanner from '../../../../bpl-tools/Admin/BFCMBanner';
 
 const navigation = [
 	{ name: __('Welcome', 'advanced-post-block'), href: '/welcome' },
@@ -13,8 +14,32 @@ const navigation = [
 
 const Layout = (props) => {
 	const location = useLocation();
+	const { bfcmBanner, isPremium, isBFCMDismissed, dismissNonce } = props;
+
+	const handleDismiss = () => {
+		if (dismissNonce && window.ajaxurl) {
+			const data = new FormData();
+			data.append('action', 'apb_dismiss_bfcm_banner');
+			data.append('nonce', dismissNonce);
+			fetch(window.ajaxurl, {
+				method: 'POST',
+				body: data,
+			}).catch(() => {
+				// ignore network error
+			});
+		}
+	};
 
 	return <div className='bPlDashboard'>
+		{bfcmBanner && (
+			<BFCMBanner
+				{...bfcmBanner}
+				isPremium={isPremium}
+				isDismissed={isBFCMDismissed}
+				onDismiss={handleDismiss}
+			/>
+		)}
+
 		<Header {...props}>
 			<nav className='bPlDashboardNav'>
 				{navigation?.map((item, index) => <Link

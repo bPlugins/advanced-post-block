@@ -1,4 +1,9 @@
-$primaryColor: #146EF5;
+@import '../../../bpl-tools/Admin/BFCMBanner/style.scss';
+
+.apb-cpt-bfcm-banner {
+	margin: 16px 20px 16px 0 !important;
+	transition: opacity 0.25s ease, max-height 0.3s ease;
+}
 
 .bPlAdminShortcode {
 	position: relative;
@@ -10,7 +15,7 @@ $primaryColor: #146EF5;
 		text-align: center;
 		border: none;
 		outline: none;
-		background-color: $primaryColor;
+		background-color: #146EF5;
 		color: #fff;
 		padding: 4px 10px;
 		border-radius: 3px;

@@ -5,8 +5,46 @@ import { gutenbergTabIcon, templateTabIcon, shortcodeTabIcon, pageBuilderTabIcon
 
 const slug = 'advanced-post-block';
 
+export const bfcmBannerInfo = {
+	pluginName: 'Advanced Post Block',
+	slug,
+	brandName: 'ADVANCED POST BLOCK',
+	logo: `https://ps.w.org/${slug}/assets/icon-256x256.png`,
+	badgeText: __('Save 45%', 'advanced-post-block'),
+	heading: __('Black Friday Sale: Upgrade to Advanced Post Block Pro', 'advanced-post-block'),
+	description: __('Get 45% off on Advanced Post Block Pro this Black Friday!<br />Adds precision filtering, layout enhancements, and deeper content control.', 'advanced-post-block'),
+	features: [
+		__('Premium Templates', 'advanced-post-block'),
+		__('Timeline & Grid 1 Layouts', 'advanced-post-block'),
+		__('Query Presets & Deeper Filtering', 'advanced-post-block'),
+		__('Infinite Scroll', 'advanced-post-block')
+	],
+	ctaText: __('Unlock PRO Features →', 'advanced-post-block'),
+	ctaUrl: `https://bplugins.com/products/${slug}/pricing/?utm_source=admin&utm_medium=dashboard&utm_campaign=bfcm2026`,
+	endDate: '2026-12-05T23:59:59',
+	colors: {
+		brandBg: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+		brandBorder: '#bfdbfe',
+		brandColor: '#1e40af',
+		badgeBg: '#ffedd5',
+		badgeColor: '#ea580c',
+		buttonBg: '#2563eb',
+		buttonColor: '#ffffff'
+	}
+};
+
 export const dashboardInfo = (info) => {
-	const { version, isPremium, adminUrl = '', licenseActiveNonce, deleteDataOnUninstall = false, uninstallNonce = '' } = info;
+	const {
+		version,
+		isPremium,
+		isBFCMDismissed = false,
+		dismissNonce = '',
+		adminUrl = '',
+		licenseActiveNonce,
+		deleteDataOnUninstall = false,
+		uninstallNonce = '',
+		currentUser = null
+	} = info;
 
 	const proSuffix = isPremium ? ' Pro' : '';
 
@@ -17,8 +55,12 @@ export const dashboardInfo = (info) => {
 		slug,
 		version,
 		isPremium,
+		isBFCMDismissed,
+		dismissNonce,
 		adminUrl,
+		currentUser,
 		displayOurPlugins: true,
+		bfcmBanner: bfcmBannerInfo,
 		media: {
 			logo: `https://ps.w.org/${slug}/assets/icon-256x256.png`,
 			banner: `https://ps.w.org/${slug}/assets/banner-772x250.png`,
@@ -163,6 +205,13 @@ export const welcomeInfo = (adminUrl) => ({
 		]
 	},
 	changelogs: [
+		{
+			version: '2.5.3 - 17 Nov 2026',
+			type: 'new',
+			list: [
+				'<strong>Improvement:</strong> Fix minor issues.'
+			]
+		},
 		{
 			version: '2.5.2 - 26 Oct 2026',
 			type: 'security',
