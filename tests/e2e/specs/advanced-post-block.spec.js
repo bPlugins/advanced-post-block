@@ -86,22 +86,32 @@ test.describe('Advanced Post Block', () => {
 	test('inserts the block, previews the posts and publishes', async ({ page }) => {
 		const errors = collectPageErrors(page);
 
-		await page.goto('/wp-admin/post-new.php?post_type=page');
+		// Edit a draft made over REST, not post-new.php: a brand-new page opens the "Choose a pattern" modal when
+		// the theme has starter patterns (Twenty Twenty-Five, wp-env's default), and it covers the inserter.
+		const draft = await rest(page, 'POST', '/wp/v2/pages', { title: `${PREFIX} editor page`, status: 'draft' });
+		created.pages.push(draft.id);
+
+		// Should the modal show anyway, close it whenever it appears (it opens late, once the previews load)
+		await page.addLocatorHandler(page.getByRole('dialog', { name: /choose a pattern/i }), async dialog => {
+			await dialog.getByRole('button', { name: /close/i }).click();
+		});
+
+		await page.goto(`/wp-admin/post.php?post=${draft.id}&action=edit`);
 		// Skip the welcome guide; both preference scopes have been used across WordPress versions
 		await page.waitForFunction(() => window.wp?.data?.dispatch('core/preferences'));
 		await page.evaluate(() => {
 			const prefs = window.wp.data.dispatch('core/preferences');
 			prefs.set('core/edit-post', 'welcomeGuide', false);
 			prefs.set('core', 'welcomeGuide', false);
-			// New pages open a "Choose a pattern" modal when the theme has starter patterns (Twenty Twenty-Five does)
 			prefs.set('core', 'enableChoosePatternModal', false);
 		});
 		await page.getByRole('dialog', { name: /welcome/i }).getByRole('button', { name: /close/i }).click({ timeout: 3_000 }).catch(() => {});
-		await page.getByRole('dialog', { name: /choose a pattern/i }).getByRole('button', { name: /close/i }).click({ timeout: 5_000 }).catch(() => {});
 
 		await page.getByRole('button', { name: /block inserter/i }).first().click();
 		await page.getByRole('searchbox', { name: /search/i }).fill('Advanced Posts');
 		await page.getByRole('option', { name: 'Advanced Posts', exact: true }).click();
+		// The inserter's hover preview can stay open over the canvas; moving the pointer away closes it
+		await page.mouse.move(0, 0);
 
 		const editor = await canvas(page);
 		const block = editor.locator('[data-type="ap-block/posts"]').first();
@@ -127,13 +137,12 @@ test.describe('Advanced Post Block', () => {
 
 		await page.getByRole('button', { name: 'Publish', exact: true }).click();
 		await page.getByLabel('Editor publish').getByRole('button', { name: 'Publish', exact: true }).click();
-		await expect(page.getByRole('link', { name: /view page/i }).first()).toBeVisible();
-
-		// The editor URL stays post-new.php for a while after publishing; the store knows the id straight away
-		const postId = await page.evaluate(() => window.wp.data.select('core/editor').getCurrentPostId());
-		expect(postId, 'editor store carries the page id after publishing').toBeTruthy();
-		created.pages.push(postId);
-		pageUrl = `/?page_id=${postId}`;
+		// Not the "View page" link: the admin bar of an existing draft already has one
+		await expect.poll(() => page.evaluate(() => {
+			const editor = window.wp.data.select('core/editor');
+			return !editor.isSavingPost() && editor.getCurrentPostAttribute('status');
+		}), { message: 'the draft is published' }).toBe('publish');
+		pageUrl = `/?page_id=${draft.id}`;
 
 		expect(errors, 'uncaught JS errors in the editor').toEqual([]);
 	});
