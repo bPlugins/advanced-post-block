@@ -1,15 +1,16 @@
 <?php
 namespace APB;
 
-if ( !defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; }
 
 /**
  * Functions class
  * Contains helper functions for data sanitization, content filtering, and post arrangement.
- * 
+ *
  * @package APB
  */
-class Functions{	
+class Functions {
 
 	/**
 	 * Recursively sanitizes an array of data.
@@ -25,6 +26,9 @@ class Functions{
 		foreach ( $array as $key => $value ) {
 			if ( is_array( $value ) ) {
 				$array[ $key ] = self::sanitize_array( $value );
+			} elseif ( is_bool( $value ) || null === $value ) {
+				// JSON bodies carry real booleans; sanitize_text_field() would turn true into "1".
+				$array[ $key ] = $value;
 			} elseif ( 'true' === $value ) {
 				$array[ $key ] = true;
 			} elseif ( 'false' === $value ) {
@@ -45,9 +49,12 @@ class Functions{
 	 * @return array The filtered array containing only numeric IDs.
 	 */
 	public static function filterNaN( $array ) {
-		return array_filter( $array, function( $id ) {
-			return $id && is_numeric( $id );
-		});
+		return array_filter(
+			$array,
+			function ( $id ) {
+				return $id && is_numeric( $id );
+			}
+		);
 	}
 
 	/**
@@ -57,10 +64,12 @@ class Functions{
 	 * @return int The word count.
 	 */
 	public static function wordCount( $content ) {
-		return $content ? count( preg_split( 
-			'/[\s]+/',
-			preg_replace( '/(<([^>]+)>)/i', '', $content )
-		) ) : 0;
+		return $content ? count(
+			preg_split(
+				'/[\s]+/',
+				preg_replace( '/(<([^>]+)>)/i', '', $content )
+			)
+		) : 0;
 	}
 
 	/**
@@ -69,11 +78,19 @@ class Functions{
 	 * @param string $rawContent The raw HTML content.
 	 * @return string The filtered content.
 	 */
-	public static function applyContentFilter( $rawContent ){
+	public static function applyContentFilter( $rawContent ) {
 		// remove script and style tag
 		// $rawContent = preg_replace( '/<script\b[^>]*>(.*?)<\/script>|<style\b[^>]*>(.*?)<\/style>/is', '', $rawContent );
 
-		$textAllowedHTML = [ 'a' => [ 'href' => [], 'title' => [] ], 'br' => [], 'em' => [], 'strong' => [] ];
+		$textAllowedHTML = [
+			'a' => [
+				'href' => [],
+				'title' => [],
+			],
+			'br' => [],
+			'em' => [],
+			'strong' => [],
+		];
 		$innerAllowedHTML = array_merge( [ 'span' => [ $textAllowedHTML ] ], $textAllowedHTML );
 		$allowedHTML = array_merge( [ 'p' => [ $innerAllowedHTML ] ], $innerAllowedHTML );
 		$content = wp_kses( $rawContent, $allowedHTML );
@@ -85,17 +102,17 @@ class Functions{
 	/**
 	 * Arranges raw WP_Post objects into a structured array for frontend/editor use.
 	 *
-	 * @param array		$posts			Array of WP_Post objects.
-	 * @param string	$postType		The post type slug.
-	 * @param string	$fImgSize		Featured image size.
-	 * @param string	$excerptFrom	Where to pull the excerpt from ('excerpt', 'content').
-	 * @param int		$excerptLength	Length of the excerpt.
+	 * @param array  $posts          Array of WP_Post objects.
+	 * @param string $postType       The post type slug.
+	 * @param string $fImgSize       Featured image size.
+	 * @param string $excerptFrom    Where to pull the excerpt from ('excerpt', 'content').
+	 * @param int    $excerptLength  Length of the excerpt.
 	 * @return array	The arranged posts data.
 	 */
-	public static function arrangedPosts ( $posts, $postType, $fImgSize = 'full', $excerptFrom = 'excerpt', $excerptLength = 25 ) {
+	public static function arrangedPosts( $posts, $postType, $fImgSize = 'full', $excerptFrom = 'excerpt', $excerptLength = 25 ) {
 		$arranged = [];
 
-		$excerptLength = (int)$excerptLength;
+		$excerptLength = (int) $excerptLength;
 
 		$taxOfPostType = array_diff( get_object_taxonomies( $postType ), array( 'post_format', 'category' ) );
 
@@ -108,14 +125,14 @@ class Functions{
 		$isRankMathActive = is_plugin_active( 'seo-by-rank-math/rank-math.php' );
 		$isAIOSEActive = is_plugin_active( 'all-in-one-seo-pack/all_in_one_seo_pack.php' ) || is_plugin_active( 'all-in-one-seo-pack-pro/all_in_one_seo_pack.php' );
 
-		foreach( $posts as $post ){
+		foreach ( $posts as $post ) {
 			$id = $post->ID;
 			$content = preg_replace( '/(<([^>]+)>)/i', '', $post->post_content );
 			$contentWords = self::wordCount( $content );
 
 			$thumbnail = [
 				'url' => get_the_post_thumbnail_url( $post, $fImgSize ),
-				'alt' => get_post_meta( get_post_thumbnail_id( $id ), '_wp_attachment_image_alt', true )
+				'alt' => get_post_meta( get_post_thumbnail_id( $id ), '_wp_attachment_image_alt', true ),
 			];
 
 			$taxonomies = [];
@@ -123,13 +140,13 @@ class Functions{
 				$terms = wp_get_post_terms( $id, $slug );
 
 				$links = '';
-				foreach( $terms as $index => $t ){
+				foreach ( $terms as $index => $t ) {
 					$link = get_term_link( $t->slug, $slug );
-					$terms[$index]->link = $link;
+					$terms[ $index ]->link = $link;
 
 					$links .= sprintf( "<a href='%s' rel='%s'>%s</a>", esc_url( $link ), esc_attr( $slug ), esc_html( $t->name ) );
-				};
-				$taxonomies[$slug] = $links;
+				}
+				$taxonomies[ $slug ] = $links;
 			}
 
 			// Build excerpt based on source
@@ -139,36 +156,39 @@ class Functions{
 				$contentOrExcerptArr = [ 'excerpt' => self::applyContentFilter( $post->post_excerpt ) ];
 			}
 
-			$arranged[] = array_merge( [
-				'id' => $id,
-				'link' => get_permalink( $post ),
-				'name' => $post->post_name,
-				'thumbnail' => $thumbnail,
-				'title' => esc_html( $post->post_title ),
-				'postMeta' => [], // use get_post_meta( $post->ID ) for the post meta fields
-				'author' => [
-					'name' => get_the_author_meta( 'display_name', $post->post_author ),
-					'link' => get_author_posts_url( $post->post_author )
+			$arranged[] = array_merge(
+				[
+					'id' => $id,
+					'link' => get_permalink( $post ),
+					'name' => $post->post_name,
+					'thumbnail' => $thumbnail,
+					'title' => esc_html( $post->post_title ),
+					'postMeta' => [], // use get_post_meta( $post->ID ) for the post meta fields
+					'author' => [
+						'name' => get_the_author_meta( 'display_name', $post->post_author ),
+						'link' => get_author_posts_url( $post->post_author ),
+					],
+					'rawDate' => $post->post_date,
+					'date' => get_the_date( 'M j, Y', $id ),
+					'dateGMT' => $post->post_date_gmt,
+					'modifiedDate' => $post->post_modified,
+					'modifiedDateGMT' => $post->post_modified_gmt,
+					'commentCount' => $post->comment_count,
+					'commentStatus' => $post->comment_status,
+					'views' => (int) get_post_meta( $id, 'apb_post_views_count', true ),
+					'categories' => [
+						'coma' => get_the_category_list( ', ', '', $id ),
+						'space' => get_the_category_list( ' ', '', $id ),
+					],
+					'taxonomies' => $taxonomies,
+					'readTime' => [
+						'min' => floor( $contentWords / 200 ),
+						'sec' => floor( $contentWords % 200 / ( 200 / 60 ) ),
+					],
+					'status' => $post->post_status,
 				],
-				'rawDate' => $post->post_date,
-				'date' => get_the_date( 'M j, Y', $id ),
-				'dateGMT' => $post->post_date_gmt,
-				'modifiedDate' => $post->post_modified,
-				'modifiedDateGMT' => $post->post_modified_gmt,
-				'commentCount' => $post->comment_count,
-				'commentStatus' => $post->comment_status,
-				'views' => get_post_meta( $id, 'apb_post_views_count', true ) ?: 0,
-				'categories' => [
-					'coma' => get_the_category_list( ', ', '', $id ),
-					'space' => get_the_category_list( ' ', '', $id )
-				],
-				'taxonomies' => $taxonomies,
-				'readTime' => [
-					'min' => floor( $contentWords / 200 ),
-					'sec' => floor( $contentWords % 200 / ( 200 / 60 ) )
-				],
-				'status' => $post->post_status
-			], $contentOrExcerptArr );
+				$contentOrExcerptArr
+			);
 		}
 
 		return $arranged;
@@ -188,18 +208,52 @@ class Functions{
 		}
 
 		$common = [
-			'id' => true, 'class' => true, 'style' => true, 'transform' => true, 'opacity' => true,
-			'fill' => true, 'fill-opacity' => true, 'fill-rule' => true,
-			'stroke' => true, 'stroke-width' => true, 'stroke-linecap' => true, 'stroke-linejoin' => true,
-			'stroke-opacity' => true, 'stroke-dasharray' => true, 'stroke-dashoffset' => true,
-			'd' => true, 'x' => true, 'y' => true, 'cx' => true, 'cy' => true, 'r' => true, 'rx' => true, 'ry' => true,
-			'x1' => true, 'y1' => true, 'x2' => true, 'y2' => true, 'points' => true,
-			'width' => true, 'height' => true, 'clip-path' => true, 'clip-rule' => true, 'mask' => true,
+			'id' => true,
+			'class' => true,
+			'style' => true,
+			'transform' => true,
+			'opacity' => true,
+			'fill' => true,
+			'fill-opacity' => true,
+			'fill-rule' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+			'stroke-linecap' => true,
+			'stroke-linejoin' => true,
+			'stroke-opacity' => true,
+			'stroke-dasharray' => true,
+			'stroke-dashoffset' => true,
+			'd' => true,
+			'x' => true,
+			'y' => true,
+			'cx' => true,
+			'cy' => true,
+			'r' => true,
+			'rx' => true,
+			'ry' => true,
+			'x1' => true,
+			'y1' => true,
+			'x2' => true,
+			'y2' => true,
+			'points' => true,
+			'width' => true,
+			'height' => true,
+			'clip-path' => true,
+			'clip-rule' => true,
+			'mask' => true,
 		];
 
 		// wp_kses lower-cases attribute names, so viewBox must be listed as viewbox.
 		$allowed = [
-			'svg'            => $common + [ 'xmlns' => true, 'viewbox' => true, 'preserveaspectratio' => true, 'aria-hidden' => true, 'role' => true, 'focusable' => true, 'version' => true ],
+			'svg'            => $common + [
+				'xmlns' => true,
+				'viewbox' => true,
+				'preserveaspectratio' => true,
+				'aria-hidden' => true,
+				'role' => true,
+				'focusable' => true,
+				'version' => true,
+			],
 			'g'              => $common,
 			'path'           => $common,
 			'rect'           => $common,
@@ -209,10 +263,35 @@ class Functions{
 			'polyline'       => $common,
 			'polygon'        => $common,
 			'defs'           => [],
-			'clippath'       => [ 'id' => true, 'clippathunits' => true ],
-			'lineargradient' => [ 'id' => true, 'x1' => true, 'y1' => true, 'x2' => true, 'y2' => true, 'gradientunits' => true, 'gradienttransform' => true ],
-			'radialgradient' => [ 'id' => true, 'cx' => true, 'cy' => true, 'r' => true, 'fx' => true, 'fy' => true, 'gradientunits' => true, 'gradienttransform' => true ],
-			'stop'           => [ 'offset' => true, 'stop-color' => true, 'stop-opacity' => true, 'style' => true ],
+			'clippath'       => [
+				'id' => true,
+				'clippathunits' => true,
+			],
+			'lineargradient' => [
+				'id' => true,
+				'x1' => true,
+				'y1' => true,
+				'x2' => true,
+				'y2' => true,
+				'gradientunits' => true,
+				'gradienttransform' => true,
+			],
+			'radialgradient' => [
+				'id' => true,
+				'cx' => true,
+				'cy' => true,
+				'r' => true,
+				'fx' => true,
+				'fy' => true,
+				'gradientunits' => true,
+				'gradienttransform' => true,
+			],
+			'stop'           => [
+				'offset' => true,
+				'stop-color' => true,
+				'stop-opacity' => true,
+				'style' => true,
+			],
 			'title'          => [],
 			'desc'           => [],
 		];

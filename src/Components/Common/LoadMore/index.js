@@ -5,7 +5,7 @@ import Navigation from './Navigation';
 import Button from './Button';
 import { getPaginationPage, savePaginationPage } from '../../../utils/paginationStorage';
 
-const LoadMore = ({ attributes, id, pageNumber = 1, totalCount, onChange, isLoading }) => {
+const LoadMore = ({ attributes, id, pageNumber = 1, totalCount, onChange, isLoading, persist = true }) => {
 	const { postsPerPage, isPagination, paginationPrevLabel, paginationNextLabel, loadMore = {} } = attributes;
 	const { type = '', scrollTop = {}, button = {} } = loadMore || {};
 
@@ -14,8 +14,13 @@ const LoadMore = ({ attributes, id, pageNumber = 1, totalCount, onChange, isLoad
 
 	// Initialize from sessionStorage if available, otherwise use passed pageNumber
 	const [currentPage, setCurrentPage] = useState(() => {
-		return getPaginationPage(id, pageNumber);
+		return persist ? getPaginationPage(id, pageNumber) : pageNumber;
 	});
+
+	// The parent owns the page: a filter change can move it from outside.
+	useEffect(() => {
+		setCurrentPage(pageNumber);
+	}, [pageNumber]);
 
 	const totalPages = Math.ceil(totalCount / postsPerPage);
 
@@ -23,13 +28,13 @@ const LoadMore = ({ attributes, id, pageNumber = 1, totalCount, onChange, isLoad
 		if (pn < 1 || pn > totalPages) return;
 		onChange(pn);
 		setCurrentPage(pn);
-		savePaginationPage(id, pn);
+		if (persist) savePaginationPage(id, pn);
 	};
 
 	// Save pagination state to sessionStorage whenever it changes
 	useEffect(() => {
-		savePaginationPage(id, currentPage);
-	}, [currentPage, id]);
+		if (persist) savePaginationPage(id, currentPage);
+	}, [currentPage, id, persist]);
 
 	// If no type is selected and not pagination, return null
 	if (!loadMoreType) {
@@ -51,6 +56,7 @@ const LoadMore = ({ attributes, id, pageNumber = 1, totalCount, onChange, isLoad
 				scrollTop={scrollTop}
 				attributes={attributes}
 				onChange={onChange}
+				persist={persist}
 			/>;
 		case 'navigation':
 			return <Navigation

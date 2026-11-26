@@ -7,6 +7,7 @@ import Title from './Style/Title';
 import MetaData from './Style/MetaData';
 import Excerpt from './Style/Excerpt';
 import ReadMore from './Style/ReadMore';
+import FilterOptions from './Style/FilterOptions';
 
 const Style = (props) => {
 	const { attributes } = props;
@@ -33,6 +34,8 @@ const Style = (props) => {
 		{!isNewsTicker && <Excerpt {...props} />}
 
 		{!isNewsTicker && <ReadMore {...props} />}
+
+		<FilterOptions {...props} />
 	</>
 }
 export default Style;

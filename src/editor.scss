@@ -142,3 +142,15 @@ $prefix: 'apb';
 		fill: currentColor;
 	}
 }
+
+// Posts Query > Date Range: "In the last" number and unit share the row.
+.apbDateLast {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px;
+
+	.components-base-control,
+	.components-base-control__field {
+		margin-bottom: 0;
+	}
+}

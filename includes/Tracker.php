@@ -1,12 +1,13 @@
 <?php
 namespace APB;
 
-if ( !defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; }
 
 /**
  * Tracker class
  * Handles post view tracking via AJAX.
- * 
+ *
  * @package APB
  */
 class Tracker {
@@ -43,17 +44,23 @@ class Tracker {
 
 		wp_enqueue_script( 'apb-post-view-tracker', APB_DIR_URL . 'public/js/tracker.js', [], APB_VERSION, true );
 
-		wp_add_inline_script( 'apb-post-view-tracker', 'const apbPostViewTracker = ' . wp_json_encode( [
-			'ajaxUrl'	=> admin_url( 'admin-ajax.php' ),
-			'nonce'		=> wp_create_nonce( 'apb_post_view_nonce' ),
-			'postId'	=> $post->ID
-		] ) . ';', 'before' );
+		wp_add_inline_script(
+			'apb-post-view-tracker',
+			'const apbPostViewTracker = ' . wp_json_encode(
+				[
+					'ajaxUrl'	=> admin_url( 'admin-ajax.php' ),
+					'nonce'		=> wp_create_nonce( 'apb_post_view_nonce' ),
+					'postId'	=> $post->ID,
+				]
+			) . ';',
+			'before'
+		);
 	}
 
 	/**
 	 * Increments the view count for a post via AJAX.
 	 * Validates nonce and post status before updating meta.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function incrementView() {
@@ -88,14 +95,18 @@ class Tracker {
 		update_post_meta( $post_id, 'apb_post_views_count', $views + 1 );
 
 		// Set cookie for 24 hours (86400 seconds)
-		setcookie( 'apb_post_viewed_' . $post_id, '1', [
-			'expires'	=> time() + 86400,
-			'path'		=> COOKIEPATH,
-			'domain'	=> COOKIE_DOMAIN,
-			'secure'	=> is_ssl(),
-			'httponly'	=> true,
-			'samesite'	=> 'Lax',
-		] );
+		setcookie(
+			'apb_post_viewed_' . $post_id,
+			'1',
+			[
+				'expires'	=> time() + 86400,
+				'path'		=> COOKIEPATH,
+				'domain'	=> COOKIE_DOMAIN,
+				'secure'	=> is_ssl(),
+				'httponly'	=> true,
+				'samesite'	=> 'Lax',
+			]
+		);
 
 		wp_send_json_success( __( 'View incremented', 'advanced-post-block' ) );
 	}

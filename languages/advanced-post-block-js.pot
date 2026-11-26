@@ -417,6 +417,162 @@ msgstr ""
 msgid "Invalid item"
 msgstr ""
 
+#: src/Components/Backend/Settings/General/DateRange.js:10
+msgid "In the Last…"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:11
+msgid "Custom Range"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:15
+msgid "Days"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:16
+msgid "Weeks"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:17
+msgid "Months"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:18
+msgid "Years"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:48
+msgid "Date Range:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:48
+msgid "Show only the posts published within a period."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:51
+msgid "Number"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:52
+msgid "Unit"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:56
+msgid "From:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:57
+msgid "To:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:57
+msgid "Both days are included. Leave one empty for a range with no start or no end."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:9
+msgid "Any Time"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:40
+msgid "The frontend filter is not available for the Ticker and News Ticker layouts."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:44
+#: src/Components/Backend/Settings/Style/FilterOptions.js:29
+msgid "Frontend Filter"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:46
+msgid "Enable Frontend Filter"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:46
+msgid "Let visitors narrow the posts without reloading the page."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:52
+msgid "Alignment:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:53
+#: src/utils/options.js:87
+#: ../bpl-tools/utils/options.js:31
+msgid "Left"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:54
+#: src/utils/options.js:95
+msgid "Center"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:55
+#: src/utils/options.js:89
+#: ../bpl-tools/utils/options.js:29
+msgid "Right"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:61
+msgid "Filter By:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:68
+msgid "Label:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:68
+msgid "Shown before the choices. Leave empty to hide it."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:70
+msgid "\"All\" Label:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:72
+msgid "Hide Empty Terms"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:72
+msgid "Leave out terms that have no posts in this block's query."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:76
+msgid "Only These Terms:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:76
+msgid "Leave empty to offer every term."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:81
+msgid ""
+"The filter works with Categories or Tags, and the selected post type uses "
+"neither."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:83
+msgid "Show Result Count"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:85
+msgid "Show Clear Button"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:87
+msgid "Clear Button Label:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:89
+msgid "No Results Text:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:92
+msgid ""
+"More filters on any taxonomy, dropdown, checkbox and searchable dropdown "
+"styles, multiple choices, post counts, sidebar positions, an Apply button, "
+"search, sort, author and month filters, active filter chips, and shareable "
+"filter URLs are available in the Premium version."
+msgstr ""
+
 #: src/Components/Backend/Settings/General/Layout.js:104
 #: src/utils/options.js:35
 msgid "List - Left Image"
@@ -558,154 +714,166 @@ msgid "Alignment"
 msgstr ""
 
 #: src/Components/Backend/Settings/General/Pagination.js:39
-msgid "Back to Top on Change"
+msgid "Limit Number of Pages:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/Pagination.js:41
-msgid "Top Offset (px)"
-msgstr ""
-
-#: src/Components/Backend/Settings/General/Pagination.js:43
-msgid "Previous Label:"
-msgstr ""
-
-#: src/Components/Backend/Settings/General/Pagination.js:45
-msgid "Next Label:"
+#: src/Components/Backend/Settings/General/Pagination.js:39
+msgid ""
+"The most pages visitors can go through, for example 5 stops at page 5 even "
+"when there are more posts. 0 shows every page."
 msgstr ""
 
 #: src/Components/Backend/Settings/General/Pagination.js:49
+msgid "Back to Top on Change"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:51
+msgid "Top Offset (px)"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:53
+msgid "Previous Label:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:55
+msgid "Next Label:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:59
 msgid "Button Label"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/Pagination.js:52
+#: src/Components/Backend/Settings/General/Pagination.js:62
 msgid "Colors"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/Pagination.js:54
+#: src/Components/Backend/Settings/General/Pagination.js:64
 msgid "Active/Hover Colors"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/Pagination.js:56
+#: src/Components/Backend/Settings/General/Pagination.js:66
 #: src/Components/Backend/Settings/Style/Content.js:24
-#: src/Components/Backend/Settings/Style/MetaData.js:64
+#: src/Components/Backend/Settings/Style/FilterOptions.js:57
+#: src/Components/Backend/Settings/Style/MetaData.js:70
 #: src/Components/Backend/Settings/Style/ReadMore.js:27
 msgid "Padding:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/Pagination.js:58
+#: src/Components/Backend/Settings/General/Pagination.js:68
 msgid "Space Between:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/Pagination.js:60
+#: src/Components/Backend/Settings/General/Pagination.js:70
 msgid "Infinity Scroll is available in the Premium version."
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:13
+#: src/Components/Backend/Settings/General/PostsQuery.js:14
 msgid "Posts Query"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:14
+#: src/Components/Backend/Settings/General/PostsQuery.js:15
 msgid "Post Type:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:14
+#: src/Components/Backend/Settings/General/PostsQuery.js:15
 msgid "Select the source for your posts (e.g., Posts, Pages)."
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:16
+#: src/Components/Backend/Settings/General/PostsQuery.js:17
 msgid "If the post type is not viewable then the default post type will work."
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:18
+#: src/Components/Backend/Settings/General/PostsQuery.js:19
 msgid "Taxonomy Relation:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:19
+#: src/Components/Backend/Settings/General/PostsQuery.js:20
 msgid "AND"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:20
+#: src/Components/Backend/Settings/General/PostsQuery.js:21
 msgid "OR"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:25
+#: src/Components/Backend/Settings/General/PostsQuery.js:26
 msgid "Select Categories:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:34
+#: src/Components/Backend/Settings/General/PostsQuery.js:35
 msgid "Select Tags:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:42
+#: src/Components/Backend/Settings/General/PostsQuery.js:43
 msgid "Select Authors:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:48
+#: src/Components/Backend/Settings/General/PostsQuery.js:49
 msgid "Post Per Page:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:50
+#: src/Components/Backend/Settings/General/PostsQuery.js:51
 msgid "To show all posts set -1, and do not set 0"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:54
+#: src/Components/Backend/Settings/General/PostsQuery.js:55
 msgid "Post Order By:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:55
+#: src/Components/Backend/Settings/General/PostsQuery.js:56
 msgid ""
 "Order posts by the IDs specified in the 'Include Posts' field when 'Post "
 "In' is selected."
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:61
+#: src/Components/Backend/Settings/General/PostsQuery.js:62
 msgid "Post Order:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:66
+#: src/Components/Backend/Settings/General/PostsQuery.js:69
 msgid "Post Offset:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:66
+#: src/Components/Backend/Settings/General/PostsQuery.js:69
 msgid "Number of posts to skip. This works when Posts Per Page is not set to -1."
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:67
+#: src/Components/Backend/Settings/General/PostsQuery.js:70
 msgid "`Post Offset` will not work if `Post Per Page` is -1"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:70
+#: src/Components/Backend/Settings/General/PostsQuery.js:73
 msgid "Include Posts:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:70
+#: src/Components/Backend/Settings/General/PostsQuery.js:73
 msgid "Specific post IDs to display (separated by commas)."
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:73
+#: src/Components/Backend/Settings/General/PostsQuery.js:76
 msgid "Exclude Posts:"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:73
+#: src/Components/Backend/Settings/General/PostsQuery.js:76
 msgid "Post IDs to skip (separated by commas)."
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:74
+#: src/Components/Backend/Settings/General/PostsQuery.js:77
 msgid "Enter the posts id by coma separated Ex: `23,45,16`"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:76
+#: src/Components/Backend/Settings/General/PostsQuery.js:79
 msgid "Exclude Sticky Posts"
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:76
+#: src/Components/Backend/Settings/General/PostsQuery.js:79
 msgid "Completely remove sticky posts from the results."
 msgstr ""
 
-#: src/Components/Backend/Settings/General/PostsQuery.js:78
+#: src/Components/Backend/Settings/General/PostsQuery.js:81
 msgid ""
 "Query presets, custom taxonomy filtering, search queries, advanced sorting, "
-"and excluding the current post are available in the Premium version."
+"excluding the current post, this day/week/month/year date ranges, and "
+"filtering by last modified date are available in the Premium version."
 msgstr ""
 
 #: src/Components/Backend/Settings/General/SubLayouts/AccordionOptions.js:17
@@ -963,7 +1131,7 @@ msgid "Shadow:"
 msgstr ""
 
 #: src/Components/Backend/Settings/Style/FeatureImage.js:26
-#: src/Components/Backend/Settings/Style/MetaData.js:68
+#: src/Components/Backend/Settings/Style/MetaData.js:74
 msgid "Margin"
 msgstr ""
 
@@ -1010,6 +1178,77 @@ msgstr ""
 msgid "The Scale Up hover animation is available in the Premium version."
 msgstr ""
 
+#: src/Components/Backend/Settings/Style/FilterOptions.js:12
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:19
+#: ../bpl-tools/Components/Typography/options.js:4
+#: ../bpl-tools/utils/options.js:4
+msgid "Normal"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:13
+#: ../bpl-tools/utils/options.js:5
+msgid "Hover"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:14
+#: ../bpl-tools/Admin/OurPlugins/index.js:136
+msgid "Active"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:32
+msgid "Space Between Filters:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:34
+msgid "Space to the Posts:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:36
+msgid "Label Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:39
+msgid "Pills"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:43
+#: src/Components/Backend/Settings/Style/MetaData.js:68
+#: src/Components/Backend/Settings/Style/ReadMore.js:31
+#: ../bpl-tools/Components/ColorsControl/ColorsControl.js:25
+msgid "Colors:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:45
+#: src/Components/Backend/Settings/Style/ReadMore.js:33
+#: ../bpl-tools/Components/Deprecated/BorderControl/BorderControl.js:19
+msgid "Border:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:48
+#: src/Components/Backend/Settings/Style/ReadMore.js:39
+msgid "Hover Colors:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:51
+msgid "Active Colors:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:53
+msgid "Active Border Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:60
+msgid "Results Line"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:62
+msgid "Result Count Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:64
+msgid "Clear Button Color:"
+msgstr ""
+
 #: src/Components/Backend/Settings/Style/MetaData.js:24
 msgid "Text Color:"
 msgstr ""
@@ -1047,17 +1286,24 @@ msgstr ""
 msgid "Custom meta alignment is available in the Premium version."
 msgstr ""
 
-#: src/Components/Backend/Settings/Style/MetaData.js:61
+#: src/Components/Backend/Settings/Style/MetaData.js:62
 msgid "Categories Badge"
 msgstr ""
 
-#: src/Components/Backend/Settings/Style/MetaData.js:62
-#: src/Components/Backend/Settings/Style/ReadMore.js:31
-#: ../bpl-tools/Components/ColorsControl/ColorsControl.js:25
-msgid "Colors:"
+#: src/Components/Backend/Settings/Style/MetaData.js:64
+#: ../bpl-tools/Components/Typography/Typography.js:23
+msgid "Typography:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:64
+msgid "Settings left empty use the Meta typography."
 msgstr ""
 
 #: src/Components/Backend/Settings/Style/MetaData.js:66
+msgid "Use Meta Typography"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:72
 msgid "Border Radius:"
 msgstr ""
 
@@ -1067,15 +1313,6 @@ msgstr ""
 
 #: src/Components/Backend/Settings/Style/ReadMore.js:31
 msgid "Set button text and background colors."
-msgstr ""
-
-#: src/Components/Backend/Settings/Style/ReadMore.js:33
-#: ../bpl-tools/Components/Deprecated/BorderControl/BorderControl.js:19
-msgid "Border:"
-msgstr ""
-
-#: src/Components/Backend/Settings/Style/ReadMore.js:39
-msgid "Hover Colors:"
 msgstr ""
 
 #: src/Components/Backend/Settings/Style/ReadMore.js:41
@@ -1118,6 +1355,17 @@ msgstr ""
 msgid "Space around the post title."
 msgstr ""
 
+#: src/Components/Common/Filter/FilterStatus.js:19
+#. %d: Number of posts found.
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Components/Common/Filter/index.js:17
+msgid "Filter posts"
+msgstr ""
+
 #: src/Components/Common/Layout/NewsTicker.js:42
 #: src/Components/Common/LoadingSkeleton.js:73
 msgid "Trending Now"
@@ -1134,6 +1382,14 @@ msgstr ""
 #: src/Components/Common/LoadMore/Button.js:6
 #: ../bpl-tools/TemplateLibrary/Components/Modal.js:152
 msgid "Load More"
+msgstr ""
+
+#: src/Components/Common/PostsView.js:39
+msgid "The posts could not be loaded."
+msgstr ""
+
+#: src/Components/Common/PostsView.js:40
+msgid "Try again"
 msgstr ""
 
 #: src/Components/Common/Single/MetaComment.js:14
@@ -1180,22 +1436,22 @@ msgstr ""
 msgid "Copy To Clipboard"
 msgstr ""
 
-#: src/admin/utils/data.js:105
+#: src/admin/utils/data.js:106
 msgid "Add the APB Block"
 msgstr ""
 
-#: src/admin/utils/data.js:106
+#: src/admin/utils/data.js:107
 msgid ""
 "Open the block editor on any post or page. Click the <strong>+</strong> "
 "icon in the top-left corner or type <strong>/Advanced Posts</strong> to "
 "find and insert the Advanced Posts block."
 msgstr ""
 
-#: src/admin/utils/data.js:111
+#: src/admin/utils/data.js:112
 msgid "Choose a Layout"
 msgstr ""
 
-#: src/admin/utils/data.js:112
+#: src/admin/utils/data.js:113
 msgid ""
 "Select the layout from - <strong>Grid</strong>, <strong>Grid 1</strong>, "
 "<strong>Masonry</strong>, <strong>Slider</strong>, <strong>Ticker</strong>, "
@@ -1204,11 +1460,11 @@ msgid ""
 "Switching layouts is non-destructive; your query settings are preserved."
 msgstr ""
 
-#: src/admin/utils/data.js:116
+#: src/admin/utils/data.js:117
 msgid "Configure the Posts Query"
 msgstr ""
 
-#: src/admin/utils/data.js:117
+#: src/admin/utils/data.js:118
 msgid ""
 "In the <strong>Posts Query</strong> panel, filter by categories, tags, or "
 "authors, skip posts with <strong>Post Offset</strong>, target exact posts "
@@ -1217,11 +1473,11 @@ msgid ""
 "split long lists across pages."
 msgstr ""
 
-#: src/admin/utils/data.js:121
+#: src/admin/utils/data.js:122
 msgid "Style Elements & Publish"
 msgstr ""
 
-#: src/admin/utils/data.js:122
+#: src/admin/utils/data.js:123
 msgid ""
 "Use the <strong>Elements</strong> tab to toggle and reorder post content "
 "(image, title, meta, excerpt, read more), then the <strong>Style</strong> "
@@ -1229,7 +1485,7 @@ msgid ""
 "ready."
 msgstr ""
 
-#: src/admin/utils/data.js:128
+#: src/admin/utils/data.js:129
 #: src/template-library/TemplateLibrary.js:19
 msgid "Template Library"
 msgstr ""
@@ -1239,22 +1495,18 @@ msgstr ""
 msgid "Save 45%"
 msgstr ""
 
-#: src/admin/utils/data.js:133
+#: src/admin/utils/data.js:134
 msgid "Open the Template Library"
 msgstr ""
 
-#: src/admin/utils/data.js:134
+#: src/admin/utils/data.js:135
 msgid ""
 "In the block editor, click the <strong>Template Library</strong> button in "
 "the top toolbar (next to the block inserter) to open the templates modal."
 msgstr ""
 
-#: src/admin/utils/data.js:135
+#: src/admin/utils/data.js:136
 msgid "Open Editor"
-msgstr ""
-
-#: src/admin/utils/data.js:139
-msgid "Browse & Filter Templates"
 msgstr ""
 
 #: src/admin/utils/data.js:14
@@ -1262,6 +1514,10 @@ msgid "Black Friday Sale: Upgrade to Advanced Post Block Pro"
 msgstr ""
 
 #: src/admin/utils/data.js:140
+msgid "Browse & Filter Templates"
+msgstr ""
+
+#: src/admin/utils/data.js:141
 msgid ""
 "Switch between the <strong>Patterns</strong> and <strong>Favorites</strong> "
 "tabs, then narrow the gallery by access (<strong>All</strong>, "
@@ -1269,19 +1525,15 @@ msgid ""
 "Magazine, Masonry, Overlay), or search templates by name."
 msgstr ""
 
-#: src/admin/utils/data.js:144
+#: src/admin/utils/data.js:145
 msgid "Preview & Save Favorites"
 msgstr ""
 
-#: src/admin/utils/data.js:145
+#: src/admin/utils/data.js:146
 msgid ""
 "Click the <strong>eye</strong> icon on a template to open its live demo in "
 "a new tab, or the <strong>heart</strong> icon to save it - favorites stay "
 "one click away under the <strong>Favorites</strong> tab."
-msgstr ""
-
-#: src/admin/utils/data.js:149
-msgid "Import & Customize"
 msgstr ""
 
 #: src/admin/utils/data.js:15
@@ -1291,6 +1543,10 @@ msgid ""
 msgstr ""
 
 #: src/admin/utils/data.js:150
+msgid "Import & Customize"
+msgstr ""
+
+#: src/admin/utils/data.js:151
 msgid ""
 "Hit <strong>+ Import</strong> and the template is inserted right into your "
 "content as editable blocks - then tweak the query, elements, and styles as "
@@ -1298,25 +1554,25 @@ msgid ""
 "active."
 msgstr ""
 
-#: src/admin/utils/data.js:156
+#: src/admin/utils/data.js:157
 msgid "ShortCode"
 msgstr ""
 
-#: src/admin/utils/data.js:161
+#: src/admin/utils/data.js:162
 msgid "Open ShortCode Generator"
 msgstr ""
 
-#: src/admin/utils/data.js:162
+#: src/admin/utils/data.js:163
 msgid ""
 "Go to <strong>Advanced Posts &rsaquo; ShortCode Generator</strong> in your "
 "WordPress admin and click <strong>Add New ShortCode</strong>."
 msgstr ""
 
-#: src/admin/utils/data.js:167
+#: src/admin/utils/data.js:168
 msgid "Configure the Block"
 msgstr ""
 
-#: src/admin/utils/data.js:168
+#: src/admin/utils/data.js:169
 msgid ""
 "In the block editor, use the sidebar to choose your layout, set the Posts "
 "Query filters (post type, categories, tags, order), and adjust Elements and "
@@ -1327,22 +1583,22 @@ msgstr ""
 msgid "Premium Templates"
 msgstr ""
 
-#: src/admin/utils/data.js:172
+#: src/admin/utils/data.js:173
 msgid "Publish & Copy the Shortcode"
 msgstr ""
 
-#: src/admin/utils/data.js:173
+#: src/admin/utils/data.js:174
 msgid ""
 "Publish the post. Return to the ShortCode Generator list - the shortcode "
 "<code>[apb id=POST_ID]</code> is shown in the list table. Click it to copy "
 "to clipboard."
 msgstr ""
 
-#: src/admin/utils/data.js:177
+#: src/admin/utils/data.js:178
 msgid "Paste Anywhere"
 msgstr ""
 
-#: src/admin/utils/data.js:178
+#: src/admin/utils/data.js:179
 msgid ""
 "Paste the copied shortcode (e.g. <code>[apb id=123]</code>) into any post, "
 "page, widget area, or block using the <strong>Shortcode</strong> block."
@@ -1352,12 +1608,8 @@ msgstr ""
 msgid "Timeline & Grid 1 Layouts"
 msgstr ""
 
-#: src/admin/utils/data.js:184
+#: src/admin/utils/data.js:185
 msgid "Page Builder"
-msgstr ""
-
-#: src/admin/utils/data.js:189
-msgid "Create a ShortCode"
 msgstr ""
 
 #: src/admin/utils/data.js:19
@@ -1365,21 +1617,25 @@ msgid "Query Presets & Deeper Filtering"
 msgstr ""
 
 #: src/admin/utils/data.js:190
+msgid "Create a ShortCode"
+msgstr ""
+
+#: src/admin/utils/data.js:191
 msgid ""
 "Go to <strong>Advanced Posts &rsaquo; ShortCode Generator</strong>, click "
 "<strong>Add New ShortCode</strong>, configure your layout and query, then "
 "publish. Note the shortcode from the list table."
 msgstr ""
 
-#: src/admin/utils/data.js:191
+#: src/admin/utils/data.js:192
 msgid "ShortCode Generator"
 msgstr ""
 
-#: src/admin/utils/data.js:195
+#: src/admin/utils/data.js:196
 msgid "Add a Shortcode Widget"
 msgstr ""
 
-#: src/admin/utils/data.js:196
+#: src/admin/utils/data.js:197
 msgid ""
 "Add the Page Builder <strong>Shortcode</strong> widget to your page and "
 "insert to the page."
@@ -1389,11 +1645,11 @@ msgstr ""
 msgid "Infinite Scroll"
 msgstr ""
 
-#: src/admin/utils/data.js:200
+#: src/admin/utils/data.js:201
 msgid "Enter & Preview"
 msgstr ""
 
-#: src/admin/utils/data.js:201
+#: src/admin/utils/data.js:202
 msgid ""
 "Type <code>[apb id=YOUR_ID]</code> into the widget's Shortcode field "
 "(replace <em>YOUR_ID</em> with your actual post ID) and click "
@@ -1405,132 +1661,132 @@ msgstr ""
 msgid "Unlock PRO Features →"
 msgstr ""
 
-#: src/admin/utils/data.js:411
+#: src/admin/utils/data.js:412
 msgid "View More Changelogs"
 msgstr ""
 
-#: src/admin/utils/data.js:413
+#: src/admin/utils/data.js:414
 msgid "More Layouts: Grid 1 and Timeline layouts."
 msgstr ""
 
-#: src/admin/utils/data.js:414
+#: src/admin/utils/data.js:415
 msgid ""
 "Accordion Pro Themes: Thumbnail, Numbered FAQ, Split Panel, and Minimal "
 "Lines."
 msgstr ""
 
-#: src/admin/utils/data.js:415
+#: src/admin/utils/data.js:416
 msgid "Ticker and News Ticker options."
 msgstr ""
 
-#: src/admin/utils/data.js:416
+#: src/admin/utils/data.js:417
 msgid "Advanced Query: Presets, Custom Taxonomies, and Search."
 msgstr ""
 
-#: src/admin/utils/data.js:417
+#: src/admin/utils/data.js:418
 msgid "Tags and Custom Taxonomies in the meta row, each with its own icon."
 msgstr ""
 
-#: src/admin/utils/data.js:418
+#: src/admin/utils/data.js:419
 msgid "Infinity Scroll with a trigger offset, spinner, and loading label."
 msgstr ""
 
-#: src/admin/utils/data.js:419
+#: src/admin/utils/data.js:420
 msgid ""
 "Meta sorting and gaps, custom meta icons, date formats, and reading time "
 "seconds."
 msgstr ""
 
-#: src/admin/utils/data.js:420
+#: src/admin/utils/data.js:421
 msgid "Image Lazy Loading, the Scale Up hover animation, and title ellipsis."
 msgstr ""
 
-#: src/admin/utils/data.js:425
+#: src/admin/utils/data.js:426
 msgid "See All Demos"
 msgstr ""
 
-#: src/admin/utils/data.js:430
+#: src/admin/utils/data.js:431
 #: src/utils/options.js:6
 msgid "Grid"
 msgstr ""
 
-#: src/admin/utils/data.js:433
+#: src/admin/utils/data.js:434
 msgid "Retro Print Teal"
 msgstr ""
 
-#: src/admin/utils/data.js:438
+#: src/admin/utils/data.js:439
 msgid "Strata Daily"
 msgstr ""
 
-#: src/admin/utils/data.js:443
+#: src/admin/utils/data.js:444
 msgid "Willow Journal"
 msgstr ""
 
-#: src/admin/utils/data.js:448
+#: src/admin/utils/data.js:449
 msgid "Sable Folio"
 msgstr ""
 
-#: src/admin/utils/data.js:453
+#: src/admin/utils/data.js:454
 msgid "Solstice Review"
 msgstr ""
 
-#: src/admin/utils/data.js:458
+#: src/admin/utils/data.js:459
 msgid "Slate Ledger"
 msgstr ""
 
-#: src/admin/utils/data.js:463
+#: src/admin/utils/data.js:464
 msgid "Lumen Review"
 msgstr ""
 
-#: src/admin/utils/data.js:468
+#: src/admin/utils/data.js:469
 msgid "Vellum Folio"
 msgstr ""
 
-#: src/admin/utils/data.js:473
+#: src/admin/utils/data.js:474
 msgid "Meridian Ledger"
 msgstr ""
 
-#: src/admin/utils/data.js:478
+#: src/admin/utils/data.js:479
 msgid "Meridian Journal Gallery"
 msgstr ""
 
-#: src/admin/utils/data.js:483
+#: src/admin/utils/data.js:484
 msgid "Slate Stand Gallery"
 msgstr ""
 
-#: src/admin/utils/data.js:488
+#: src/admin/utils/data.js:489
 msgid "Slate Edition"
 msgstr ""
 
-#: src/admin/utils/data.js:493
+#: src/admin/utils/data.js:494
 msgid "Meridian Edition"
 msgstr ""
 
-#: src/admin/utils/data.js:498
+#: src/admin/utils/data.js:499
 msgid "Vellum Ledger"
 msgstr ""
 
-#: src/admin/utils/data.js:503
+#: src/admin/utils/data.js:504
 msgid "Obsidian Review"
 msgstr ""
 
-#: src/admin/utils/data.js:508
+#: src/admin/utils/data.js:509
 msgid "Obsidian Journal"
 msgstr ""
 
-#: src/admin/utils/data.js:513
+#: src/admin/utils/data.js:514
 msgid "Obsidian Press"
 msgstr ""
 
-#: src/admin/utils/data.js:518
+#: src/admin/utils/data.js:519
 msgid "Meridian Daily"
 msgstr ""
 
-#: src/admin/utils/data.js:523
+#: src/admin/utils/data.js:524
 msgid "Aurora Daily"
 msgstr ""
 
-#: src/admin/utils/data.js:528
+#: src/admin/utils/data.js:529
 msgid "Vista Daily"
 msgstr ""
 
@@ -1538,11 +1794,11 @@ msgstr ""
 msgid "Showcase Posts with Grid, List, Card Layouts and Filters"
 msgstr ""
 
-#: src/admin/utils/data.js:533
+#: src/admin/utils/data.js:534
 msgid "Compact Cyber Neon"
 msgstr ""
 
-#: src/admin/utils/data.js:538
+#: src/admin/utils/data.js:539
 msgid "Compact Neo Brutal"
 msgstr ""
 
@@ -1553,44 +1809,44 @@ msgid ""
 "customizable and responsive layout."
 msgstr ""
 
-#: src/admin/utils/data.js:543
+#: src/admin/utils/data.js:544
 msgid "Compact Elite Clean"
 msgstr ""
 
-#: src/admin/utils/data.js:548
+#: src/admin/utils/data.js:549
 msgid "Minimal Cyber Neon"
 msgstr ""
 
-#: src/admin/utils/data.js:553
+#: src/admin/utils/data.js:554
 msgid "Minimal Neo Brutal"
 msgstr ""
 
-#: src/admin/utils/data.js:558
+#: src/admin/utils/data.js:559
 msgid "Minimal Elite Clean"
 msgstr ""
 
-#: src/admin/utils/data.js:585
+#: src/admin/utils/data.js:586
 msgid "Grid 1"
 msgstr ""
 
-#: src/admin/utils/data.js:588
+#: src/admin/utils/data.js:589
 msgid "Basalt Press"
 msgstr ""
 
-#: src/admin/utils/data.js:593
+#: src/admin/utils/data.js:594
 msgid "Lumen Folio"
 msgstr ""
 
-#: src/admin/utils/data.js:601
+#: src/admin/utils/data.js:602
 #: src/utils/options.js:7
 msgid "Masonry"
 msgstr ""
 
-#: src/admin/utils/data.js:604
+#: src/admin/utils/data.js:605
 msgid "Vista Dispatch"
 msgstr ""
 
-#: src/admin/utils/data.js:609
+#: src/admin/utils/data.js:610
 #: src/utils/options.js:33
 #: ../bpl-tools/Components/AdvBackground/utils/options.js:43
 #: ../bpl-tools/Components/Background/options.js:26
@@ -1599,103 +1855,103 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: src/admin/utils/data.js:614
+#: src/admin/utils/data.js:615
 #: src/utils/options.js:34
 msgid "Title Meta"
 msgstr ""
 
-#: src/admin/utils/data.js:632
+#: src/admin/utils/data.js:633
 #: src/utils/options.js:8
 msgid "Slider"
 msgstr ""
 
-#: src/admin/utils/data.js:647
+#: src/admin/utils/data.js:648
 #: src/utils/options.js:11
 msgid "Magazine 1"
 msgstr ""
 
-#: src/admin/utils/data.js:650
+#: src/admin/utils/data.js:651
 msgid "Mica Gazette"
 msgstr ""
 
-#: src/admin/utils/data.js:655
+#: src/admin/utils/data.js:656
 msgid "Quartz Stand"
 msgstr ""
 
-#: src/admin/utils/data.js:663
+#: src/admin/utils/data.js:664
 #: src/utils/options.js:9
 msgid "Ticker"
 msgstr ""
 
-#: src/admin/utils/data.js:666
+#: src/admin/utils/data.js:667
 msgid "Side Image"
 msgstr ""
 
-#: src/admin/utils/data.js:671
+#: src/admin/utils/data.js:672
 #: ../bpl-tools/Components/OverlayControl/OverlayControl.js:51
 msgid "Overlay"
 msgstr ""
 
-#: src/admin/utils/data.js:679
+#: src/admin/utils/data.js:680
 msgid "Post Section"
 msgstr ""
 
-#: src/admin/utils/data.js:682
+#: src/admin/utils/data.js:683
 msgid "Post Section (Design 1)"
 msgstr ""
 
-#: src/admin/utils/data.js:687
+#: src/admin/utils/data.js:688
 msgid "Post Section (Design 2)"
 msgstr ""
 
-#: src/admin/utils/data.js:692
+#: src/admin/utils/data.js:693
 msgid "Post Section (Design 3)"
 msgstr ""
 
-#: src/admin/utils/data.js:697
+#: src/admin/utils/data.js:698
 msgid "Post Section (Design 4)"
 msgstr ""
 
-#: src/admin/utils/data.js:702
+#: src/admin/utils/data.js:703
 msgid "Post Section (Design 5)"
 msgstr ""
 
-#: src/admin/utils/data.js:710
+#: src/admin/utils/data.js:711
 msgid "All Posts"
 msgstr ""
 
-#: src/admin/utils/data.js:727
+#: src/admin/utils/data.js:728
 msgid "Buy Now ➜"
 msgstr ""
 
-#: src/admin/utils/data.js:737
+#: src/admin/utils/data.js:738
 msgid "All shortcode posts (apb post type)"
 msgstr ""
 
-#: src/admin/utils/data.js:738
+#: src/admin/utils/data.js:739
 msgid "Post view tracking data"
 msgstr ""
 
-#: src/admin/utils/data.js:87
+#: src/admin/utils/data.js:88
 msgid "Start Now"
 msgstr ""
 
-#: src/admin/utils/data.js:94
+#: src/admin/utils/data.js:95
 #: src/utils/options.js:10
 msgid "News Ticker"
 msgstr ""
 
-#: src/admin/utils/data.js:94
+#: src/admin/utils/data.js:95
 #: src/utils/options.js:13
 msgid "Accordion"
 msgstr ""
 
-#: src/admin/utils/data.js:94
+#: src/admin/utils/data.js:95
 #: src/utils/options.js:12
 msgid "Magazine 2"
 msgstr ""
 
-#: src/admin/utils/data.js:95
+#: src/admin/utils/data.js:96
 msgid "Layouts"
 msgstr ""
 
@@ -1703,6 +1959,20 @@ msgstr ""
 #: ../bpl-tools/TemplateLibrary/Components/Modal.js:43
 #: ../bpl-tools/TemplateLibrary/index.js:39
 msgid "Templates Library"
+msgstr ""
+
+#: src/utils/filter.js:25
+#: ../bpl-tools/Admin/Demos/index.js:177
+#: ../bpl-tools/TemplateLibrary/Components/Sidebar.js:75
+msgid "All"
+msgstr ""
+
+#: src/utils/filter.js:61
+msgid "Clear all"
+msgstr ""
+
+#: src/utils/filter.js:62
+msgid "No posts found"
 msgstr ""
 
 #: src/utils/functions.js:194
@@ -1902,26 +2172,12 @@ msgstr ""
 msgid "Contain"
 msgstr ""
 
-#: src/utils/options.js:87
-#: ../bpl-tools/utils/options.js:31
-msgid "Left"
-msgstr ""
-
-#: src/utils/options.js:89
-#: ../bpl-tools/utils/options.js:29
-msgid "Right"
-msgstr ""
-
 #: src/utils/options.js:90
 msgid "Justify"
 msgstr ""
 
 #: src/utils/options.js:94
 msgid "Start"
-msgstr ""
-
-#: src/utils/options.js:95
-msgid "Center"
 msgstr ""
 
 #: src/utils/options.js:96
@@ -2177,11 +2433,6 @@ msgstr ""
 msgid "Clear search"
 msgstr ""
 
-#: ../bpl-tools/Admin/Demos/index.js:177
-#: ../bpl-tools/TemplateLibrary/Components/Sidebar.js:75
-msgid "All"
-msgstr ""
-
 #: ../bpl-tools/Admin/Demos/index.js:189
 msgid "No demos found"
 msgstr ""
@@ -2396,10 +2647,6 @@ msgstr ""
 
 #: ../bpl-tools/Admin/OurPlugins/index.js:116
 msgid "Install & Activate"
-msgstr ""
-
-#: ../bpl-tools/Admin/OurPlugins/index.js:136
-msgid "Active"
 msgstr ""
 
 #: ../bpl-tools/Admin/OurPlugins/index.js:214
@@ -2852,7 +3099,7 @@ msgstr ""
 
 #: ../bpl-tools/Admin/Welcome/Info/index.js:32
 msgid ""
-"Have an idea that would make this plugin even better? Let us know — we love "
+"Have an idea that would make this plugin even better? Let us know, we love "
 "hearing from you."
 msgstr ""
 
@@ -2866,7 +3113,7 @@ msgstr ""
 
 #: ../bpl-tools/Admin/Welcome/Info/index.js:38
 msgid ""
-"We're a small team pouring our heart into this plugin — your honest review "
+"We're a small team pouring our heart into this plugin, your honest review "
 "keeps us going and helps others discover it. It only takes 30 seconds."
 msgstr ""
 
@@ -3354,27 +3601,31 @@ msgstr ""
 msgid "Color Type:"
 msgstr ""
 
-#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:117
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:118
 msgid "All Icons"
 msgstr ""
 
-#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:195
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:232
 msgid "Icon Library"
 msgstr ""
 
-#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:214
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:251
 msgid "Filter by name..."
 msgstr ""
 
-#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:220
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:257
 msgid "Could not load the icons. Please close and reopen the library to try again."
 msgstr ""
 
-#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:222
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:261
 msgid "Loading icons..."
 msgstr ""
 
-#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:250
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:267
+msgid "No icons found matching your search."
+msgstr ""
+
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:306
 msgid "Insert"
 msgstr ""
 
@@ -3434,12 +3685,6 @@ msgstr ""
 
 #: ../bpl-tools/Components/MediaControl/MediaControl.js:64
 msgid "Enter URL"
-msgstr ""
-
-#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:19
-#: ../bpl-tools/Components/Typography/options.js:4
-#: ../bpl-tools/utils/options.js:4
-msgid "Normal"
 msgstr ""
 
 #: ../bpl-tools/Components/OverlayControl/OverlayControl.js:20
@@ -3556,10 +3801,6 @@ msgstr ""
 
 #: ../bpl-tools/Components/Typography/Typography.js:133
 msgid "Letter Spacing:"
-msgstr ""
-
-#: ../bpl-tools/Components/Typography/Typography.js:23
-msgid "Typography:"
 msgstr ""
 
 #: ../bpl-tools/Components/Typography/Typography.js:68
@@ -3916,10 +4157,6 @@ msgstr ""
 
 #: ../bpl-tools/utils/options.js:46
 msgid "Rose Pink"
-msgstr ""
-
-#: ../bpl-tools/utils/options.js:5
-msgid "Hover"
 msgstr ""
 
 #: ../bpl-tools/utils/options.js:51

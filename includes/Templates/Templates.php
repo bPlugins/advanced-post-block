@@ -1,24 +1,37 @@
 <?php
 namespace APB\Templates;
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Template Library: AJAX endpoints the editor's library modal calls.
+ *
+ * @package APB
+ */
 class Templates {
+	/**
+	 * Registers the AJAX handlers.
+	 */
 	public function __construct() {
-		add_action( 'wp_ajax_apb_templates_main', [$this, 'apb_templates_main'] );
-		add_action( 'wp_ajax_apb_templates', [$this, 'apb_templates'] );
-		add_action( 'wp_ajax_apb_template_import', [$this, 'apb_template_import'] );
-		add_action( 'wp_ajax_apb_template_counts', [$this, 'apb_template_counts'] );
-		add_action( 'wp_ajax_apb_template_favorites', [$this, 'apb_template_favorites'] );
+		add_action( 'wp_ajax_apb_templates_main', [ $this, 'apb_templates_main' ] );
+		add_action( 'wp_ajax_apb_templates', [ $this, 'apb_templates' ] );
+		add_action( 'wp_ajax_apb_template_import', [ $this, 'apb_template_import' ] );
+		add_action( 'wp_ajax_apb_template_counts', [ $this, 'apb_template_counts' ] );
+		add_action( 'wp_ajax_apb_template_favorites', [ $this, 'apb_template_favorites' ] );
 	}
 
-	public function apb_templates_main(){
+	/**
+	 * Sends the library's categories for one template type.
+	 *
+	 * @return void
+	 */
+	public function apb_templates_main() {
 		$nonce = sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ?? '' ) );
 		$type = sanitize_text_field( wp_unslash( $_POST['type'] ?? 'patterns' ) );
 
-		if( !wp_verify_nonce( $nonce, 'apb_template' )){
+		if ( ! wp_verify_nonce( $nonce, 'apb_template' ) ) {
 			wp_send_json_error( __( 'Invalid Request', 'advanced-post-block' ) );
 		}
 
@@ -26,25 +39,34 @@ class Templates {
 			wp_send_json_error( __( 'Insufficient Permissions', 'advanced-post-block' ) );
 		}
 
-		$typeFilter = 'patterns' === $type ? 'patterns-category': 'pages-category';
-		$response = wp_remote_get( self::api_base() . "/wp-json/gutenberg-templates/v1/taxonomy/taxonomies/plugin,type,{$typeFilter}");
+		$typeFilter = 'patterns' === $type ? 'patterns-category' : 'pages-category';
+		$response = wp_remote_get( self::api_base() . "/wp-json/gutenberg-templates/v1/taxonomy/taxonomies/plugin,type,{$typeFilter}" );
 
 		$body = json_decode( wp_remote_retrieve_body( $response ) );
 
 		// Filter categories to only include those that have templates for this plugin
 		if ( $body && isset( $body->{$typeFilter} ) ) {
 			$categoryFilter = $this->get_plugin_categories( $type );
-			$body->{$typeFilter} = array_filter( $body->{$typeFilter}, function( $cat ) use ( $categoryFilter ) {
-				return in_array( $cat->name, $categoryFilter, true );
-			} );
+			$body->{$typeFilter} = array_filter(
+				$body->{$typeFilter},
+				function ( $cat ) use ( $categoryFilter ) {
+					return in_array( $cat->name, $categoryFilter, true );
+				}
+			);
 			$body->{$typeFilter} = array_values( $body->{$typeFilter} );
 		}
 
 		wp_send_json_success( $body );
 	}
 
+	/**
+	 * Fetches this plugin's template categories from the library API.
+	 *
+	 * @param string $type Template type, such as patterns or pages.
+	 * @return array
+	 */
 	private function get_plugin_categories( $type ) {
-		$typeFilter = 'patterns' === $type ? 'patterns': 'pages';
+		$typeFilter = 'patterns' === $type ? 'patterns' : 'pages';
 		$response = wp_remote_get( self::api_base() . "/wp-json/gutenberg-templates/v1/blocks?type=$typeFilter&start=0&end=1&plugin=advanced-post-block&fields=category&limit=1000&end=10000" );
 
 		if ( is_wp_error( $response ) ) {
@@ -67,10 +89,15 @@ class Templates {
 		return array_unique( $categories );
 	}
 
-	public function apb_templates(){
+	/**
+	 * Sends one page of templates.
+	 *
+	 * @return void
+	 */
+	public function apb_templates() {
 		$nonce = sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ?? '' ) );
 
-		if( !wp_verify_nonce( $nonce, 'apb_template' )){
+		if ( ! wp_verify_nonce( $nonce, 'apb_template' ) ) {
 			wp_send_json_error( __( 'Invalid Request', 'advanced-post-block' ) );
 		}
 
@@ -78,29 +105,34 @@ class Templates {
 			wp_send_json_error( __( 'Insufficient Permissions', 'advanced-post-block' ) );
 		}
 
-		$type = sanitize_text_field( wp_unslash( $_POST['type'] ?? 'patterns') ) ;
+		$type = sanitize_text_field( wp_unslash( $_POST['type'] ?? 'patterns' ) );
 		$category = sanitize_text_field( wp_unslash( $_POST['category'] ?? 'all' ) );
 		$pageNumber = max( 1, absint( wp_unslash( $_POST['pageNumber'] ?? 1 ) ) );
 		$perPage = max( 1, absint( wp_unslash( $_POST['perPage'] ?? 12 ) ) );
 		$start = $pageNumber - 1;
 		$search = sanitize_text_field( wp_unslash( $_POST['search'] ?? '' ) );
 
-		$typeFilter = 'patterns' === $type ? 'patterns': 'pages';
+		$typeFilter = 'patterns' === $type ? 'patterns' : 'pages';
 
 		try {
 			$response = wp_remote_get( self::api_base() . "/wp-json/gutenberg-templates/v1/blocks?type=$typeFilter&start=$start&end=$pageNumber&limit=$perPage&plugin=advanced-post-block&category=$category&keywords=$search&fields=ID,category,keywords,original_content,thumbnail,title,type,url,preview_url" );
 
 			$body = json_decode( wp_remote_retrieve_body( $response ) );
 			wp_send_json_success( $body );
-		} catch (\Throwable $th) {
+		} catch ( \Throwable $th ) {
 			wp_send_json_error( $th->getMessage() );
 		}
 	}
 
-	public function apb_template_import(){
+	/**
+	 * Returns a template's markup for insertion.
+	 *
+	 * @return void
+	 */
+	public function apb_template_import() {
 		$nonce = sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ?? '' ) );
 
-		if( !wp_verify_nonce( $nonce, 'apb_template' )){
+		if ( ! wp_verify_nonce( $nonce, 'apb_template' ) ) {
 			wp_send_json_error( __( 'Invalid Request', 'advanced-post-block' ) );
 		}
 
@@ -120,11 +152,16 @@ class Templates {
 		}
 	}
 
-	public function apb_template_counts(){
+	/**
+	 * Sends the template counts per category.
+	 *
+	 * @return void
+	 */
+	public function apb_template_counts() {
 		$nonce = sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ?? '' ) );
 		$type = sanitize_text_field( wp_unslash( $_POST['type'] ?? 'patterns' ) );
 
-		if( !wp_verify_nonce( $nonce, 'apb_template' )){
+		if ( ! wp_verify_nonce( $nonce, 'apb_template' ) ) {
 			wp_send_json_error( __( 'Invalid Request', 'advanced-post-block' ) );
 		}
 
@@ -133,7 +170,7 @@ class Templates {
 		}
 
 		try {
-			$typeFilter = 'patterns' === $type ? 'patterns': 'pages';
+			$typeFilter = 'patterns' === $type ? 'patterns' : 'pages';
 
 			// Fetch all templates for this plugin to count free/pro per category
 			$response = wp_remote_get( self::api_base() . "/wp-json/gutenberg-templates/v1/blocks?type=$typeFilter&plugin=advanced-post-block&fields=ID,category&limit=10000&start=0&end=10000" );
@@ -146,12 +183,14 @@ class Templates {
 			$body = json_decode( wp_remote_retrieve_body( $response ) );
 
 			if ( ! $body || ! isset( $body->patterns ) ) {
-				wp_send_json_success( [
-					'all' => 0,
-					'free' => 0,
-					'pro' => 0,
-					'categories' => []
-				] );
+				wp_send_json_success(
+					[
+						'all' => 0,
+						'free' => 0,
+						'pro' => 0,
+						'categories' => [],
+					]
+				);
 				return;
 			}
 
@@ -160,36 +199,36 @@ class Templates {
 				'all' => 0,
 				'free' => 0,
 				'pro' => 0,
-				'categories' => []
+				'categories' => [],
 			];
 
 			foreach ( $body->patterns as $template ) {
 				$isPro = isset( $template->category ) && is_array( $template->category ) && in_array( 'pro', $template->category, true );
 
 				// Count in all
-				$counts['all']++;
+				++$counts['all'];
 				if ( $isPro ) {
-					$counts['pro']++;
+					++$counts['pro'];
 				} else {
-					$counts['free']++;
+					++$counts['free'];
 				}
 
 				// Count per category
 				if ( isset( $template->category ) && is_array( $template->category ) ) {
 					foreach ( $template->category as $cat ) {
 						if ( 'free' !== $cat && 'pro' !== $cat ) {
-							if ( ! isset( $counts['categories'][$cat] ) ) {
-								$counts['categories'][$cat] = [
+							if ( ! isset( $counts['categories'][ $cat ] ) ) {
+								$counts['categories'][ $cat ] = [
 									'total' => 0,
 									'free' => 0,
-									'pro' => 0
+									'pro' => 0,
 								];
 							}
-							$counts['categories'][$cat]['total']++;
+							++$counts['categories'][ $cat ]['total'];
 							if ( $isPro ) {
-								$counts['categories'][$cat]['pro']++;
+								++$counts['categories'][ $cat ]['pro'];
 							} else {
-								$counts['categories'][$cat]['free']++;
+								++$counts['categories'][ $cat ]['free'];
 							}
 						}
 					}
@@ -201,10 +240,15 @@ class Templates {
 			wp_send_json_error( $th->getMessage() );
 		}
 	}
-	public function apb_template_favorites(){
+	/**
+	 * Reads or updates the site's favourite templates.
+	 *
+	 * @return void
+	 */
+	public function apb_template_favorites() {
 		$nonce = sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ?? '' ) );
 
-		if( !wp_verify_nonce( $nonce, 'apb_template' )){
+		if ( ! wp_verify_nonce( $nonce, 'apb_template' ) ) {
 			wp_send_json_error( __( 'Invalid Request', 'advanced-post-block' ) );
 		}
 
@@ -217,7 +261,13 @@ class Templates {
 
 		// Save when a favorites payload is posted, then return the current state
 		if ( isset( $_POST['favorites'] ) ) {
-			$before = get_option( $optionKey, [ 'patterns' => [], 'pages' => [] ] );
+			$before = get_option(
+				$optionKey,
+				[
+					'patterns' => [],
+					'pages' => [],
+				]
+			);
 
 			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- a JSON string, and every decoded value is hard-cast through absint() below.
 			$raw = json_decode( wp_unslash( $_POST['favorites'] ), true );
@@ -243,7 +293,15 @@ class Templates {
 			}
 		}
 
-		wp_send_json_success( get_option( $optionKey, [ 'patterns' => [], 'pages' => [] ] ) );
+		wp_send_json_success(
+			get_option(
+				$optionKey,
+				[
+					'patterns' => [],
+					'pages' => [],
+				]
+			)
+		);
 	}
 
 	/**
@@ -259,7 +317,7 @@ class Templates {
 	/**
 	 * Whether the site owner agreed to share usage data.
 	 *
-	 * apb_fs() is the Freemius SDK in Pro, and also in Free when another active
+	 * The apb_fs() helper is the Freemius SDK in Pro, and also in Free when another active
 	 * plugin loads the full SDK - it knows if the site is registered and allows
 	 * tracking. Otherwise it is freemius-lite, which keeps the opt-in in its
 	 * accounts option: the site must have finished opting in (not skipped, not
@@ -317,6 +375,5 @@ class Templates {
 			]
 		);
 	}
-
 }
 new Templates();

@@ -9,6 +9,7 @@ import CategoryBadge from './CategoryBadge';
 import Excerpt from './Excerpt';
 import ReadMore from './ReadMore';
 import Pagination from './Pagination';
+import Filter from './Filter';
 
 import Grid from './Layouts/Grid';
 import Slider from './Layouts/Slider';
@@ -57,6 +58,7 @@ const Style = ({ attributes, id }) => {
 			${Slider(props)}
 			${Magazine(props)}
 			${Accordion(props)}
+			${Filter(props)}
 		`.replace(/\s+/g, ' ')
 	}} />
 }

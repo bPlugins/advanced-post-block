@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { PanelBody, SelectControl, TextControl, ToggleControl, RangeControl, __experimentalUnitControl as UnitControl } from '@wordpress/components';
+import { PanelBody, SelectControl, TextControl, ToggleControl, RangeControl, __experimentalUnitControl as UnitControl, __experimentalNumberControl as NumberControl } from '@wordpress/components';
 
 import { Badge, BtnGroup, ColorsControl, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
 import { SpaceControl } from '../../../../../../bpl-tools/Components/Deprecated';
@@ -10,7 +10,7 @@ import { loadMoreTypes, flexAligns } from '../../../../utils/options';
 
 const Pagination = ({ attributes, setAttributes, updateObj }) => {
 	const { isPostsPerPageAll, isPagination, paginationPrevLabel, paginationNextLabel, paginationColors, paginationHovColors, paginationPadding, paginationSpacing, loadMore = {} } = attributes;
-	const { type = '', alignment = 'center', scrollTop = {}, button = {} } = loadMore || {};
+	const { type = '', alignment = 'center', maxPages = 0, scrollTop = {}, button = {} } = loadMore || {};
 	const { enabled = false, offset: scrollTopOffset = 50 } = scrollTop || {};
 	const { label: btnLabel = 'Load More' } = button || {};
 
@@ -33,6 +33,16 @@ const Pagination = ({ attributes, setAttributes, updateObj }) => {
 
 
 		<BtnGroup className='mt20' label={__('Alignment', 'advanced-post-block')} value={alignment} onChange={val => updateObj('loadMore', val, 'alignment')} options={flexAligns} isIcon={true} />
+
+		<NumberControl
+			className='mt20'
+			label={<>{__('Limit Number of Pages:', 'advanced-post-block')} <HelpTooltip text={__('The most pages visitors can go through, for example 5 stops at page 5 even when there are more posts. 0 shows every page.', 'advanced-post-block')} /></>}
+			labelPosition='side'
+			value={maxPages}
+			onChange={val => updateObj('loadMore', Math.max(0, parseInt(val, 10) || 0), 'maxPages')}
+			min={0}
+			step={1}
+		/>
 
 
 		{['pagination', 'navigation'].includes(loadMoreType) && <>

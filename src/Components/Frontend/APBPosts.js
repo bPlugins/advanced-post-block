@@ -1,27 +1,31 @@
-import { useState } from 'react';
+import { useMemo } from 'react';
+
 import Style from '../Common/Style';
-import DisplayPosts from '../Common/DisplayPosts';
-import LoadMore from '../Common/LoadMore';
+import PostsView from '../Common/PostsView';
 import Slider from '../Common/Layout/Slider';
 import Ticker from './Layout/Ticker';
-import useAjaxPosts from '../../hooks/useAjaxPosts';
-import LoadingSkeleton from '../Common/LoadingSkeleton';
-import { getPaginationPage } from '../../utils/paginationStorage';
+import useFilteredPosts from '../../hooks/useFilteredPosts';
+import { getQueryAttr } from '../../utils/filter';
 
-const APBPosts = ({ nonce, attributes, id }) => {
-	const { layout, isPostsPerPageAll, postsPerPage } = attributes;
-	const [pageNumber, setPageNumber] = useState(() => getPaginationPage(id, 1));
+const APBPosts = ({ nonce, attributes, id, request = {} }) => {
+	// The signed query also holds the attributes the old admin-ajax action expects, for the
+	// rare site where the REST API is blocked.
+	// A page cached before the REST route existed carries no signed query at all; the
+	// attributes it does carry give the same list.
+	const legacy = useMemo(() => {
+		try {
+			return { nonce, queryAttr: JSON.parse(request.query).query };
+		} catch (error) {
+			return { nonce, queryAttr: getQueryAttr(attributes) };
+		}
+	}, [nonce, request.query]);
 
-	const { posts, isLoading, totalPosts } = useAjaxPosts(nonce, attributes, pageNumber);
+	const controller = useFilteredPosts({ id, attributes, request, initialFacets: request.facets, legacy });
 
 	return <>
 		<Style attributes={attributes} id={id} />
 
-		{isLoading ?
-			<LoadingSkeleton attributes={attributes} /> :
-			<DisplayPosts {...{ posts, attributes, id, Slider, Ticker }} />}
-
-		{(!['slider', 'ticker', 'newsTicker'].includes(layout) && !isPostsPerPageAll && totalPosts > postsPerPage) && <LoadMore {...{ attributes, id, pageNumber, totalCount: totalPosts, isLoading }} onChange={val => setPageNumber(val)} />}
+		<PostsView {...{ controller, attributes, id, Slider, Ticker }} />
 	</>
 }
 export default APBPosts;

@@ -73,3 +73,11 @@ export const clearAllPaginationPages = () => {
 		console.warn('Error clearing all pagination from sessionStorage:', error);
 	}
 };
+
+// The most posts the pager may page through. "Limit Number of Pages" set to 0 means no limit.
+export const pagedTotal = (totalPosts, attributes) => {
+	const { postsPerPage, loadMore = {} } = attributes || {};
+	const maxPages = Math.max(0, parseInt(loadMore?.maxPages, 10) || 0);
+
+	return maxPages && postsPerPage > 0 ? Math.min(totalPosts, maxPages * postsPerPage) : totalPosts;
+};

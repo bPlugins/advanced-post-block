@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { TabPanel, PanelBody } from '@wordpress/components';
+import { TabPanel, PanelBody, Button } from '@wordpress/components';
 
 import { Badge, BoxControl, ColorControl, ColorsControl, Typography, HelpTooltip, Notice } from '../../../../../../bpl-tools/Components';
 import { SpaceControl } from '../../../../../../bpl-tools/Components/Deprecated';
@@ -56,10 +56,16 @@ const CategoriesBadge = ({ attributes, setAttributes, updateObj }) => {
 	const { metaColorsOnImage, categoryOnImage = {} } = attributes;
 	const { styles = {} } = categoryOnImage || {};
 
-	const { padding = { top: '3px', right: '8px', bottom: '3px', left: '8px' }, radius = { top: '3px', right: '3px', bottom: '3px', left: '3px' }, margin = { top: '0px', right: '0px', bottom: '10px', left: '10px' } } = styles || {};
+	const { padding = { top: '3px', right: '8px', bottom: '3px', left: '8px' }, radius = { top: '3px', right: '3px', bottom: '3px', left: '3px' }, margin = { top: '0px', right: '0px', bottom: '10px', left: '10px' }, typography = {} } = styles || {};
+	const hasTypography = Object.keys(typography || {}).length > 0;
 
 	return <PanelBody className='bPlPanelBody' title={__('Categories Badge', 'advanced-post-block')} initialOpen={false}>
-		<ColorsControl label={__('Colors:', 'advanced-post-block')} value={metaColorsOnImage} onChange={val => setAttributes({ metaColorsOnImage: val })} defaults={{ color: '#fff', bg: primaryColor }} />
+		{/* No defaults: a reset clears the property, so it falls back to the Meta typography again. */}
+		<Typography label={<>{__('Typography:', 'advanced-post-block')} <HelpTooltip text={__('Settings left empty use the Meta typography.', 'advanced-post-block')} /></>} value={typography} onChange={val => updateObj('categoryOnImage', val, 'styles', 'typography')} />
+
+		{hasTypography && <Button className='mt10' variant='secondary' size='small' onClick={() => updateObj('categoryOnImage', {}, 'styles', 'typography')}>{__('Use Meta Typography', 'advanced-post-block')}</Button>}
+
+		<ColorsControl className='mt20' label={__('Colors:', 'advanced-post-block')} value={metaColorsOnImage} onChange={val => setAttributes({ metaColorsOnImage: val })} defaults={{ color: '#fff', bg: primaryColor }} />
 
 		<BoxControl className='mt20' label={<>{__('Padding:', 'advanced-post-block')} <Badge size='regular' /></>} values={padding} onChange={val => updateObj('categoryOnImage', val, 'styles', 'padding')} />
 

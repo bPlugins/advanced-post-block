@@ -2,7 +2,7 @@ import { usePagination, DOTS } from './usePagination';
 import { prefix } from '../../../utils/data';
 import { savePaginationPage } from '../../../utils/paginationStorage';
 
-const Pagination = ({ id, currentPage, totalCount, postsPerPage, prevLabel, nextLabel, setPageNumber, scrollTop }) => {
+const Pagination = ({ id, currentPage, totalCount, postsPerPage, prevLabel, nextLabel, setPageNumber, scrollTop, persist = true }) => {
 	const { enabled = false, offset: scrollTopOffset = 50 } = scrollTop || {};
 
 	const paginationRange = usePagination({
@@ -22,7 +22,7 @@ const Pagination = ({ id, currentPage, totalCount, postsPerPage, prevLabel, next
 		if (newPage < 1 || newPage > lastPage) return;
 
 		setPageNumber(newPage);
-		savePaginationPage(id, newPage);
+		if (persist) savePaginationPage(id, newPage);
 		if (enabled) {
 			const element = document.getElementById(id);
 			if (element) {

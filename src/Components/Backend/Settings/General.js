@@ -10,6 +10,7 @@ import AccordionOptions from './General/SubLayouts/AccordionOptions';
 import Pagination from './General/Pagination';
 import Layout from './General/Layout';
 import PostsQuery from './General/PostsQuery';
+import FrontendFilter from './General/FrontendFilter';
 
 const General = ({ attributes, setAttributes, updateObj, device, postTypes, allTaxonomies }) => {
 	const { layout, isPostsPerPageAll } = attributes;
@@ -29,6 +30,8 @@ const General = ({ attributes, setAttributes, updateObj, device, postTypes, allT
 		<PostsQuery {...props} postTypes={postTypes} allTaxonomies={allTaxonomies} />
 
 		{!isSlider && !isTicker && !isNewsTicker && !isPostsPerPageAll ? <Pagination {...props} /> : ''}
+
+		<FrontendFilter {...props} />
 
 		{isSlider && <SliderOptions {...props} />}
 

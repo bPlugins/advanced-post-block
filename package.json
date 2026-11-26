@@ -19,7 +19,10 @@
 		"i18n": "npm run i18n-pot && npm run i18n-json && npm run i18n-mo",
 		"plugin-zip": "wp-scripts plugin-zip",
 		"zip": "zip -r advanced-post-block.zip build includes languages public vendor index.php plugin.php readme.txt uninstall.php",
-		"bundle": "gulp clean && npm run clean:cache && npm run lint && npm run build && npm run i18n && find . -name '.DS_Store' -delete && npm run zip"
+		"bundle": "gulp clean && npm run clean:cache && npm run lint && npm run build && npm run i18n && find . -name '.DS_Store' -delete && npm run zip",
+		"push:testing": "bash bin/push-testing.sh",
+		"release": "bash bin/release.sh",
+		"ship": "npm run bundle && git add -A build languages && (git diff --cached --quiet || git commit -m \"Build $(grep -m1 \"Version:\" plugin.php | sed -E \"s/.*Version: *//\" | tr -d \"\\r \")\") && git push origin development && npm run push:testing"
 	},
 	"dependencies": {
 		"immer": "^10.1.1",

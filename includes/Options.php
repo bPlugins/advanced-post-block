@@ -1,12 +1,13 @@
 <?php
 namespace APB;
 
-if ( !defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; }
 
 /**
  * Options class
  * Handles plugin options and related AJAX requests.
- * 
+ *
  * @package APB
  */
 class Options {
@@ -61,12 +62,14 @@ class Options {
 
 		self::updateOptions( [ 'delete_data_on_uninstall' => $enabled ] );
 
-		wp_send_json_success( [
-			'enabled' => $enabled,
-			'message' => $enabled
-				? __( 'All plugin data will be deleted when uninstalled.', 'advanced-post-block' )
-				: __( 'Plugin data will be preserved when uninstalled.', 'advanced-post-block' )
-		] );
+		wp_send_json_success(
+			[
+				'enabled' => $enabled,
+				'message' => $enabled
+					? __( 'All plugin data will be deleted when uninstalled.', 'advanced-post-block' )
+					: __( 'Plugin data will be preserved when uninstalled.', 'advanced-post-block' ),
+			]
+		);
 	}
 }
 new Options();

@@ -123,6 +123,15 @@
 			"type": "boolean",
 			"default": false
 		},
+		"dateQuery": {
+			"type": "object",
+			"default": {
+				"range": "",
+				"column": "post_date",
+				"after": "",
+				"before": ""
+			}
+		},
 		"isPagination": {
 			"type": "boolean",
 			"default": false
@@ -165,6 +174,7 @@
 			"default": {
 				"type": "",
 				"alignment": "center",
+				"maxPages": 0,
 				"scrollTop": {
 					"enabled": false,
 					"offset": 50
@@ -176,6 +186,69 @@
 				},
 				"button": {
 					"label": "Load More"
+				}
+			}
+		},
+		"frontendFilter": {
+			"type": "object",
+			"default": {
+				"enabled": false,
+				"alignment": "left",
+				"taxonomies": [
+					{
+						"taxonomy": "category",
+						"label": "",
+						"allLabel": "All",
+						"terms": [],
+						"hideEmpty": true
+					}
+				],
+				"resultCount": {
+					"enabled": true
+				},
+				"reset": {
+					"enabled": true,
+					"label": "Clear all"
+				},
+				"noResults": {
+					"text": "No posts found"
+				},
+				"styles": {
+					"gap": "10px",
+					"marginBottom": "20px",
+					"typo": {
+						"fontSize": {
+							"desktop": "14px"
+						},
+						"fontWeight": 500
+					},
+					"labelColor": "",
+					"item": {
+						"colors": {
+							"color": "#070127",
+							"bg": "#fff"
+						},
+						"hoverColors": {
+							"color": "#146EF5",
+							"bg": "#fff"
+						},
+						"activeColors": {
+							"color": "#fff",
+							"bg": "#146EF5"
+						},
+						"padding": {
+							"vertical": "6px",
+							"horizontal": "14px"
+						},
+						"border": {
+							"width": "1px",
+							"color": "#0c0d3c1a",
+							"radius": "50px"
+						},
+						"activeBorderColor": "#146EF5"
+					},
+					"resultCountColor": "",
+					"resetColor": "#146EF5"
 				}
 			}
 		},
@@ -746,7 +819,8 @@
 						"right": "0px",
 						"bottom": "10px",
 						"left": "10px"
-					}
+					},
+					"typography": {}
 				}
 			}
 		}

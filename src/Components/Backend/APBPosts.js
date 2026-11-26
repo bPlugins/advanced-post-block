@@ -1,34 +1,35 @@
-import { useState } from 'react';
+import { useMemo } from 'react';
 
 import Style from '../Common/Style';
-import DisplayPosts from '../Common/DisplayPosts';
+import PostsView from '../Common/PostsView';
 import Slider from './Layout/Slider';
 import Ticker from './Layout/Ticker';
-import LoadMore from '../Common/LoadMore';
-import useAjaxPosts from '../../hooks/useAjaxPosts';
-import LoadingSkeleton from '../Common/LoadingSkeleton';
 import NoPosts from './NoPosts';
+import useFilteredPosts from '../../hooks/useFilteredPosts';
+import { getFilter, getQueryAttr, filterForRequest } from '../../utils/filter';
 
 const APBPosts = ({ attributes, id }) => {
-	const { layout, isPostsPerPageAll, postsPerPage } = attributes;
-	const [pageNumber, setPageNumber] = useState(1);
+	// wpApiSettings is globally available in the WP admin context
+	const hasApi = typeof wpApiSettings !== 'undefined';
 
-	// wpApiSettings.nonce is globally available in the WP admin context
-	const nonce = typeof wpApiSettings !== 'undefined' ? wpApiSettings.nonce : '';
+	// The editor sends the unsaved attributes; the server accepts them from logged-in editors only.
+	const attrs = JSON.stringify({
+		query: getQueryAttr(attributes),
+		filter: filterForRequest(getFilter(attributes))
+	});
 
-	const { posts, isLoading, totalPosts } = useAjaxPosts(nonce, attributes, pageNumber);
+	const request = useMemo(() => ({
+		url: `${hasApi ? wpApiSettings.root : '/wp-json/'}apb/v1/posts`,
+		nonce: hasApi ? wpApiSettings.nonce : '',
+		attrs
+	}), [attrs]);
+
+	const controller = useFilteredPosts({ id, attributes, request, isEditor: true });
 
 	return <>
 		<Style attributes={attributes} id={id} />
 
-		{isLoading ?
-			<LoadingSkeleton attributes={attributes} /> : (
-				posts?.length ?
-					<DisplayPosts {...{ posts, attributes, id, Slider, Ticker }} /> :
-					<NoPosts />
-			)}
-
-		{(!['slider', 'ticker', 'newsTicker'].includes(layout) && !isPostsPerPageAll && totalPosts > postsPerPage) && <LoadMore {...{ attributes, id, pageNumber, totalCount: totalPosts, isLoading }} onChange={val => setPageNumber(val)} />}
+		<PostsView {...{ controller, attributes, id, Slider, Ticker }} Empty={NoPosts} />
 	</>
 }
 export default APBPosts;

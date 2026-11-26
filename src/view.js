@@ -10,9 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
 		const nonce = JSON.parse(postsEl.dataset.nonce);
 		const attributes = JSON.parse(postsEl.dataset.attributes);
 
-		createRoot(postsEl).render(<APBPosts nonce={nonce} attributes={attributes} id={postsEl.id} />);
+		// The signed query, the REST address and the filter choices printed by render.php.
+		let request = {};
+		try {
+			request = JSON.parse(postsEl.dataset.request || '{}');
+		} catch (error) {
+			request = {};
+		}
+
+		createRoot(postsEl).render(<APBPosts nonce={nonce} attributes={attributes} id={postsEl.id} request={request} />);
 
 		postsEl?.removeAttribute('data-nonce');
 		postsEl?.removeAttribute('data-attributes');
+		postsEl?.removeAttribute('data-request');
 	});
 });

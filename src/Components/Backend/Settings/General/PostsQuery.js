@@ -6,6 +6,7 @@ import { Label, HelpTooltip, Notice, Badge } from '../../../../../../bpl-tools/C
 import { postsOrdersBy, postsOrders } from '../../../../utils/options';
 import { strToIntArr } from '../../../../utils/functions';
 import AsyncTokenField from './AsyncTokenField';
+import DateRange from './DateRange';
 
 const PostsQuery = ({ attributes, setAttributes, postTypes }) => {
 	const { postType, taxonomyRelation = 'AND', selectedCategories = [], selectedTags, postsAuthors = [], isPostsPerPageAll, postsPerPage, postsOrderBy, postsOrder, postsOffset, postsInclude, postsExclude, isExcludeSticky } = attributes;
@@ -62,6 +63,8 @@ const PostsQuery = ({ attributes, setAttributes, postTypes }) => {
 			<SelectControl value={postsOrder} onChange={val => setAttributes({ postsOrder: val })} options={postsOrders} />
 		</PanelRow>
 
+		<DateRange {...{ attributes, setAttributes }} />
+
 		{!isPostsPerPageAll && <>
 			<NumberControl className='mt20' label={<>{__('Post Offset:', 'advanced-post-block')} <HelpTooltip text={__('Number of posts to skip. This works when Posts Per Page is not set to -1.', 'advanced-post-block')} /></>} value={postsOffset} onChange={val => setAttributes({ postsOffset: parseInt(val) })} min={0} />
 			<Notice>{__('`Post Offset` will not work if `Post Per Page` is -1', 'advanced-post-block')}</Notice>
@@ -75,7 +78,7 @@ const PostsQuery = ({ attributes, setAttributes, postTypes }) => {
 
 		<ToggleControl className='mt20' label={<>{__('Exclude Sticky Posts', 'advanced-post-block')} <Badge size='regular' /> <HelpTooltip text={__('Completely remove sticky posts from the results.', 'advanced-post-block')} /></>} checked={isExcludeSticky} onChange={val => setAttributes({ isExcludeSticky: val })} />
 
-		<Notice status='premium' isIcon={true}>{__('Query presets, custom taxonomy filtering, search queries, advanced sorting, and excluding the current post are available in the Premium version.', 'advanced-post-block')}</Notice>
+		<Notice status='premium' isIcon={true}>{__('Query presets, custom taxonomy filtering, search queries, advanced sorting, excluding the current post, this day/week/month/year date ranges, and filtering by last modified date are available in the Premium version.', 'advanced-post-block')}</Notice>
 	</PanelBody>
 };
 export default PostsQuery;

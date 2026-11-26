@@ -21,16 +21,18 @@ if ( ! $isDeleteData ) {
 }
 
 // 1. Delete all 'apb' posts and their meta/revisions. Every status, since `any` skips trash.
-$apb_post_ids = get_posts( [
-	'post_type'			=> 'apb',
-	'posts_per_page'	=> -1,
-	'fields'			=> 'ids',
-	'post_status'		=> array_keys( get_post_stati() ),
-] );
+$apb_post_ids = get_posts(
+	[
+		'post_type'			=> 'apb',
+		'posts_per_page'	=> -1,
+		'fields'			=> 'ids',
+		'post_status'		=> array_keys( get_post_stati() ),
+	]
+);
 
 if ( ! empty( $apb_post_ids ) ) {
-	foreach ( $apb_post_ids as $post_id ) {
-		wp_delete_post( $post_id, true ); // Force delete (bypass trash).
+	foreach ( $apb_post_ids as $apbPostId ) {
+		wp_delete_post( $apbPostId, true ); // Force delete (bypass trash).
 	}
 }
 

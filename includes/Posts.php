@@ -1,25 +1,31 @@
 <?php
 namespace APB;
 
-if ( !defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; }
 
 require_once APB_DIR_PATH . 'includes/Functions.php';
 
 /**
  * Posts class
  * Handles post querying, formatting, and rendering of placeholders.
- * 
+ *
  * @package APB
  */
-class Posts{
+class Posts {
 	/**
 	 * Constructor.
 	 * Registers excerpt filters.
 	 */
-	public function __construct(){
-		add_filter( 'apb_excerpt_filter', function( $plainText, $htmlContent ){
-			return $htmlContent;
-		}, 10, 2 );
+	public function __construct() {
+		add_filter(
+			'apb_excerpt_filter',
+			function ( $plainText, $htmlContent ) {
+				return $htmlContent;
+			},
+			10,
+			2
+		);
 	}
 
 	/**
@@ -28,7 +34,7 @@ class Posts{
 	 * @param array $queryAttr Block attributes.
 	 * @return array WP_Query arguments.
 	 */
-	public static function arrangeQuery( $queryAttr ){
+	public static function arrangeQuery( $queryAttr ) {
 		$taxonomyRelation = $queryAttr['taxonomyRelation'] ?? 'AND';
 		$selectedCategories = $queryAttr['selectedCategories'] ?? [];
 		$selectedTags = $queryAttr['selectedTags'] ?? [];
@@ -45,7 +51,7 @@ class Posts{
 			$postType = 'post';
 		}
 
-		$termsQuery = ['relation' => $taxonomyRelation];
+		$termsQuery = [ 'relation' => $taxonomyRelation ];
 
 		if ( 'post' === $postType && count( $selectedCategories ) ) {
 			$termsQuery[] = [
@@ -64,10 +70,10 @@ class Posts{
 		}
 
 		$postsInclude = Functions::filterNaN( $queryAttr['postsInclude'] ?? [] );
-		$post__in = !empty( $postsInclude ) ? [ 'post__in' => $postsInclude ] : [];
+		$post__in = ! empty( $postsInclude ) ? [ 'post__in' => $postsInclude ] : [];
 		$post__not_in = Functions::filterNaN( $queryAttr['postsExclude'] ?? [] );
 		$postsAuthors = Functions::filterNaN( $queryAttr['postsAuthors'] ?? [] );
-		$author__in = !empty( $postsAuthors ) ? [ 'author__in' => $postsAuthors ] : [];
+		$author__in = ! empty( $postsAuthors ) ? [ 'author__in' => $postsAuthors ] : [];
 
 		if ( ! empty( $isExcludeSticky ) ) {
 			$stickyPosts = get_option( 'sticky_posts' );
@@ -76,17 +82,27 @@ class Posts{
 			}
 		}
 
-		$query = array_merge( [
-			'post_type'			=> $postType,
-			'posts_per_page'	=> $isPostsPerPageAll ? -1 : (int) $postsPerPage,
-			'orderby'			=> $postsOrderBy,
-			'order'				=> $postsOrder,
-			'tax_query'			=> count( $termsQuery ) > 1 ? $termsQuery : [],
-			'offset'			=> $isPostsPerPageAll ? 0 : (int) $postsOffset,
-			'post__not_in'		=> array_unique( $post__not_in ),
-			'has_password'		=> false,
-			'post_status'		=> 'publish'
-		], $post__in, $author__in );
+		$query = array_merge(
+			[
+				'post_type'			=> $postType,
+				'posts_per_page'	=> $isPostsPerPageAll ? -1 : (int) $postsPerPage,
+				'orderby'			=> $postsOrderBy,
+				'order'				=> $postsOrder,
+				'tax_query'			=> count( $termsQuery ) > 1 ? $termsQuery : [],
+				'offset'			=> $isPostsPerPageAll ? 0 : (int) $postsOffset,
+				'post__not_in'		=> array_unique( $post__not_in ),
+				'has_password'		=> false,
+				'post_status'		=> 'publish',
+			],
+			$post__in,
+			$author__in
+		);
+
+		// "Date Range". A preset with its own date window adds a second clause and WP_Query applies both.
+		$dateClause = self::dateClause( $queryAttr['dateQuery'] ?? [] );
+		if ( ! empty( $dateClause ) ) {
+			$query['date_query'] = [ $dateClause ];
+		}
 
 		// Query Presets are available in the premium version.
 
@@ -97,10 +113,10 @@ class Posts{
 	 * Fetches posts based on attributes and page number.
 	 *
 	 * @param array $queryAttr Block attributes.
-	 * @param int $pageNumber Current page number.
+	 * @param int   $pageNumber Current page number.
 	 * @return array Arranged posts data.
 	 */
-	public static function getPosts( $queryAttr, $pageNumber = 1 ){
+	public static function getPosts( $queryAttr, $pageNumber = 1 ) {
 		$isPostsPerPageAll = $queryAttr['isPostsPerPageAll'] ?? false;
 		$postsPerPage = $queryAttr['postsPerPage'] ?? 12;
 		$postsOffset = $queryAttr['postsOffset'] ?? 0;
@@ -135,36 +151,173 @@ class Posts{
 	}
 
 	/**
+	 * Turns the block's "Date Range" setting into one WP_Query date_query clause.
+	 * Only values the editor can produce get through, so anything else means no range.
+	 *
+	 * @param mixed $dateQuery The dateQuery attribute.
+	 * @return array A date_query clause, or an empty array for no range.
+	 */
+	public static function dateClause( $dateQuery ) {
+		$dateQuery = is_array( $dateQuery ) ? $dateQuery : [];
+
+		$range = $dateQuery['range'] ?? '';
+		$after = trim( (string) ( $dateQuery['after'] ?? '' ) );
+		$before = trim( (string) ( $dateQuery['before'] ?? '' ) );
+
+		$clause = [];
+
+		switch ( $range ) {
+			case 'last':
+				if ( preg_match( '/^[1-9]\d{0,3} (day|week|month|year)s? ago$/', $after ) ) {
+					$clause['after'] = $after;
+				}
+				break;
+			case 'custom':
+				$after = self::isDate( $after ) ? $after : '';
+				$before = self::isDate( $before ) ? $before : '';
+
+				// Picked the wrong way round.
+				if ( $after && $before && $after > $before ) {
+					[ $after, $before ] = [ $before, $after ];
+				}
+
+				if ( $after ) {
+					$clause['after'] = $after;
+				}
+				if ( $before ) {
+					$clause['before'] = $before;
+				}
+				break;
+		}
+
+		if ( empty( $clause ) ) {
+			return [];
+		}
+
+		// Both ends count: "before" a day reaches 23:59:59 of it.
+		$clause['inclusive'] = true;
+		$clause['column'] = 'post_date';
+
+		return $clause;
+	}
+
+	/**
+	 * Whether a value is a real YYYY-MM-DD date.
+	 *
+	 * @param string $value Date.
+	 * @return bool
+	 */
+	private static function isDate( $value ) {
+		return (bool) preg_match( '/^(\d{4})-(\d{2})-(\d{2})$/', $value, $m ) && checkdate( (int) $m[2], (int) $m[3], (int) $m[1] );
+	}
+
+	/**
+	 * Picks the attributes that shape the query and the post data out of a block's attributes.
+	 * This is what a block signs and sends back with every request.
+	 *
+	 * @param array $attributes Block attributes.
+	 * @return array
+	 */
+	public static function queryAttr( $attributes ) {
+		$attributes = is_array( $attributes ) ? $attributes : [];
+
+		$keys = [ 'postType', 'taxonomyRelation', 'selectedCategories', 'selectedTags', 'postsAuthors', 'isPostsPerPageAll', 'postsPerPage', 'postsOrderBy', 'postsOrder', 'postsOffset', 'postsInclude', 'postsExclude', 'isExcludeSticky', 'dateQuery', 'currentPostId', 'fImgSize', 'excerptLength' ];
+
+		$queryAttr = array_intersect_key( $attributes, array_flip( $keys ) );
+
+		$from = $attributes['excerptFrom'] ?? ( $attributes['excerpt']['from'] ?? 'excerpt' );
+		$queryAttr['excerptFrom'] = ( ! empty( $attributes['isExcerptFromContent'] ) || 'content' === $from ) ? 'content' : 'excerpt';
+
+		return $queryAttr;
+	}
+
+	/**
+	 * Fetches one page of posts and the total in a single query.
+	 *
+	 * @param array			$queryAttr	Query attributes from queryAttr().
+	 * @param int			$pageNumber	Current page number.
+	 * @param callable|null	$modifier	Optional callback that adjusts the WP_Query arguments.
+	 * @return array [ 'posts' => arranged posts, 'totalPosts' => int ]
+	 */
+	public static function queryPosts( $queryAttr, $pageNumber = 1, $modifier = null ) {
+		$isPostsPerPageAll = $queryAttr['isPostsPerPageAll'] ?? false;
+		$queryAttr['isPostsPerPageAll'] = rest_sanitize_boolean( $isPostsPerPageAll );
+
+		$postsPerPage = (int) ( $queryAttr['postsPerPage'] ?? 12 );
+		$postsOffset = $queryAttr['isPostsPerPageAll'] ? 0 : max( 0, (int) ( $queryAttr['postsOffset'] ?? 0 ) );
+		$pageNumber = max( 1, (int) $pageNumber );
+
+		$args = self::arrangeQuery( $queryAttr );
+
+		if ( is_callable( $modifier ) ) {
+			$args = call_user_func( $modifier, $args );
+		}
+
+		// One query returns the page and the total (no_found_rows off).
+		$args = array_merge(
+			$args,
+			[
+				'offset'				=> $queryAttr['isPostsPerPageAll'] ? 0 : ( $postsPerPage * ( $pageNumber - 1 ) ) + $postsOffset,
+				'ignore_sticky_posts'	=> true,
+				'no_found_rows'			=> false,
+			]
+		);
+
+		$query = new \WP_Query( $args );
+
+		return [
+			'posts'			=> Functions::arrangedPosts(
+				$query->posts,
+				$queryAttr['postType'] ?? 'post',
+				$queryAttr['fImgSize'] ?? 'full',
+				$queryAttr['excerptFrom'] ?? 'excerpt', // arrangedPosts() reads anything but 'content' as the excerpt.
+				$queryAttr['excerptLength'] ?? 25
+			),
+			'totalPosts'	=> max( 0, (int) $query->found_posts - $postsOffset ),
+		];
+	}
+
+	/**
 	 * Generates a skeleton article HTML for loading state.
 	 *
 	 * @param string $prefix CSS class prefix.
 	 * @return string Skeleton article HTML.
 	 */
-	public static function skeletonArticle( $prefix ){
-		$articleEl = "<article class='". $prefix ."Post' aria-hidden='true'>
-			<span class='". $prefix ."LoadingItem ". $prefix ."Thumb'></span>
+	public static function skeletonArticle( $prefix ) {
+		$articleEl = "<article class='" . $prefix . "Post' aria-hidden='true'>
+			<span class='" . $prefix . 'LoadingItem ' . $prefix . "Thumb'></span>
 			
-			<div class='". $prefix ."Text'>
-				<div class='". $prefix ."Title'>
-					<span class='". $prefix ."LoadingItem'></span>
-					<span class='". $prefix ."LoadingItem'></span>
+			<div class='" . $prefix . "Text'>
+				<div class='" . $prefix . "Title'>
+					<span class='" . $prefix . "LoadingItem'></span>
+					<span class='" . $prefix . "LoadingItem'></span>
 				</div>
-				<div class='". $prefix ."Meta'>
-					<span class='". $prefix ."LoadingItem'></span>
+				<div class='" . $prefix . "Meta'>
+					<span class='" . $prefix . "LoadingItem'></span>
 				</div>
-				<div class='". $prefix ."Excerpt'>
-					<span class='". $prefix ."LoadingItem'></span>
-					<span class='". $prefix ."LoadingItem'></span>
-					<span class='". $prefix ."LoadingItem'></span>
-					<span class='". $prefix ."LoadingItem'></span>
+				<div class='" . $prefix . "Excerpt'>
+					<span class='" . $prefix . "LoadingItem'></span>
+					<span class='" . $prefix . "LoadingItem'></span>
+					<span class='" . $prefix . "LoadingItem'></span>
+					<span class='" . $prefix . "LoadingItem'></span>
 				</div>
-				<div class='". $prefix ."ReadMore'>
-					<span class='". $prefix ."LoadingItem'></span>
+				<div class='" . $prefix . "ReadMore'>
+					<span class='" . $prefix . "LoadingItem'></span>
 				</div>
 			</div>
 		</article>";
 
-		return wp_kses( $articleEl, [ 'article' => [ 'class' => [], 'aria-hidden' => [] ], 'div' => [ 'class' => [] ], 'span' => [ 'class' => [] ] ] );
+		return wp_kses(
+			$articleEl,
+			[
+				'article' => [
+					'class' => [],
+					'aria-hidden' => [],
+				],
+				'div' => [ 'class' => [] ],
+				'span' => [ 'class' => [] ],
+			]
+		);
 	}
 
 	/**
@@ -173,34 +326,50 @@ class Posts{
 	 * @param string $prefix CSS class prefix.
 	 * @return string Skeleton accordion item HTML.
 	 */
-	public static function skeletonAccordionItem( $prefix ){
-		$itemEl = "<div class='". $prefix ."AccordionItem ". $prefix ."Post' aria-hidden='true'>
-			<div class='". $prefix ."AccordionHeader'>
-				<div class='". $prefix ."AccordionTrigger'>
-					<span class='". $prefix ."AccordionHeaderText'>
-						<span class='". $prefix ."LoadingItem' style='width:55%; height:18px;'></span>
+	public static function skeletonAccordionItem( $prefix ) {
+		$itemEl = "<div class='" . $prefix . 'AccordionItem ' . $prefix . "Post' aria-hidden='true'>
+			<div class='" . $prefix . "AccordionHeader'>
+				<div class='" . $prefix . "AccordionTrigger'>
+					<span class='" . $prefix . "AccordionHeaderText'>
+						<span class='" . $prefix . "LoadingItem' style='width:55%; height:18px;'></span>
 					</span>
-					<span class='". $prefix ."AccordionIndicator ". $prefix ."LoadingItem' style='width:18px;height:18px;'></span>
+					<span class='" . $prefix . 'AccordionIndicator ' . $prefix . "LoadingItem' style='width:18px;height:18px;'></span>
 				</div>
 			</div>
 		</div>";
 
-		return wp_kses( $itemEl, [ 'div' => [ 'class' => [], 'aria-hidden' => [] ], 'span' => [ 'class' => [], 'style' => [] ] ] );
+		return wp_kses(
+			$itemEl,
+			[
+				'div' => [
+					'class' => [],
+					'aria-hidden' => [],
+				],
+				'span' => [
+					'class' => [],
+					'style' => [],
+				],
+			]
+		);
 	}
 
 	/**
 	 * Generates a loading placeholder HTML based on layout and attributes.
 	 *
-	 * @param array $attributes Block attributes.
+	 * @param array  $attributes Block attributes.
 	 * @param string $prefix CSS class prefix.
 	 * @return string Loading placeholder HTML.
 	 */
-	public static function loadingPlaceholder( $attributes, $prefix ){
-		$countQuery = new \WP_Query( Posts::arrangeQuery( $attributes ?? [] ) );
+	public static function loadingPlaceholder( $attributes, $prefix ) {
+		$countQuery = new \WP_Query( self::arrangeQuery( $attributes ?? [] ) );
 		$postCount = $countQuery->found_posts;
 
 		$layout = $attributes['layout'] ?? '';
-		$columns = $attributes['columns'] ?? [ 'desktop' => 3, 'tablet' => 2, 'mobile' => 1 ];
+		$columns = $attributes['columns'] ?? [
+			'desktop' => 3,
+			'tablet' => 2,
+			'mobile' => 1,
+		];
 		$sliderHeight = $attributes['sliderHeight'] ?? '350px';
 		$sliderIsPage = $attributes['sliderIsPage'] ?? true;
 		$sliderIsPrevNext = $attributes['sliderIsPrevNext'] ?? true;
@@ -212,11 +381,11 @@ class Posts{
 		$colD = $columns['desktop'];
 		$colT = $columns['tablet'];
 		$colM = $columns['mobile'];
-		$gridClass = $prefix ."GridPosts columns-$colD columns-tablet-$colT columns-mobile-$colM";
+		$gridClass = $prefix . "GridPosts columns-$colD columns-tablet-$colT columns-mobile-$colM";
 
-		$placeholderId = wp_unique_id( $prefix .'LoadingPlaceholder-' );
+		$placeholderId = wp_unique_id( $prefix . 'LoadingPlaceholder-' );
 
-		$sliderStyles = "#$placeholderId .$prefix" . "SliderSkeleton article{
+		$sliderStyles = "#$placeholderId .{$prefix}SliderSkeleton article{
 			min-height: $sliderHeight;
 		}";
 
@@ -225,33 +394,45 @@ class Posts{
 		ob_start(); ?>
 			<div class='<?php echo esc_attr( $prefix ); ?>LoadingPlaceholder' id='<?php echo esc_attr( $placeholderId ); ?>' role='status' aria-busy='true'>
 				<span class='screen-reader-text'><?php echo esc_html( $loadingLabel ); ?></span>
-				<?php switch ( $layout ) {
-					case 'magazine1': ?>
+				<?php
+				switch ( $layout ) {
+					case 'magazine1':
+						?>
 						<div class='<?php echo esc_attr( $prefix ); ?>Magazine1Posts'>
-							<?php foreach ( range( 1, max( 1, $postCount ) ) as $item ) {
+							<?php
+							foreach ( range( 1, max( 1, $postCount ) ) as $item ) {
 								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- self::skeletonArticle is properly escaped
 								echo self::skeletonArticle( $prefix );
-							} ?>
+							}
+							?>
 						</div>
-					<?php break;
-					case 'magazine2': ?>
+						<?php
+						break;
+					case 'magazine2':
+						?>
 						<div class='<?php echo esc_attr( $prefix ); ?>Magazine2Posts'>
-							<?php foreach ( range( 1, max( 1, $postCount ) ) as $item ) {
+							<?php
+							foreach ( range( 1, max( 1, $postCount ) ) as $item ) {
 								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- self::skeletonArticle is properly escaped
 								echo self::skeletonArticle( $prefix );
-							} ?>
+							}
+							?>
 						</div>
-					<?php break;
-					case 'slider': ?>
+						<?php
+						break;
+					case 'slider':
+						?>
 						<style>
-							<?php echo wp_strip_all_tags( $sliderStyles ); ?>
+							<?php echo wp_strip_all_tags( $sliderStyles ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- CSS inside <style>: tags stripped, esc_html() would break selectors. ?>
 						</style>
 						<div class='<?php echo esc_attr( $prefix ); ?>SliderSkeleton'>
 							<div class='swiper-wrapper'>
-								<?php foreach ( range( 1, 2 ) as $item ) {
+								<?php
+								foreach ( range( 1, 2 ) as $item ) {
 									// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- self::skeletonArticle is properly escaped
-								echo self::skeletonArticle( $prefix );
-								} ?>
+									echo self::skeletonArticle( $prefix );
+								}
+								?>
 							</div>
 							<?php if ( $sliderIsPage ) : ?>
 								<div class='swiper-pagination'></div>
@@ -261,19 +442,24 @@ class Posts{
 								<div class='swiper-button-next'></div>
 							<?php endif; ?>
 						</div>
-					<?php break;
-					case 'ticker': ?>
+						<?php
+						break;
+					case 'ticker':
+						?>
 						<div class='<?php echo esc_attr( $prefix ); ?>TickerPosts'>
-							<?php foreach ( range( 1, $tickerVisible ) as $item ) {
+							<?php
+							foreach ( range( 1, $tickerVisible ) as $item ) {
 								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- self::skeletonArticle is properly escaped
 								echo self::skeletonArticle( $prefix );
-							} ?>
+							}
+							?>
 						</div>
-					<?php break;
-					case 'newsTicker': 
-						$label = __('Trending Now', 'advanced-post-block');
+						<?php
+						break;
+					case 'newsTicker':
+						$label = __( 'Trending Now', 'advanced-post-block' );
 						$theme = 'theme1';
-					?>
+						?>
 						<div class='<?php echo esc_attr( $prefix ); ?>NewsTicker <?php echo esc_attr( $theme ); ?> newsTickerSkeleton'>
 							<div class='newsTickerLabel'>
 								<span><?php echo esc_html( $label ); ?></span>
@@ -282,25 +468,36 @@ class Posts{
 								<span class='<?php echo esc_attr( $prefix ); ?>LoadingItem newsTickerSkeletonBar'></span>
 							</div>
 						</div>
-					<?php break;
-					case 'accordion': ?>
+						<?php
+						break;
+					case 'accordion':
+						?>
 						<div class='<?php echo esc_attr( $prefix ); ?>AccordionPosts theme-<?php echo esc_attr( $accordionTheme ); ?>' style="<?php echo esc_attr( $accordionMaxWidth ? "max-width: $accordionMaxWidth;" : '' ); ?>">
-							<?php foreach ( range( 1, max( 1, $postCount ) ) as $item ) {
+							<?php
+							foreach ( range( 1, max( 1, $postCount ) ) as $item ) {
 								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- self::skeletonAccordionItem is properly escaped
 								echo self::skeletonAccordionItem( $prefix );
-							} ?>
+							}
+							?>
 						</div>
-					<?php break;
-					default: ?>
+						<?php
+						break;
+					default:
+						?>
 						<div class='<?php echo esc_attr( $gridClass ); ?>'>
-							<?php foreach ( range( 1, $postCount ) as $item ) {
+							<?php
+							foreach ( range( 1, $postCount ) as $item ) {
 								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- self::skeletonArticle is properly escaped
 								echo self::skeletonArticle( $prefix );
-							} ?>
+							}
+							?>
 						</div>
-					<?php break;
-				} ?>
+						<?php
+						break;
+				}
+				?>
 			</div>
-		<?php return ob_get_clean();
+		<?php
+		return ob_get_clean();
 	}
 }
