@@ -1,0 +1,267 @@
+<?php
+/**
+ * Plugin Name: Advanced Post Block
+ * Description: Enhance your WordPress posts with customizable layouts, responsive design, and feature-rich elements.
+ * Version: 2.5.3
+ * Author: bPlugins
+ * Author URI: https://bplugins.com
+ * Plugin URI: https://bplugins.com/products/advanced-post-block/
+ * License: GPLv3
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
+ * Text Domain: advanced-post-block
+ * Requires at least: 6.5
+ * Requires PHP: 7.4
+ */
+
+// ABS PATH
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; }
+
+if ( function_exists( 'apb_fs' ) ) {
+	apb_fs()->set_basename( true, __FILE__ );
+} else {
+	define( 'APB_VERSION', ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? time() : '2.5.3' );
+	define( 'APB_DIR_URL', plugin_dir_url( __FILE__ ) );
+	define( 'APB_DIR_PATH', plugin_dir_path( __FILE__ ) );
+	define( 'APB_OPTIONS_KEY', 'apb_options' );
+
+	require_once APB_DIR_PATH . 'includes/fs-lite.php';
+	require_once APB_DIR_PATH . 'includes/admin/CPT.php';
+	require_once APB_DIR_PATH . 'includes/Posts.php';
+	require_once APB_DIR_PATH . 'includes/Tracker.php';
+	require_once APB_DIR_PATH . 'includes/Ajax.php';
+	require_once APB_DIR_PATH . 'includes/Filter.php';
+	require_once APB_DIR_PATH . 'includes/Rest.php';
+	require_once APB_DIR_PATH . 'includes/Options.php';
+	require_once APB_DIR_PATH . 'includes/Templates/Templates.php';
+
+	if ( ! class_exists( 'APBPlugin' ) ) {
+		/**
+		 * APBPlugin class
+		 * Main plugin class responsible for initialization, enqueuing assets, and registering block types.
+		 *
+		 * @package APB
+		 */
+		class APBPlugin {
+			/**
+			 * Constructor.
+			 * Registers hooks for plugin initialization and asset enqueuing.
+			 */
+			public function __construct() {
+				add_action( 'init', [ $this, 'onInit' ] );
+				add_filter( 'block_categories_all', [ $this, 'blockCategories' ] );
+				add_action( 'admin_enqueue_scripts', [ $this, 'adminEnqueueScripts' ] );
+				add_action( 'enqueue_block_editor_assets', [ $this, 'enqueueBlockEditorAssets' ] );
+				add_action( 'enqueue_block_assets', [ $this, 'enqueueBlockAssets' ] );
+
+				add_filter( 'plugin_action_links', [ $this, 'pluginActionLinks' ], 10, 2 );
+				add_action( 'wp_ajax_apb_dismiss_bfcm_banner', [ $this, 'ajaxDismissBFCM' ] );
+			}
+
+			/**
+			 * Checks whether the current user has dismissed the BFCM promotion in wp_options.
+			 *
+			 * @param int $user_id User ID; 0 means the current user.
+			 * @return bool
+			 */
+			public static function isBFCMPromotionDismissed( $user_id = 0 ) {
+				if ( ! $user_id ) {
+					$user_id = get_current_user_id();
+				}
+				if ( ! $user_id ) {
+					return false;
+				}
+				$options   = get_option( APB_OPTIONS_KEY, [] );
+				$dismissed = isset( $options['bfcm_2026_dismissed'] ) && is_array( $options['bfcm_2026_dismissed'] )
+					? $options['bfcm_2026_dismissed']
+					: [];
+				return in_array( (int) $user_id, array_map( 'intval', $dismissed ), true );
+			}
+
+			/**
+			 * Records the user dismissal inside the apb_options array in wp_options.
+			 *
+			 * @param int $user_id User ID; 0 means the current user.
+			 * @return bool
+			 */
+			public static function dismissBFCMPromotion( $user_id = 0 ) {
+				if ( ! $user_id ) {
+					$user_id = get_current_user_id();
+				}
+				if ( ! $user_id ) {
+					return false;
+				}
+				$options   = get_option( APB_OPTIONS_KEY, [] );
+				if ( ! is_array( $options ) ) {
+					$options = [];
+				}
+				$dismissed = isset( $options['bfcm_2026_dismissed'] ) && is_array( $options['bfcm_2026_dismissed'] )
+					? array_map( 'intval', $options['bfcm_2026_dismissed'] )
+					: [];
+				$user_id = (int) $user_id;
+				if ( ! in_array( $user_id, $dismissed, true ) ) {
+					$dismissed[] = $user_id;
+					$options['bfcm_2026_dismissed'] = array_values( array_unique( $dismissed ) );
+					update_option( APB_OPTIONS_KEY, $options );
+				}
+				return true;
+			}
+
+			/**
+			 * Handles AJAX request to dismiss the BFCM promotional banner.
+			 *
+			 * @return void
+			 */
+			public function ajaxDismissBFCM() {
+				check_ajax_referer( 'apb_dismiss_bfcm', 'nonce' );
+				self::dismissBFCMPromotion();
+				wp_send_json_success();
+			}
+
+			/**
+			 * Adds custom action links to the plugin entry on the plugins page.
+			 *
+			 * @param array  $links  The existing action links.
+			 * @param string $file   The plugin file name.
+			 * @return array	Modified action links.
+			 */
+			public function pluginActionLinks( $links, $file ) {
+				if ( plugin_basename( __FILE__ ) === $file ) {
+					$helpDemosLink = admin_url( 'edit.php?post_type=apb&page=advanced-post-block#/welcome' );
+
+					$links['help-and-demos'] = sprintf( '<a href="%s" style="%s">%s</a>', $helpDemosLink, 'color:#FF7A00;font-weight:bold', __( 'Help & Demos', 'advanced-post-block' ) );
+
+					$isExpired = time() > strtotime( '2026-12-05 23:59:59' );
+					$isPremium = function_exists( 'apb_fs' ) && apb_fs()->can_use_premium_code();
+
+					if ( ! $isExpired && ! $isPremium ) {
+						$bfcmUrl = 'https://bplugins.com/products/advanced-post-block/pricing/?utm_source=admin&utm_medium=plugins&utm_campaign=bfcm2026';
+						$links['bfcm-deal'] = sprintf(
+							'<a href="%s" style="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+							esc_url( $bfcmUrl ),
+							'color: #dc2626; font-weight: 700;',
+							__( 'Get Pro Now and Save 45% in this BFCM!', 'advanced-post-block' )
+						);
+					}
+				}
+
+				return $links;
+			}
+
+			/**
+			 * Initializes the plugin by registering the block type.
+			 *
+			 * @return void
+			 */
+			public function onInit() {
+				register_block_type( __DIR__ . '/build' );
+
+				// Core registers the block.json script translations without a path, which
+				// only resolves against WP_LANG_DIR - point them at the bundled JSON files.
+				wp_set_script_translations( 'ap-block-posts-editor-script', 'advanced-post-block', APB_DIR_PATH . 'languages' );
+				wp_set_script_translations( 'ap-block-posts-view-script', 'advanced-post-block', APB_DIR_PATH . 'languages' );
+			}
+
+			/**
+			 * Registers custom block categories.
+			 *
+			 * @param array $categories The existing block categories.
+			 * @return array Modified block categories.
+			 */
+			public function blockCategories( $categories ) {
+				return array_merge(
+					[
+						[
+							'slug'	=> 'APBlock',
+							'title'	=> __( 'Advanced Post Block', 'advanced-post-block' ),
+						],
+					],
+					$categories
+				);
+			}
+
+			/**
+			 * Enqueues scripts and styles for the admin dashboard.
+			 *
+			 * @param string $hook The current admin page hook.
+			 * @return void
+			 */
+			public function adminEnqueueScripts( $hook ) {
+				if ( strpos( $hook, 'advanced-post-block' ) ) {
+					wp_enqueue_style( 'apb-admin-dashboard', APB_DIR_URL . 'build/admin/dashboard.css', [], APB_VERSION );
+
+					$asset_file = include APB_DIR_PATH . 'build/admin/dashboard.asset.php';
+					wp_enqueue_script( 'apb-admin-dashboard', APB_DIR_URL . 'build/admin/dashboard.js', array_merge( $asset_file['dependencies'], [ 'wp-util' ] ), APB_VERSION, true );
+					wp_set_script_translations( 'apb-admin-dashboard', 'advanced-post-block', APB_DIR_PATH . 'languages' );
+				}
+			}
+
+			/**
+			 * Enqueues assets for the block editor.
+			 *
+			 * @return void
+			 */
+			public function enqueueBlockEditorAssets() {
+				wp_add_inline_script(
+					'ap-block-posts-editor-script',
+					sprintf(
+						'const apbpricingurl = %s;',
+						wp_json_encode( admin_url( 'edit.php?post_type=apb&page=advanced-post-block#/pricing' ) )
+					),
+					'before'
+				);
+
+				wp_enqueue_script( 'apb-template-library-script', APB_DIR_URL . 'build/template-library.js', [ 'wp-api', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-data', 'wp-dom-ready', 'wp-i18n', 'wp-util', 'react', 'react-dom' ], APB_VERSION, false );
+				wp_set_script_translations( 'apb-template-library-script', 'advanced-post-block', APB_DIR_PATH . 'languages' );
+
+				wp_enqueue_style( 'apb-template-library-style', APB_DIR_URL . 'build/template-library.css', [], APB_VERSION );
+
+				wp_add_inline_script( 'apb-template-library-script', 'const apbtemplatenonce = "' . wp_create_nonce( 'apb_template' ) . '";', 'before' );
+			}
+
+			/**
+			 * Enqueues assets shared by the editor and frontend.
+			 *
+			 * @return void
+			 */
+			public function enqueueBlockAssets() {
+				wp_register_script( 'easyTicker', APB_DIR_URL . 'public/js/easy-ticker.min.js', [ 'jquery' ], '3.2.1', true );
+				wp_set_script_translations( 'easyTicker', 'advanced-post-block', APB_DIR_PATH . 'languages' );
+			}
+
+			/**
+			 * Renders the dashboard container for the React app.
+			 *
+			 * @return void
+			 */
+			public static function renderDashboard() {
+				?>
+				<div
+					id='apbDashboard'
+					data-info='
+					<?php
+					echo esc_attr(
+						wp_json_encode(
+							[
+								'version' => APB_VERSION,
+								'isPremium' => function_exists( 'apb_fs' ) && apb_fs()->can_use_premium_code(),
+								'isBFCMDismissed' => self::isBFCMPromotionDismissed(),
+								'dismissNonce' => wp_create_nonce( 'apb_dismiss_bfcm' ),
+								'adminUrl' => admin_url(),
+								'currentUser' => [
+									'name' => wp_get_current_user()->display_name,
+								],
+								'deleteDataOnUninstall' => (bool) \APB\Options::getOptions()['delete_data_on_uninstall'],
+								'uninstallNonce' => wp_create_nonce( 'apbSaveUninstallOption' ),
+							]
+						)
+					);
+					?>
+					'
+				></div>
+				<?php
+			}
+		}
+		new APBPlugin();
+	}
+}

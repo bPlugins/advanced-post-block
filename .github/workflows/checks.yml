@@ -1,0 +1,385 @@
+name: Checks
+
+# Reusable workflow — the quality gates for a SHIPPING tree (the `testing`
+# branch or a release tag). It never builds: the tree it receives is exactly
+# what ships, so what it tests is what users get. `tests/` rides along on the
+# testing branch and is stripped from the release zip.
+#
+# Called by testing.yml and release.yml. Never triggers on its own.
+#
+# Gates (all blocking):
+#   lint          php -l on every PHP file, PHP 7.4 and 8.3
+#   lint          phpcs.xml.dist: WordPress coding standards + PHPCompatibilityWP (7.4+)
+#   lint          Version: header = APB_VERSION define = readme Stable tag
+#   plugin-check  WordPress.org's official Plugin Check (errors only)
+#   wpcli         WP-CLI smoke: install WP, activate, fire hooks, render the posts block,
+#                 replay its signed REST request (and a tampered one), deactivate/re-activate;
+#                 fail on ANY PHP error in debug.log
+#   phpunit       tests/php on the WordPress test suite (wp-env), PHP 7.4 and 8.3
+#   e2e           tests/e2e: Playwright in the block editor and on the front end
+#
+# wp-env runs on PHP 7.4 again: .github/actions/wp-env rebuilds the Debian 11
+# based wordpress:php7.4 image against archive.debian.org before starting.
+
+on:
+  workflow_call:
+    inputs:
+      slug:
+        description: Plugin folder name (= WordPress.org slug)
+        required: true
+        type: string
+      main_file:
+        description: Main plugin file inside the folder
+        required: false
+        default: plugin.php
+        type: string
+      ref:
+        description: Git ref to test; empty = the commit that triggered the caller (scheduled runs pass `testing`)
+        required: false
+        default: ''
+        type: string
+      debug_ignore:
+        description: Extended regex; debug.log lines matching it are NOT counted as failures
+        required: false
+        default: '^$'
+        type: string
+      plugin_check_blocking:
+        description: Fail the run on Plugin Check errors
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: read   # cs2pr annotations only need the job log; no checks: write needed
+
+jobs:
+  # ---------------------------------------------------------------------------
+  lint:
+    name: PHP lint + coding standards (PHP ${{ matrix.php }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.4', '8.3']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          path: ${{ inputs.slug }}
+          persist-credentials: false
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: composer:v2, cs2pr
+
+      - name: Version header = _VERSION define = readme Stable tag
+        if: matrix.php == '7.4'
+        working-directory: ${{ inputs.slug }}
+        run: |
+          HEADER=$(grep -m1 -iE '^\s*\*?\s*Version:' "${{ inputs.main_file }}" | sed -E 's/.*Version:\s*//' | tr -d '\r ')
+          STABLE=$(grep -m1 -iE '^\s*Stable tag:' readme.txt | sed -E 's/.*Stable tag:\s*//' | tr -d '\r ')
+          # the *_VERSION define cache-busts the assets; a stale one ships old CSS/JS
+          CONST=$(grep -m1 -E "define\( *'[A-Z_]+_VERSION'" "${{ inputs.main_file }}" | grep -oE "'[0-9]+\.[0-9]+\.[0-9]+'" | tr -d "'")
+          echo "Version: $HEADER · Stable tag: $STABLE · _VERSION define: ${CONST:-none}"
+          [ -n "$HEADER" ] && [ "$HEADER" = "$STABLE" ] || { echo "::error::${{ inputs.main_file }} Version ($HEADER) and readme.txt Stable tag ($STABLE) differ"; exit 1; }
+          [ -z "$CONST" ] || [ "$CONST" = "$HEADER" ] || { echo "::error::${{ inputs.main_file }} _VERSION define ($CONST) differs from the Version header ($HEADER)"; exit 1; }
+          echo "version=$HEADER" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: php -l every PHP file
+        working-directory: ${{ inputs.slug }}
+        run: |
+          set -o pipefail
+          find . -type f -name '*.php' -not -path '*/node_modules/*' -not -path './tests/php/vendor/*' -not -path './tests/e2e/*' -print0 \
+            | xargs -0 -n1 -P4 php -l 2>&1 | { grep -v '^No syntax errors' || true; } | tee lint.txt
+          if grep -q 'error' lint.txt; then echo "::error::PHP syntax errors on ${{ matrix.php }} (see above)"; exit 1; fi
+          echo "php -l clean on PHP ${{ matrix.php }}"
+
+      - name: Install PHPCS standards
+        if: matrix.php == '7.4'
+        run: |
+          composer global config --no-interaction allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+          composer global require --no-interaction --no-progress \
+            wp-coding-standards/wpcs:^3 \
+            phpcompatibility/phpcompatibility-wp:^2 \
+            dealerdirect/phpcodesniffer-composer-installer:^1
+          echo "$(composer global config bin-dir --absolute --quiet)" >> "$GITHUB_PATH"
+
+      # phpcs.xml.dist = WordPress standard minus the house style, plus PHPCompatibilityWP 7.4-.
+      # ignore_warnings_on_exit: phpcs exits 1 on warnings alone, which pipefail would turn into a failure.
+      - name: Coding standards + PHP 7.4 compatibility (phpcs.xml.dist)
+        if: matrix.php == '7.4'
+        working-directory: ${{ inputs.slug }}
+        run: |
+          set -o pipefail
+          phpcs -q --runtime-set ignore_warnings_on_exit 1 --report=checkstyle | cs2pr --graceful-warnings
+          echo "phpcs clean"
+
+  # ---------------------------------------------------------------------------
+  plugin-check:
+    name: WordPress Plugin Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          path: ${{ inputs.slug }}
+          persist-credentials: false
+
+      - name: Run Plugin Check
+        uses: WordPress/plugin-check-action@v1
+        continue-on-error: ${{ !inputs.plugin_check_blocking }}
+        with:
+          build-dir: ./${{ inputs.slug }}
+          slug: ${{ inputs.slug }}
+          ignore-warnings: true          # .org review blocks on errors; warnings are advisory
+          exclude-directories: node_modules,tests
+          exclude-files: phpcs.xml.dist   # CI-only; release.yml strips it from the zip
+
+  # ---------------------------------------------------------------------------
+  wpcli:
+    name: WP-CLI smoke test (PHP ${{ matrix.php }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.4', '8.3']
+    env:
+      SLUG: ${{ inputs.slug }}
+      WP_ENV: npx -y @wordpress/env@10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          path: ${{ inputs.slug }}
+          persist-credentials: false
+
+      - name: Start WordPress (wp-env, PHP ${{ matrix.php }})
+        uses: ./advanced-post-block/.github/actions/wp-env   # literal: `uses` can't take an expression; = ./<slug>/...
+        with:
+          php: ${{ matrix.php }}
+          slug: ${{ inputs.slug }}
+
+      - name: Activate the plugin
+        run: |
+          wp() { $WP_ENV run cli wp "$@"; }
+          wp core version
+          wp plugin deactivate "$SLUG" || true
+          wp plugin activate "$SLUG"
+          wp plugin get "$SLUG" --fields=name,version,status
+
+      - name: Exercise the site with the plugin active
+        run: |
+          wp() { $WP_ENV run cli wp "$@"; }
+          wp eval 'do_action( "admin_init" ); echo "admin_init ok\n";'
+          wp eval 'do_action( "rest_api_init" ); echo "rest_api_init ok\n";'
+          wp eval 'echo count( WP_Block_Type_Registry::get_instance()->get_all_registered() ), " block types registered\n";'
+          # Posts for the block to list and a page that uses it, so render.php and the REST route run
+          for i in 1 2 3; do wp post create --post_type=post --post_status=publish --post_title="CI post $i" --porcelain >/dev/null; done
+          PAGE_ID=$(wp post create --post_type=page --post_status=publish --post_title='CI smoke page' \
+            --post_content='<!-- wp:ap-block/posts {"postsPerPage":2,"isPagination":true} /-->' \
+            --porcelain | grep -oE '^[0-9]+$' | tail -n1)
+          echo "smoke page id: $PAGE_ID"
+          curl -sfS -o /dev/null -w "front page: %{http_code}\n"  http://localhost:8888/
+          curl -sfSL "http://localhost:8888/?page_id=$PAGE_ID" > page.html
+          grep -q 'wp-block-ap-block-posts' page.html && echo "ap-block/posts rendered on the page" \
+            || { echo "::error::ap-block/posts did not render on the smoke page"; exit 1; }
+          # The page carries the signed query the frontend sends back for each page of posts
+          python3 - page.html <<'EOF'
+          import sys, re, json, html, urllib.parse, urllib.request, urllib.error
+          m = re.search(r"data-request='([^']*)'", open(sys.argv[1]).read())
+          if not m: sys.exit("::error::no data-request attribute on the block")
+          req = json.loads(html.unescape(m.group(1)))
+          def get(q, sig):
+              url = req['url'] + ('&' if '?' in req['url'] else '?') + urllib.parse.urlencode({'q': q, 'sig': sig, 'page': 2})
+              try:
+                  with urllib.request.urlopen(url) as r: return r.status, json.load(r)
+              except urllib.error.HTTPError as e: return e.code, None
+          status, data = get(req['query'], req['sig'])
+          print(f"signed request: {status}, {data and data.get('totalPosts')} posts, page 2 has {data and len(data.get('posts', []))}")
+          if status != 200 or not data or data.get('totalPosts', 0) < 3 or not data.get('posts'):
+              sys.exit("::error::the signed REST request did not return the posts")
+          status, _ = get(req['query'][:-1] + ',"postsPerPage":99}', req['sig'])   # same signature, changed query
+          print(f"tampered request: {status}")
+          if status != 403: sys.exit("::error::a tampered query was not refused")
+          EOF
+          curl -sfS -o /dev/null -w "REST index: %{http_code}\n"  "http://localhost:8888/?rest_route=/"
+          # block-types needs edit_posts (anonymous requests get 401), so ask as the wp-env admin
+          wp eval --user=admin '$r = rest_do_request( new WP_REST_Request( "GET", "/wp/v2/block-types" ) ); echo "block types: ", $r->get_status(), "\n"; exit( $r->is_error() ? 1 : 0 );'
+
+      - name: Deactivate + re-activate (hooks must be idempotent)
+        run: |
+          wp() { $WP_ENV run cli wp "$@"; }
+          wp plugin deactivate "$SLUG"
+          wp plugin activate "$SLUG"
+
+      - name: Fail on PHP errors in debug.log
+        env:
+          IGNORE: ${{ inputs.debug_ignore }}
+        run: |
+          $WP_ENV run cli --env-cwd=wp-content cat debug.log > wp-debug.log 2>/dev/null || true
+          if [ -s wp-debug.log ]; then echo "::group::wp-content/debug.log"; cat wp-debug.log; echo "::endgroup::"; else echo "debug.log is empty"; fi
+          BAD=$(grep -iE "PHP (Fatal|Parse|Warning|Notice|Deprecated)" wp-debug.log | grep "plugins/$SLUG/" | grep -vE "$IGNORE" || true)
+          if [ -n "$BAD" ]; then
+            echo "$BAD"
+            echo "::error::The plugin wrote PHP errors/warnings/notices to debug.log on PHP ${{ matrix.php }}"
+            exit 1
+          fi
+          echo "No PHP errors from plugins/$SLUG/ on PHP ${{ matrix.php }}"
+
+      - name: Container logs
+        if: failure()
+        run: $WP_ENV logs all --watch=false || true
+
+      - name: Upload debug log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-debug-log-php${{ matrix.php }}
+          path: wp-debug.log
+          if-no-files-found: ignore
+          retention-days: 7
+
+  # ---------------------------------------------------------------------------
+  phpunit:
+    name: PHPUnit (PHP ${{ matrix.php }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.4', '8.3']
+    env:
+      SLUG: ${{ inputs.slug }}
+      WP_ENV: npx -y @wordpress/env@10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          path: ${{ inputs.slug }}
+          persist-credentials: false
+
+      # PHPUnit + the Yoast polyfills are installed on the runner (same PHP as the
+      # container) into tests/php/vendor, which the plugin mount carries into wp-env.
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: composer:v2
+
+      - name: Cache composer
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/composer
+          key: composer-php${{ matrix.php }}-${{ hashFiles(format('{0}/tests/php/composer.lock', inputs.slug)) }}
+
+      - name: Install test dependencies
+        working-directory: ${{ inputs.slug }}/tests/php
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Start WordPress (wp-env, PHP ${{ matrix.php }})
+        uses: ./advanced-post-block/.github/actions/wp-env   # literal: `uses` can't take an expression; = ./<slug>/...
+        with:
+          php: ${{ matrix.php }}
+          slug: ${{ inputs.slug }}
+
+      # tests-cli = the tests instance (own database), WP_TESTS_DIR already points at the suite
+      - name: Run PHPUnit
+        run: |
+          $WP_ENV run tests-cli --env-cwd="wp-content/plugins/$SLUG" -- \
+            tests/php/vendor/bin/phpunit -c tests/php/phpunit.xml.dist --log-junit tests/php/junit.xml
+
+      - name: Annotate failures
+        if: failure()
+        run: |
+          python3 - "$SLUG/tests/php/junit.xml" "$SLUG" <<'EOF'
+          import sys, os, xml.etree.ElementTree as ET
+          path, slug = sys.argv[1], sys.argv[2]
+          if not os.path.exists(path): sys.exit(0)
+          for tc in ET.parse(path).iter('testcase'):
+              for kind in ('failure', 'error'):
+                  for node in tc.findall(kind):
+                      text = (node.get('message') or '') + '\n' + (node.text or '')
+                      msg = ' | '.join(l.strip() for l in text.strip().splitlines() if l.strip())[:600]
+                      f = os.path.relpath(tc.get('file', ''), os.getcwd()) if tc.get('file') else ''
+                      print(f"::error file={f},line={tc.get('line', 1)},title={tc.get('class')}::{tc.get('name')}: {msg}")
+          EOF
+
+      - name: Container logs
+        if: failure()
+        run: $WP_ENV logs all --watch=false || true
+
+      - name: Collect debug.log
+        if: failure()
+        run: $WP_ENV run tests-cli --env-cwd=wp-content cat debug.log > wp-debug.log 2>/dev/null || true
+
+      - name: Upload failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phpunit-failure-php${{ matrix.php }}
+          path: |
+            ${{ inputs.slug }}/tests/php/junit.xml
+            wp-debug.log
+          if-no-files-found: ignore
+          retention-days: 7
+
+  # ---------------------------------------------------------------------------
+  e2e:
+    name: Playwright e2e (PHP 8.3)
+    runs-on: ubuntu-24.04   # ubuntu-latest is 26.04, which Playwright's --with-deps doesn't support yet
+    timeout-minutes: 30
+    env:
+      SLUG: ${{ inputs.slug }}
+      WP_ENV: npx -y @wordpress/env@10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          path: ${{ inputs.slug }}
+          persist-credentials: false
+
+      - name: Start WordPress (wp-env, PHP 8.3)
+        uses: ./advanced-post-block/.github/actions/wp-env   # literal: `uses` can't take an expression; = ./<slug>/...
+        with:
+          php: '8.3'
+          slug: ${{ inputs.slug }}
+
+      - name: Install Playwright
+        working-directory: ${{ inputs.slug }}/tests/e2e
+        run: |
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Run e2e tests
+        working-directory: ${{ inputs.slug }}/tests/e2e
+        env:
+          CI: 'true'
+          WP_BASE_URL: http://localhost:8888
+        run: npx playwright test
+
+      - name: Container logs
+        if: failure()
+        run: $WP_ENV logs all --watch=false || true
+
+      - name: Collect debug.log
+        if: failure()
+        run: $WP_ENV run cli --env-cwd=wp-content cat debug.log > wp-debug.log 2>/dev/null || true
+
+      - name: Upload report, traces and screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-failure
+          path: |
+            ${{ inputs.slug }}/tests/e2e/playwright-report
+            ${{ inputs.slug }}/tests/e2e/test-results
+            wp-debug.log
+          if-no-files-found: ignore
+          retention-days: 7

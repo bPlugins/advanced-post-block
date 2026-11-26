@@ -1,0 +1,4224 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: src/Components/Backend/Edit.js:31
+msgid "Select/Choose Preferred Posts Layout"
+msgstr ""
+
+#: src/Components/Backend/Edit.js:53
+msgid ""
+"If you already added the block before and don't know what was selected then "
+"select the Grid layout"
+msgstr ""
+
+#: src/Components/Backend/Edit.js:58
+msgid "Grid 1 and Timeline layouts are available in the"
+msgstr ""
+
+#: src/Components/Backend/Edit.js:58
+msgid "PREMIUM VERSION"
+msgstr ""
+
+#: src/Components/Backend/NoPosts.js:5
+msgid "No posts found!! Please update the query or add some posts"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Excerpt.js:15
+#: src/Components/Backend/Settings/Elements/Sorting.js:14
+#: src/Components/Backend/Settings/Style/Excerpt.js:17
+msgid "Excerpt"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Excerpt.js:16
+msgid "Show Excerpt"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Excerpt.js:19
+msgid "Excerpt From:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Excerpt.js:19
+msgid ""
+"Choose where to pull the excerpt text from: the manual excerpt field, the "
+"post content, or an SEO meta description."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Excerpt.js:24
+msgid "Excerpt Length:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Excerpt.js:24
+msgid "Number of words to show in the excerpt. Set -1 to show all content."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Excerpt.js:26
+msgid "Set -1 to show all the content"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Excerpt.js:26
+msgid "Set -1 to show all the excerpt"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Excerpt.js:29
+msgid ""
+"SEO meta content and precise ellipsis control are available in the Premium "
+"version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Excerpt.js:8
+#: src/Components/Backend/Settings/Style/Content.js:14
+msgid "Content"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:11
+#: src/Components/Backend/Settings/Style/FeatureImage.js:14
+msgid "Feature Image"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:12
+msgid "Show Feature Image"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:16
+msgid "Enable Link"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:19
+#: ../bpl-tools/Components/Background/Background.js:106
+msgid "Size:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:19
+msgid ""
+"Select the image size (thumbnail, medium, large, full). Image may crop "
+"based on the image size."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:22
+#: ../bpl-tools/Components/Deprecated/BorderControl/BorderControl.js:73
+#: ../bpl-tools/Components/SeparatorControl/SeparatorControl.js:36
+msgid "Width:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:22
+msgid "Define custom width for the post image."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:24
+#: ../bpl-tools/Components/SeparatorControl/SeparatorControl.js:41
+msgid "Height:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:24
+msgid "Define custom height for the post image."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:26
+msgid ""
+"For specific ratios, set height to 100% (1:1), 56.25% (16:9), 75% (4:3), "
+"66.67% (3:2), or 42.85% (21:9)."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:29
+msgid "Fitting:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:29
+msgid "Choose how the image should fit within its container."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:31
+msgid "Default Image:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:31
+msgid "Placeholder Image URL"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/FeatureImage.js:34
+msgid "Image lazy loading is available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:100
+msgid ""
+"Meta item gaps and drag-and-drop meta sorting are available in the Premium "
+"version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:18
+#: src/utils/options.js:48
+msgid "With Meta"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:19
+msgid "With Title"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:23
+#: src/Components/Backend/Settings/Elements/Sorting.js:13
+#: src/Components/Backend/Settings/Style/MetaData.js:19
+msgid "Meta Data"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:24
+msgid "Show Meta Data"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:27
+msgid "Separator:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:27
+msgid "Choose the separator character to display between meta data items."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:31
+#: src/utils/options.js:69
+msgid "Author"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:32
+msgid "Show Author"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:34
+msgid "Author Link"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:36
+msgid "Custom author icons are available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:39
+#: src/utils/options.js:71
+msgid "Date"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:40
+msgid "Show Date"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:42
+msgid "Date as Time Ago"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:44
+msgid ""
+"Preset and custom date formats and date icons are available in the Premium "
+"version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:47
+msgid "Category"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:48
+msgid "Show Category"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:51
+msgid "Category Position:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:51
+msgid ""
+"Choose where the category labels appear: overlaid on the image or inside "
+"the content area."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:61
+msgid ""
+"Custom positions, icons, and overlay settings are available in the Premium "
+"version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:65
+msgid "Taxonomies"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:68
+msgid "Taxonomy Filter"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:68
+msgid ""
+"Tags and custom taxonomies with custom icons are available in the Premium "
+"version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:71
+msgid "Reading Time"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:72
+msgid "Show Reading Time"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:72
+msgid "Estimated time to read the post content based on word count."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:75
+msgid "Reading Time will be displayed if the post has content!"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:77
+msgid "Reading Time Label:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:77
+msgid "Reading Time Label"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:80
+msgid ""
+"Reading time with seconds and a custom reading time icon are available in "
+"the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:83
+msgid "Comment"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:84
+msgid "Show Comment"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:87
+msgid "Comment Count will be displayed if the comment status is open!"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:90
+msgid "Custom comment icon is available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:93
+msgid "View Count"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:94
+msgid "Show View Count"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/MetaData.js:96
+msgid "Custom view count icon is available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/ReadMore.js:10
+#: src/Components/Backend/Settings/Style/ReadMore.js:19
+msgid "Read More"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/ReadMore.js:11
+msgid "Show Read More"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/ReadMore.js:14
+msgid "Read More Label:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/ReadMore.js:14
+msgid "Custom text for the link button."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/ReadMore.js:17
+msgid "Open link in new tab"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/ReadMore.js:20
+msgid "Select Icon"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/ReadMore.js:24
+msgid ""
+"More icons, icon gap and left/right icon position, and an Auto/Bottom "
+"button position are available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Sorting.js:12
+#: src/Components/Backend/Settings/Elements/Title.js:14
+#: src/Components/Backend/Settings/Style/Title.js:21
+#: src/utils/options.js:70
+msgid "Title"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Sorting.js:21
+#: src/utils/options.js:101
+msgid "Elements"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Sorting.js:23
+msgid "Sort Element:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Sorting.js:23
+msgid "Drag and sort to reorder the appearance of the title, meta data and excerpt."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Title.js:15
+msgid "Show Title"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Title.js:18
+msgid "Enable Title Link"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Title.js:20
+msgid "Title Tag:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Title.js:20
+msgid "Select the HTML tag for the post title (H1-H6, div, p, etc.)."
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Title.js:22
+msgid "Title Limit"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Title.js:23
+msgid "Limit Type:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Title.js:24
+msgid "Word"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Title.js:25
+msgid "Character"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Title.js:30
+msgid "Limit Value:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Elements/Title.js:33
+msgid "Showing an ellipsis on truncated titles is available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/AsyncTokenField.js:89
+msgid "Added"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/AsyncTokenField.js:90
+msgid "Removed"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/AsyncTokenField.js:91
+#: ../bpl-tools/Components/Deprecated/ImageControl/ImageControl.js:36
+#: ../bpl-tools/Components/ItemsPanel/ItemsPanel.js:112
+#: ../bpl-tools/Components/ItemsPanel/Sortable.js:165
+#: ../bpl-tools/Components/ShadowControl/ShadowControl.js:99
+msgid "Remove"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/AsyncTokenField.js:92
+msgid "Invalid item"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:10
+msgid "In the Last…"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:11
+msgid "Custom Range"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:15
+msgid "Days"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:16
+msgid "Weeks"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:17
+msgid "Months"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:18
+msgid "Years"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:48
+msgid "Date Range:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:48
+msgid "Show only the posts published within a period."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:51
+msgid "Number"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:52
+msgid "Unit"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:56
+msgid "From:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:57
+msgid "To:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:57
+msgid "Both days are included. Leave one empty for a range with no start or no end."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/DateRange.js:9
+msgid "Any Time"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:40
+msgid "The frontend filter is not available for the Ticker and News Ticker layouts."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:44
+#: src/Components/Backend/Settings/Style/FilterOptions.js:29
+msgid "Frontend Filter"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:46
+msgid "Enable Frontend Filter"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:46
+msgid "Let visitors narrow the posts without reloading the page."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:52
+msgid "Alignment:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:53
+#: src/utils/options.js:87
+#: ../bpl-tools/utils/options.js:31
+msgid "Left"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:54
+#: src/utils/options.js:95
+msgid "Center"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:55
+#: src/utils/options.js:89
+#: ../bpl-tools/utils/options.js:29
+msgid "Right"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:61
+msgid "Filter By:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:68
+msgid "Label:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:68
+msgid "Shown before the choices. Leave empty to hide it."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:70
+msgid "\"All\" Label:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:72
+msgid "Hide Empty Terms"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:72
+msgid "Leave out terms that have no posts in this block's query."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:76
+msgid "Only These Terms:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:76
+msgid "Leave empty to offer every term."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:81
+msgid ""
+"The filter works with Categories or Tags, and the selected post type uses "
+"neither."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:83
+msgid "Show Result Count"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:85
+msgid "Show Clear Button"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:87
+msgid "Clear Button Label:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:89
+msgid "No Results Text:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/FrontendFilter.js:92
+msgid ""
+"More filters on any taxonomy, dropdown, checkbox and searchable dropdown "
+"styles, multiple choices, post counts, sidebar positions, an Apply button, "
+"search, sort, author and month filters, active filter chips, and shareable "
+"filter URLs are available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:104
+#: src/utils/options.js:35
+msgid "List - Left Image"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:105
+#: src/utils/options.js:36
+msgid "List - Right Image"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:111
+msgid "First Post Min Height:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:112
+msgid "Set the minimum height for the first (hero) post in the magazine layout."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:132
+msgid "Columns:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:133
+msgid "Number of columns to display on different devices."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:148
+msgid "Column Gap:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:149
+msgid "Horizontal space between post items."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:162
+msgid "Gap:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:162
+msgid "Row Gap:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:163
+msgid "Vertical space between post items."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:177
+msgid "Post Equal Height"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:178
+msgid "Ensures all items in the same row have matching heights."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:186
+msgid "Slider Min Height:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:195
+msgid "Content Height:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:203
+msgid ""
+"Grid 1 and Timeline layouts, plus the even/odd list and overlay content box "
+"sub layouts, are available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:23
+msgid "Layout"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:25
+msgid "Layout:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:26
+msgid ""
+"Choose your preferred post layout. Magazine 1 and Magazine 2 are available "
+"in the free version."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:58
+msgid "Configure the <span>Slider Options</span>."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:59
+msgid "Configure the <span>Ticker Options</span>."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:60
+msgid "Configure the <span>News Ticker Options</span>."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:66
+msgid "Sub Layout:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:67
+msgid ""
+"Select a sub-layout for your post grid. Some settings may change based on "
+"this selection."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:85
+msgid "Some settings may change when sub layout will be changed."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:91
+msgid "Sidebar List Layout:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:92
+msgid "Magazine Grid Layout:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Layout.js:94
+msgid "Select a sub-layout for the secondary items."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:21
+msgid "Load More / Pagination"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:24
+msgid "Type"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:25
+msgid "Choose how to load more posts. Note: Posts Per Page must not be -1."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:32
+msgid "Load More / Pagination will not work if 'Post Per Page' is -1"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:35
+msgid "Alignment"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:39
+msgid "Limit Number of Pages:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:39
+msgid ""
+"The most pages visitors can go through, for example 5 stops at page 5 even "
+"when there are more posts. 0 shows every page."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:49
+msgid "Back to Top on Change"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:51
+msgid "Top Offset (px)"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:53
+msgid "Previous Label:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:55
+msgid "Next Label:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:59
+msgid "Button Label"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:62
+msgid "Colors"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:64
+msgid "Active/Hover Colors"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:66
+#: src/Components/Backend/Settings/Style/Content.js:24
+#: src/Components/Backend/Settings/Style/FilterOptions.js:57
+#: src/Components/Backend/Settings/Style/MetaData.js:70
+#: src/Components/Backend/Settings/Style/ReadMore.js:27
+msgid "Padding:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:68
+msgid "Space Between:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/Pagination.js:70
+msgid "Infinity Scroll is available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:14
+msgid "Posts Query"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:15
+msgid "Post Type:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:15
+msgid "Select the source for your posts (e.g., Posts, Pages)."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:17
+msgid "If the post type is not viewable then the default post type will work."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:19
+msgid "Taxonomy Relation:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:20
+msgid "AND"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:21
+msgid "OR"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:26
+msgid "Select Categories:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:35
+msgid "Select Tags:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:43
+msgid "Select Authors:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:49
+msgid "Post Per Page:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:51
+msgid "To show all posts set -1, and do not set 0"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:55
+msgid "Post Order By:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:56
+msgid ""
+"Order posts by the IDs specified in the 'Include Posts' field when 'Post "
+"In' is selected."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:62
+msgid "Post Order:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:69
+msgid "Post Offset:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:69
+msgid "Number of posts to skip. This works when Posts Per Page is not set to -1."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:70
+msgid "`Post Offset` will not work if `Post Per Page` is -1"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:73
+msgid "Include Posts:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:73
+msgid "Specific post IDs to display (separated by commas)."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:76
+msgid "Exclude Posts:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:76
+msgid "Post IDs to skip (separated by commas)."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:77
+msgid "Enter the posts id by coma separated Ex: `23,45,16`"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:79
+msgid "Exclude Sticky Posts"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:79
+msgid "Completely remove sticky posts from the results."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/PostsQuery.js:81
+msgid ""
+"Query presets, custom taxonomy filtering, search queries, advanced sorting, "
+"excluding the current post, this day/week/month/year date ranges, and "
+"filtering by last modified date are available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/AccordionOptions.js:17
+#: src/Components/Backend/Settings/Style/AccordionOptions.js:19
+msgid "Accordion Options"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/AccordionOptions.js:19
+msgid "Max Width:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/AccordionOptions.js:20
+msgid "Cap the accordion width and center it. Leave empty for full width."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/AccordionOptions.js:24
+msgid "Theme:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/AccordionOptions.js:25
+msgid ""
+"Pick a preset accordion style. Colors, border, background, shadow and "
+"typography stay driven by the standard controls."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/AccordionOptions.js:28
+msgid "Open First Item By Default"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/AccordionOptions.js:30
+msgid "Show Expand Icon"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/AccordionOptions.js:33
+msgid "Icon Position:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/AccordionOptions.js:35
+msgid "Indicator Icon:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/AccordionOptions.js:35
+msgid "First icon shows when open, second when closed."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/AccordionOptions.js:49
+msgid ""
+"More themes (Thumbnail, Numbered FAQ, Split Panel, Minimal Lines), multiple "
+"open panels, animation speed, more indicator icons, and hover animations "
+"are available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/NewsTickerOptions.js:13
+msgid "News Ticker Options"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/NewsTickerOptions.js:13
+msgid ""
+"News ticker themes, types, directions, animations and custom configuration "
+"are available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:11
+#: src/Components/Backend/Settings/Style/SliderOptions.js:16
+msgid "Slider Options"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:12
+msgid "Enable Loop"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:14
+msgid "Enable Touch Move"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:16
+msgid "Enable Autoplay"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:19
+msgid "Autoplay Delay (s):"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:19
+msgid "Delay between slides in seconds. Smaller values mean faster autoplay."
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:21
+msgid "Smaller delay value will be autoplay faster"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:24
+msgid "Speed (s):"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:26
+msgid "Smaller speed & delay value will be slide faster"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:29
+msgid "Effect:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:32
+msgid "To work fade & creative effects properly, set single column per view"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:34
+msgid "Pagination:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:35
+msgid "Show Pagination"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:38
+msgid "Enable Pagination Clickable"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:40
+msgid "Enable Pagination Dynamic Bullets"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:43
+msgid "Preview Next Button:"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/SliderOptions.js:44
+msgid "Show Preview Next Button"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/TickerOptions.js:13
+msgid "Ticker Options"
+msgstr ""
+
+#: src/Components/Backend/Settings/General/SubLayouts/TickerOptions.js:13
+msgid ""
+"Ticker speed, direction, and animation style controls are available in the "
+"Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/AccordionOptions.js:20
+msgid "Header Background:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/AccordionOptions.js:27
+msgid "Header Padding:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/AccordionOptions.js:29
+msgid "Indicator Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/AccordionOptions.js:31
+msgid "Indicator Active Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/AccordionOptions.js:33
+msgid ""
+"Body background uses Content Background, item border/shadow use the Article "
+"panel (open state = Hover Border), body padding uses Content Padding."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/AccordionOptions.js:35
+msgid "Lift Up and Zoom In hover animations are available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Article.js:11
+msgid "Article"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Article.js:14
+#: src/Components/Backend/Settings/Style/FeatureImage.js:20
+msgid "Border"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Article.js:16
+#: ../bpl-tools/Components/Deprecated/ShadowControl/ShadowControl.js:18
+#: ../bpl-tools/Components/ShadowControl/ShadowControl.js:22
+msgid "Shadow"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Article.js:20
+msgid "Hover Border"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Article.js:22
+msgid "Hover Shadow"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Content.js:16
+#: src/Components/Backend/Settings/Style/Excerpt.js:19
+#: src/Components/Backend/Settings/Style/Title.js:24
+msgid "Text Align:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Content.js:20
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:24
+#: ../bpl-tools/Components/Background/Background.js:28
+msgid "Background"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Content.js:22
+msgid "Apply a color, image, or gradient to the post box."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Content.js:22
+msgid "Hover Background"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Content.js:24
+msgid "Space inside the post container."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Excerpt.js:25
+#: src/Components/Backend/Settings/Style/Title.js:26
+#: ../bpl-tools/Components/Background/Background.js:77
+#: ../bpl-tools/Components/ColorControl/ColorControl.js:71
+#: ../bpl-tools/Components/ColorsControl/ColorsControl.js:61
+#: ../bpl-tools/Components/Deprecated/BorderControl/BorderControl.js:83
+#: ../bpl-tools/Components/Deprecated/ShadowControl/ShadowControl.js:56
+#: ../bpl-tools/Components/SeparatorControl/SeparatorControl.js:51
+#: ../bpl-tools/Components/ShadowControl/ShadowControl.js:94
+#: ../bpl-tools/Components/SolidBackground/SolidBackground.js:58
+msgid "Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Excerpt.js:27
+#: src/Components/Backend/Settings/Style/Title.js:28
+msgid "Hover Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Excerpt.js:29
+#: src/Components/Backend/Settings/Style/MetaData.js:43
+#: src/Components/Backend/Settings/Style/Title.js:30
+msgid "Margin:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Excerpt.js:29
+msgid "Space around the excerpt text."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FeatureImage.js:17
+msgid "Grayscale"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FeatureImage.js:22
+msgid "Radius"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FeatureImage.js:24
+#: src/Components/Backend/Settings/Style/ReadMore.js:35
+#: ../bpl-tools/Components/ShadowControl/ShadowControl.js:68
+msgid "Shadow:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FeatureImage.js:26
+#: src/Components/Backend/Settings/Style/MetaData.js:74
+msgid "Margin"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FeatureImage.js:31
+msgid "Hover Grayscale"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FeatureImage.js:33
+msgid "Animation:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FeatureImage.js:34
+#: src/Components/Backend/Settings/Style/ReadMore.js:46
+#: src/utils/options.js:68
+#: src/utils/readMoreIcons.js:8
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:60
+#: ../bpl-tools/Components/Typography/options.js:21
+#: ../bpl-tools/utils/options.js:90
+msgid "None"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FeatureImage.js:35
+#: src/Components/Backend/Settings/Style/ReadMore.js:47
+#: ../bpl-tools/utils/options.js:103
+msgid "Zoom In"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FeatureImage.js:36
+#: src/Components/Backend/Settings/Style/ReadMore.js:48
+#: ../bpl-tools/utils/options.js:108
+msgid "Zoom Out"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FeatureImage.js:40
+msgid "Hover Radius"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FeatureImage.js:42
+#: src/Components/Backend/Settings/Style/ReadMore.js:43
+msgid "Hover Shadow:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FeatureImage.js:47
+msgid "The Scale Up hover animation is available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:12
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:19
+#: ../bpl-tools/Components/Typography/options.js:4
+#: ../bpl-tools/utils/options.js:4
+msgid "Normal"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:13
+#: ../bpl-tools/utils/options.js:5
+msgid "Hover"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:14
+#: ../bpl-tools/Admin/OurPlugins/index.js:136
+msgid "Active"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:32
+msgid "Space Between Filters:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:34
+msgid "Space to the Posts:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:36
+msgid "Label Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:39
+msgid "Pills"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:43
+#: src/Components/Backend/Settings/Style/MetaData.js:68
+#: src/Components/Backend/Settings/Style/ReadMore.js:31
+#: ../bpl-tools/Components/ColorsControl/ColorsControl.js:25
+msgid "Colors:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:45
+#: src/Components/Backend/Settings/Style/ReadMore.js:33
+#: ../bpl-tools/Components/Deprecated/BorderControl/BorderControl.js:19
+msgid "Border:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:48
+#: src/Components/Backend/Settings/Style/ReadMore.js:39
+msgid "Hover Colors:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:51
+msgid "Active Colors:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:53
+msgid "Active Border Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:60
+msgid "Results Line"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:62
+msgid "Result Count Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/FilterOptions.js:64
+msgid "Clear Button Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:24
+msgid "Text Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:26
+msgid "Link Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:28
+#: ../bpl-tools/Components/IconControl/IconControl.js:79
+msgid "Icon Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:32
+msgid "Text Hover Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:34
+msgid "Link Hover Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:36
+msgid "Icon Hover Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:38
+msgid "Separator Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:43
+msgid "Space around the meta data elements."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:50
+msgid "Custom meta alignment is available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:62
+msgid "Categories Badge"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:64
+#: ../bpl-tools/Components/Typography/Typography.js:23
+msgid "Typography:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:64
+msgid "Settings left empty use the Meta typography."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:66
+msgid "Use Meta Typography"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/MetaData.js:72
+msgid "Border Radius:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/ReadMore.js:21
+msgid "Button Align:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/ReadMore.js:31
+msgid "Set button text and background colors."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/ReadMore.js:41
+msgid "Hover Border:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/ReadMore.js:45
+msgid "Hover Animation:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/ReadMore.js:53
+msgid "The interactive pulse hover animation is available in the Premium version."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/SliderOptions.js:18
+msgid "Pagination Bullets Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/SliderOptions.js:18
+msgid "Color for the slider pagination bullets."
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/SliderOptions.js:20
+msgid "Pagination Width:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/SliderOptions.js:22
+msgid "Pagination Height:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/SliderOptions.js:24
+msgid "Pagination Border:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/SliderOptions.js:27
+msgid "Preview Next Button Color:"
+msgstr ""
+
+#: src/Components/Backend/Settings/Style/Title.js:30
+msgid "Space around the post title."
+msgstr ""
+
+#: src/Components/Common/Filter/FilterStatus.js:19
+#. %d: Number of posts found.
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Components/Common/Filter/index.js:17
+msgid "Filter posts"
+msgstr ""
+
+#: src/Components/Common/Layout/NewsTicker.js:42
+#: src/Components/Common/LoadingSkeleton.js:73
+msgid "Trending Now"
+msgstr ""
+
+#: src/Components/Common/Layout/NewsTicker.js:76
+msgid "Previous"
+msgstr ""
+
+#: src/Components/Common/Layout/NewsTicker.js:81
+msgid "Next"
+msgstr ""
+
+#: src/Components/Common/LoadMore/Button.js:6
+#: ../bpl-tools/TemplateLibrary/Components/Modal.js:152
+msgid "Load More"
+msgstr ""
+
+#: src/Components/Common/PostsView.js:39
+msgid "The posts could not be loaded."
+msgstr ""
+
+#: src/Components/Common/PostsView.js:40
+msgid "Try again"
+msgstr ""
+
+#: src/Components/Common/Single/MetaComment.js:14
+#. %s: Post title.
+msgid "Comments of %s"
+msgstr ""
+
+#: src/Components/Common/Single/MetaViewCount.js:15
+#. %s: Number of post views.
+msgid "%s View"
+msgid_plural "%s Views"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/admin/Components/Layout.js:10
+#: ../bpl-tools/Admin/Pricing/index.js:125
+msgid "Pricing"
+msgstr ""
+
+#: src/admin/Components/Layout.js:11
+msgid "Feature Comparison"
+msgstr ""
+
+#: src/admin/Components/Layout.js:12
+#: ../bpl-tools/Admin/Settings/index.js:74
+msgid "Settings"
+msgstr ""
+
+#: src/admin/Components/Layout.js:8
+msgid "Welcome"
+msgstr ""
+
+#: src/admin/Components/Layout.js:9
+msgid "Demos"
+msgstr ""
+
+#: src/admin/post.js:56
+#: ../bpl-tools/ProControls/FrontShortCode/FrontShortCode.js:24
+msgid "Copied Successfully!"
+msgstr ""
+
+#: src/admin/post.js:58
+#: ../bpl-tools/ProControls/FrontShortCode/FrontShortCode.js:36
+msgid "Copy To Clipboard"
+msgstr ""
+
+#: src/admin/utils/data.js:106
+msgid "Add the APB Block"
+msgstr ""
+
+#: src/admin/utils/data.js:107
+msgid ""
+"Open the block editor on any post or page. Click the <strong>+</strong> "
+"icon in the top-left corner or type <strong>/Advanced Posts</strong> to "
+"find and insert the Advanced Posts block."
+msgstr ""
+
+#: src/admin/utils/data.js:112
+msgid "Choose a Layout"
+msgstr ""
+
+#: src/admin/utils/data.js:113
+msgid ""
+"Select the layout from - <strong>Grid</strong>, <strong>Grid 1</strong>, "
+"<strong>Masonry</strong>, <strong>Slider</strong>, <strong>Ticker</strong>, "
+"<strong>News Ticker</strong>, <strong>Accordion</strong>, <strong>Magazine "
+"1</strong>, <strong>Magazine 2</strong>, or <strong>Timeline</strong>. "
+"Switching layouts is non-destructive; your query settings are preserved."
+msgstr ""
+
+#: src/admin/utils/data.js:117
+msgid "Configure the Posts Query"
+msgstr ""
+
+#: src/admin/utils/data.js:118
+msgid ""
+"In the <strong>Posts Query</strong> panel, filter by categories, tags, or "
+"authors, skip posts with <strong>Post Offset</strong>, target exact posts "
+"with <strong>Include/Exclude Posts</strong>, and control the number and "
+"order of posts. Then pick a <strong>Load More / Pagination</strong> type to "
+"split long lists across pages."
+msgstr ""
+
+#: src/admin/utils/data.js:122
+msgid "Style Elements & Publish"
+msgstr ""
+
+#: src/admin/utils/data.js:123
+msgid ""
+"Use the <strong>Elements</strong> tab to toggle and reorder post content "
+"(image, title, meta, excerpt, read more), then the <strong>Style</strong> "
+"tab to set colors, typography, borders, and hover effects. Publish when "
+"ready."
+msgstr ""
+
+#: src/admin/utils/data.js:129
+#: src/template-library/TemplateLibrary.js:19
+msgid "Template Library"
+msgstr ""
+
+#: src/admin/utils/data.js:13
+#: ../bpl-tools/Admin/BFCMBanner/index.js:35
+msgid "Save 45%"
+msgstr ""
+
+#: src/admin/utils/data.js:134
+msgid "Open the Template Library"
+msgstr ""
+
+#: src/admin/utils/data.js:135
+msgid ""
+"In the block editor, click the <strong>Template Library</strong> button in "
+"the top toolbar (next to the block inserter) to open the templates modal."
+msgstr ""
+
+#: src/admin/utils/data.js:136
+msgid "Open Editor"
+msgstr ""
+
+#: src/admin/utils/data.js:14
+msgid "Black Friday Sale: Upgrade to Advanced Post Block Pro"
+msgstr ""
+
+#: src/admin/utils/data.js:140
+msgid "Browse & Filter Templates"
+msgstr ""
+
+#: src/admin/utils/data.js:141
+msgid ""
+"Switch between the <strong>Patterns</strong> and <strong>Favorites</strong> "
+"tabs, then narrow the gallery by access (<strong>All</strong>, "
+"<strong>Free</strong>, <strong>Pro</strong>), by category (Grid, List, "
+"Magazine, Masonry, Overlay), or search templates by name."
+msgstr ""
+
+#: src/admin/utils/data.js:145
+msgid "Preview & Save Favorites"
+msgstr ""
+
+#: src/admin/utils/data.js:146
+msgid ""
+"Click the <strong>eye</strong> icon on a template to open its live demo in "
+"a new tab, or the <strong>heart</strong> icon to save it - favorites stay "
+"one click away under the <strong>Favorites</strong> tab."
+msgstr ""
+
+#: src/admin/utils/data.js:15
+msgid ""
+"Get 45% off on Advanced Post Block Pro this Black Friday!<br />Adds "
+"precision filtering, layout enhancements, and deeper content control."
+msgstr ""
+
+#: src/admin/utils/data.js:150
+msgid "Import & Customize"
+msgstr ""
+
+#: src/admin/utils/data.js:151
+msgid ""
+"Hit <strong>+ Import</strong> and the template is inserted right into your "
+"content as editable blocks - then tweak the query, elements, and styles as "
+"usual. Pro templates show <strong>Get Pro</strong> until your license is "
+"active."
+msgstr ""
+
+#: src/admin/utils/data.js:157
+msgid "ShortCode"
+msgstr ""
+
+#: src/admin/utils/data.js:162
+msgid "Open ShortCode Generator"
+msgstr ""
+
+#: src/admin/utils/data.js:163
+msgid ""
+"Go to <strong>Advanced Posts &rsaquo; ShortCode Generator</strong> in your "
+"WordPress admin and click <strong>Add New ShortCode</strong>."
+msgstr ""
+
+#: src/admin/utils/data.js:168
+msgid "Configure the Block"
+msgstr ""
+
+#: src/admin/utils/data.js:169
+msgid ""
+"In the block editor, use the sidebar to choose your layout, set the Posts "
+"Query filters (post type, categories, tags, order), and adjust Elements and "
+"Style settings."
+msgstr ""
+
+#: src/admin/utils/data.js:17
+msgid "Premium Templates"
+msgstr ""
+
+#: src/admin/utils/data.js:173
+msgid "Publish & Copy the Shortcode"
+msgstr ""
+
+#: src/admin/utils/data.js:174
+msgid ""
+"Publish the post. Return to the ShortCode Generator list - the shortcode "
+"<code>[apb id=POST_ID]</code> is shown in the list table. Click it to copy "
+"to clipboard."
+msgstr ""
+
+#: src/admin/utils/data.js:178
+msgid "Paste Anywhere"
+msgstr ""
+
+#: src/admin/utils/data.js:179
+msgid ""
+"Paste the copied shortcode (e.g. <code>[apb id=123]</code>) into any post, "
+"page, widget area, or block using the <strong>Shortcode</strong> block."
+msgstr ""
+
+#: src/admin/utils/data.js:18
+msgid "Timeline & Grid 1 Layouts"
+msgstr ""
+
+#: src/admin/utils/data.js:185
+msgid "Page Builder"
+msgstr ""
+
+#: src/admin/utils/data.js:19
+msgid "Query Presets & Deeper Filtering"
+msgstr ""
+
+#: src/admin/utils/data.js:190
+msgid "Create a ShortCode"
+msgstr ""
+
+#: src/admin/utils/data.js:191
+msgid ""
+"Go to <strong>Advanced Posts &rsaquo; ShortCode Generator</strong>, click "
+"<strong>Add New ShortCode</strong>, configure your layout and query, then "
+"publish. Note the shortcode from the list table."
+msgstr ""
+
+#: src/admin/utils/data.js:192
+msgid "ShortCode Generator"
+msgstr ""
+
+#: src/admin/utils/data.js:196
+msgid "Add a Shortcode Widget"
+msgstr ""
+
+#: src/admin/utils/data.js:197
+msgid ""
+"Add the Page Builder <strong>Shortcode</strong> widget to your page and "
+"insert to the page."
+msgstr ""
+
+#: src/admin/utils/data.js:20
+msgid "Infinite Scroll"
+msgstr ""
+
+#: src/admin/utils/data.js:201
+msgid "Enter & Preview"
+msgstr ""
+
+#: src/admin/utils/data.js:202
+msgid ""
+"Type <code>[apb id=YOUR_ID]</code> into the widget's Shortcode field "
+"(replace <em>YOUR_ID</em> with your actual post ID) and click "
+"<strong>Preview</strong> to see the posts rendered live."
+msgstr ""
+
+#: src/admin/utils/data.js:22
+#: ../bpl-tools/Admin/BFCMBanner/index.js:39
+msgid "Unlock PRO Features →"
+msgstr ""
+
+#: src/admin/utils/data.js:412
+msgid "View More Changelogs"
+msgstr ""
+
+#: src/admin/utils/data.js:414
+msgid "More Layouts: Grid 1 and Timeline layouts."
+msgstr ""
+
+#: src/admin/utils/data.js:415
+msgid ""
+"Accordion Pro Themes: Thumbnail, Numbered FAQ, Split Panel, and Minimal "
+"Lines."
+msgstr ""
+
+#: src/admin/utils/data.js:416
+msgid "Ticker and News Ticker options."
+msgstr ""
+
+#: src/admin/utils/data.js:417
+msgid "Advanced Query: Presets, Custom Taxonomies, and Search."
+msgstr ""
+
+#: src/admin/utils/data.js:418
+msgid "Tags and Custom Taxonomies in the meta row, each with its own icon."
+msgstr ""
+
+#: src/admin/utils/data.js:419
+msgid "Infinity Scroll with a trigger offset, spinner, and loading label."
+msgstr ""
+
+#: src/admin/utils/data.js:420
+msgid ""
+"Meta sorting and gaps, custom meta icons, date formats, and reading time "
+"seconds."
+msgstr ""
+
+#: src/admin/utils/data.js:421
+msgid "Image Lazy Loading, the Scale Up hover animation, and title ellipsis."
+msgstr ""
+
+#: src/admin/utils/data.js:426
+msgid "See All Demos"
+msgstr ""
+
+#: src/admin/utils/data.js:431
+#: src/utils/options.js:6
+msgid "Grid"
+msgstr ""
+
+#: src/admin/utils/data.js:434
+msgid "Retro Print Teal"
+msgstr ""
+
+#: src/admin/utils/data.js:439
+msgid "Strata Daily"
+msgstr ""
+
+#: src/admin/utils/data.js:444
+msgid "Willow Journal"
+msgstr ""
+
+#: src/admin/utils/data.js:449
+msgid "Sable Folio"
+msgstr ""
+
+#: src/admin/utils/data.js:454
+msgid "Solstice Review"
+msgstr ""
+
+#: src/admin/utils/data.js:459
+msgid "Slate Ledger"
+msgstr ""
+
+#: src/admin/utils/data.js:464
+msgid "Lumen Review"
+msgstr ""
+
+#: src/admin/utils/data.js:469
+msgid "Vellum Folio"
+msgstr ""
+
+#: src/admin/utils/data.js:474
+msgid "Meridian Ledger"
+msgstr ""
+
+#: src/admin/utils/data.js:479
+msgid "Meridian Journal Gallery"
+msgstr ""
+
+#: src/admin/utils/data.js:484
+msgid "Slate Stand Gallery"
+msgstr ""
+
+#: src/admin/utils/data.js:489
+msgid "Slate Edition"
+msgstr ""
+
+#: src/admin/utils/data.js:494
+msgid "Meridian Edition"
+msgstr ""
+
+#: src/admin/utils/data.js:499
+msgid "Vellum Ledger"
+msgstr ""
+
+#: src/admin/utils/data.js:504
+msgid "Obsidian Review"
+msgstr ""
+
+#: src/admin/utils/data.js:509
+msgid "Obsidian Journal"
+msgstr ""
+
+#: src/admin/utils/data.js:514
+msgid "Obsidian Press"
+msgstr ""
+
+#: src/admin/utils/data.js:519
+msgid "Meridian Daily"
+msgstr ""
+
+#: src/admin/utils/data.js:524
+msgid "Aurora Daily"
+msgstr ""
+
+#: src/admin/utils/data.js:529
+msgid "Vista Daily"
+msgstr ""
+
+#: src/admin/utils/data.js:53
+msgid "Showcase Posts with Grid, List, Card Layouts and Filters"
+msgstr ""
+
+#: src/admin/utils/data.js:534
+msgid "Compact Cyber Neon"
+msgstr ""
+
+#: src/admin/utils/data.js:539
+msgid "Compact Neo Brutal"
+msgstr ""
+
+#: src/admin/utils/data.js:54
+msgid ""
+"Advanced Post Block is a powerful and flexible block plugin that allows you "
+"to display posts, display blog posts, and embed custom posts in a fully "
+"customizable and responsive layout."
+msgstr ""
+
+#: src/admin/utils/data.js:544
+msgid "Compact Elite Clean"
+msgstr ""
+
+#: src/admin/utils/data.js:549
+msgid "Minimal Cyber Neon"
+msgstr ""
+
+#: src/admin/utils/data.js:554
+msgid "Minimal Neo Brutal"
+msgstr ""
+
+#: src/admin/utils/data.js:559
+msgid "Minimal Elite Clean"
+msgstr ""
+
+#: src/admin/utils/data.js:586
+msgid "Grid 1"
+msgstr ""
+
+#: src/admin/utils/data.js:589
+msgid "Basalt Press"
+msgstr ""
+
+#: src/admin/utils/data.js:594
+msgid "Lumen Folio"
+msgstr ""
+
+#: src/admin/utils/data.js:602
+#: src/utils/options.js:7
+msgid "Masonry"
+msgstr ""
+
+#: src/admin/utils/data.js:605
+msgid "Vista Dispatch"
+msgstr ""
+
+#: src/admin/utils/data.js:610
+#: src/utils/options.js:33
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:43
+#: ../bpl-tools/Components/Background/options.js:26
+#: ../bpl-tools/Components/Typography/options.js:17
+#: ../bpl-tools/utils/options.js:82
+msgid "Default"
+msgstr ""
+
+#: src/admin/utils/data.js:615
+#: src/utils/options.js:34
+msgid "Title Meta"
+msgstr ""
+
+#: src/admin/utils/data.js:633
+#: src/utils/options.js:8
+msgid "Slider"
+msgstr ""
+
+#: src/admin/utils/data.js:648
+#: src/utils/options.js:11
+msgid "Magazine 1"
+msgstr ""
+
+#: src/admin/utils/data.js:651
+msgid "Mica Gazette"
+msgstr ""
+
+#: src/admin/utils/data.js:656
+msgid "Quartz Stand"
+msgstr ""
+
+#: src/admin/utils/data.js:664
+#: src/utils/options.js:9
+msgid "Ticker"
+msgstr ""
+
+#: src/admin/utils/data.js:667
+msgid "Side Image"
+msgstr ""
+
+#: src/admin/utils/data.js:672
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:51
+msgid "Overlay"
+msgstr ""
+
+#: src/admin/utils/data.js:680
+msgid "Post Section"
+msgstr ""
+
+#: src/admin/utils/data.js:683
+msgid "Post Section (Design 1)"
+msgstr ""
+
+#: src/admin/utils/data.js:688
+msgid "Post Section (Design 2)"
+msgstr ""
+
+#: src/admin/utils/data.js:693
+msgid "Post Section (Design 3)"
+msgstr ""
+
+#: src/admin/utils/data.js:698
+msgid "Post Section (Design 4)"
+msgstr ""
+
+#: src/admin/utils/data.js:703
+msgid "Post Section (Design 5)"
+msgstr ""
+
+#: src/admin/utils/data.js:711
+msgid "All Posts"
+msgstr ""
+
+#: src/admin/utils/data.js:728
+msgid "Buy Now ➜"
+msgstr ""
+
+#: src/admin/utils/data.js:738
+msgid "All shortcode posts (apb post type)"
+msgstr ""
+
+#: src/admin/utils/data.js:739
+msgid "Post view tracking data"
+msgstr ""
+
+#: src/admin/utils/data.js:88
+msgid "Start Now"
+msgstr ""
+
+#: src/admin/utils/data.js:95
+#: src/utils/options.js:10
+msgid "News Ticker"
+msgstr ""
+
+#: src/admin/utils/data.js:95
+#: src/utils/options.js:13
+msgid "Accordion"
+msgstr ""
+
+#: src/admin/utils/data.js:95
+#: src/utils/options.js:12
+msgid "Magazine 2"
+msgstr ""
+
+#: src/admin/utils/data.js:96
+msgid "Layouts"
+msgstr ""
+
+#: src/template-library/TemplateLibrary.js:20
+#: ../bpl-tools/TemplateLibrary/Components/Modal.js:43
+#: ../bpl-tools/TemplateLibrary/index.js:39
+msgid "Templates Library"
+msgstr ""
+
+#: src/utils/filter.js:25
+#: ../bpl-tools/Admin/Demos/index.js:177
+#: ../bpl-tools/TemplateLibrary/Components/Sidebar.js:75
+msgid "All"
+msgstr ""
+
+#: src/utils/filter.js:61
+msgid "Clear all"
+msgstr ""
+
+#: src/utils/filter.js:62
+msgid "No posts found"
+msgstr ""
+
+#: src/utils/functions.js:194
+msgid "Just now"
+msgstr ""
+
+#: src/utils/functions.js:199
+#. %d: number of minutes
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/utils/functions.js:204
+#. %d: number of hours
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/utils/functions.js:209
+#. %d: number of days
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/utils/functions.js:214
+#. %d: number of weeks
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/utils/functions.js:219
+#. %d: number of months
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/utils/functions.js:224
+#. %d: number of years
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/utils/options.js:100
+msgid "General"
+msgstr ""
+
+#: src/utils/options.js:102
+msgid "Style"
+msgstr ""
+
+#: src/utils/options.js:106
+msgid "H1"
+msgstr ""
+
+#: src/utils/options.js:107
+msgid "H2"
+msgstr ""
+
+#: src/utils/options.js:108
+msgid "H3"
+msgstr ""
+
+#: src/utils/options.js:109
+msgid "H4"
+msgstr ""
+
+#: src/utils/options.js:110
+msgid "H5"
+msgstr ""
+
+#: src/utils/options.js:111
+msgid "H6"
+msgstr ""
+
+#: src/utils/options.js:112
+msgid "div"
+msgstr ""
+
+#: src/utils/options.js:113
+msgid "span"
+msgstr ""
+
+#: src/utils/options.js:114
+msgid "p"
+msgstr ""
+
+#: src/utils/options.js:17
+msgid "Classic"
+msgstr ""
+
+#: src/utils/options.js:18
+msgid "Card Stack"
+msgstr ""
+
+#: src/utils/options.js:27
+msgid "Plus Minus"
+msgstr ""
+
+#: src/utils/options.js:28
+msgid "Arrow"
+msgstr ""
+
+#: src/utils/options.js:29
+msgid "Long Arrow"
+msgstr ""
+
+#: src/utils/options.js:37
+msgid "Overlay Content"
+msgstr ""
+
+#: src/utils/options.js:38
+msgid "Overlay Content Hover"
+msgstr ""
+
+#: src/utils/options.js:39
+msgid "Overlay Box"
+msgstr ""
+
+#: src/utils/options.js:40
+msgid "Overlay Half Content"
+msgstr ""
+
+#: src/utils/options.js:44
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:44
+#: ../bpl-tools/Components/Background/options.js:28
+#: ../bpl-tools/utils/options.js:83
+msgid "Auto"
+msgstr ""
+
+#: src/utils/options.js:45
+msgid "Fill Available Space"
+msgstr ""
+
+#: src/utils/options.js:49
+msgid "On Image"
+msgstr ""
+
+#: src/utils/options.js:50
+msgid "Above Content"
+msgstr ""
+
+#: src/utils/options.js:56
+msgid "Pagination"
+msgstr ""
+
+#: src/utils/options.js:57
+msgid "Navigation"
+msgstr ""
+
+#: src/utils/options.js:58
+msgid "Load More Button"
+msgstr ""
+
+#: src/utils/options.js:62
+msgid "Slide"
+msgstr ""
+
+#: src/utils/options.js:63
+msgid "Fade"
+msgstr ""
+
+#: src/utils/options.js:64
+msgid "Creative"
+msgstr ""
+
+#: src/utils/options.js:72
+msgid "Last Modified"
+msgstr ""
+
+#: src/utils/options.js:73
+msgid "Random"
+msgstr ""
+
+#: src/utils/options.js:77
+msgid "Ascending"
+msgstr ""
+
+#: src/utils/options.js:78
+msgid "Descending"
+msgstr ""
+
+#: src/utils/options.js:82
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:45
+#: ../bpl-tools/Components/Background/options.js:27
+msgid "Cover"
+msgstr ""
+
+#: src/utils/options.js:83
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:46
+#: ../bpl-tools/Components/Background/options.js:29
+msgid "Contain"
+msgstr ""
+
+#: src/utils/options.js:90
+msgid "Justify"
+msgstr ""
+
+#: src/utils/options.js:94
+msgid "Start"
+msgstr ""
+
+#: src/utils/options.js:96
+msgid "End"
+msgstr ""
+
+#: src/utils/readMoreIcons.js:4
+msgid "Arrow Up Right From Square"
+msgstr ""
+
+#: src/utils/readMoreIcons.js:5
+msgid "Right Long"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:103
+#. %s: Plugin name.
+msgid ""
+"You're receiving security updates, new features and priority support for "
+"<strong>%s</strong>."
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:108
+#. %s: Plugin name.
+msgid ""
+"Enter the license key you received with your purchase to unlock premium "
+"features and updates for <strong>%s</strong>."
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:121
+msgid "Plugin"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:128
+#: ../bpl-tools/Admin/OurPlugins/index.js:111
+msgid "Activated"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:128
+msgid "Not activated"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:134
+msgid "Talking to the license server…"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:143
+msgid "License verified"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:144
+msgid "Your purchase code is bound to this site and is in good standing."
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:156
+msgid "Hide license"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:156
+msgid "Show license"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:164
+msgid "Copy license to clipboard"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:167
+msgid "Copied"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:175
+msgid "Change license"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:178
+msgid "Deactivate license"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:187
+msgid "License key"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:214
+#: ../bpl-tools/Admin/OurPlugins/index.js:113
+msgid "Activating…"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:214
+msgid "Update License"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:214
+msgid "Activate License"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:219
+msgid ""
+"Can't find your key? <recover>Recover license</recover> or <help>activation "
+"help</help>"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:230
+#. %s: Plugin name.
+msgid "%s needs the following to deliver updates & security patches"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:237
+msgid "License essentials"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:238
+msgid "Homepage URL · Plugin version · SDK version"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:244
+msgid "Plugin state"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:245
+msgid "Whether the plugin is active, deactivated or uninstalled"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:252
+#: ../bpl-tools/Admin/Pricing/index.js:140
+msgid "Powered by Freemius"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:254
+msgid "Privacy Policy"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:256
+msgid "License Agreement"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:260
+msgid "Cancel and keep current license"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:271
+msgid "Deactivate this license?"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:272
+msgid "You can re-activate it later on this site or move it to a different one."
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:276
+msgid ""
+"Premium features and automatic updates will stop on this site until you "
+"re-activate."
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:280
+msgid "Keep license active"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:283
+msgid "Yes, deactivate"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:92
+msgid "License"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:95
+msgid "Your license is active"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:96
+msgid "Change your license key"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/index.js:96
+msgid "Activate your license"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/useActivateLicense.js:18
+msgid "Please enter a license key"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/useActivateLicense.js:37
+msgid "Activation failed"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/useDeactivateLicense.js:25
+msgid "Deactivation failed"
+msgstr ""
+
+#: ../bpl-tools/Admin/Activation/useLicense.js:50
+msgid "An error occurred"
+msgstr ""
+
+#: ../bpl-tools/Admin/BFCMBanner/index.js:179
+msgid "Dismiss BFCM offer"
+msgstr ""
+
+#: ../bpl-tools/Admin/BFCMBanner/index.js:180
+#: ../bpl-tools/Admin/Settings/index.js:159
+msgid "Dismiss"
+msgstr ""
+
+#: ../bpl-tools/Admin/BFCMBanner/index.js:92
+msgid "Upgrade to %s Pro"
+msgstr ""
+
+#: ../bpl-tools/Admin/BFCMBanner/index.js:92
+#: ../bpl-tools/Admin/Welcome/Overview/index.js:115
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:101
+#. 1: Number of demos, 2: Demo category name.
+msgid "<strong>%1$d</strong> demo in %2$s"
+msgid_plural "<strong>%1$d</strong> demos in %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../bpl-tools/Admin/Demos/index.js:110
+#. %d: Number of demos. <search /> is replaced with the search term.
+msgid "<strong>%d</strong> demo matching \"<search />\""
+msgid_plural "<strong>%d</strong> demos matching \"<search />\""
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../bpl-tools/Admin/Demos/index.js:117
+#. %d: Number of demos.
+msgid "<strong>%d</strong> demo"
+msgid_plural "<strong>%d</strong> demos"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../bpl-tools/Admin/Demos/index.js:145
+msgid "Live Demos"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:148
+#. %s: Plugin name.
+msgid "See the %s in action"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:151
+msgid ""
+"Browse ready-made demos - click any card to open a live, interactive "
+"preview."
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:160
+msgid "Search demos…"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:163
+#: ../bpl-tools/Admin/OurPlugins/index.js:237
+msgid "Clear search"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:189
+msgid "No demos found"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:190
+msgid "Try a different search or category."
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:210
+msgid "Preview"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:227
+#. 1: Current demo position, 2: Total number of demos.
+msgid "%1$d of %2$d"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:235
+msgid "Open in new tab"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:238
+msgid "Close demo"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:245
+msgid "Previous demo"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:251
+msgid "Loading demo…"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:259
+#. %s: Demo title.
+msgid "%s demo"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:270
+msgid "Next demo"
+msgstr ""
+
+#: ../bpl-tools/Admin/Demos/index.js:92
+#. 1: Number of demos, 2: Demo category name. <search /> is replaced with the search term.
+msgid "<strong>%1$d</strong> demo in %2$s matching \"<search />\""
+msgid_plural "<strong>%1$d</strong> demos in %2$s matching \"<search />\""
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:110
+msgid "Compare"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:111
+msgid "Free vs Pro at a glance"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:115
+msgid "Ready to unlock everything?"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:116
+msgid ""
+"Upgrade to Pro and get every feature, future updates, and priority support "
+"— backed by a 14 days money-back guarantee."
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:117
+msgid "Get Pro now →"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:129
+msgid "See exactly what unlocks when you upgrade."
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:132
+#. %d: Number of Pro-only features.
+msgid "<strong>%d</strong> feature is exclusive to Pro."
+msgid_plural "<strong>%d</strong> features are exclusive to Pro."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:155
+#: ../bpl-tools/Admin/Pricing/index.js:118
+#. %d: Annual savings percentage.
+msgid "Save %d%%"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:168
+msgid "Free forever — all the essentials to get started."
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:169
+msgid "Everything in Free, plus advanced features and priority support."
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:183
+msgid "forever"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:192
+msgid "You Already Have It"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:209
+msgid "Get Pro →"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:218
+msgid "Feature breakdown"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:224
+msgid "Filter features…"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:228
+msgid "Clear filter"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:236
+msgid "Feature"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:239
+#: ../bpl-tools/TemplateLibrary/Components/Sidebar.js:76
+msgid "Free"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:239
+#: ../bpl-tools/ProControls/BControlPro/BControlPro.js:18
+#: ../bpl-tools/ProControls/PremiumPanel/PremiumBadge.js:13
+#: ../bpl-tools/ProControls/RadioControlPro/RadioControlPro.js:20
+#: ../bpl-tools/TemplateLibrary/Components/Sidebar.js:77
+msgid "Pro"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:248
+msgid "No features match your search."
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:256
+msgid "Pro only"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:261
+msgid "Included"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:261
+msgid "Not included"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:50
+#: ../bpl-tools/Admin/Pricing/index.js:79
+msgid "Monthly"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:50
+msgid "/mo · billed monthly"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:51
+#: ../bpl-tools/Admin/Pricing/index.js:80
+msgid "Yearly"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:51
+msgid "/yr · billed yearly"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:52
+#: ../bpl-tools/Admin/Pricing/index.js:81
+msgid "Lifetime"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:52
+msgid "one-time"
+msgstr ""
+
+#: ../bpl-tools/Admin/FeatureCompare/index.js:64
+msgid "Loading feature comparison…"
+msgstr ""
+
+#: ../bpl-tools/Admin/Header/index.js:40
+msgid "Plugin from bPlugins"
+msgstr ""
+
+#: ../bpl-tools/Admin/Header/index.js:48
+msgid "Toggle navigation"
+msgstr ""
+
+#: ../bpl-tools/Admin/Header/index.js:65
+msgid "Our Plugins"
+msgstr ""
+
+#: ../bpl-tools/Admin/Header/index.js:70
+msgid "Upgrade Pro"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:112
+msgid "Activate"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:114
+msgid "Installing…"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:115
+msgid "Failed"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:116
+msgid "Install & Activate"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:214
+msgid "Fetching plugins from the WordPress directory…"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:220
+msgid "Made by bPlugins"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:221
+msgid "Discover more plugins from our team"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:222
+msgid ""
+"Hand-crafted WordPress plugins built with the same care and quality. "
+"Install any of them with a single click."
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:233
+msgid "Search plugins…"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:240
+msgid "Sort by"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:244
+msgid "Popular"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:245
+msgid "Top Rated"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:246
+msgid "A–Z"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:267
+#. %d: Number of plugins. <search /> is replaced with the search term.
+msgid "<strong>%d</strong> plugin matching \"<search />\""
+msgid_plural "<strong>%d</strong> plugins matching \"<search />\""
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:272
+#. %d: Number of plugins.
+msgid "<strong>%d</strong> plugin"
+msgid_plural "<strong>%d</strong> plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:285
+msgid "No plugins match"
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:286
+msgid "Try a different keyword."
+msgstr ""
+
+#: ../bpl-tools/Admin/OurPlugins/index.js:59
+#. %s: Plugin rating, e.g. 4.5.
+msgid "%s out of 5"
+msgstr ""
+
+#: ../bpl-tools/Admin/Overview/VideoPlayer.js:21
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:59
+msgid "Video"
+msgstr ""
+
+#: ../bpl-tools/Admin/Overview/VideoPlayer.js:257
+msgid "Your browser does not support the video tag."
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:126
+msgid "Pick the plan that fits your project"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:127
+msgid ""
+"Same powerful features on every plan — just choose how many sites you need. "
+"Upgrade or downgrade any time."
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:131
+msgid "Same on every plan"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:132
+msgid "Everything you get, on every license"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:133
+msgid ""
+"Every feature is available on every license tier. The only difference is "
+"how many sites you can activate the plugin on."
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:137
+msgid "14 days money back"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:137
+msgid "Risk-free purchase"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:138
+msgid "Lifetime updates"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:138
+msgid "Plugins updates"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:138
+msgid "On every plan"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:139
+msgid "Priority support"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:139
+msgid "Get help when you need it"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:140
+msgid "Secure checkout"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:145
+msgid "Can I upgrade my plan later?"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:146
+msgid ""
+"Yes — you can upgrade any time from your account. We prorate the difference "
+"automatically."
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:149
+msgid "Will I receive updates if I purchase a lifetime license?"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:150
+msgid ""
+"Yes, a lifetime license holds lifetime updates and never expires, ensuring "
+"you always have access to the latest features and bug fixes without "
+"recurring fees."
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:152
+msgid "What happens after my license expires?"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:153
+msgid ""
+"The plugin keeps working forever. You only lose access to premium features, "
+"updates and premium support unless you renew."
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:156
+msgid "Do you offer refunds?"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:157
+msgid ""
+"Absolutely. Every plan is backed by a 14 days no-questions-asked money-back "
+"guarantee."
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:197
+msgid "Unlimited Sites"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:198
+msgid "Single Site"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:200
+#. %d: Number of sites.
+msgid "%d Site"
+msgid_plural "%d Sites"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:204
+msgid "For agencies & enterprise"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:205
+msgid "For solo creators"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:205
+msgid "For freelancers"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:208
+msgid "Most Popular"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:224
+#. %s: Price per site.
+msgid "≈ $%s per site"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:227
+msgid "Use on every site you build."
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:231
+#. %s: Monthly equivalent price.
+msgid "Billed yearly · $%s/mo"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:235
+msgid "One-time payment, pay once forever."
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:236
+msgid "Billed monthly, cancel anytime."
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:259
+msgid "No plans available right now."
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:292
+msgid "Frequently asked questions"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:33
+msgid "/mo"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:34
+msgid "/yr"
+msgstr ""
+
+#: ../bpl-tools/Admin/Pricing/index.js:96
+msgid "Loading the latest pricing…"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:104
+msgid "Danger Zone"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:108
+msgid "Delete plugin data on uninstall"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:111
+#. %s: Plugin name.
+msgid ""
+"When enabled, every piece of %s data is wiped from your database the moment "
+"the plugin is uninstalled."
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:118
+msgid "What will be permanently deleted:"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:129
+msgid ""
+"This action cannot be undone. Deactivating the plugin alone is "
+"non-destructive — your data is only deleted when you also click \"Delete\" "
+"on the plugins screen."
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:141
+msgid "Toggle data deletion on uninstall"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:147
+msgid "Deletion is ON"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:147
+msgid "Deletion is OFF"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:148
+msgid "Data will be removed on uninstall"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:148
+msgid "Data will be preserved on uninstall"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:152
+msgid "Saving…"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:170
+msgid "Enable data deletion on uninstall?"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:171
+#: ../bpl-tools/TemplateLibrary/Components/Modal.js:127
+msgid "Close"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:177
+msgid ""
+"Switching this on means that the next time this plugin is uninstalled, all "
+"data, configurations, and settings will be permanently removed from your "
+"database."
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:181
+msgid ""
+"There is no recovery once data is deleted. Make sure you have a recent "
+"backup."
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:187
+#. Keep <code>DELETE</code> untranslated, the user has to type that exact word.
+msgid "Type <code>DELETE</code> to confirm"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:202
+msgid "Cancel"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:210
+msgid "Enable deletion"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:41
+msgid "Failed to save setting."
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:45
+msgid "All plugin posts and custom post types"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:46
+msgid "Plugin settings and options"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:47
+msgid "Layout configuration and meta data"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:48
+msgid "Taxonomy terms and associations"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:49
+msgid "All tracking and analytics data"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:75
+msgid "Manage plugin preferences"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:78
+#. %s: Plugin name.
+msgid ""
+"Control how %s behaves on your site. Destructive options live in their own "
+"clearly-marked zone."
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:89
+msgid "Data deletion is enabled"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:89
+msgid "Your data is protected"
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:92
+msgid "All plugin data will be permanently removed if the plugin is uninstalled."
+msgstr ""
+
+#: ../bpl-tools/Admin/Settings/index.js:93
+msgid ""
+"Even if you deactivate or uninstall the plugin, your settings and data stay "
+"intact."
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Changelog/index.js:36
+msgid "Release Notes(Changelog)..."
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/GettingStarted/index.js:106
+msgid "Watch Tutorial"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/GettingStarted/index.js:41
+msgid "Getting Started"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/GettingStarted/index.js:42
+msgid ""
+"Pick how you'd like to start with the plugin - the steps below adapt to "
+"your workflow."
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/GettingStarted/index.js:86
+#. %s: Getting started tab label.
+msgid "Read the %s Documentation"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/GettingStarted/index.js:88
+msgid "Read the Full Documentation"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/GettingStarted/index.js:89
+msgid "Browse guides, settings reference, and examples for every feature."
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/GettingStarted/index.js:93
+msgid "Read Documentation →"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Info/index.js:18
+msgid "Need any Assistance?"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Info/index.js:19
+msgid "Our Expert Support Team is always ready to help you out promptly."
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Info/index.js:21
+#: ../bpl-tools/Components/HelpPanel/HelpPanel.js:25
+msgid "Contact Support"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Info/index.js:25
+msgid "Join Our Community"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Info/index.js:26
+msgid ""
+"Get tutorials, plugin updates, feature announcements, and support from "
+"other WordPress users."
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Info/index.js:28
+msgid "Join Now →"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Info/index.js:31
+msgid "Request a Feature"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Info/index.js:32
+msgid ""
+"Have an idea that would make this plugin even better? Let us know, we love "
+"hearing from you."
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Info/index.js:34
+msgid "Submit Request →"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Info/index.js:37
+msgid "Loving This Plugin? ⭐"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Info/index.js:38
+msgid ""
+"We're a small team pouring our heart into this plugin, your honest review "
+"keeps us going and helps others discover it. It only takes 30 seconds."
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Info/index.js:40
+msgid "Leave a Review"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Overview/index.js:100
+#: ../bpl-tools/Components/HelpPanel/HelpPanel.js:20
+msgid "Read Documentation"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Overview/index.js:110
+msgid "View Demos"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Overview/index.js:122
+msgid "Close video"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Overview/index.js:133
+#. %s: Plugin name.
+msgid "%s walkthrough"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Overview/index.js:39
+msgid "Plugin active"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Overview/index.js:44
+msgid "Pro Plan"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Overview/index.js:44
+msgid "Free Plan"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Overview/index.js:52
+#. %s: Plugin name.
+msgid "Welcome to %s"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Overview/index.js:60
+#. %s: Current user's first name.
+msgid "Hi <strong>%s</strong>,"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Overview/index.js:70
+msgid "Play product walkthrough"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/Overview/index.js:74
+msgid "Watch quick start · 2 min"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/ProAds/index.js:24
+#. %s: Plugin name.
+msgid "Go %s Pro & Unlock More!"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/ProAds/index.js:35
+msgid "View Pricing Plan"
+msgstr ""
+
+#: ../bpl-tools/Admin/Welcome/ProAds/index.js:41
+#. %s: Plugin name.
+msgid "%s Pro features"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:115
+#. %s: Background control name, e.g. Background.
+msgid "%s Video"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:117
+msgid "Upload Video"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:119
+msgid "Inline Upload"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:119
+msgid "Insert your video link.."
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:121
+msgid "Loop"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:31
+#. %s: Background control name, e.g. Background.
+msgid "%s Color"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:36
+#. %s: Background control name, e.g. Background.
+msgid "%s Image"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:38
+msgid "Upload Image"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:42
+#: ../bpl-tools/Components/Background/Background.js:88
+#: ../bpl-tools/Components/Gradient/Gradient.js:64
+msgid "Position"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:49
+msgid "X Position"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:55
+msgid "Y Position"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:68
+msgid "Attachment"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:78
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:36
+#: ../bpl-tools/Components/Background/options.js:20
+msgid "Repeat"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:88
+msgid "Size"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/AdvBackground.js:99
+msgid "Width"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:16
+#: ../bpl-tools/Components/Background/options.js:13
+msgid "Fixed"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:17
+#: ../bpl-tools/Components/Background/options.js:12
+#: ../bpl-tools/utils/options.js:86
+msgid "Scroll"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:22
+msgid "Center Center"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:23
+msgid "Center Left"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:24
+msgid "Center Right"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:25
+msgid "Top Center"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:26
+#: ../bpl-tools/utils/options.js:34
+msgid "Top Left"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:27
+#: ../bpl-tools/utils/options.js:32
+msgid "Top Right"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:28
+msgid "Bottom Center"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:29
+#: ../bpl-tools/utils/options.js:41
+msgid "Bottom Left"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:30
+msgid "Bottom Right"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:37
+msgid "Repeat-X"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:38
+msgid "Repeat-Y"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:39
+msgid "No-Repeat"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:47
+msgid "Custom"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:56
+#: ../bpl-tools/Components/Gradient/Gradient.js:61
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:27
+#: ../bpl-tools/Components/SolidBackground/SolidBackground.js:23
+msgid "Color"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:57
+#: ../bpl-tools/Components/Background/options.js:5
+#: ../bpl-tools/Components/SolidBackground/SolidBackground.js:53
+#: ../bpl-tools/utils/options.js:78
+msgid "Gradient"
+msgstr ""
+
+#: ../bpl-tools/Components/AdvBackground/utils/options.js:58
+#: ../bpl-tools/Components/Background/Background.js:84
+#: ../bpl-tools/Components/Background/options.js:6
+msgid "Image"
+msgstr ""
+
+#: ../bpl-tools/Components/BButtonGroup/BButtonGroup.js:102
+#. %d: Button number.
+msgid "Button %d"
+msgstr ""
+
+#: ../bpl-tools/Components/BButtonGroup/BButtonGroup.js:29
+msgid "Button Group"
+msgstr ""
+
+#: ../bpl-tools/Components/Background/Background.js:100
+msgid "Repeat:"
+msgstr ""
+
+#: ../bpl-tools/Components/Background/Background.js:111
+msgid "Overlay Color:"
+msgstr ""
+
+#: ../bpl-tools/Components/Background/Background.js:113
+msgid "Clear"
+msgstr ""
+
+#: ../bpl-tools/Components/Background/Background.js:61
+#: ../bpl-tools/Components/SolidBackground/SolidBackground.js:53
+msgid "Type:"
+msgstr ""
+
+#: ../bpl-tools/Components/Background/Background.js:94
+msgid "Attachment:"
+msgstr ""
+
+#: ../bpl-tools/Components/Background/options.js:11
+msgid "Initial"
+msgstr ""
+
+#: ../bpl-tools/Components/Background/options.js:14
+msgid "Local"
+msgstr ""
+
+#: ../bpl-tools/Components/Background/options.js:19
+msgid "No Repeat"
+msgstr ""
+
+#: ../bpl-tools/Components/Background/options.js:21
+msgid "Repeat X"
+msgstr ""
+
+#: ../bpl-tools/Components/Background/options.js:22
+msgid "Repeat Y"
+msgstr ""
+
+#: ../bpl-tools/Components/Background/options.js:4
+#: ../bpl-tools/Components/SolidBackground/SolidBackground.js:53
+#: ../bpl-tools/utils/options.js:77
+msgid "Solid"
+msgstr ""
+
+#: ../bpl-tools/Components/BlockContentEditor/BlockContentEditor.js:140
+msgid "Edit Content"
+msgstr ""
+
+#: ../bpl-tools/Components/ColorControl/ColorControl.js:82
+msgid "Reset"
+msgstr ""
+
+#: ../bpl-tools/Components/ColorsControl/ColorsControl.js:64
+msgid "Background:"
+msgstr ""
+
+#: ../bpl-tools/Components/ColorsControl/ColorsControl.js:68
+msgid "Background Color:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/BorderControl/BorderControl.js:60
+msgid "Top-left"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/BorderControl/BorderControl.js:61
+msgid "Top-right"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/BorderControl/BorderControl.js:62
+msgid "Bottom-right"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/BorderControl/BorderControl.js:63
+msgid "Bottom-left"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/BorderControl/BorderControl.js:78
+#: ../bpl-tools/Components/SeparatorControl/SeparatorControl.js:46
+msgid "Style:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/BorderControl/BorderControl.js:86
+msgid "Sides:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/BorderControl/BorderControl.js:92
+msgid "Radius:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ImageControl/ImageControl.js:22
+msgid "Image:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ImageControl/ImageControl.js:33
+#: ../bpl-tools/Components/MediaControl/MediaControl.js:211
+msgid "Upload"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ImageControl/ImageControl.js:35
+msgid "Replace"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ImageControl/ImageControl.js:60
+msgid "Alt Text (Alternative Text):"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ImageControl/ImageControl.js:65
+msgid "Select Size:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ImageControl/ImageControl.js:73
+#: ../bpl-tools/Components/MediaControl/MediaControl.js:243
+msgid "Edit Image:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ImageControl/ImageControl.js:86
+msgid " Image:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ShadowControl/ShadowControl.js:36
+#: ../bpl-tools/Components/ShadowControl/ShadowControl.js:74
+msgid "Horizontal Offset:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ShadowControl/ShadowControl.js:41
+#: ../bpl-tools/Components/ShadowControl/ShadowControl.js:79
+msgid "Vertical Offset:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ShadowControl/ShadowControl.js:46
+#: ../bpl-tools/Components/ShadowControl/ShadowControl.js:84
+msgid "Blur:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ShadowControl/ShadowControl.js:49
+#: ../bpl-tools/Components/ShadowControl/ShadowControl.js:87
+msgid "Blur cannot be negative value!"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ShadowControl/ShadowControl.js:52
+#: ../bpl-tools/Components/ShadowControl/ShadowControl.js:90
+msgid "Spreed:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/ShadowControl/ShadowControl.js:58
+#: ../bpl-tools/Components/ShadowControl/ShadowControl.js:96
+msgid "Shadow Inset?"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/SpaceControl/SpaceControl.js:101
+msgid "Top Bottom:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/SpaceControl/SpaceControl.js:103
+msgid "Left Right:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/SpaceControl/SpaceControl.js:107
+msgid "Top:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/SpaceControl/SpaceControl.js:109
+msgid "Right:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/SpaceControl/SpaceControl.js:111
+msgid "Bottom:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/SpaceControl/SpaceControl.js:113
+msgid "Left:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/SpaceControl/SpaceControl.js:18
+msgid "Space:"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/SpaceControl/SpaceControl.js:78
+msgid "Vertical, Horizontal"
+msgstr ""
+
+#: ../bpl-tools/Components/Deprecated/SpaceControl/SpaceControl.js:84
+msgid "Top, Right, Bottom, Left"
+msgstr ""
+
+#: ../bpl-tools/Components/Gradient/Gradient.js:50
+msgid "Gradient Type"
+msgstr ""
+
+#: ../bpl-tools/Components/Gradient/Gradient.js:51
+msgid "Linear"
+msgstr ""
+
+#: ../bpl-tools/Components/Gradient/Gradient.js:52
+msgid "Radial"
+msgstr ""
+
+#: ../bpl-tools/Components/Gradient/Gradient.js:55
+msgid "Radial Type"
+msgstr ""
+
+#: ../bpl-tools/Components/Gradient/Gradient.js:56
+msgid "Ellipse"
+msgstr ""
+
+#: ../bpl-tools/Components/Gradient/Gradient.js:57
+msgid "Circle"
+msgstr ""
+
+#: ../bpl-tools/Components/Gradient/Gradient.js:73
+msgid "Add Color"
+msgstr ""
+
+#: ../bpl-tools/Components/Gradient/Gradient.js:79
+msgid "Center X Position"
+msgstr ""
+
+#: ../bpl-tools/Components/Gradient/Gradient.js:87
+msgid "Center Y Position"
+msgstr ""
+
+#: ../bpl-tools/Components/Gradient/Gradient.js:94
+msgid "Angle"
+msgstr ""
+
+#: ../bpl-tools/Components/HelpPanel/HelpPanel.js:15
+msgid "Help"
+msgstr ""
+
+#: ../bpl-tools/Components/HelpPanel/HelpPanel.js:30
+msgid "Rate Plugin"
+msgstr ""
+
+#: ../bpl-tools/Components/HelpPanel/HelpPanel.js:35
+msgid "Other Plugins"
+msgstr ""
+
+#: ../bpl-tools/Components/IconControl/IconControl.js:29
+msgid "Select Icon:"
+msgstr ""
+
+#: ../bpl-tools/Components/IconControl/IconControl.js:53
+msgid "Search & Select Icon"
+msgstr ""
+
+#: ../bpl-tools/Components/IconControl/IconControl.js:69
+msgid "Icon Size:"
+msgstr ""
+
+#: ../bpl-tools/Components/IconControl/IconControl.js:75
+msgid "Color Type:"
+msgstr ""
+
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:118
+msgid "All Icons"
+msgstr ""
+
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:232
+msgid "Icon Library"
+msgstr ""
+
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:251
+msgid "Filter by name..."
+msgstr ""
+
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:257
+msgid "Could not load the icons. Please close and reopen the library to try again."
+msgstr ""
+
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:261
+msgid "Loading icons..."
+msgstr ""
+
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:267
+msgid "No icons found matching your search."
+msgstr ""
+
+#: ../bpl-tools/Components/IconLibrary/IconLibrary.js:306
+msgid "Insert"
+msgstr ""
+
+#: ../bpl-tools/Components/ItemsPanel/ItemsPanel.js:107
+#: ../bpl-tools/Components/ItemsPanel/Sortable.js:163
+#: ../bpl-tools/Components/ShadowControl/ShadowControl.js:101
+msgid "Duplicate"
+msgstr ""
+
+#: ../bpl-tools/Components/ItemsPanel/ItemsPanel.js:31
+msgid "Item"
+msgstr ""
+
+#: ../bpl-tools/Components/ItemsPanel/ItemsPanel.js:86
+#. 1: Item label, e.g. Card. 2: Item number.
+msgid "%1$s %2$d:"
+msgstr ""
+
+#: ../bpl-tools/Components/ItemsPanel/ItemsPanel.js:98
+#. %s: Item label, e.g. Slide.
+msgid "Add New %s"
+msgstr ""
+
+#: ../bpl-tools/Components/Loading/Loading.js:16
+msgid "Loading..."
+msgstr ""
+
+#: ../bpl-tools/Components/MediaControl/MediaControl.js:112
+msgid "Choose"
+msgstr ""
+
+#: ../bpl-tools/Components/MediaControl/MediaControl.js:200
+msgid "Paste or type a image URL"
+msgstr ""
+
+#: ../bpl-tools/Components/MediaControl/MediaControl.js:204
+#. %s: Media type name, e.g. image.
+msgid "Upload %s"
+msgstr ""
+
+#: ../bpl-tools/Components/MediaControl/MediaControl.js:205
+#. 1: Media type name, e.g. image.
+msgid "Upload a %1$s or paste/write %1$s url to get started."
+msgstr ""
+
+#: ../bpl-tools/Components/MediaControl/MediaControl.js:216
+msgid "Or"
+msgstr ""
+
+#: ../bpl-tools/Components/MediaControl/MediaControl.js:219
+msgid "URL"
+msgstr ""
+
+#: ../bpl-tools/Components/MediaControl/MediaControl.js:228
+msgid "Apply"
+msgstr ""
+
+#: ../bpl-tools/Components/MediaControl/MediaControl.js:64
+msgid "Enter URL"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:20
+msgid "Multiply"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:21
+msgid "Screen"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:23
+msgid "Darken"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:24
+msgid "Lighten"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:25
+msgid "Color Dodge"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:28
+msgid "Luminosity"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:48
+msgid "Enable"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:53
+msgid "Overlay Position"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:55
+msgid "Opacity"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:57
+msgid "Blend Mode"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:59
+msgid "CSS Filter"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:61
+msgid "Filter"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:62
+msgid "Backdrop Filter"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:66
+msgid "Blur"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:68
+msgid "Brightness"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:70
+msgid "Contrast"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:72
+msgid "Saturation"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:74
+msgid "Hue"
+msgstr ""
+
+#: ../bpl-tools/Components/OverlayControl/OverlayControl.js:76
+msgid "Z Index"
+msgstr ""
+
+#: ../bpl-tools/Components/SelectTokenField/SelectTokenField.js:98
+msgid "Select an option"
+msgstr ""
+
+#: ../bpl-tools/Components/SeparatorControl/SeparatorControl.js:18
+msgid "Separator"
+msgstr ""
+
+#: ../bpl-tools/Components/ShadowControl/ShadowControl.js:107
+msgid "Add New Shadow"
+msgstr ""
+
+#: ../bpl-tools/Components/SortableControl/SortableControl.js:54
+msgid "Sort:"
+msgstr ""
+
+#: ../bpl-tools/Components/SortableControl/SortableControl.js:97
+msgid "Drag and drop to sort"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/Typography.js:107
+msgid "Font Style:"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/Typography.js:114
+msgid "Text Transform:"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/Typography.js:120
+msgid "Text Decoration:"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/Typography.js:127
+msgid "Line Height:"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/Typography.js:133
+msgid "Letter Spacing:"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/Typography.js:68
+msgid "Font Family:"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/Typography.js:73
+msgid "Search Font"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/Typography.js:89
+msgid "Load Google Font"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/Typography.js:91
+msgid "Weight:"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/Typography.js:98
+msgid "Font Size:"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/options.js:11
+msgid "Capitalize"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/options.js:12
+msgid "Uppercase"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/options.js:13
+msgid "Lowercase"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/options.js:18
+msgid "Underline"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/options.js:19
+msgid "Overline"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/options.js:20
+msgid "Line Through"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/options.js:5
+msgid "Italic"
+msgstr ""
+
+#: ../bpl-tools/Components/Typography/options.js:6
+msgid "Oblique"
+msgstr ""
+
+#: ../bpl-tools/Components/Utility/BBlocksAds.js:10
+msgid "Need more block like this? Checkout the bundle ➡ <a>bBlocks</a>"
+msgstr ""
+
+#: ../bpl-tools/ProControls/AboutProModal/AboutProModal.js:16
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: ../bpl-tools/ProControls/AboutProModal/AboutProModal.js:17
+msgid "Explore new features in Pro"
+msgstr ""
+
+#: ../bpl-tools/ProControls/AboutProModal/AboutProModal.js:23
+msgid "To unlock those features! Upgrade to Pro"
+msgstr ""
+
+#: ../bpl-tools/ProControls/AboutProModal/AboutProModal.js:26
+#: ../bpl-tools/ProControls/ProAds/index.js:51
+#: ../bpl-tools/ProControls/ProModal/index.js:70
+msgid "Upgrade Now"
+msgstr ""
+
+#: ../bpl-tools/ProControls/AdvertiseCard/index.js:19
+msgid "Stuck!! Get Support"
+msgstr ""
+
+#: ../bpl-tools/ProControls/AdvertiseCard/index.js:20
+msgid "If you are facing any issues, please contact us."
+msgstr ""
+
+#: ../bpl-tools/ProControls/AdvertiseCard/index.js:23
+msgid "Get Support"
+msgstr ""
+
+#: ../bpl-tools/ProControls/AdvertiseCard/index.js:26
+msgid "Recommended"
+msgstr ""
+
+#: ../bpl-tools/ProControls/AdvertiseCard/index.js:28
+msgid "Go for Pro Plan"
+msgstr ""
+
+#: ../bpl-tools/ProControls/AdvertiseCard/index.js:29
+#: ../bpl-tools/ProControls/ProAds/index.js:24
+msgid "Remove barriers and unlock premium features."
+msgstr ""
+
+#: ../bpl-tools/ProControls/AdvertiseCard/index.js:32
+#: ../bpl-tools/ProControls/ProAds/index.js:25
+msgid "Get Pro Access"
+msgstr ""
+
+#: ../bpl-tools/ProControls/FrontShortCode/FrontShortCode.js:31
+msgid "Copy the shortcode and use it anywhere."
+msgstr ""
+
+#: ../bpl-tools/ProControls/PremiumPanel/index.js:18
+#: ../bpl-tools/TemplateLibrary/Components/Templates.js:158
+msgid "Get Pro"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProAds/index.js:22
+msgid "Premium Deal"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProAds/index.js:23
+msgid "Go Professional"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProAds/index.js:34
+msgid "Power Up The Site"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProAds/index.js:35
+msgid "Get access to premium features and enhance your website."
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProAds/index.js:36
+msgid "Unlock Now"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProAds/index.js:41
+msgid "RECOMMENDED"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProAds/index.js:42
+msgid "Premium Plan"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProAds/index.js:43
+msgid "Use every premium features."
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProAds/index.js:44
+msgid "Go Premium"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProAds/index.js:49
+msgid "PRO SUBSCRIPTION"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProModal/index.js:22
+msgid "Unlock More with Plugin Pro!"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProModal/index.js:23
+msgid ""
+"The free features of Plugin do a lot-still, without PRO, you're holding "
+"yourself back from getting more."
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProModal/index.js:25
+msgid "Gain full access to all pro campaigns"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProModal/index.js:26
+msgid "Create unlimited discount offers"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProModal/index.js:27
+msgid "No campaign feature restrictions"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProModal/index.js:28
+msgid "Fast support guaranteed"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProModal/index.js:29
+msgid "Access New Pro features at launch"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProModal/index.js:30
+msgid "Fluid experience ensured"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProModal/index.js:58
+msgid "With PRO, You’ll Get:"
+msgstr ""
+
+#: ../bpl-tools/ProControls/ProModal/index.js:76
+msgid "Close modal"
+msgstr ""
+
+#: ../bpl-tools/ProControls/SelectControlPro/SelectControlPro.js:19
+#. %s: Option label.
+msgid "%s - Pro"
+msgstr ""
+
+#: ../bpl-tools/TemplateLibrary/Components/Modal.js:139
+msgid "Filters & Categories"
+msgstr ""
+
+#: ../bpl-tools/TemplateLibrary/Components/Modal.js:68
+msgid "Patterns"
+msgstr ""
+
+#: ../bpl-tools/TemplateLibrary/Components/Modal.js:68
+msgid "Pages"
+msgstr ""
+
+#: ../bpl-tools/TemplateLibrary/Components/Modal.js:76
+msgid "Favorites"
+msgstr ""
+
+#: ../bpl-tools/TemplateLibrary/Components/Sidebar.js:103
+msgid "Search templates…"
+msgstr ""
+
+#: ../bpl-tools/TemplateLibrary/Components/Sidebar.js:118
+msgid "Categories"
+msgstr ""
+
+#: ../bpl-tools/TemplateLibrary/Components/Templates.js:125
+msgid "Remove from favorites"
+msgstr ""
+
+#: ../bpl-tools/TemplateLibrary/Components/Templates.js:125
+msgid "Add to favorites"
+msgstr ""
+
+#: ../bpl-tools/TemplateLibrary/Components/Templates.js:155
+msgid "Import"
+msgstr ""
+
+#: ../bpl-tools/TemplateLibrary/Components/Templates.js:169
+msgid "No Templates Found!!"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:10
+msgid "Dashed"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:100
+msgid "Flip Right"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:101
+msgid "Flip Up"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:102
+msgid "Flip Down"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:104
+msgid "Zoom In Up"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:105
+msgid "Zoom In Down"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:106
+msgid "Zoom In Left"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:107
+msgid "Zoom In Right"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:109
+msgid "Zoom Out Up"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:11
+msgid "Dotted"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:110
+msgid "Zoom Out Down"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:111
+msgid "Zoom Out Right"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:112
+msgid "Zoom Out Left"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:12
+msgid "Double"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:13
+msgid "Groove"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:14
+msgid "Inset"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:15
+msgid "Outset"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:16
+msgid "Ridge"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:27
+msgid "All Sides"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:28
+msgid "Top"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:30
+msgid "Bottom"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:33
+msgid "Top Bottom"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:35
+msgid "Top Right Bottom"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:36
+msgid "Top Right Left"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:37
+msgid "Top Bottom Left"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:38
+msgid "Right Bottom"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:39
+msgid "Right Left"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:40
+msgid "Right Bottom Left"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:46
+msgid "Rose Pink"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:51
+msgid "Sky Blue"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:56
+msgid "Sunset Orange"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:61
+msgid "Emerald Green"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:66
+msgid "Lavender Red"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:71
+msgid "Violet Purple"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:84
+msgid "Hidden"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:85
+msgid "Visible"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:91
+msgid "Fade Up"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:92
+msgid "Fade Down"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:93
+msgid "Fade Left"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:94
+msgid "Fade Right"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:95
+msgid "Fade Up Left"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:96
+msgid "Fade Up Right"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:97
+msgid "Fade Down Left"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:98
+msgid "Fade Down Right"
+msgstr ""
+
+#: ../bpl-tools/utils/options.js:99
+msgid "Flip Left"
+msgstr ""
