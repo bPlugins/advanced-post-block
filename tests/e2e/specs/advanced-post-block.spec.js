@@ -93,8 +93,11 @@ test.describe('Advanced Post Block', () => {
 			const prefs = window.wp.data.dispatch('core/preferences');
 			prefs.set('core/edit-post', 'welcomeGuide', false);
 			prefs.set('core', 'welcomeGuide', false);
+			// New pages open a "Choose a pattern" modal when the theme has starter patterns (Twenty Twenty-Five does)
+			prefs.set('core', 'enableChoosePatternModal', false);
 		});
 		await page.getByRole('dialog', { name: /welcome/i }).getByRole('button', { name: /close/i }).click({ timeout: 3_000 }).catch(() => {});
+		await page.getByRole('dialog', { name: /choose a pattern/i }).getByRole('button', { name: /close/i }).click({ timeout: 5_000 }).catch(() => {});
 
 		await page.getByRole('button', { name: /block inserter/i }).first().click();
 		await page.getByRole('searchbox', { name: /search/i }).fill('Advanced Posts');
